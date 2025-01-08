@@ -13,6 +13,7 @@
       <HomeFacts/>
       <HomeStudents/>
       <HomeOurProgram/>
+      <HomeQuestions/>
 
 
     </div>
