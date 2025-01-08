@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.css": "tailwindcss",
+        // "*.css": "css",
+        "css": "css",
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+}
