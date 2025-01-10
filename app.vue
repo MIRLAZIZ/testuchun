@@ -5,7 +5,7 @@ useSeoMeta({
   ogTitle: 'My Amazing Site',
   description: 'This is my amazing site, let me tell you all about it.',
   ogDescription: 'This is my amazing site, let me tell you all about it.',
-  ogImage: '/assets/imgs/home/logomax.png',
+  ogImage: 'https://testnetlify57.netlify.app/_nuxt/logomini.sfiy4GxW.png',
   twitterCard: 'summary_large_image',
 })
 
@@ -14,9 +14,9 @@ useSeoMeta({
 
 
 <template>
-    <NuxtLayout>
-      <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
 
-    </NuxtLayout>
+  </NuxtLayout>
 
 </template>
