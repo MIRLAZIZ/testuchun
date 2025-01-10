@@ -1,5 +1,4 @@
-<script lang="ts">
-import { HomeHeaderLocales } from '#build/components';
+<script setup >
 
 
 

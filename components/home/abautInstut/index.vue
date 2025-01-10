@@ -1,6 +1,6 @@
 <script setup>
 import kampus from '~/assets/imgs/home/building-3.png'
-import auditoriya from '~/assets//imgs/home/sitemap.png'
+import auditoriya from '~/assets/imgs/home/sitemap.png'
 import active from '~/assets/imgs/home/multi-user.png'
 import book from '~/assets/imgs/home/book-open.png'
 
@@ -55,7 +55,7 @@ const items = [
                     class="rounded-lg shadow-md abautImg" />
 
                     <div class="absolute bg-white w-[80px] h-[80px]  flex justify-center items-center rounded-full right-6 bottom-6 ">
-                        <img src="/assets/imgs/home/play-circle.png" alt="">
+                        <img src="/assets/imgs/home/playVideo.png" alt="">
                     </div>
 
             </div>
@@ -64,7 +64,7 @@ const items = [
 </template>
 <style>
 .abautTitle {
-    /* font-family:'Halvar Breitschrift'; */
+    font-family:'Halvar Breitschrift';
     font-size: 28px;
     font-weight: 500;
     line-height: 33.6px;

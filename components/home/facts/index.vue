@@ -100,7 +100,7 @@
 
 <style scoped>
 .facts {
-    /* font-family: 'Halvar Breitschrift'; */
+    font-family: 'Halvar Breitschrift';
     font-size: 28px;
     font-weight: 500;
     line-height: 33.6px;

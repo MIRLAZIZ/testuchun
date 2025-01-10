@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
 
   //main css
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/font.css'],
 
   // tailwind install  
 

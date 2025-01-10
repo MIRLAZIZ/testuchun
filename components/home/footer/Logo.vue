@@ -1,0 +1,33 @@
+<template>
+    <nav class="flex  justify-between ">
+        <div>
+
+            <img src="/assets/imgs/home/footerLogo.png" alt="" class="w-[154px] h-[53px]">
+        </div>
+
+        <ul class="flex w-[768px] flex-wrap gap-6 text-lg">
+            <li v-for="item in navigationItems" :key="item">
+                <!-- <NuxtLink :to="item.href">{{ item.label }}</NuxtLink> -->
+                {{ item.label }}
+            </li>
+        </ul>
+    </nav>
+</template>
+
+<script setup>
+const navigationItems = [
+    { id: 1, label: 'Biz haqimizda', href: '/about' },
+    { id: 2, label: 'Rahbariyat', href: '/services' },
+    { id: 3, label: 'Bizning missiyamiz', href: '/contact' },
+    { id: 4, label: 'Talim dasturi', href: '/blog' },
+    { id: 5, label: 'Qabul qilish jarayoni', href: '/contact' },
+    { id: 6, label: 'Talabalar xizmatlari', href: '/contact' },
+    { id: 7, label: 'Fakultetlar', href: '/contact' },
+    { id: 8, label: 'Biz bilan bog’lanish', href: '/contact' },
+
+
+
+]
+
+
+</script>

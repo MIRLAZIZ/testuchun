@@ -5,7 +5,12 @@ module.exports = {
         "./assets/css/**/*.css",      // CSS fayllar yo'lini ko'rsatish
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'Halvar': ['Halvar Breitschrift']
+            }
+        },
+
     },
     plugins: [],
 };
