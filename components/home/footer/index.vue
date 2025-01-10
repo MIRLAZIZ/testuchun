@@ -1,5 +1,5 @@
 <template>
-    <div class="px-[240px]  py-10  ">
+    <div class="px-[240px]  py-10 bg-white  ">
         <HomeFooterLogo/>
         <hr class="mt-12 mb-14">
         <HomeFooterContact/>

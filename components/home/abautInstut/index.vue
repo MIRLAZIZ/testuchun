@@ -32,7 +32,7 @@ const items = [
                 </div>
 
                 
-                <UButton class="text-base bg-[#F7483B] w-[216px] h-[48px] flex justify-center font-medium	 ">Ariza
+                <UButton class="text-base bg-[#F7483B] hover:bg-[#F7483B] w-[216px] h-[48px] flex justify-center font-medium	 ">Ariza
                     topshirish
                     <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5" />
                 </UButton>

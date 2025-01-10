@@ -64,7 +64,7 @@ const goToNext = () => {
               </p>
             </div>
 
-            <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center">
+            <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
               Batafsil
               <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6"  />
             </UButton>

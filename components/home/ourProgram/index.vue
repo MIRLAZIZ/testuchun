@@ -250,12 +250,12 @@
                 <div>
 
                     <div class="flex">
-                        <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center">
+                        <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
                             Batafsil
                             <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5" />
                         </UButton>
 
-                        <UButton class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center ml-6 ">
+                        <UButton class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center ml-6 hover:bg-[#E6EDFA] ">
                             Ariza topshirish
                             <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5" />
                         </UButton>

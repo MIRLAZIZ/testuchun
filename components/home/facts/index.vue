@@ -1,5 +1,7 @@
 <script setup>
 
+
+
 </script>
 <template>
     <div class="mt-[104px] px-[240px]">
@@ -114,4 +116,6 @@
 
 
 }
+
+
 </style>

@@ -18,7 +18,7 @@
 
                 TOSHKENT <br> MENEJMENT VA <br>IQTISODIYOT INSTITUT</h1>
 
-            <UButton class="mt-10 text-base bg-[#F7483B] w-[216px] h-[48px] flex justify-center">Ariza topshirish
+            <UButton class="mt-10 text-base bg-[#F7483B] hover:bg-[#F7483B] w-[216px] h-[48px] flex justify-center">Ariza topshirish
                 <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5" />
             </UButton>
         </div>
