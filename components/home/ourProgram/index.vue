@@ -15,7 +15,7 @@
                 acceptance: 'April',
                 location: 'Toshkent / Farg\'ona',
                 language: "O'zbek, Rus, Ingliz",
-                description: "1 yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
+                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
             }
         },
         {
@@ -25,7 +25,7 @@
                 acceptance: 'April',
                 location: 'Toshkent / Farg\'ona',
                 language: "O'zbek, Rus, Ingliz",
-                description: "2 yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
+                description: "yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
             }
         },
         {
@@ -35,7 +35,7 @@
                 acceptance: 'April',
                 location: 'Toshkent / Farg\'ona',
                 language: "O'zbek, Rus, Ingliz",
-                description: "3 yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
+                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
             }
         },
         {
@@ -45,7 +45,7 @@
                 acceptance: 'April',
                 location: 'Toshkent / Farg\'ona',
                 language: "O'zbek, Rus, Ingliz",
-                description: " 4 yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
+                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
             }
         },
         {
@@ -213,7 +213,7 @@
                         </div>
                         <div>
                             <p class="text-[#06203D]  programArgument mt-3">
-                                {{ programitem.location }}
+                                {{ programitem.location }} shaharlari
 
                             </p>
                         </div>

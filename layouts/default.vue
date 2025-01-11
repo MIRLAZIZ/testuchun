@@ -2,8 +2,14 @@
 
 </script>
 <template>
-    <div>
+
+    <div class="bg-[#E6EDFA]">
+        <HomeHeaderNavBar />
+
         <slot />
+
+        <HomeFooter />
+
     </div>
 </template>
 

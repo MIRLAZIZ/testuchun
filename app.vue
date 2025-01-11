@@ -2,9 +2,9 @@
 
 useSeoMeta({
   title: 'TimeEduan',
-  ogTitle: 'My Amazing Site',
-  description: 'This is my amazing site, let me tell you all about it.',
-  ogDescription: 'This is my amazing site, let me tell you all about it.',
+  ogTitle: 'TimeEduan',
+  description: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
+  ogDescription: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
   ogImage: 'https://i.ytimg.com/vi/BN73wVowi-o/mqdefault.jpg',
   twitterCard: 'summary_large_image',
 })
