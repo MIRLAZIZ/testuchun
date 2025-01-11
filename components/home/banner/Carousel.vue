@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const items = [
   { id: 1, file: 'https://s3-figma-videos-production-sig.figma.com/video/875745179923965945/TEAM/ab11/695f/-d275-41ce-807a-28d05b3c63f2?Expires=1737331200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qw-ajc8B0MkN3lY1GZPDQ2r-DCxHo8mh3lGOK4LC2fjr8YB5TiHNn-8XfqR55pmB8sn85y6CVqbNljyad08hRtQTFsOZSq2-T0YNFlCpGPH2JoFH~e3SaBhHXm8V5VrloAapY4-pN0r-WyJa7-IpqZhAwz4IaNwZNoJslfv9nIWRb5BsQv9iuPBry7AeGBvILQiMkfvMgFb2Bh2mA~GwbelBQTzmim~e7YstG2Et5Ko1PkHpzwEufedJkRAXUIuufEmgapsmhsK9SiH7WN-B3G1YfmwfPUtRzCKuDEL2KnSdCGdWbooLjPfumpSg8nYtawb5ATfuGayCPZsLYPthxw__', type: 'video' },
   { id: 2, file: 'https://picsum.photos/1920/1080?random=1', type: 'image' },
@@ -32,7 +32,7 @@ const goToNext = () => {
       class="rounded-lg overflow-hidden">
 
       <!-- video  -->
-      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false" autoplay loop>
+      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false"  loop>
         <source :src="item.file" type="video/mp4" class="w-full ">
       </video>
 

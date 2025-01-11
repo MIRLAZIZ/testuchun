@@ -1,12 +1,12 @@
 <script setup>
 </script>
 <template>
-    <div class="mb-4">
-        <div class="px-[240px] ">
+    <div class="">
+        <div class="px-[240px] pb-4  bg-white">
             <HomeHeaderNavContacts />
             <HomeHeaderNavbarMenu class="mt-7 " />
             <HomeHeaderMenuDropdown />
-         
+
         </div>
     </div>
 </template>

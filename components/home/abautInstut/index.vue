@@ -5,10 +5,10 @@ import active from '~/assets/imgs/home/multi-user.png'
 import book from '~/assets/imgs/home/book-open.png'
 
 const items = [
-    { id: 1, name: 'Kampus', img: kampus },
-    { id: 2, name: 'Autitoriya', img: auditoriya },
-    { id: 3, name: 'Falollar zali', img: active },
-    { id: 4, name: 'Kutubxona', img: book }
+    { id: 1, name: 'Kampus', img: kampus, link: 'kampus' },
+    { id: 2, name: 'Autitoriya', img: auditoriya, link: 'kampus' },
+    { id: 3, name: 'Falollar zali', img: active, link: 'kampus' },
+    { id: 4, name: 'Kutubxona', img: book, link: 'kampus' },
 ]
 
 </script>
@@ -40,7 +40,7 @@ const items = [
 
                 <div class="mt-6 grid grid-cols-2 gap-4   w-[556px]">
 
-                    <button v-for="item in items" :key="item.id" class="buttons border flex flex-col justify-between">
+                    <button v-for="item in items" :key="item.id" class="buttons border flex flex-col justify-between" @click="$router.push(item.link)">
                         <img :src="item.img" alt="">
                         <p class="text-[#06203D] text-left">{{ item.name }}</p>
                     </button>
