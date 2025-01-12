@@ -1,71 +1,72 @@
 <template>
-    <div class="px-[361px] h-[568px] bg-[#06203D]">
+    <div class="flex justify-center">
+        <div class="mainContainer  h-[568px] bg-[#06203D]">
+
+            <div class="px-[120px] w-full h-full">
+                <div class=" py-14 flex  h-full  ">
+                    <!-- buttons  -->
+                    <div class="w-2/4 h-full  flex flex-col justify-between">
+
+                        <div>
+                            <h2 class=" font-Halvar text-[28px] text-white mb-6">Маркировки Программ</h2>
+                            <p class=" text-[#88929D]  text-xl">
+                                Все наши курсы имеют определенные маркировки. Здесь вы можете ознакомиться с ними
+                                подробнее,
+                                чтобы было
+                                легче ориентироваться.
+                            </p>
+                        </div>
 
 
-        <div class=" py-14 flex  h-full  ">
-            <!-- buttons  -->
-            <div class="w-2/4 h-full  flex flex-col justify-between">
-
-                <div>
-                    <h2 class=" font-Halvar text-[28px] text-white mb-6">Маркировки Программ</h2>
-                    <p class=" text-[#88929D]  text-xl">
-                        Все наши курсы имеют определенные маркировки. Здесь вы можете ознакомиться с ними подробнее,
-                        чтобы было
-                        легче ориентироваться.
-                    </p>
-                </div>
-
-
-                <!-- Chap tomondagi tugmalar -->
-                <div class=" flex flex-wrap gap-4" v-if="marks.length">
-                    <button v-for="mark in marks" :key="mark.id" :class="[selectedMark === mark.id ? mark.color : '']"
-                        class="flex justify-center py-3 px-6  border border-[#354251] rounded-lg text-lg  text-white"
-                        @click="selectMark(mark.id)">
-                        <img :src="mark.img" alt="" class="mr-2"> {{ mark.label }}
-                    </button>
-                </div>
-            </div>
+                        <!-- Chap tomondagi tugmalar -->
+                        <div class=" flex flex-wrap gap-4" v-if="marks.length">
+                            <button v-for="mark in marks" :key="mark.id"
+                                :class="[selectedMark === mark.id ? mark.color : '']"
+                                class="flex justify-center py-3 px-6  border border-[#354251] rounded-lg text-lg  text-white"
+                                @click="selectMark(mark.id)">
+                                <img :src="mark.img" alt="" class="mr-2"> {{ mark.label }}
+                            </button>
+                        </div>
+                    </div>
 
 
 
 
-            <!-- O'ng tomondagi kartalar -->
-            <div class="relative  w-2/4  flex justify-end  " v-if="marks.length"
-            :style="{paddingRight: (marks.length * 16)-16 + 'px'}">
+                    <!-- O'ng tomondagi kartalar -->
+                    <div class="relative  w-2/4  flex justify-end  " v-if="marks.length"
+                        :style="{ paddingRight: (marks.length * 16) - 16 + 'px' }">
 
-                <div v-for="(mark, index) in marks" :key="mark.id"
-                    class="w-[329px]  h-[456px]  flex flex-col  justify-between"
-                    :class="`absolute p-6 rounded-lg shadow-lg ${mark.color} transition-all duration-500 ease-in-out`"
-                    :style="{
-                        zIndex: selectedMark === mark.id ? 10 : (marks.length + 1 - mark.id),
-                        transform: selectedMark === mark.id
-                            ? 'translateX(0) translateY(0)'
-                            : ` translateX(${index * 16}px) translateY(0)`
-                    }">
-                    <img src="/assets//imgs/home/marka.png" alt="" class="w-16 h-16">
+                        <div v-for="(mark, index) in marks" :key="mark.id"
+                            class="w-[329px]  h-[456px]  flex flex-col  justify-between"
+                            :class="`absolute p-6 rounded-lg shadow-lg ${mark.color} transition-all duration-500 ease-in-out`"
+                            :style="{
+                                zIndex: selectedMark === mark.id ? 10 : (marks.length + 1 - mark.id),
+                                transform: selectedMark === mark.id
+                                    ? 'translateX(0) translateY(0)'
+                                    : ` translateX(${index * 16}px) translateY(0)`
+                            }">
+                            <img src="/assets//imgs/home/marka.png" alt="" class="w-16 h-16">
 
-                    <div class="text-white">
-                        <h3 class="text-xl  mb-2">{{ mark.label }}</h3>
+                            <div class="text-white">
+                                <h3 class="text-xl  mb-2">{{ mark.label }}</h3>
 
-                        <p>{{ mark.description }}</p>
+                                <p>{{ mark.description }}</p>
+
+
+                            </div>
+                            <div>
+                                <hr class="bg-[#F2BC8C]   ">
+                                <img src="/assets/imgs/home/quotes.png" alt="" class="w-5 h-[18px] mt-[18px]">
+                            </div>
+                        </div>
+
 
 
                     </div>
-                    <div>
-                        <hr class="bg-[#F2BC8C]   ">
-                        <img src="/assets/imgs/home/quotes.png" alt="" class="w-5 h-[18px] mt-[18px]">
-                    </div>
                 </div>
-
-
-
             </div>
+
         </div>
-
-
-
-
-
     </div>
 </template>
 

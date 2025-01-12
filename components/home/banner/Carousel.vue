@@ -32,7 +32,7 @@ const goToNext = () => {
       class="rounded-lg overflow-hidden">
 
       <!-- video  -->
-      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false"  loop>
+      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false" loop>
         <source :src="item.file" type="video/mp4" class="w-full ">
       </video>
 
@@ -45,11 +45,16 @@ const goToNext = () => {
     <button @click="goToNext" class="px-4 py-2 bg-gray-800 text-white rounded">Next</button> -->
 
 
-    <div class="absolute w-full h-[789px] top-0  faceCarousel px-[240px]" >
+
+    <div class="absolute w-full h-[789px] flex justify-center  top-0  faceCarousel ">
+
+      <div class="mainContainer ">
         <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" />
 
-     
-</div>
+      </div>
+    </div>
+
+
   </div>
 
 </template>
@@ -59,5 +64,4 @@ const goToNext = () => {
   /* background:  rgba(0, 0, 0, 0.48); */
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 }
-
 </style>

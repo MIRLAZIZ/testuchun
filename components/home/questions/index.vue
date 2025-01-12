@@ -17,8 +17,8 @@ watch(question, (newValue) => {
 
 </script>
 <template>
-    <div>
-        <div class="h-[496px] bg-[#06203D] w-full px-[240px] py-12 flex ">
+    <div class="h-[496px] bg-[#06203D] w-full flex justify-center py-12">
+        <div class=" mainContainer flex ">
 
             <div class="w-[712px] h-full flex flex-col justify-between  mr-[137px]">
 

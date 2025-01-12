@@ -37,74 +37,80 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="px-[240px] mt-[101px]">
-    <UCarousel ref="carousel" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
-      class="rounded-lg overflow-hidden">
-
-      <div class="container py-10 p-[96px] flex justify-between w-full relative">
-           
-        
-        <!-- student  -->
-        <div class="w-[793px]  ">
-          <div class="flex items-center ">
-            <img src="/assets/imgs/home/Rectangle 16.png" alt="">
-            <h1 class="font-normal text-white ml-2">Talabalar bilan tanishuv </h1>
-          </div>
+  <div class="flex justify-center">
 
 
-          <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
 
-          <div class="flex flex-col h-[293px]  justify-between ">
+    <div class="mainContainer mt-[101px]">
+      <UCarousel ref="carousel" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
+        class="rounded-lg overflow-hidden">
 
-            <div>
-              <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.fullname }}</h1>
-              <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                {{ item.data }}
+        <div class="container py-10 p-[96px] flex justify-between w-full relative">
 
-              </p>
+
+          <!-- student  -->
+          <div class="w-[793px]  ">
+            <div class="flex items-center ">
+              <img src="/assets/imgs/home/Rectangle 16.png" alt="">
+              <h1 class="font-normal text-white ml-2">Talabalar bilan tanishuv </h1>
             </div>
 
-            <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
-              Batafsil
-              <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6"  />
-            </UButton>
+
+            <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
+
+            <div class="flex flex-col h-[293px]  justify-between ">
+
+              <div>
+                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.fullname }}</h1>
+                <p class="text-[#88929D] text-[20px] leading-7 mt-6">
+                  {{ item.data }}
+
+                </p>
+              </div>
+
+              <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
+                Batafsil
+                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
+              </UButton>
 
 
 
+
+            </div>
+          </div>
+
+
+
+          <div class="studentsImg">
+            <img :src="item.img" alt="" class="studentsImg">
+
+
+            <!-- carousel button  -->
+          </div>
+          <!-- arrow right  -->
+          <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
+            <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
+            <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-[#72705F]" @click="goToNext" />
+          </div>
+
+          <!-- arrow left  -->
+          <div class="absolute left-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
+            <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
+            <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F]" @click="goToPrev" />
 
           </div>
-        </div>
 
 
 
-        <div class="studentsImg">
-          <img :src="item.img" alt="" class="studentsImg">
-
-
-          <!-- carousel button  -->
-        </div>
-        <!-- arrow right  -->
-        <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
-          <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
-          <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-[#72705F]" @click="goToNext" />
-        </div>
-
-        <!-- arrow left  -->
-        <div class="absolute left-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
-          <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
-          <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F]" @click="goToPrev" />
 
         </div>
 
+      </UCarousel>
 
 
-
-      </div>
-
-    </UCarousel>
-
-
+    </div>
   </div>
+
 </template>
 
 

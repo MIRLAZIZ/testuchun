@@ -1,9 +1,12 @@
 <template>
-    <div class="px-[240px]  py-10 bg-white  ">
-        <HomeFooterLogo/>
-        <hr class="mt-12 mb-14">
-        <HomeFooterContact/>
+    <div class="flex justify-center py-10 w-full bg-white">
 
+        <div class="mainContainer    ">
+            <HomeFooterLogo />
+            <hr class="mt-12 mb-14">
+            <HomeFooterContact />
+
+        </div>
     </div>
 </template>
 
@@ -11,6 +14,4 @@
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -3,7 +3,7 @@
 </script>
 <template>
 
-    <div class="bg-[#E6EDFA]">
+    <div class="bg-[#F4F6FA]"> 
         <HomeHeaderNavBar />
 
         <slot />

@@ -1,6 +1,6 @@
 <template>
-    <div class="px-[240px]">
-      <div class="grid grid-cols-3 gap-6 bg-white rounded-lg shadow-md  h-[258px] translate-y-[-50%]">
+    <div class=" flex justify-center">
+      <div class="grid grid-cols-3 gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%]">
 
 
         <!-- First Column -->

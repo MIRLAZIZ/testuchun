@@ -1,6 +1,8 @@
-// components/NewsSection.vue
 <template>
-    <div class="px-[240px] h-[571px] my-[104px] ">
+    <div class="flex justify-center">
+
+   
+    <div class="mainContainer h-[571px] my-[104px] ">
         <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border">
 
 
@@ -77,6 +79,7 @@
 
         </div>
     </div>
+</div>
 </template>
 
 <script setup>

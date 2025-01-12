@@ -1,8 +1,8 @@
 <script setup>
 </script>
 <template>
-    <div class="">
-        <div class="px-[240px] pb-4  bg-white">
+    <div class="pb-4 bg-white  flex justify-center">
+        <div class="mainContainer pb-4 ">
             <HomeHeaderNavContacts />
             <HomeHeaderNavbarMenu class="mt-7 " />
             <HomeHeaderMenuDropdown />

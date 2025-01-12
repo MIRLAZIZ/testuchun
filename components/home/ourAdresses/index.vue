@@ -23,17 +23,19 @@ const addresses = [
 </script>
 
 <template>
-    <div class="px-[240px]">
-        <div class=" ">
+    <div class="flex justify-center">
+
+        <div class="mainContainer">
+            <div class=" ">
             <h2 class="font-Halvar font-medium text-[28px]">BIZNING MANZILLARIMIZ</h2>
-
-
+            
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 ">
                 <div v-for="(address, index) in addresses" :key="index"
                     class="bg-white shadow-lg rounded-lg overflow-hidden">
 
                     <div class="relative">
-                        <iframe :src="address.mapSrc" class="w-[712px] h-[502px]" allowfullscreen=""
+                        <iframe :src="address.mapSrc" class="w-full h-[502px]" allowfullscreen=""
                             loading="lazy"></iframe>
 
 
@@ -65,6 +67,7 @@ const addresses = [
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <style scoped></style>

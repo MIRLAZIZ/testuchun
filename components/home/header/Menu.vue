@@ -2,7 +2,7 @@
     <div class="flex ">
         <ul v-for="menu in store.menus" :key="menu.id" class="relative">
             <!-- Menu tugmasi -->
-            <li @click.stop="store.menuDrop(menu)" class="px-4  text-[#020105] font-normal	 cursor-pointer flex   ">
+            <li @click.stop="store.menuDrop(menu)" class="px-4  text-[#020105] xl:text-sm 	 2xl:text-base cursor-pointer flex   ">
                 {{ menu.name }}
                  <svg class="-mr-1  h-5 w-5" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 17 17" fill="currentColor" aria-hidden="true">
