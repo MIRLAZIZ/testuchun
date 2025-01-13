@@ -29,7 +29,7 @@ const items = [
 
 
         <div class="flex justify-center ">
-            <div class="w-[1076px] bg-white p-8 mt-10  mb-[104px] rounded-xl">
+            <div class="lg:w-[1076px] w-full bg-white p-8 mt-10  mb-[104px] rounded-xl">
 
                 <!-- kampus data  -->
                 <div>
@@ -72,7 +72,7 @@ const items = [
 
 
 
-                <div class="mt-6 grid grid-cols-3 gap-x-4 my-10">
+                <div class="mt-6 grid lg:grid-cols-3 md:grid-cols-3  md:gap-x-2  gir-cols-1 lg:gap-x-4 gap-4 my-10">
 
                     <div class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border">
                         <div>
@@ -139,11 +139,11 @@ const items = [
 
 
         <div class="w-full flex justify-center mb-[144px]">
-            <div class="w-[1076px]    rounded-xl p-6 pb-5 bg-white  flex  ">
+            <div class="w-[1076px]    rounded-xl p-6 pb-5 bg-white  flex lg:flex-row flex-col  ">
 
-                <img src="/assets/imgs/kampus/image.png" alt="" class="w-[532px] h-[343px] object-cover rounded ">
+                <img src="/assets/imgs/kampus/image.png" alt="" class="lg:w-[532px]  w-full  lg:h-[343px] object-cover rounded ">
 
-                <div class="pl-6 flex flex-col justify-between">
+                <div class="lg:pl-6 lg:mt-0 mt-3 flex flex-col justify-between">
                     <div>
                         <h1 class="text-[24px] font-medium  "> Farg‘ona</h1>
                         <p class="mt-2  text-xl">Bugungi kunga qadar institut O‘zbekiston va xorijdagi xalqaro
@@ -156,7 +156,7 @@ const items = [
 
                     <div class="">
                         <hr class="my-4 ">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between cursor-pointer">
                             <span class="text-[#5D5D5F]"> Batafsil</span>
                             <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
 
