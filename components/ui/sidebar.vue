@@ -17,8 +17,8 @@
                     <!-- {{ getMenuLink }} -->
 
                     <div v-for="menu in getMenuLink.items" :key="menu.id"
-                        class="flex items-center justify-between  text-slate-900  rounded-lg cursor-pointer  px-4 h-[57px] hover:border hover:border-[#F7483B] "
-                        :class="{ 'bg-blue-50': $route.fullPath === menu.routerlink }"
+                        class="flex items-center justify-between  text-slate-900  rounded-lg cursor-pointer  px-4 h-[57px] hover:border hover:border-[#F4F6FA] "
+                        :class="{ 'bg-[#F4F6FA]': $route.fullPath === menu.routerlink }"
                         @click="$router.push(menu.routerlink)">
                         <span class="text-lg font-medium">{{ menu.name }}</span>
 
