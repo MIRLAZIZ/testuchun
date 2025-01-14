@@ -42,7 +42,7 @@ const data = [
                 <!-- carousel  -->
 
                 <div class="my-10">
-                    <UiCarousel :data="items" />
+                    <UiCarousel :data="data" />
                 </div>
 
 

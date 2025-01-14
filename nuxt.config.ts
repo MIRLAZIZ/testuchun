@@ -69,6 +69,7 @@ export default defineNuxtConfig({
     'image': fileURLToPath(new URL('./assets/images', import.meta.url)),
   },
   
+  
 
   
 })

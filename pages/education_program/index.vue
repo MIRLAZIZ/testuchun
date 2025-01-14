@@ -7,9 +7,7 @@ const store = useHomeStore()
 const filter = ref([])
 
 
-filter.value = store.menus[1]
-console.log(store.menus.map(item => item.id));
-console.log('store',filter.value)
+// filter.value = store.menus[1]
 
 </script>
 <template>
@@ -25,7 +23,8 @@ console.log('store',filter.value)
            <UiInformation />
 
            <div class="w-[364px]">
-                <UiSidebar :data="filter.value" />
+            
+                <UiSidebar />
            </div>
 
         </div>
