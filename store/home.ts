@@ -14,15 +14,15 @@ export const useHomeStore = defineStore('home', {
         name: 'Institut',
         isOpen: false,
         items: [
-          { id: 1, name: 'Biz haqimizda', routerlink: 'item1' },
-          { id: 2, name: 'Rahbariyat', routerlink: 'item2' },
-          { id: 3, name: 'Me’moriy hujjatlar', routerlink: 'item3' },
-          { id: 4, name: 'Litsenziya va sertifikatlar', routerlink: 'item4' },
-          { id: 5, name: 'Bo’limlar', routerlink: 'item1' },
-          { id: 6, name: 'Kafedralar', routerlink: 'item2' },
-          { id: 7, name: 'Противодейиствии коррупции', routerlink: 'item3' },
-          { id: 8, name: 'Молодежная политика', routerlink: 'item1' },
-          { id: 9, name: 'Гендерное равенство', routerlink: 'item2' }
+          { id: 1, name: 'Biz haqimizda', routerlink: '/institute/about' },
+          { id: 2, name: 'Rahbariyat', routerlink: '/institute/management' },
+          { id: 3, name: 'Me’moriy hujjatlar', routerlink: '/institute/documents' },
+          { id: 4, name: 'Litsenziya va sertifikatlar', routerlink: '/institute/licenses' },
+          { id: 5, name: 'Bo’limlar', routerlink: '/institute/departments' },
+          { id: 6, name: 'Kafedralar', routerlink: '/institute/faculties' },
+          { id: 7, name: 'Противодейиствии коррупции', routerlink: '/institute/corruption' },
+          { id: 8, name: 'Молодежная политика', routerlink: '/institute/young' },
+          { id: 9, name: 'Гендерное равенство', routerlink: '/institute/gender' }
           
         ],
       },

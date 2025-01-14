@@ -20,12 +20,8 @@ const items = [
 <template>
     <div class="w-full">
         <div>
-            <div class=" bg-white  flex flex-col items-center justify-center py-[48px] h-[189px]">
-                <h1 class="text-[40px] font-medium"> Kampus</h1>
-                <div class="text-[#5D5D5F] text-lg">
-                    <button>Asosiy</button> / <button>Kampus</button>
-                </div>
-            </div>
+
+            <UiBreadcrumb />
         </div>
         <div class="w-full flex justify-center">
             <div class="mainContainer flex  gap-4  flex-col lg:flex-row lg:justify-between   mt-10 mb-[144px] ">
