@@ -18,22 +18,17 @@ const items = [
 </script>
 
 <template>
-    <div>
+    <div class="mb-[144px]">
         <UiBreadcrumb />
         <div class="w-full flex flex-col items-center">
             <div class="flex justify-between 2xl:w-[1440px] mt-10  ">
                 <NuxtPage />
                 <UiSidebar />
             </div>
-<!-- {{ $route.matched[0].path }}  -->
-            <div class="mb-[144px]" v-if="$route.fullPath == '/institute'">
+            <div v-if="$route.fullPath == '/institute'">
                 <HomeUsefulLink :items="items" />
                 <HomeOurAdresses />
-
-
-
             </div>
-
         </div>
     </div>
 

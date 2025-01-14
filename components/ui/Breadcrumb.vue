@@ -15,7 +15,7 @@ const routeName = computed(() => {
 <template>
 
     <div class=" bg-white  flex flex-col items-center justify-center py-[48px] h-[189px]">
-        <h1 class="text-[40px] font-medium">{{ routeName?.[routeName.length - 1] }} </h1>
+        <h1 class="text-[40px] font-medium text-[#06203D]">{{ routeName?.[routeName.length - 1].toUpperCase() }} </h1>
         <div class="text-[#5D5D5F] text-lg">
             <button @click="$router.push('/')">Asosiy</button><button
                 v-if="routeName?.[1] == 'Kampus' && routeName?.length > 2" @click="$router.push('/kampus')"> /

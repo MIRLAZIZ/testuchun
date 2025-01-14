@@ -16,6 +16,7 @@ export const useHomeStore = defineStore('home', {
         items: [
           { id: 1, name: 'Biz haqimizda', routerlink: '/institute' },
           { id: 2, name: 'Rahbariyat', routerlink: '/institute/management' },
+          { id: 2, name: 'Tashkiliy tuzilma', routerlink: '/institute/structures' },
           { id: 3, name: 'Me’moriy hujjatlar', routerlink: '/institute/documents' },
           { id: 4, name: 'Litsenziya va sertifikatlar', routerlink: '/institute/licenses' },
           { id: 5, name: 'Bo’limlar', routerlink: '/institute/departments' },
@@ -30,7 +31,7 @@ export const useHomeStore = defineStore('home', {
         id: 2,
         name: 'Ta’lim dasturlari',
         link: '/education',
-        item:[
+        items:[
           {id:1, name: 'Bakalavr'},
           {id:2, name: 'Magistir'},
 
