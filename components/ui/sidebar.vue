@@ -13,11 +13,10 @@
                 </div>
 
 
-                <div class="mt-3 mb-4">
-                    <!-- {{ getMenuLink }} -->
+                <div class=" mb-4">
 
                     <div v-for="menu in getMenuLink.items" :key="menu.id"
-                        class="flex items-center justify-between  text-slate-900  rounded-lg cursor-pointer  px-4 h-[57px] hover:border hover:border-[#F4F6FA] "
+                        class="flex items-center justify-between mt-3 text-black  rounded-lg cursor-pointer  px-4 h-[57px] hover:border hover:border-[#F4F6FA] "
                         :class="{ 'bg-[#F4F6FA]': $route.fullPath === menu.routerlink }"
                         @click="$router.push(menu.routerlink)">
                         <span class="text-lg font-medium">{{ menu.name }}</span>
@@ -25,7 +24,6 @@
 
                         <UIcon name="i-heroicons-check" class="w-6 h-6 text-[#F7483B] "
                             v-show="$route.fullPath === menu.routerlink" />
-
                     </div>
                 </div>
             </div>
