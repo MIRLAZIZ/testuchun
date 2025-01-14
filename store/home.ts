@@ -12,9 +12,9 @@ export const useHomeStore = defineStore('home', {
       {
         id: 1,
         name: 'Institut',
-        isOpen: false,
+        link: '/institute',
         items: [
-          { id: 1, name: 'Biz haqimizda', routerlink: '/institute/about' },
+          { id: 1, name: 'Biz haqimizda', routerlink: '/institute' },
           { id: 2, name: 'Rahbariyat', routerlink: '/institute/management' },
           { id: 3, name: 'Me’moriy hujjatlar', routerlink: '/institute/documents' },
           { id: 4, name: 'Litsenziya va sertifikatlar', routerlink: '/institute/licenses' },
@@ -29,33 +29,19 @@ export const useHomeStore = defineStore('home', {
       {
         id: 2,
         name: 'Ta’lim dasturlari',
-        isOpen: false,
+        link: '/education',
         item:[
           {id:1, name: 'Bakalavr'},
           {id:2, name: 'Magistir'},
 
           
         ],
-        items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
-          { id: 5, name: 'Item 5', routerlink: 'item1' },
-          { id: 6, name: 'Item 6', routerlink: 'item2' },
-          { id: 7, name: 'Item 7', routerlink: 'item3' },
-          { id: 8, name: 'Item 8', routerlink: 'item1' },
-          { id: 9, name: 'Item 9', routerlink: 'item2' },
-          { id: 10, name: 'Item 10', routerlink: 'item3' },
-          { id: 11, name: 'Item 11', routerlink: 'item1' },
        
-
-        ],
       },
       {
         id: 3,
         name: 'Ilm fan',
-        isOpen: false,
+        link: '/science',
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
@@ -68,7 +54,7 @@ export const useHomeStore = defineStore('home', {
       {
         id: 3,
         name: 'Abituriyentlar uchun ',
-        isOpen: false,
+       link: '/student',
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
@@ -81,7 +67,7 @@ export const useHomeStore = defineStore('home', {
       {
         id: 3,
         name: 'Yangiliklar',
-        isOpen: false,
+        link: '/news',
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
@@ -94,7 +80,7 @@ export const useHomeStore = defineStore('home', {
       {
         id: 3,
         name: 'Talabalar hayoti',
-        isOpen: false,
+        link: '/studentlife',
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
@@ -107,7 +93,7 @@ export const useHomeStore = defineStore('home', {
       {
         id: 3,
         name: 'SDG',
-        isOpen: false,
+        link: '/sdg',
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
