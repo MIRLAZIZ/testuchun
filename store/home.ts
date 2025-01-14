@@ -30,6 +30,12 @@ export const useHomeStore = defineStore('home', {
         id: 2,
         name: 'Ta’lim dasturlari',
         isOpen: false,
+        item:[
+          {id:1, name: 'Bakalavr'},
+          {id:2, name: 'Magistir'},
+
+          
+        ],
         items: [
           { id: 1, name: 'Item 1', routerlink: 'item1' },
           { id: 2, name: 'Item 2', routerlink: 'item2' },
