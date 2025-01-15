@@ -14,6 +14,7 @@ const emit = defineEmits(['update:isOpen'])
             <UCard
                 class="w-[1036px] h-[539px]  custom-modal">
                <div>
+                <button @click="emit('update:isOpen', false)"> x</button>
 
                 
                </div>
