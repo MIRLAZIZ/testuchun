@@ -32,8 +32,8 @@ export const useHomeStore = defineStore('home', {
         name: 'Ta’lim dasturlari',
         link: '/education',
         items:[
-          {id:1, name: 'Bakalavr'},
-          {id:2, name: 'Magistir'},
+          {id:1, name: 'Bakalavr', routerlink: '/education'},
+          {id:2, name: 'Magistir', routerlink: '/education/magistratura'},
 
           
         ],

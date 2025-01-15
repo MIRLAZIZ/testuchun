@@ -2,10 +2,10 @@
     <div>
         <div class="">
 
-            <div class="w-[348px] bg-white rounded-lg p-4 border ">
+            <div class="w-[348px] bg-white rounded-lg p-4  ">
 
                 <div class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4 ">
-                    <h2 class="text-lg ">Ta'lim dasturlari</h2>
+                    <h2 class="text-lg ">{{ getMenuLink.name }}</h2>
 
                     <div class="flex items-end h-full">
                         <img src="/assets/imgs/talim/Group 3.png" alt="" class="w-[33px] h-[32px]">
@@ -130,15 +130,22 @@ const programs = ref([
     { id: 2, name: 'Magistratura' },
 ]);
 
-// Tanlangan elementni saqlash uchun reactive o'zgaruvchi
 const selected = ref(null);
 
-// Tanlangan elementni yangilash funksiyasi
 function selectProgram(programId) {
     selected.value = programId;
 }
 </script>
 <style scoped>
+.wrapper{
+    background-color:#06203D;
+}
+.box{
+        background-color:#0156BA;
+        width:332px;
+        height:184px;
+        border-radius:12px; 
+}
 .hidden {
     display: none;
 
