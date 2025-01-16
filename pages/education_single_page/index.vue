@@ -2,6 +2,7 @@
 const sum = ref([1, 2, 3, 4, 5])
 const sum1 = ref([1, 2, 3])
 const sum2 = ref([1, 2, 3,4])
+const sum3 = ref([1, 2,])
 
 
 
@@ -103,6 +104,55 @@ const sum2 = ref([1, 2, 3,4])
 
 
           </div>
+
+            <div style="margin-top:187px;margin-bottom:104px;display:flex;align-items:center;justify-content:center;flex-direction:column">
+                   <div class="flex gap-6 p-8  rounded-xl" style="background-color:#06203D">
+                          <div class="w-[329px] h-[434px]" >
+                                <img src="../../assets/imgs/talim/person.svg" alt="">
+                            </div>  
+                            <div class="rounded-xl  " style="width:527px;padding:64px 15px;display:flex;flex-direction:column;justify-content:center">
+                                <p class="font-normal text-sm" style="color:#88929D">Kurs lideri</p>
+                                <p class="font-medium text-xl mb-6 mt-16 text-white">Abdulla Qodirov</p>
+                             
+                                <div style="width:416px" >
+                                    <p class="font-normal text-xs text-white " style="color:#FFFFFFCC">TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz.</p>
+                                </div>
+                              
+                            </div>
+                            
+                            
+                        </div>
+        </div>
+
+
+        <div style="margin-top:187px;margin-bottom:104px;display:flex;align-items:center;flex-direction:column" >
+            <div>
+                <p class="text-2xl font-medium">Bitiruvchilar fikrlari</p>
+                <div class="flex gap-6">
+                     <div v-for="(item,index) in  sum3" :key="index">
+                        <div class="flex gap-6 mt-4 rounded-xl" style="width:464px;padding:20px;height:240px;border:1px solid #E6EDFA;background-color:#FFFFFF">
+                            <div style="width:157px;200px">
+                                <img src="../../assets/imgs/talim/person.svg" alt="">
+                            </div>
+                            <div style="width:243px;hieght:194px;">
+                                <div class="text-truncate mb-4" style="width:243px;text-overflow:ellipsis;overflow: hidden; display:-webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+                                    <p class=" font-medium text-xl ">Abduqayumov Abdumannon Abdulboriy o'g'li</p>
+
+                                </div>
+                                <p class="font-normal text-base" style="color:#9A999B">Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            
+           
+          
+            <!-- <div>
+                <button>Topshiriq</button>
+            </div> -->
+        </div>
+
     </div>
 </template>
 <style lang="" >
