@@ -32,6 +32,8 @@ const items = [
                             bakalavriat va magistratura yo‘nalishlari bo‘yicha ta’lim dasturlari,
                             ta’lim dasturlari, ta’lim va kadrlar tayyorlash va qayta tayyorlash
                             dasturlarini amalga oshiradi.
+
+
                         </p>
                     </div>
 
@@ -48,7 +50,7 @@ const items = [
 
                         <button v-for="item in items" :key="item.id"
                             class="buttons border flex flex-col justify-between" @click="$router.push(item.link)">
-                            <img :src="item.img" alt="">
+                            <img :src="item.img" alt="" class="w-[24px] h-[24px]">
                             <p class="text-[#06203D] text-left">{{ item.name }}</p>
                         </button>
 

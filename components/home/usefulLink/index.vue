@@ -2,7 +2,7 @@
     <div class="flex justify-center">
         <div class="mainContainer h-[249px] my-[104px] ">
 
-            <h1 class="font-Halvar font-medium text-[28px]">FOYDALI LINKLAR</h1>
+            <h1 class="font-Halvar font-medium text-black text-[28px]">FOYDALI LINKLAR</h1>
 
             <div class="relative mt-8">
                 <UCarousel v-slot="{ item }" :items="props.items" class="" ref="carousel">
