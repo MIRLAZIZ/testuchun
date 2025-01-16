@@ -1,12 +1,11 @@
 <script setup>
+
 </script>
 <template>
     <div>
-        <Education />
+        <InstituteLicenses />
+        
 
 
     </div>
 </template>
-
-
-<style lang="scss" scoped></style>

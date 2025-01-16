@@ -1,6 +1,7 @@
 <template>
     <div>
-        <MenuLinksAbout />
+      <InstituteAbout />
+      
 
 
     </div>

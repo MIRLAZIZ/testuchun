@@ -2,7 +2,7 @@
 import imgcarousel from '~/assets/imgs/kampus/carousel.png'
 
 
-const items = [
+const data = [
     imgcarousel,
     'https://picsum.photos/600/800?random=2',
     'https://picsum.photos/600/800?random=3',
@@ -15,10 +15,12 @@ const items = [
     'https://picsum.photos/600/800?random=4',
 ]
 
+
+
 </script>
 <template>
     <div>
-    <UiBreadcrumb /> 
+    <UiBreadcrumb  /> 
 
 
 
@@ -40,7 +42,7 @@ const items = [
                 <!-- carousel  -->
 
                 <div class="my-10">
-                    <UiCarousel :data="items" />
+                    <UiCarousel :data="data" />
                 </div>
 
 
