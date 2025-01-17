@@ -1,5 +1,4 @@
 <script setup>
-// const isOpen = ref(false)
 const props = defineProps({
     isOpen: {
         type: Boolean,
@@ -10,10 +9,36 @@ const props = defineProps({
         type: Array,
         require: true,
         default: () => []
+    },
+    data_id: {
+        type: Number,
+        require: true,
     }
 
 })
 const emit = defineEmits(['update:isOpen'])
+
+const itemIndex = ref(null)
+
+watch(
+    () => props.data_id,
+    (newValue) => {
+        itemIndex.value = newValue
+    }, { deep: true })
+
+const nextOn = () => {
+    if (itemIndex.value < props.items.length-1) {
+        itemIndex.value++
+    }
+}
+
+const previousOne = () => {
+    if (itemIndex.value > 0) {
+        itemIndex.value--
+    }
+}
+
+
 </script>
 
 <template>
@@ -23,8 +48,8 @@ const emit = defineEmits(['update:isOpen'])
             <UCard class="w-[1036px] h-[539px]  custom-modal p-4 ">
                 <div class="flex justify-between">
 
-                    <div class="w-[324px]  ">
-                        <img :src="props.items[0].img" alt="certifacate img">
+                    <div class="w-[324px]">
+                        <img :src="props.items[itemIndex].img" alt="certifacate img">
                     </div>
 
 
@@ -35,14 +60,15 @@ const emit = defineEmits(['update:isOpen'])
                             <div class="flex justify-between w-full ">
                                 <img src="/assets/imgs/kampus/image 154.png" alt="">
 
-                                <div class="flex items-center justify-center w-12 h-12  border rounded-full cursor-pointer" @click="emit('update:isOpen', false)" >
+                                <div class="flex items-center justify-center w-12 h-12  border rounded-full cursor-pointer"
+                                    @click="emit('update:isOpen', false)">
                                     <UIcon name="i-heroicons-x-mark" class=" w-7 h-7  text-[#2D264B]" />
 
                                 </div>
                             </div>
 
                             <h1 class="text-2xl font-medium mt-6">
-                                {{ props.items[0].title }}
+                                {{ props.items[itemIndex].title }}
                             </h1>
                             <p class=" text-[#868587] mt-4">
                                 yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy
@@ -55,32 +81,34 @@ const emit = defineEmits(['update:isOpen'])
                             <hr class="border-[#ECF1FB]  my-6">
 
                             <p>
-                                <span class="text-[#9A999B]">Berilgan sana: </span>{{ props.items[0].date }}
+                                <span class="text-[#9A999B]">Berilgan sana: </span>{{ props.items[itemIndex].date }}
                             </p>
                         </div>
-
+                        {{ itemIndex }}
                         <div class="flex justify-between">
                             <div class="flex  items-center gap-4">
                                 <button
-                                    class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center">
+                                    class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center"
+                                    @click="previousOne">
                                     <UIcon name="i-heroicons-arrow-long-left" class=" w-5 h-5 text-[#06203D]" />
                                 </button>
 
                                 <button
-                                    class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center">
+                                    class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center"
+                                    @click="nextOn">
                                     <UIcon name="i-heroicons-arrow-long-right" class=" w-5 h-5 text-[#06203D]" />
                                 </button>
 
-                                <span class="text-[#9A999B]">1/{{ props.items.length }}</span>
+                                <span class="text-[#9A999B]">{{ itemIndex + 1 }}/{{ props.items.length }}</span>
 
 
                             </div>
                             <div>
-                                <UButton
-                                    class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium hover:bg-[#F7483B] text-base">
+                                <button
+                                    class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white ">
                                     Yuborish olish
                                     <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
-                                </UButton>
+                                </button>
                             </div>
 
                         </div>

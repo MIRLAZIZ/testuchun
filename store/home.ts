@@ -44,10 +44,9 @@ export const useHomeStore = defineStore('home', {
         name: 'Ilm fan',
         link: '/science',
         items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
+          { id: 1, name: 'Item 1', routerlink: '/science' },
+          { id: 2, name: 'Item 2', routerlink: '/science' },
+         
          
 
         ],
@@ -136,3 +135,7 @@ export const useHomeStore = defineStore('home', {
 
   },
 })
+
+
+
+

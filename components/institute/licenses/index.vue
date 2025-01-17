@@ -13,14 +13,14 @@ const items = [
 
 ] 
 const isOpen = ref(false)
-const data = ref({})
+const data = ref(null)
 
 </script>
 <template>
     <div class="w-[1076px]">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div v-for="item in items" :key="item.id" @click="isOpen = true, data = item.id"
+            <div v-for="(item, index) in items" :key="item.id" @click="isOpen = true, data = index"
                 class=" w-[348px]  h-[600px] p-3 bg-white rounded-xl flex flex-col justify-between certificate">
 
                 <div class="h-[459px]  relative">
@@ -86,7 +86,8 @@ const data = ref({})
 
 
 
-        <InstituteLicensesEyeLicenses v-model:is-open="isOpen" :items="items" :data-id="data" />
+
+        <InstituteLicensesModalLicenses v-model:is-open="isOpen" :items="items" :data_id="data" />
 
     </div>
 </template>
