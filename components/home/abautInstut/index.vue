@@ -38,18 +38,15 @@ const items = [
                     </div>
 
 
-                    <UButton
-                        class="text-base bg-[#F7483B] hover:bg-[#F7483B] w-[216px] h-[48px] flex justify-center font-medium	 ">
-                        Ariza
-                        topshirish
-                        <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5" />
-                    </UButton>
+                    <button class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">Ariza topshirish
+                <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
+            </button>
 
 
                     <div class="mt-6 grid grid-cols-2 gap-4   w-[556px]">
 
                         <button v-for="item in items" :key="item.id"
-                            class="buttons border flex flex-col justify-between" @click="$router.push(item.link)">
+                            class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]" @click="$router.push(item.link)">
                             <img :src="item.img" alt="" class="w-[24px] h-[24px]">
                             <p class="text-[#06203D] text-left">{{ item.name }}</p>
                         </button>

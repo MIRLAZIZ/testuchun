@@ -32,7 +32,7 @@ const goToNext = () => {
       class="rounded-lg overflow-hidden">
 
       <!-- video  -->
-      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false" autoplay loop>
+      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false"  loop>
         <source :src="item.file" type="video/mp4" class="w-full ">
       </video>
 

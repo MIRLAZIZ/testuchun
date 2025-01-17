@@ -42,11 +42,11 @@
                     </div>
 
                     <div>
-                        <UButton
-                            class=" flex justify-center text-base text-[#F7483B] border border-[#F7483B] hover:text-[#F7483B] w-[156px] h-12 bg-inherit hover:bg-inherit">
+                        <button
+                            class=" flex justify-center items-center rounded-lg  text-[#F7483B] border border-[#F7483B]  w-[156px] h-12   font-medium">
                             Batafsil
                             <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6 text-[#F7483B] " />
-                        </UButton>
+                        </button>
 
                     </div>
 

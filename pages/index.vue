@@ -30,7 +30,6 @@ const items2 = [
 
 <template>
   <div class="">
-    <!-- <HomeHeaderNavBar /> -->
     <HomeBanner />
       <HomeSciences />
       <HomeAbautInstut />
@@ -44,7 +43,6 @@ const items2 = [
       <HomeUsefulLink :items="items" />
       <HomeOurAdresses />
       <HomeUsefulLink :items="items2" />
-      <!-- <HomeFooter class="mt-[104px]" /> -->
 
 
   </div>

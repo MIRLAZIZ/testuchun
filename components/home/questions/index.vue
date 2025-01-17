@@ -63,10 +63,10 @@ watch(question, (newValue) => {
 
                 </div>
                 <div>
-                    <UButton class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
+                    <button class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
                         Yuborish
-                        <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6" />
-                    </UButton>
+                        <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6 text-white" />
+                    </button>
 
 
 

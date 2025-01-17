@@ -250,16 +250,18 @@
                     <div>
 
                         <div class="flex">
-                            <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
-                                Batafsil
-                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5" />
-                            </UButton>
 
-                            <UButton
-                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center ml-6 hover:bg-[#E6EDFA] ">
+                          
+                            <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium rounded-lg">
+                                Batafsil
+                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
+                            </button>
+
+                            <button
+                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 Ariza topshirish
-                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5" />
-                            </UButton>
+                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
+                            </button>
 
 
                         </div>
