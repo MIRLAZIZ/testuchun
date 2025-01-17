@@ -135,4 +135,10 @@ const previousOne = () => {
     transform: translate(-50%, -50%);
 
 }
+@media (prefers-color-scheme: dark) {
+  .custom-modal {
+    background-color: white; /* Dark Mode uchun ham oq fon belgilanadi */
+    color: black;
+  }
+}
 </style>

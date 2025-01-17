@@ -1,6 +1,6 @@
 <template>
-    <div class="flex justify-center">
-        <div class="mainContainer  h-[568px] bg-[#06203D]">
+    <div class="flex justify-center bg-[#06203D]">
+        <div class="mainContainer  h-[568px] ">
 
             <div class="px-[120px] w-full h-full">
                 <div class=" py-14 flex  h-full  ">
@@ -8,7 +8,7 @@
                     <div class="w-2/4 h-full  flex flex-col justify-between">
 
                         <div>
-                            <h2 class=" font-Halvar text-[28px] text-white mb-6">Маркировки Программ</h2>
+                            <h2 class=" font-Halvar text-[28px] text-white  mb-6">Маркировки Программ</h2>
                             <p class=" text-[#88929D]  text-xl">
                                 Все наши курсы имеют определенные маркировки. Здесь вы можете ознакомиться с ними
                                 подробнее,
