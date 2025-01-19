@@ -86,6 +86,8 @@ const data = [
 
 
         <AbuturentSteps />
+        <AbuturentRequirements />
+
     </div>
 </template>
 
