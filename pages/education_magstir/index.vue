@@ -2,7 +2,7 @@
 </script>
 <template>
     <div>
-        <Education />
+        <EducationBakalavr />
 
     
     </div>

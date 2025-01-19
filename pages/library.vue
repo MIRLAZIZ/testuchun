@@ -1,6 +1,3 @@
-<script setup>
-
-</script>
 <template>
     <div class="mb-[144px]">
         <UiBreadcrumb />
@@ -16,7 +13,10 @@
     </div>
 </template>
 
+<script setup>
 
-<style scoped>
+</script>
+
+<style lang="scss" scoped>
 
 </style>
