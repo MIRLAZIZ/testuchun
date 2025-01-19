@@ -7,7 +7,7 @@
         <div @click="$router.push('/')" class="cursor-pointer"><img src="/assets/imgs/home/logomini.png" alt=""></div>
         <div class="flex items-center"> <HomeHeaderMenu/> 
              <div class="ml-6"> 
-                <UButton class="bg-[#F7483B] hover:bg-[#F7483B] w-[196px] h-[48px] text-base flex justify-center">Ro'yhatdan o'tish</UButton>
+                <button class="bg-[#F7483B] w-[196px] h-[48px] rounded-lg font-medium text-white flex justify-center items-center">Ro'yhatdan o'tish</button>
             </div></div>
 
        

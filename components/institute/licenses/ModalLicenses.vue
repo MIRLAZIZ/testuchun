@@ -106,7 +106,7 @@ const previousOne = () => {
                             <div>
                                 <button
                                     class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white ">
-                                    Yuborish olish
+                                    Yuklab olish
                                     <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
                                 </button>
                             </div>

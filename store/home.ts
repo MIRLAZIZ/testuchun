@@ -56,10 +56,9 @@ export const useHomeStore = defineStore('home', {
         name: 'Abituriyentlar uchun ',
        link: '/student',
         items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
+          { id: 1, name: 'Qabul qilish jarayoni', routerlink: '/student/admission' },
+          { id: 2, name: 'Talabalarga xizmat ko\'rsatish markazi', routerlink: '/student/service' },
+          { id: 3, name: 'Shartnomalar va grantlar', routerlink: '/student/grants' },
          
 
         ],

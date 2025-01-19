@@ -41,11 +41,6 @@ const goToNext = () => {
       <img :src="item.file" class="w-full h-[789px]" draggable="false" v-else>
     </UCarousel>
 
-    <!-- <button @click="goToPrev" class="px-4 py-2 bg-gray-800 text-white rounded">Previous</button>
-    <button @click="goToNext" class="px-4 py-2 bg-gray-800 text-white rounded">Next</button> -->
-
-
-
     <div class="absolute w-full h-[789px] flex justify-center  top-0  faceCarousel ">
 
       <div class="mainContainer ">
