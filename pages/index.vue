@@ -7,7 +7,6 @@ import link1 from '~/assets/imgs/home/link1.png'
 import herg from '~/assets/imgs/home/image 149.png'
 import econom from '~/assets/imgs/home/moliya.png'
 
-
 const items = [
   { id: 1, img: link1, link: 'wwwm.constitution.uz' },
   { id: 2, img: gov1, link: "www.gov.uz/oz/edu" },
@@ -21,9 +20,9 @@ const items2 = [
   { id: 2, img: gov, link: "www.gov.uz/oz/edu" },
   { id: 2, img: herg, link: "www.gov.uz/oz/edu" },
   { id: 2, img: econom, link: "www.imv.uz" }
-
-
 ]
+
+
 
 </script>
 

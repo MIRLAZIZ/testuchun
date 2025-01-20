@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
-// import  api from 'utils/axios'
 import api from '~/utils/axios'
 
 
 
 export const useHomeStore = defineStore('home', {
   state: () => ({
-    count: 0,
+    dataTranslate:{},
     is_open: false,
+    news: [],
     menus: [
       {
         id: 1,
@@ -44,9 +44,11 @@ export const useHomeStore = defineStore('home', {
         name: 'Ilm fan',
         link: '/science',
         items: [
-          { id: 1, name: 'Item 1', routerlink: '/science' },
-          { id: 2, name: 'Item 2', routerlink: '/science' },
-         
+          { id: 1, name: 'Ilmiy jurnal', routerlink: '/science' },
+          { id: 2, name: 'Sanoat 4.0 markazi', routerlink: '/science/industry' },
+          { id: 3, name: 'Litsenziya va sertifikatlar', routerlink: '/science/certifications' }
+
+          
          
 
         ],
@@ -68,10 +70,8 @@ export const useHomeStore = defineStore('home', {
         name: 'Yangiliklar',
         link: '/news',
         items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
+          { id: 1, name: 'Yangiliklar', routerlink: '/news' },
+         
          
 
         ],
@@ -92,18 +92,25 @@ export const useHomeStore = defineStore('home', {
       {
         id: 3,
         name: 'SDG',
-        link: '/sdg',
+        // link: '/sdg',
+        link:'/library',
         items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
+          { id: 1, name: 'Kutubxona', routerlink: '/library' },
+          { id: 2, name: 'Talabalar bilan tanishuv ', routerlink: '/library/students' },
+          { id: 3, name: 'Ijtimoiy hayot', routerlink: '/library/social' },
+          { id: 4, name: 'Tibbiyot punkiti', routerlink: 'Tibbiyot punkiti' },
+          { id: 5, name: 'Ijtimoiy Himoya markazi', routerlink: 'Ijtimoiy Himoya markazi' },
+          { id: 6, name: 'Sport majmuasi', routerlink: 'Tibbiyot punkiti' },
+          { id: 7, name: 'Oshxona', routerlink: 'Tibbiyot punkiti' },
+          { id: 8, name: 'Karyera markazi', routerlink: 'Tibbiyot punkiti' },
+          { id: 9, name: 'Ijtimoiy kulub', routerlink: 'Tibbiyot punkiti' },
+
          
 
         ],
       },
     ],
-    optionsData: [] as Object[]
+    optionsData: []
 
   }),
   actions: {
@@ -116,10 +123,11 @@ export const useHomeStore = defineStore('home', {
       return await api.get('/posts')
     },
 
-    menuDrop(data: Object): void {
 
-    
-      if(this.optionsData[0] === data){
+    menuDrop(data) {
+
+
+      if (this.optionsData[0] === data) {
         this.optionsData = []
         this.is_open = false
         return
@@ -127,11 +135,21 @@ export const useHomeStore = defineStore('home', {
       this.optionsData = []
       this.optionsData.push(data)
       this.is_open = true
-      
-    }
+    },
 
+   async getTranslate() {
+    return await api.get('/translations')
+    .then(res => {
+      this.dataTranslate = res.data
+    })
+    },
+   async getNews() {
+    return await  api.get('/news')
+    .then(res => {
+      this.news = res.data
+    })
 
-
+   }
   },
 })
 

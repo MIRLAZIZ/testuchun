@@ -1,6 +1,6 @@
 <script setup>
 const items = [
-  { id: 1, file: 'https://s3-figma-videos-production-sig.figma.com/video/875745179923965945/TEAM/ab11/695f/-d275-41ce-807a-28d05b3c63f2?Expires=1737331200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qw-ajc8B0MkN3lY1GZPDQ2r-DCxHo8mh3lGOK4LC2fjr8YB5TiHNn-8XfqR55pmB8sn85y6CVqbNljyad08hRtQTFsOZSq2-T0YNFlCpGPH2JoFH~e3SaBhHXm8V5VrloAapY4-pN0r-WyJa7-IpqZhAwz4IaNwZNoJslfv9nIWRb5BsQv9iuPBry7AeGBvILQiMkfvMgFb2Bh2mA~GwbelBQTzmim~e7YstG2Et5Ko1PkHpzwEufedJkRAXUIuufEmgapsmhsK9SiH7WN-B3G1YfmwfPUtRzCKuDEL2KnSdCGdWbooLjPfumpSg8nYtawb5ATfuGayCPZsLYPthxw__', type: 'video' },
+  { id: 1, file: 'https://s3-figma-videos-production-sig.figma.com/video/875745179923965945/TEAM/ab11/695f/-d275-41ce-807a-28d05b3c63f2?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EipkPKqdM3u63qX0WIdLTG6Qa7SVJdDFkpQqebmnIoQNWj2mHU5HU0xdt7N3Hr2exkUmK7ZROU~Y7~6Kvu9aAGP5~6zcxBFaHCmGm7viIM8IK1HaU~d~rQMn3mecLwCjURjkIGWigoW5fD7Yp~47L-xHIV1nMT8QmGdNfiNHYYsCBk2imbdmj8i4JaujPNIFfnLEL0ASpadWtyw3LM09~LJrMFCSwOUphlQ6-~FAqUggjDILtzfuPEgB4wYcAbwHwkKfc8s4JdLAqJ0adnZ69XA74QgUVkiV0Fz9zlU7Z7rmDsj6kJc8Z0lEH0aEznu32ujnU7MjnViy6MRhKmlbwg__', type: 'video' },
   { id: 2, file: 'https://picsum.photos/1920/1080?random=1', type: 'image' },
   { id: 3, file: 'https://picsum.photos/1920/1080?random=2', type: 'image' },
   { id: 4, file: 'https://picsum.photos/1920/1080?random=3', type: 'image' },

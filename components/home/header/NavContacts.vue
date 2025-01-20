@@ -1,19 +1,21 @@
-<script setup >
+<script setup>
+import { useHomeStore } from '~/store/home'
+const store = useHomeStore()
 
 
 
 </script>
 <template>
+
     <div class="flex justify-between w-full  ">
 
 
         <!-- location  -->
         <div class="flex items-center">
             <img src="assets/imgs/home/location-dot.png" class="w-[20px] h-[20px]" />
-            <p class="text-[#5D5D5F] text-[14px] ml-1  font-normal">Shahar: 
-                <span
-                    class="text-[#020105] leading-tight ml-2 underline	">Toshkent, Yakkasaroy tumani, Shota Rustaveli
-                    ko'chasi, 114</span></p>
+            <p class="text-[#5D5D5F] text-[14px] ml-1  font-normal">{{ store?.dataTranslate['header.city'] }} :
+                <span class="text-[#020105] leading-tight ml-2 underline	">{{ store?.dataTranslate['header.address'] }}</span>
+            </p>
         </div>
 
         <div class="flex justify-between items-center w-[35%]">
@@ -52,4 +54,5 @@
     height: 28px;
 
 }
+
 </style>

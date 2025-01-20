@@ -57,19 +57,20 @@ const toggleItem = (index) => {
 <template>
     <div>
         <div class="mb-10">
-            <p class="text-2xl font-medium mt-36 mb-10">KO'P BERILADIGAN SAVOLLAR</p>
-            <div class="bg-white w-[1052px] rounded-xl mb-4" v-for="(item, index) in items" :key="index">
-                <div class="p-4">
-                    <div class="flex flex-col gap-3">
-                        <div class="bg-white pl-2 flex justify-between cursor-pointer" @click="toggleItem(index)">
-                            <p class="text-slate-800 font-medium text-base">{{ item.title }}</p>
-                            <div>
-                                <img v-if="activeIndex === index" src="../../assets/imgs/talim/Minus.svg" alt="Minus" />
-                                <img v-else src="../../assets/imgs/talim/Add.svg" alt="Add" />
+            <p class="text-[28px] font-medium mt-36 mb-10 text-[#06203D]">KO'P BERILADIGAN SAVOLLAR</p>
+            <div class="bg-white w-[1052px] rounded-xl mb-4  min-h-[76px] flex justify-between items-center border-[1px] border-[#E6EDFA]" v-for="(item, index) in items" :key="index">
+                <div class="p-4 w-[100%]">
+                    <div class="flex flex-col  gap-3">
+                        <div class=" pl-2 flex items-center   justify-between cursor-pointer " @click="toggleItem(index)">
+                            <p class="text-[#06203D] font-medium text-xl">{{ item.title }}</p>
+                            <div class="" >
+                                <img class="duration-700 " v-if="activeIndex === index" src="../../assets/imgs/talim/Minus.svg" alt="Minus" />
+                                <img class="duration-700" v-else src="../../assets/imgs/talim/Add.svg" alt="Add" />
+                                
                             </div>
                         </div>
                         <div :style="{ display: activeIndex === index ? 'block' : 'none' }" class="pl-2">
-                            <p class="text-slate-800 font-normal text-sm">{{ item.description }}</p>
+                            <p class="text-[#000000] font-normal text-base">{{ item.description }}</p>
                         </div>
                     </div>
                 </div>

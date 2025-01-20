@@ -18,4 +18,12 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'manrope';
+    src: url('~/assets/fonts/Manrope-SemiBold.ttf');
+    font-weight:600 ;
+    font-style: normal;
+  }
+  /* "D:\proyektlar\timeEdu\timeedu\assets\fonts\Manrope-SemiBold.ttf" */
+
     

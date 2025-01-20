@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 useSeoMeta({
-  title: 'TMII',
-  ogTitle: 'TMII',
+  title: 'TimeEduan',
+  ogTitle: 'TimeEduan',
   description: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
   ogDescription: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
   ogImage: 'https://i.ytimg.com/vi/BN73wVowi-o/mqdefault.jpg',

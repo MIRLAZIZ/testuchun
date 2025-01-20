@@ -1,7 +1,35 @@
 <script setup>
+import { useHomeStore } from '~/store/home'
+
+const store = useHomeStore()
 </script>
 <template>
-    <div class="flex items-center justify-between w-full h-[789px]">
+
+    <div class="grid grid-cols-2  w-full h-[789px]  mt-[106px]" style="grid-template-columns: 60% 40%;">
+
+
+
+
+
+        <!-- caption  -->
+        <div class=" h-[500px] flex flex-col justify-start  ">
+            <h1 class="caption mt-14" v-html="store.dataTranslate['home.time']">
+
+            </h1>
+
+            <button
+                class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
+                {{ store.dataTranslate['home.submit_application'] }}
+                <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
+            </button>
+        </div>
+
+
+        <!-- window img  -->
+        <div class=" flex justify-end boder "><img src="/assets/imgs/home/Group 1.png" alt=""
+                class="w-[509px] h-[497px] ">
+        </div>
+
 
         <!-- left arrow -->
         <div class="absolute left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
@@ -9,23 +37,6 @@
             <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-[#72705F]" @click="$emit('left')" />
 
         </div>
-
-
-
-        <!-- caption  -->
-        <div class=" h-[500px] flex flex-col justify-start ">
-            <h1 class="caption mt-14">
-
-                TOSHKENT <br> MENEJMENT VA <br>IQTISODIYOT INSTITUT</h1>
-
-            <button class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">Ariza topshirish
-                <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
-            </button>
-        </div>
-
-
-        <!-- window img  -->
-        <div><img src="/assets/imgs/home/Group 1.png" alt=""></div>
 
         <!-- arrow right  -->
         <div class="absolute right-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
@@ -39,8 +50,6 @@
 
 
 <style scoped>
-
-
 .caption {
     font-family: 'Halvar Breitschrift';
     font-size: 64px;
