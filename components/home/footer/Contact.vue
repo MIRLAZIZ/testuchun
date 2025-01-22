@@ -1,9 +1,9 @@
 <template>
     <div class="">
         <main>
-            <div class="w-full flex gap-6  ">
+            <div class="w-full flex gap-6  box_wrapper ">
 
-                <div class="w-[324px]">
+                <div class="w-[324px] box_wrapper_width">
                     <p class="text-lg text-[#2E4259]">Biz bilan bog'lanish:</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]"> <a
@@ -12,7 +12,7 @@
                 </div>
 
 
-                <div class="w-[324px]">
+                <div class="w-[324px] box_wrapper_width">
                     <p class="text-lg text-[#2E4259]">Biz bilan bog'lanish:</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/envelope.png" alt="" class="mr-2 w-[26px] h-[26px]">
@@ -22,7 +22,7 @@
                 </div>
 
 
-                <div class="w-[712px]">
+                <div class="w-[712px] box_wrapper_width">
                     <p class="text-lg text-[#2E4259]  ">Manzil:</p>
                     <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
@@ -33,9 +33,24 @@
 
             </div>
         </main>
-        <div class="flex justify-between mt-8  text-lg  text-[#06203D]">
+        <div class="flex justify-between mt-8  text-lg  text-[#06203D] box_wrapper_li">
             <p>Copyright © 2014 Tshwant menejment va igtlaodiyotinentu</p>
             <p>Разработана <span class="text-[#F7483B]">NDC</span></p>
         </div>
     </div>
 </template>
+<style lang="css" scoped>
+@media(max-width:1024px){
+    .box_wrapper{
+        display:flex;
+        flex-direction: column;
+    }
+    .box_wrapper_li{
+        display:flex;
+        flex-direction: column;
+    }
+    .box_wrapper_width{
+        width:100%
+    }
+}
+</style>

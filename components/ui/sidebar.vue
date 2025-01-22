@@ -31,7 +31,7 @@
   <!-- Karusel elementlari -->
   <div class="karusel-content flex lg:flex-col sm:flex-row gap-4">
     <!-- Slayd 1 -->
-    <div class="rounded-xl caronaVirus lg:w-full sm:w-[348px] bg-blue-500 p-4 text-white img_width">
+    <div class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 p-4 text-white img_width">
       <div class="flex flex-col justify-between h-full w-full">
         <div class="pr-[58px] flex justify-end">
           <img src="/assets/imgs/talim/coronavirus.png" alt="coronavirus img" class="w-[126px] h-[99px]">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- Slayd 2 -->
-    <div class="rounded-xl p-6 lg:my-2 rektorContaner flex flex-col justify-between lg:w-full sm:w-[348px] bg-green-500 text-white">
+    <div class="rounded-xl p-6 lg:my-2 rektorContaner flex flex-col justify-between lg:w-full rektor sm:w-[348px]    text-white">
       <div class="flex gap-x-4">
         <div class="flex items-center w-[100px]">
           <img src="/assets/imgs/talim/image.png" alt="" class="w-[64px] h-[64px] rounded-full">
@@ -52,7 +52,7 @@
       </button>
     </div>
     <!-- Slayd 3 -->
-    <div class="rounded-xl p-6 lg:mt-4 h-[184px] w-full bg-[#00A3FF] flex flex-col justify-between lg:w-full sm:w-[348px]">
+    <div class="rounded-xl rektor p-6 lg:mt-4 h-[184px] w-full bg-[#00A3FF] flex flex-col justify-between lg:w-full sm:w-[348px]">
       <div class="text-white flex justify-between w-full">
         <div class="w-[100%]">
           <p class="text-xl font-medium font-Halvar">TELEGRAM</p>
@@ -99,6 +99,11 @@ function selectProgram(programId) {
 
 </script>
 <style scoped>
+@media(max-width:640px){
+    .rektor{
+        width:348px
+    }
+}
 @media (max-width: 730px){
       .karusel-container {
             width:350px !important;     
@@ -140,12 +145,12 @@ function selectProgram(programId) {
     align-items: center;
     gap:1em
   }
-.main_box{
-     display:flex ;
-     justify-content:center;
-     flex-direction: column;
-     width:full; align-items:center; 
-}
+    .main_box{
+        display:flex ;
+        justify-content:center;
+        flex-direction: column;
+        width:full; align-items:center; 
+    }
 }
 
   .sm\:overflow-x-auto::-webkit-scrollbar {
