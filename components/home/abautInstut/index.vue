@@ -4,17 +4,20 @@ import auditoriya from '~/assets/imgs/home/sitemap.png'
 import active from '~/assets/imgs/home/multi-user.png'
 import book from '~/assets/imgs/home/book-open.png'
 
+import { useHomeStore } from '~/store/home'
+const store = useHomeStore()
+
 const items = [
-    { id: 1, name: 'Kampus', img: kampus, link: 'kampus' },
-    { id: 2, name: 'Autitoriya', img: auditoriya, link: 'kampus' },
-    { id: 3, name: 'Falollar zali', img: active, link: 'kampus' },
-    { id: 4, name: 'Kutubxona', img: book, link: 'kampus' },
+    { id: 1, name: 'home.campus', img: kampus, link: 'kampus' },
+    { id: 2, name: 'home.auditorium', img: auditoriya, link: 'kampus' },
+    { id: 3, name: 'home.lkecture_hall', img: active, link: 'kampus' },
+    { id: 4, name: 'home.library', img: book, link: 'kampus' },
 ]
 
 </script>
 
 <template>
-   <div class="w-full flex justify-center">
+    <div class="w-full flex justify-center">
 
         <div class="mainContainer">
 
@@ -24,31 +27,28 @@ const items = [
                 <div class="flex flex-col justify-between">
                     <div>
                         <h1 class="abautTitle ">
-                            TOSHKENT MENEJMENT VA <br> IQTISODIYOT INSTITUT
+                            {{ store.dataTranslate['home.time'] }}
                         </h1>
                         <p class="abautBody my-6 ">
-                            Bugungi kunga qadar institut O‘zbekiston va xorijdagi xalqaro
-                            universitetlar va ta’lim tashkilotlari bilan hamkorlik qilib,
-                            bakalavriat va magistratura yo‘nalishlari bo‘yicha ta’lim dasturlari,
-                            ta’lim dasturlari, ta’lim va kadrlar tayyorlash va qayta tayyorlash
-                            dasturlarini amalga oshiradi.
-
-
+                            {{ store.dataTranslate['home.time_data'] }}
                         </p>
                     </div>
 
 
-                    <button class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">Ariza topshirish
-                <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
-            </button>
+                    <button
+                        class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
+                      {{ store.dataTranslate['home.submit_application'] }}
+                        <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
+                    </button>
 
 
                     <div class="mt-6 grid grid-cols-2 gap-4   w-[556px]">
 
                         <button v-for="item in items" :key="item.id"
-                            class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]" @click="$router.push(item.link)">
+                            class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
+                            @click="$router.push(item.link)">
                             <img :src="item.img" alt="" class="w-[24px] h-[24px]">
-                            <p class="text-[#06203D] text-left">{{ item.name }}</p>
+                            <p class="text-[#06203D] text-left">{{store.dataTranslate[item.name] }}</p>
                         </button>
 
                     </div>

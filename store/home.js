@@ -147,6 +147,7 @@ export const useHomeStore = defineStore('home', {
     return await  api.get('/news')
     .then(res => {
       this.news = res.data
+      
     })
 
    }

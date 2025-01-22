@@ -43,7 +43,7 @@ import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore()
 
-const { setLocale } = useI18n()
+// const { setLocale } = useI18n()
 const isOpen = ref(false);
 const selectedLang = ref(null); // Default selected option
 const options = ref([
@@ -58,7 +58,7 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
     selectedLang.value = option;
-    setLocale(option.value);
+    // setLocale(option.value);
     localStorage.setItem('lang', JSON.stringify(option));
     isOpen.value = false;
     store.getTranslate()
@@ -89,12 +89,12 @@ onMounted(() => {
     if (lang) {
 
         selectedLang.value = JSON.parse(localStorage.getItem('lang'));
-        setLocale(selectedLang.value.value);
+        // setLocale(selectedLang.value.value);
     } else {
         let optionsJson = JSON.stringify(options.value[0]);
         localStorage.setItem('lang', optionsJson);
         selectedLang.value = options.value[0];
-        setLocale(selectedLang.value.value);
+        // setLocale(selectedLang.value.value);
 
     }
 

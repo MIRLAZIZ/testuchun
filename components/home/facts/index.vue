@@ -1,4 +1,7 @@
 <script setup>
+import { useHomeStore } from '~/store/home'
+
+const store = useHomeStore()
 
 
 
@@ -7,7 +10,7 @@
     <div class="flex justify-center">
 
         <div class="mt-[104px] mainContainer">
-            <h1 class="facts">FAKTLAR VA RAQAMLAR </h1>
+            <h1 class="facts">{{store.dataTranslate['home.facts_number']}} </h1>
 
 
             
@@ -20,7 +23,7 @@
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">Образовательные программы</p>
+                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.educational_programs'] }}</p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
@@ -29,7 +32,7 @@
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">количество аудитории</p>
+                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.number_auditories'] }}</p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
@@ -39,7 +42,7 @@
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left"></p>Green zone
+                    <p class="text-[#06203D] text-left"></p>{{ store.dataTranslate['home.green_zone'] }}
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
@@ -49,7 +52,7 @@
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">Библиотечный фонд </p>
+                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.library_fund'] }} </p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
@@ -58,7 +61,7 @@
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">количество студентов </p>
+                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.number_students'] }} </p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl ">
@@ -73,7 +76,7 @@
                             </div>
                             <hr class="bg-[#E9EEF9]">
 
-                            <p class="text-[#06203D] ml-1">Erkak o‘quvchilar </p>
+                            <p class="text-[#06203D] ml-1">{{ store.dataTranslate['home.male_students'] }} </p>
                         </div>
 
 
@@ -85,7 +88,7 @@
                             <hr class="bg-[#E9EEF9]">
 
 
-                            <p class="text-[#06203D] text-left">Ayol o‘quvchilar </p>
+                            <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.female_students'] }} </p>
                         </div>
 
 

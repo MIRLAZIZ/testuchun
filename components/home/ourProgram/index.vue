@@ -1,5 +1,8 @@
     <script setup>
     import economy from '/assets/imgs/home/econom.png'
+    import { useHomeStore } from '~/store/home'
+
+    const store = useHomeStore()
 
 
     const selectedProgram = ref('Bakalavr')
@@ -137,18 +140,18 @@
 
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
-                <h1 class="font-normal text-[#2E4259] ml-2">BIZNING DASTURLARIMIZ</h1>
+                <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
 
             <div class="mt-10">
                 <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 'Bakalavr' }"
                     @click="selectProgram('Bakalavr')">
-                    Bakalavr
+                    {{ store.dataTranslate['home.bachelor'] }}
                 </button>
 
                 <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 'Magistratura' }"
                     @click="selectProgram('Magistratura')">
-                    Magistratura
+                    {{ store.dataTranslate['home.master'] }}
                 </button>
 
             </div>
@@ -179,7 +182,7 @@
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/school.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">Davomiyligi</span>
+                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.duration'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
@@ -194,7 +197,7 @@
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/calendar-notes.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">Qabul qilish</span>
+                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.acceptance'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
@@ -209,7 +212,7 @@
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/location.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">Manzil</span>
+                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.address'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
@@ -227,7 +230,7 @@
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/globe.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">Til</span>
+                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.language'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
@@ -251,15 +254,16 @@
 
                         <div class="flex">
 
-                          
-                            <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium rounded-lg">
-                                Batafsil
+
+                            <button
+                                class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium rounded-lg">
+                                {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
 
                             <button
                                 class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
-                                Ariza topshirish
+                                {{ store.dataTranslate['home.submit_application'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
                             </button>
 

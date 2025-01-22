@@ -1,5 +1,8 @@
 <script setup>
 import student from '~/assets/imgs/home/student.png'
+import { useHomeStore } from '~/store/home'
+
+const store = useHomeStore()
 const items = [
   {
     id: 1, img: student, fullname: "MUSIRMANOVA DILVAR",
@@ -52,7 +55,7 @@ const goToNext = () => {
           <div class="w-[793px]  ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
-              <h1 class="font-normal text-white ml-2">Talabalar bilan tanishuv </h1>
+              <h1 class="font-normal text-white ml-2">{{ store.dataTranslate['home.acquaintance'] }} </h1>
             </div>
 
 
@@ -69,7 +72,7 @@ const goToNext = () => {
               </div>
 
               <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white ">
-                Batafsil
+                {{ store.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
               </button>
 
