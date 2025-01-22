@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 export default defineNuxtConfig({
   // compatibilityDate: '2024-11-01',
+
   devtools: { enabled: false },
   ssr: true,
 
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
   },
 
   //main css
-  css: ['~/assets/css/main.css', '~/assets/css/font.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/font.css',"swiper/swiper-bundle.css"],
 
   // tailwind install  
 
