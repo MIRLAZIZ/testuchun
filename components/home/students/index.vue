@@ -17,10 +17,19 @@ const items = [
     data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
   }
 ]
+
+const students = ref(null)
+
+
+onMounted(() => {
+  store.getStudents()
+    .then(res => {
+      students.value = res.data
+    })
+})
 const carousel = ref(null)
 // Function to go to the previous slide
 const goToPrev = () => {
-  console.log('ishladi');
 
   if (carousel.value) {
     carousel.value.prev(); // UCarouselning prev() funksiyasi
@@ -45,7 +54,12 @@ const goToNext = () => {
 
 
     <div class="mainContainer mt-[101px]">
-      <UCarousel ref="carousel" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
+      <pre>
+  {{ students }}
+  
+
+</pre>
+      <UCarousel ref="carousel" v-slot="{ item }" :items="students.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden">
 
         <div class="container py-10 p-[96px] flex justify-between w-full relative">
@@ -64,9 +78,9 @@ const goToNext = () => {
             <div class="flex flex-col h-[293px]  justify-between ">
 
               <div>
-                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.fullname }}</h1>
+                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.name }}</h1>
                 <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                  {{ item.data }}
+                  {{ item.position.length > 290 ? item.position.substring(0, 290) + '...' : item.position }}
 
                 </p>
               </div>
@@ -85,7 +99,7 @@ const goToNext = () => {
 
 
           <div class="studentsImg">
-            <img :src="item.img" alt="" class="studentsImg">
+            <img :src="item.photo[store.currentImage]" alt="" class="studentsImg">
 
 
             <!-- carousel button  -->

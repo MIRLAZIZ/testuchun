@@ -11,7 +11,7 @@
                         <img :src="item.img" width="320" height="200" class="w-[324px] h-[200px] mb-4">
                         <!-- <hr> -->   
                             <div class="flex gap-2">
-                                <img class="w-5 h-5" src="../../../assets/imgs/talim/Calender.png" alt="">
+                                <img class="w-5 h-5" src="/assets/imgs/talim/Calender.png" alt="">
                                 <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">11 11 2024</p>
                             </div>
                         <p class="font-medium text-xl text-black">{{ item.link }}</p>

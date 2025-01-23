@@ -1,15 +1,19 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center" v-if="programItem">
+
 
 
         <div class="mainContainer h-[571px] my-[104px] ">
             <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border">
 
 
-
                 <div class="flex justify-between items-center">
+
                     <h2 class="text-2xl font-medium font-Halvar">{{ store.dataTranslate['home.ourNews'] }}</h2>
+          
+
                     <button
+                    @click="$router.push('/news')"
                         class="bg-red-500 text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
                         {{ store.dataTranslate['home.see_all'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
@@ -19,10 +23,9 @@
 
 
                 <div class="flex h-[411px]  justify-between">
-
                     <!-- Main news item -->
                     <div class="h-[411px]  w-[551px] ">
-                        <img :src="programItem?.images[0][currentImage]" alt="Institut yangiliklari rasmi"
+                        <img :src="programItem?.images[0][store.currentImage]" alt="Institut yangiliklari rasmi"
                             class="w-full h-full rounded-lg" v-if="programItem?.images?.length" />
 
                     </div>
@@ -46,7 +49,7 @@
 
                         <div>
                             <button
-                                class=" flex justify-center items-center rounded-lg  text-[#F7483B] border border-[#F7483B]  w-[156px] h-12   font-medium">
+                                class=" flex justify-center items-center rounded-lg  text-[#F7483B] border border-[#F7483B]  w-[156px] h-12   font-medium" @click="$router.push(`news-inner/${programItem?.slug}`)" >
                                 {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6 text-[#F7483B] " />
                             </button>
@@ -58,7 +61,7 @@
                     <!-- News list -->
                     <div class="w-[308px] overflow-y-scroll ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white p-4 cursor-pointer "
-                            @click="selectItem(item)">
+                            @click="$router.push(`news-inner/${item.slug}`)">
 
                             <div class="flex justify-between items-center text-sm text-gray-500 mb-2 ">
 
@@ -91,64 +94,24 @@ import { useHomeStore } from '~/store/home'
 
 const store = useHomeStore()
 
-const screenWidth = ref(0);
-const currentImage = ref("");
-
-const news = [
-    {
-        date: '13.11.2024',
-        title: 'Toshkent menejment va iqtisodiyot instituti jamoasi "Yoshil makon" lo',
-        description: "Institutda Toshkent davlat iqtisodiyot universiteti direktori, i.f.d.,professor Aziz Saidkarimov ishtirokida O'liy ta'limda sifatli darslik vositalarini nashr etish mavzusida seminar-trening bo'lib o'tdi",
-        image: dataImg
-    },
-    {
-        date: '14.11.2024',
-        title: 'Institutimiz professor-o\'qituvchilari, doktor shogird va k',
-        description: "Institutda Toshkent davlat iqtisodiyot universiteti direktori, i.f.d.,professor Aziz Saidkarimov ishtirokida O'liy ta'limda sifatli darslik vositalarini nashr etish mavzusida seminar-trening bo'lib o'tdi",
-        image: dataImg
-    },
-    {
-        date: '15.11.2024',
-        title: '14-oktabr kuni Toshkent menejment va iqtisodiyot instituti',
-        description: "Institutda Toshkent davlat iqtisodiyot universiteti direktori, i.f.d.,professor Aziz Saidkarimov ishtirokida O'liy ta'limda sifatli darslik vositalarini nashr etish mavzusida seminar-trening bo'lib o'tdi",
-        image: dataImg
-    },
-    {
-        date: '16.11.2024',
-        title: 'Toshkent shahrida siz kutgan kun!',
-        description: "Institutda Toshkent davlat iqtisodiyot universiteti direktori, i.f.d.,professor Aziz Saidkarimov ishtirokida O'liy ta'limda sifatli darslik vositalarini nashr etish mavzusida seminar-trening bo'lib o'tdi",
-        image: dataImg
-    }
-]
-const updateImage = () => {
-    if (screenWidth.value <= 600) {
-        currentImage.value = 'sm';
-    } else if (screenWidth.value <= 1200) {
-        currentImage.value = 'md';
-    } else {
-        currentImage.value = 'lg';
-    }
-};
-
 const programItem = ref(null)
-const selectItem = (item) => {
-    console.log('item', item);
 
-    programItem.value = item
-}
+// const selectItem = (item) => {
+//     console.log('item', item);
+
+//     programItem.value = item
+// }
+
+
 
 onMounted(() => {
+
     // programItem.value = news[0]
     store.getNews()
         .then(() => {
             programItem.value = store.news.data[0]
 
-            updateImage(); // Boshlanishida rasmni o'rnatish
 
-            window.addEventListener("resize", () => {
-                screenWidth.value = window.innerWidth; // Kenglikni yangilash
-                updateImage(); // Rasmni moslashtirish
-            });
         })
 
 
@@ -163,9 +126,7 @@ onMounted(() => {
 
 
 
-onUnmounted(() => {
-    window.removeEventListener("resize", updateImage); // Tozalash
-});
+
 </script>
 
 

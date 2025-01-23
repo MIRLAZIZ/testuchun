@@ -5,8 +5,10 @@ import api from '~/utils/axios'
 
 export const useHomeStore = defineStore('home', {
   state: () => ({
-    dataTranslate:{},
+    dataTranslate: {},
     is_open: false,
+    currentImage: "",
+
     news: [],
     menus: [
       {
@@ -24,20 +26,20 @@ export const useHomeStore = defineStore('home', {
           { id: 7, name: 'Противодейиствии коррупции', routerlink: '/institute/corruption' },
           { id: 8, name: 'Молодежная политика', routerlink: '/institute/young' },
           { id: 9, name: 'Гендерное равенство', routerlink: '/institute/gender' }
-          
+
         ],
       },
       {
         id: 2,
         name: 'Ta’lim dasturlari',
         link: '/education',
-        items:[
-          {id:1, name: 'Bakalavr', routerlink: '/education'},
-          {id:2, name: 'Magistir', routerlink: '/education/magistratura'},
+        items: [
+          { id: 1, name: 'Bakalavr', routerlink: '/education' },
+          { id: 2, name: 'Magistir', routerlink: '/education/magistratura' },
 
-          
+
         ],
-       
+
       },
       {
         id: 3,
@@ -48,31 +50,31 @@ export const useHomeStore = defineStore('home', {
           { id: 2, name: 'Sanoat 4.0 markazi', routerlink: '/science/industry' },
           { id: 3, name: 'Litsenziya va sertifikatlar', routerlink: '/science/certifications' }
 
-          
-         
+
+
 
         ],
       },
       {
-        id: 3,
-        name: 'Abituriyentlar uchun ',
-       link: '/student',
+        id: 4,
+        name: 'Abituriyentlar uchun',
+        link: '/student',
         items: [
           { id: 1, name: 'Qabul qilish jarayoni', routerlink: '/student/admission' },
           { id: 2, name: 'Talabalarga xizmat ko\'rsatish markazi', routerlink: '/student/service' },
           { id: 3, name: 'Shartnomalar va grantlar', routerlink: '/student/grants' },
-         
+
 
         ],
       },
       {
-        id: 3,
+        id: 5,
         name: 'Yangiliklar',
         link: '/news',
         items: [
           { id: 1, name: 'Yangiliklar', routerlink: '/news' },
-         
-         
+
+
 
         ],
       },
@@ -85,7 +87,7 @@ export const useHomeStore = defineStore('home', {
           { id: 2, name: 'Item 2', routerlink: 'item2' },
           { id: 3, name: 'Item 3', routerlink: 'item3' },
           { id: 4, name: 'Item 4', routerlink: 'item4' },
-         
+
 
         ],
       },
@@ -93,7 +95,7 @@ export const useHomeStore = defineStore('home', {
         id: 3,
         name: 'SDG',
         // link: '/sdg',
-        link:'/library',
+        link: '/library',
         items: [
           { id: 1, name: 'Kutubxona', routerlink: '/library' },
           { id: 2, name: 'Talabalar bilan tanishuv ', routerlink: '/library/students' },
@@ -105,7 +107,7 @@ export const useHomeStore = defineStore('home', {
           { id: 8, name: 'Karyera markazi', routerlink: 'Tibbiyot punkiti' },
           { id: 9, name: 'Ijtimoiy kulub', routerlink: 'Tibbiyot punkiti' },
 
-         
+
 
         ],
       },
@@ -137,20 +139,34 @@ export const useHomeStore = defineStore('home', {
       this.is_open = true
     },
 
-   async getTranslate() {
-    return await api.get('/translations')
-    .then(res => {
-      this.dataTranslate = res.data
-    })
+    async getTranslate() {
+      return await api.get('/translations')
+        .then(res => {
+          this.dataTranslate = res.data
+        })
     },
-   async getNews() {
-    return await  api.get('/news')
-    .then(res => {
-      this.news = res.data
-      
-    })
+    async getNews() {
+      return await api.get('/news')
+        .then(res => {
+          this.news = res.data
 
-   }
+        })
+
+    },
+
+    async getFacts() {
+      return await api.get('/siteinfo')
+    },
+    async getYoutuveVideo() {
+      return await api.get('/video_news')
+    },
+
+    async getStudents() {
+      return await api.get('/students')
+      
+    }
+
+
   },
 })
 
