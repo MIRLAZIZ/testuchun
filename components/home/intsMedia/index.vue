@@ -31,7 +31,6 @@ onMounted(() => {
         .then(() => {
             if (iframeContainer.value) {
                 iframeContainer.value.forEach(item => {
-                    console.log(item);
 
                     const iframe = item.querySelector('iframe');
                     if (iframe) {

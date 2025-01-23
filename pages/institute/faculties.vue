@@ -13,7 +13,7 @@ const items = [
 
 <template>
     <div>
-        <EducationInformation  :items="items"/>
+        <EducationInformation  :data="items"/>
 
     </div>
 </template>

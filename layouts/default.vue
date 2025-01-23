@@ -25,6 +25,8 @@ onMounted(() => {
         screenWidth.value = window.innerWidth;
         updateImage();
     });
+
+    store.getMenu()
 })
 
 

@@ -49,7 +49,7 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center" v-if="students">
 
 
 
@@ -80,7 +80,8 @@ const goToNext = () => {
                 </p>
               </div>
 
-              <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white ">
+              <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white " 
+              @click="$router.push(`students/${item.id}`)">
                 {{ store.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
               </button>

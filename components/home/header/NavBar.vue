@@ -3,9 +3,9 @@
 <template>
     <div class="pb-4 bg-white  flex justify-center">
         <div class="mainContainer pb-4 ">
-            <!-- <HomeHeaderNavContacts />
+            <HomeHeaderNavContacts />
             <HomeHeaderNavbarMenu class="mt-7 " />
-            <HomeHeaderMenuDropdown /> -->
+            <HomeHeaderMenuDropdown />
 
         </div>
     </div>
