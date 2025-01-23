@@ -50,7 +50,7 @@ const goToNext = () => {
 
 <template>
 
-    <div class="relative " v-if="props.data">
+    <div class="relative  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
             container: 'rounded-lg',
@@ -58,9 +58,9 @@ const goToNext = () => {
                 wrapper: 'relative bottom-0 flex overflow-x-auto   [scrollbar-width:none] mt-3 '
 
             }
-        }" indicators class="rounded-lg">
+        }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item" class="w-full h-[566px] object-cover" draggable="false">
+                <img :src="item" class="w-full h-[566px] object-cover " draggable="false">
             </template>
 
             <template #indicator="{ onClick, page, active }">
@@ -74,15 +74,13 @@ const goToNext = () => {
 
 
 
-         <!-- carousel button  -->
-         
-          <!-- arrow right  -->
+     
           <div class="absolute right-9 top-[37%]  cursor-pointer">
-            <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
+           
             <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-white font-fol" @click="goToNext" />
           </div>
 
-          <!-- arrow left  -->
+      
           <div class="absolute left-9 top-[37%]  cursor-pointer">
             <UIcon name="i-heroicons-chevron-left" class="w-8 h-14 text-white font-bold" @click="goToPrev" />
 

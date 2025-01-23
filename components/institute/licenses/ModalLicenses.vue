@@ -45,22 +45,27 @@ const previousOne = () => {
     <div>
 
         <UModal v-model="props.isOpen" prevent-close>
-            <UCard class="w-[1036px] h-[539px]  custom-modal p-4 ">
-                <div class="flex justify-between">
+            <UCard class="2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px]  custom-modal p-2 box_height  dark:bg-white" style="background-color:white"  >
+                <div class="flex justify-between lg:gap-3 box_flex ">
 
-                    <div class="w-[324px]">
+                    <div class="md:w-[324px] box_block">
                         <img :src="props.items[itemIndex].img" alt="certifacate img">
+                         <div class="flex items-center justify-center w-12 h-12 md:hidden  border rounded-full cursor-pointer  "
+                                    @click="emit('update:isOpen', false)">
+                                    <UIcon name="i-heroicons-x-mark" class=" w-7 h-7  text-[#2D264B]" />
+
+                        </div>
                     </div>
 
 
 
-                    <div class="w-[592px] flex flex-col justify-between">
+                    <div class="lg:w-[592px] sm:w-[400px] flex flex-col justify-between">
 
                         <div>
                             <div class="flex justify-between w-full ">
                                 <img src="/assets/imgs/kampus/image 154.png" alt="">
 
-                                <div class="flex items-center justify-center w-12 h-12  border rounded-full cursor-pointer"
+                                <div class="flex items-center justify-center w-12 h-12  border rounded-full cursor-pointer box_hidden "
                                     @click="emit('update:isOpen', false)">
                                     <UIcon name="i-heroicons-x-mark" class=" w-7 h-7  text-[#2D264B]" />
 
@@ -134,6 +139,23 @@ const previousOne = () => {
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+@media (max-width:768px){
+    .box_flex{
+        display:flex;
+        flex-direction:column;
+    }
+    .box_height{
+        height:600px;
+        overflow-x: auto;
+    }
+    .box_hidden{
+        display:none;
+    }
+    .box_block{
+        display:flex;
+        width:200px;
+    }
 }
 @media (prefers-color-scheme: dark) {
   .custom-modal {

@@ -51,5 +51,16 @@
   }
  }
 
+ @media(max-width:1024px){
+  .lever{
+    display:flex;
+    flex-direction: column-reverse;
+  }
+  .main_box_hidden{
+    display: hidden;
+    display: none;
+  }
+ }
+
 
  
