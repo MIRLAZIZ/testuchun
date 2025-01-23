@@ -21,7 +21,7 @@ const items = [
     <div class="mb-[144px]">
         <UiBreadcrumb />
         <div class="w-full flex flex-col items-center">
-            <div class="flex justify-between w-[1440px] mt-10  ">
+            <div class="flex 2xl:justify-between lg:flex-row lg:gap-2  box 2xl:w-[1440px] sm:justify-evenly   mt-10  ">
                 <NuxtPage />
                 <UiSidebar />
             </div>
@@ -33,3 +33,11 @@ const items = [
     </div>
 
 </template>
+<style lang="css" scoped>
+@media (max-width:1024px){
+.box{
+     display:flex;
+    flex-direction: column-reverse;
+}
+}
+</style>

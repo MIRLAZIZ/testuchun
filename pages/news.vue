@@ -9,7 +9,7 @@
                 <NuxtPage />
                 <UiSidebar />
             </div>
-
+    
         </div>
 
 

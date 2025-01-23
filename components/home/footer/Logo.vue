@@ -5,7 +5,7 @@
             <img src="/assets/imgs/home/footerLogo.png" alt="" class="w-[154px] h-[53px]">
         </div>
 
-        <ul class="flex w-[768px] flex-wrap gap-6 text-lg box_wrapper_li">
+        <ul class="flex w-[768px] flex-wrap gap-6 text-lg box_wrapper_li  text-black">
             <li v-for="item in navigationItems" :key="item">
                 <!-- <NuxtLink :to="item.href">{{ item.label }}</NuxtLink> -->
                 {{ item.label }}
