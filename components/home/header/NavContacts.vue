@@ -1,4 +1,6 @@
-<script setup >
+<script setup>
+import { useHomeStore } from '~/store/home'
+const store = useHomeStore()
 const  isMenuOpen = ref(false)
     function toggleMenu(){
       isMenuOpen.value = !isMenuOpen.value;
@@ -31,9 +33,9 @@ onUnmounted(() => {
         <!-- location  -->
         <div class="flex items-center">
             <img src="assets/imgs/home/location-dot.png" class="w-[20px] h-[20px]" />
-            <p class="text-[#5D5D5F] text-[14px] ml-1  font-normal">Shahar: <span
-                    class="text-[#020105] leading-tight ml-2	">Toshkent, Yakkasaroy tumani, Shota Rustaveli
-                    ko'chasi, 114</span></p>
+            <p class="text-[#5D5D5F] text-[14px] ml-1  font-normal">{{ store?.dataTranslate['header.city'] }} :
+                <span class="text-[#020105] leading-tight ml-2 underline	">{{ store?.dataTranslate['header.address'] }}</span>
+            </p>
         </div>
 
 
@@ -121,4 +123,5 @@ onUnmounted(() => {
     height: 28px;
 
 }
+
 </style>

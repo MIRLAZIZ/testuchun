@@ -1,5 +1,6 @@
 <script setup>
-import img1 from "../../../assets/imgs/talim/car.svg"
+import img1 from "/assets/imgs/talim/car.svg"
+
 const data =[
     {id:1, name:"60610300 - KOMPYUTER INJINIRINGI",description:"Batafsil",img:img1},
     {id:2, name:"60610300 - KOMPYUTER INJINIRINGI",description:"Batafsil",img:img1},

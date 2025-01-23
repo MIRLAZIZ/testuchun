@@ -1,4 +1,7 @@
 <script setup>
+import { useHomeStore } from '~/store/home';
+
+const store = useHomeStore()
 const question = ref({
     name: null,
     telNumber: null,
@@ -24,19 +27,18 @@ watch(question, (newValue) => {
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
-                    <h1 class=" ml-2 text-white">Остались вопросы?</h1>
+                    <h1 class=" ml-2 text-white">{{ store.dataTranslate['home.questions'] }}</h1>
                 </div>
 
 
+                <!-- Оставьте заявку и мы <br> ответим в течение <span class="text-[#F7483B] font-medium">
+                    24 часов
+                </span> -->
                 <div>
-                    <h1 class="questionsTitle">
-                        Оставьте заявку и мы <br> ответим в течение <span class="text-[#F7483B] font-medium">
-                            24 часов
-                        </span>
+                    <h1 class="questionsTitle" v-html="store.dataTranslate['home.submit_questions']">
                     </h1>
                     <p class="questonsData">
-                        Отправьте заявку на бесплатную консультацию, специалист центра свяжется с вами, ответит на все
-                        вопросы и поможет подобрать программу обучения на основе ваших предпочтений
+                        {{ store.dataTranslate['home.questions_description'] }}
                     </p>
                 </div>
 
@@ -44,7 +46,7 @@ watch(question, (newValue) => {
 
             <div class="w-[591px] flex flex-col justify-between  ">
 
-                <input type="text" class="questionInput" placeholder="Имя" v-model="question.name">
+                <input type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
 
 
                 <!-- tel input  -->
@@ -59,14 +61,14 @@ watch(question, (newValue) => {
 
 
                 <div>
-                    <textarea class="questionTextarea" placeholder="Сообщения" v-model="question.message"></textarea>
+                    <textarea class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
 
                 </div>
                 <div>
-                    <UButton class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
-                        Yuborish
-                        <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6" />
-                    </UButton>
+                    <button class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
+                        {{ store.dataTranslate['home.send'] }}
+                        <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6 text-white" />
+                    </button>
 
 
 

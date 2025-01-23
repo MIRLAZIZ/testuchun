@@ -24,6 +24,7 @@ const props = defineProps({
           
             :key="item.id">
 
+       
 
 
             <div class="flex items-start">
@@ -32,8 +33,8 @@ const props = defineProps({
                 <p class="font-medium ml-3  text-base text[#000000]">{{item.name}}
                 </p>
             </div>
-
             <hr class="border border-[#DCE5F5]">
+
 
 
 

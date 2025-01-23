@@ -1,5 +1,8 @@
 <script setup>
 import student from '~/assets/imgs/home/student.png'
+import { useHomeStore } from '~/store/home'
+
+const store = useHomeStore()
 const items = [
   {
     id: 1, img: student, fullname: "MUSIRMANOVA DILVAR",
@@ -52,7 +55,7 @@ const goToNext = () => {
           <div class="w-[793px]  ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
-              <h1 class="font-normal text-white ml-2">Talabalar bilan tanishuv </h1>
+              <h1 class="font-normal text-white ml-2">{{ store.dataTranslate['home.acquaintance'] }} </h1>
             </div>
 
 
@@ -68,10 +71,10 @@ const goToNext = () => {
                 </p>
               </div>
 
-              <UButton class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center hover:bg-[#F7483B]">
-                Batafsil
+              <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white ">
+                {{ store.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
-              </UButton>
+              </button>
 
 
 
@@ -89,13 +92,11 @@ const goToNext = () => {
           </div>
           <!-- arrow right  -->
           <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
-            <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
             <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-[#72705F]" @click="goToNext" />
           </div>
 
           <!-- arrow left  -->
           <div class="absolute left-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
-            <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
             <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F]" @click="goToPrev" />
 
           </div>

@@ -21,7 +21,7 @@
 
         <!-- Dropdown options -->
         <div v-show="isOpen"
-            class="absolute right-0 z-10 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            class="absolute right-0 z-50 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div class="py-1">
                 <button v-for="option in options" :key="option.value" @click="selectOption(option)"
                     class=" px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left  ">
@@ -39,8 +39,11 @@
 <script setup>
 import { ref } from 'vue';
 import ru from 'assets/imgs/home/ru.png';
+import { useHomeStore } from '~/store/home';
 
-const { setLocale } = useI18n()
+const store = useHomeStore()
+
+// const { setLocale } = useI18n()
 const isOpen = ref(false);
 const selectedLang = ref(null); // Default selected option
 const options = ref([
@@ -55,14 +58,14 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
     selectedLang.value = option;
-    setLocale(option.value);
+    // setLocale(option.value);
     localStorage.setItem('lang', JSON.stringify(option));
     isOpen.value = false;
+    store.getTranslate()
 };
 
 const langclose = () => {
     isOpen.value = false;
-    console.log('click eventssssssssss');
 
 };
 
@@ -86,12 +89,12 @@ onMounted(() => {
     if (lang) {
 
         selectedLang.value = JSON.parse(localStorage.getItem('lang'));
-        setLocale(selectedLang.value.value);
+        // setLocale(selectedLang.value.value);
     } else {
         let optionsJson = JSON.stringify(options.value[0]);
         localStorage.setItem('lang', optionsJson);
         selectedLang.value = options.value[0];
-        setLocale(selectedLang.value.value);
+        // setLocale(selectedLang.value.value);
 
     }
 

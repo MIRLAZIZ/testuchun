@@ -1,5 +1,5 @@
 <script setup>
-import img1 from "../../assets/imgs/talim/instetut.svg"
+import img1 from "/assets/imgs/talim/instetut.svg"
 const data =[
     {id:1, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
     {id:2, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},

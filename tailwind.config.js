@@ -7,7 +7,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'Halvar': ['Halvar Breitschrift']
+                'Halvar': ['Halvar Breitschrift'],
+                'manrope': ['manrope']
             }
         },
 

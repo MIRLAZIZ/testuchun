@@ -1,10 +1,32 @@
+<script setup>
+import imgcarousel from '~/assets/imgs/kampus/carousel.png'
+
+const data = [
+    imgcarousel,
+    'https://picsum.photos/600/800?random=2',
+    'https://picsum.photos/600/800?random=3',
+    'https://picsum.photos/600/800?random=4',
+    'https://picsum.photos/600/800?random=5',
+    'https://picsum.photos/600/800?random=6',
+    'https://picsum.photos/600/800?random=1',
+    'https://picsum.photos/600/800?random=2',
+    'https://picsum.photos/600/800?random=3',
+    'https://picsum.photos/600/800?random=4',
+]
+</script>
 <template>
-<div>
-        <div v-for="item  in props.data" :key="item.id">
-            <div class="mt-8  pr-16"  >
-                <h1 class="text-[28px] text-[#06203D] font-medium  mb-6">{{item.name}}</h1>
+    <div class="2xl:w-[1076px] w-full">
+        <div class=" w-full bg-white  rounded-xl p-8 ">
+            <UiCarousel :data="data" />
+
+
+            <div class="mt-8  pr-16">
+                <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
+                    Sizning
+                    muvaffaqiyat
+                    yo'lingiz!</h1>
                 <p class="text-[20px] ">
-                    <!-- Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
+                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
                     marketing,
                     boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
                     psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
@@ -20,34 +42,12 @@
                     o'sib
                     borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
                     takomillashishda
-                    davom etmoqdamiz. -->
-                    {{item.description}}
+                    davom etmoqdamiz.
                 </p>
             </div>
         </div>
-
-         
-
-
-
-        
-
-</div>
-            
-   
+    </div>
 </template>
 
-<script setup>
-const props = defineProps({
-    data: {
-        type: Array,
-        require: true,
-      default: () => []
-    }
-})
-// console.log('datas',props.data)
-</script>
 
-<style lang="scss" scoped>
-
-</style>
+<style scoped></style>

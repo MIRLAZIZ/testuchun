@@ -13,15 +13,18 @@ const items = [
 
 ] 
 const isOpen = ref(false)
-const data = ref({})
+const data = ref(null)
 
 </script>
 <template>
-    <div class="w-[1076px]">
+<div class="main_branch">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div v-for="item in items" :key="item.id" @click="isOpen = true, data = item.id"
-                class=" w-[348px]  h-[600px] p-3 bg-white rounded-xl flex flex-col justify-between certificate">
+
+    <div class="2xl:w-[1076px] flex items-center flex-col xl:w-[900px] lg:w-[705px] md:w-[700px] sm:w-[600px] box_wrapper">
+
+        <div class="grid grid-cols-1 2xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2 2xl:gap-4 lg:gap-4 md:gap-3 sm:gap-2 box_wrapper_gap">
+            <div v-for="(item, index) in items" :key="item.id" @click="isOpen = true, data = index"
+                class=" w-[348px]  h-[600px] p-3 bg-white rounded-xl flex flex-col justify-between certificate lg:w-[330px] box_wrapper_img1">
 
                 <div class="h-[459px]  relative">
                     <img :src="item.img" alt="" class="w-full h-full">
@@ -57,12 +60,12 @@ const data = ref({})
 
 
 
-        <div class="mt-16  p-8  bg-white rounded-xl pr-16">
-            <h1 class="text-[28px] text-[#06203D]   mb-6">Toshkent menejment va iqtisodiyot instituti:
+        <div class="mt-16  p-8  bg-white rounded-xl pr-16 box_wrapper_li">
+            <h1 class="text-[28px] text-[#06203D]   mb-6 box_text " >Toshkent menejment va iqtisodiyot instituti:
                 Sizning
                 muvaffaqiyat
                 yo'lingiz!</h1>
-            <p class="text-[20px] ">
+            <p class="text-[20px] box_wrapper_text ">
                 Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
                 marketing,
                 boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
@@ -86,8 +89,10 @@ const data = ref({})
 
 
 
-        <InstituteLicensesEyeLicenses v-model:is-open="isOpen" :items="items" :data-id="data" />
 
+        <InstituteLicensesModalLicenses v-model:is-open="isOpen" :items="items" :data_id="data" />
+
+    </div>
     </div>
 </template>
 
@@ -101,4 +106,40 @@ const data = ref({})
 .certificate :hover .certificateEye {
     opacity: 1;
 }
+@media (max-width:640px){
+    .box_text{
+        width:243px;
+        text-overflow:ellipsis;
+        overflow: hidden; 
+        display:-webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size:20px;
+        font-weight:500;
+    }
+    .box_wrapper_li{
+        padding:20px
+    }
+    .box_wrapper_gap{
+        gap:20px;
+    }
+    .box_wrapper{
+        width:300px;
+        
+    }
+    .box_wrapper_text{
+        font-size: 14px;
+        font-weight: 400px;
+    }
+    .main_branch{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .box_wrapper_img1{
+        width:320px;
+    }
+}
+
+
 </style>

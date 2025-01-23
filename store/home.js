@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
-// import  api from 'utils/axios'
 import api from '~/utils/axios'
 
 
 
 export const useHomeStore = defineStore('home', {
   state: () => ({
-    count: 0,
+    dataTranslate:{},
     is_open: false,
+    news: [],
     menus: [
       {
         id: 1,
@@ -58,10 +58,9 @@ export const useHomeStore = defineStore('home', {
         name: 'Abituriyentlar uchun ',
        link: '/student',
         items: [
-          { id: 1, name: 'Item 1', routerlink: 'item1' },
-          { id: 2, name: 'Item 2', routerlink: 'item2' },
-          { id: 3, name: 'Item 3', routerlink: 'item3' },
-          { id: 4, name: 'Item 4', routerlink: 'item4' },
+          { id: 1, name: 'Qabul qilish jarayoni', routerlink: '/student/admission' },
+          { id: 2, name: 'Talabalarga xizmat ko\'rsatish markazi', routerlink: '/student/service' },
+          { id: 3, name: 'Shartnomalar va grantlar', routerlink: '/student/grants' },
          
 
         ],
@@ -111,7 +110,7 @@ export const useHomeStore = defineStore('home', {
         ],
       },
     ],
-    optionsData: [] as Object[]
+    optionsData: []
 
   }),
   actions: {
@@ -124,10 +123,11 @@ export const useHomeStore = defineStore('home', {
       return await api.get('/posts')
     },
 
-    menuDrop(data: Object): void {
 
-    
-      if(this.optionsData[0] === data){
+    menuDrop(data) {
+
+
+      if (this.optionsData[0] === data) {
         this.optionsData = []
         this.is_open = false
         return
@@ -135,10 +135,25 @@ export const useHomeStore = defineStore('home', {
       this.optionsData = []
       this.optionsData.push(data)
       this.is_open = true
+    },
+
+   async getTranslate() {
+    return await api.get('/translations')
+    .then(res => {
+      this.dataTranslate = res.data
+    })
+    },
+   async getNews() {
+    return await  api.get('/news')
+    .then(res => {
+      this.news = res.data
       
-    }
+    })
 
-
-
+   }
   },
 })
+
+
+
+
