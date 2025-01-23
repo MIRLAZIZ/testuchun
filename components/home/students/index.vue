@@ -54,17 +54,12 @@ const goToNext = () => {
 
 
     <div class="mainContainer mt-[101px]">
-      <pre>
-  {{ students }}
-  
 
-</pre>
       <UCarousel ref="carousel" v-slot="{ item }" :items="students.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden">
 
         <div class="container py-10 p-[96px] flex justify-between w-full relative">
-
-
+ 
           <!-- student  -->
           <div class="w-[793px]  ">
             <div class="flex items-center ">
