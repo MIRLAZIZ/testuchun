@@ -41,7 +41,7 @@
                                 </span>
                             </div>
 
-                            <h3 class="font-medium  text-xl leading-7" v-html="programItem?.desc.substring(0, 200)">
+                            <h3 class="font-medium  text-xl leading-7" v-html="programItem?.desc?.substring(0, 200)">
 
                             </h3>
 
@@ -69,11 +69,11 @@
 
                                     <span class="flex items-center">Jahon
                                         <div class="bg-[#F7483B] mx-2  h-[5px] w-[5px] rounded-full">
-                                        </div>{{ item.date.substring(0, 10) }}
+                                        </div>{{ item?.date?.substring(0, 10) }}
                                     </span>
                                 </div>
                             </div>
-                            <h3 class=" text-lg mb-5">{{ item?.title.substring(0, 70) }}</h3>
+                            <h3 class=" text-lg mb-5">{{ item?.title?.substring(0, 70) }}</h3>
                             <hr>
 
 

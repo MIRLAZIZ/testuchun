@@ -2,7 +2,7 @@
     <div>
 
         <!-- {{ store.optionsData }} -->
-        <div class="relative w-full  ">
+        <div class="relative w-full   " >
             <div class="absolute   w-full is_dropdown  z-40   " :class="{ 'dropdown': store.is_open }" >
                 <div class="grid grid-cols-auto-fit pt-12 pb-10 px-6  w-full">
                     <button v-for="option in store.optionsData[0]?.children" :key="option"

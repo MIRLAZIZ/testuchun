@@ -55,7 +55,7 @@ const goToNext = () => {
 
     <div class="mainContainer mt-[101px]">
 
-      <UCarousel ref="carousel" v-slot="{ item }" :items="students.data" :ui="{ item: 'basis-full' }"
+      <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden">
 
         <div class="container py-10 p-[96px] flex justify-between w-full relative">
@@ -75,7 +75,7 @@ const goToNext = () => {
               <div>
                 <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.name }}</h1>
                 <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                  {{ item.position.length > 290 ? item.position.substring(0, 290) + '...' : item.position }}
+                  {{ item?.position?.length > 290 ? item.position?.substring(0, 290) + '...' : item.position }}
 
                 </p>
               </div>

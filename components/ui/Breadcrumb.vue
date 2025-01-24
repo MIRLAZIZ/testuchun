@@ -17,6 +17,7 @@ const getMenuLink = computed(() => {
 
 <template>
     <div class="bg-white flex flex-col items-center justify-center py-[48px] h-[189px]">
+        <!-- {{  getMenuLink }} -->
         <h1 class="text-[40px] font-medium text-[#06203D]">{{ getMenuLink.title }}</h1>
         <div class="text-[#5D5D5F] text-lg">
             <button @click="$router.push('/')">Asosiy</button> /

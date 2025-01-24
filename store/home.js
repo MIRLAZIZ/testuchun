@@ -54,7 +54,7 @@ export const useHomeStore = defineStore('home', {
 
 
     //     ],
-    //   },
+    //   }, 
     //   {
     //     id: 4,
     //     name: 'Abituriyentlar uchun',
@@ -120,7 +120,7 @@ export const useHomeStore = defineStore('home', {
 
 
     menuDrop(data) {
-      
+
 
 
       if (this.optionsData[0] === data) {
@@ -170,15 +170,25 @@ export const useHomeStore = defineStore('home', {
       return await api.get('/menu')
         .then(res => {
           this.menus = res.data
-          // console.log(res.data);
-          
+
+
         })
+    },
+    async getMenuShow(id) {
+      return await api.get(`/menu/${id}`)
+    },
+    async getPartners() {
+      return await api.get('/partners')
     }
 
 
 
 
   },
+ 
+
+
+
 })
 
 
