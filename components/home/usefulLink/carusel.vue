@@ -17,7 +17,7 @@
                             <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">{{ item?.date?.substring(0, 10)
                                 }}</p>
                         </div>
-                        <h1 class="font-medium text-xl text-black mt-3">{{ item.title }}</h1>
+                        <h1 class="font-medium text-xl text-black mt-3 ">{{ item.title }}</h1>
 
 
                     </div>

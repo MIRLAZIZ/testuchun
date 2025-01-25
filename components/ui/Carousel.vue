@@ -13,18 +13,7 @@ const props = defineProps({
 
 
 
-const items = [
-    imgcarousel,
-    'https://picsum.photos/600/800?random=2',
-    'https://picsum.photos/600/800?random=3',
-    'https://picsum.photos/600/800?random=4',
-    'https://picsum.photos/600/800?random=5',
-    'https://picsum.photos/600/800?random=6',
-    'https://picsum.photos/600/800?random=1',
-    'https://picsum.photos/600/800?random=2',
-    'https://picsum.photos/600/800?random=3',
-    'https://picsum.photos/600/800?random=4',
-]
+
 
 
 const carousel = ref(null)
@@ -59,8 +48,9 @@ const goToNext = () => {
 
             <template #indicator="{ onClick, page, active }">
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
-                    :class="[{ 'border-2 border-[#06203D]': active }]">
-                    <img :src="items[page - 1]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
+                    :class="[{ 'ml-3': page === 1 }, { 'border-2 border-[#06203D]': active }]">
+                    <!-- {{ props.data[page - 1][store.currentImage] }} -->
+                    <img :src="props.data[page - 1][store.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
 
                 </div>
             </template>

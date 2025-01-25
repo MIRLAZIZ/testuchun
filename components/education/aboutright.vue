@@ -91,18 +91,18 @@ const changeTab = (tabId) => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .tab{
     display: flex;
 }
 .tab-buttons {
   padding: 10px 20px;
-//   border-bottom: 2px solid transparent;
+/* //   border-bottom: 2px solid transparent; */
   transition: all 0.3s ease;
 }
 
 .tab-buttons.active {
-//   border-bottom: 2px solid #007bff;
+/* //   border-bottom: 2px solid #007bff; */
 border-radius: 12px;
   color: white;
   background-color:#06203D
