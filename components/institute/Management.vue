@@ -5,6 +5,10 @@ import img3 from '/assets/imgs/kampus/image3.png'
 import img4 from '/assets/imgs/kampus/image4.png'
 import img5 from '/assets/imgs/kampus/image5.png'
 import img6 from '/assets/imgs/kampus/image6.png'
+import { useHomeStore } from '~/store/home'
+
+const route = useRoute()
+const store = useHomeStore()
 
 const items = [{
     id: 1,
@@ -44,11 +48,17 @@ const items = [{
 }
 ]
 
+// onMounted(() => {
+//     const parentPage = `/${route.fullPath.split('/')[1]}`
+//     store.menuFind(parentPage, route.fullPath)
+// })
+
 </script>
 <template>
     <div>
 
         <div class="grid grid-cols-2 gap-4 ">
+            {{ store.menuShow }} gghfhgg
 
             <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex bg-white" v-for="item in items" :key="item.id">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->

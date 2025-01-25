@@ -1,20 +1,24 @@
 <template>
     <div class="flex justify-center">
-        <div class="mainContainer h-[249px] my-[104px] ">
+        <div class="mainContainer  ">
 
-            <h1 class="font-Halvar font-medium text-[28px]">FOYDALI LINKLAR</h1>
+            <h1 class="font-Halvar font-medium text-[28px]">{{ props.items[0].title }}</h1>
 
             <div class="relative mt-8">
-                <UCarousel v-slot="{ item }" :items="props.items"  ref="carousel" class="h-[370px]">
+                <UCarousel v-slot="{ item }" :items="props?.items[0]?.posts" ref="carousel" class="h-[370px]">
 
-                    <div class="w-[348px]  h-[370px] rounded-xl p-3  flex flex-col justify-between bg-white mr-4" >
-                        <img :src="item.img" width="320" height="200" class="w-[324px] h-[200px] mb-4">
-                        <!-- <hr> -->   
+                    <div
+                        class="w-[348px]  rounded-xl p-3   flex flex-col  bg-white mr-4">
+                        <img :src="item.images[0][store.currentImage]" width="320" height="200"
+                            class="w-[324px] h-[200px] mb-4 rounded-lg">
+                       
                             <div class="flex gap-2">
-                                <img class="w-5 h-5" src="/assets/imgs/talim/Calender.png" alt="">
-                                <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">11 11 2024</p>
-                            </div>
-                        <p class="font-medium text-xl text-black">{{ item.link }}</p>
+                            <img class="w-5 h-5" src="/assets/imgs/talim/Calender.png" alt="">
+                            <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">{{ item?.date?.substring(0, 10)
+                                }}</p>
+                        </div>
+                        <h1 class="font-medium text-xl text-black mt-3">{{ item.title }}</h1>
+
 
                     </div>
                 </UCarousel>
@@ -39,12 +43,16 @@
 </template>
 
 <script setup>
+import { useHomeStore } from '~/store/home';
+
+const store = useHomeStore()
 const props = defineProps({
     items: {
         type: Array,
         require: true,
         default: []
-    }
+    },
+
 })
 
 

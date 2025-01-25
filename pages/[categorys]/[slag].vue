@@ -1,51 +1,54 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
-const menuData = ref(null)
-const dinamicData = ref(null)
+// const menuData = ref(null)
+// const dinamicData = ref(null)
 
 const store = useHomeStore()
 const route = useRoute()
 
 
-const findMenu = () => {
-    if (store.menus.length > 0) {
+
+// const findMenu = () => {
+//     if (store.menus.length > 0) {
 
 
-        menuData.value = store.menus.find(menu => menu.path === '/page').children.find(item => item.path === route.fullPath)
+//         menuData.value = store.menus.find(menu => menu.path === '/page').children.find(item => item.path === route.fullPath)
 
 
-        store.getMenuShow(menuData.value.id).then(res => {
-            dinamicData.value = res.data
-        })
+//         store.getMenuShow(menuData.value.id).then(res => {
+//             dinamicData.value = res.data
+//         })
 
 
 
 
-    }
-    else {
+//     }
+//     else {
 
-        store.getMenu().then(() => {
+//         store.getMenu().then(() => {
 
-            menuData.value = store.menus.find(menu => menu.path === '/page')?.children.find(item => item.path === route.fullPath)
-            store.getMenuShow(menuData.value.id).then(res => {
-                dinamicData.value = res.data
-            })
-        })
-            .then(() => {
-                store.getMenuShow(menuData.value.id).then(res => {
-                    dinamicData.value = res.data
+//             menuData.value = store.menus.find(menu => menu.path === '/page')?.children.find(item => item.path === route.fullPath)
+//             store.getMenuShow(menuData.value.id).then(res => {
+//                 dinamicData.value = res.data
+//             })
+//         })
+//             .then(() => {
+//                 store.getMenuShow(menuData.value.id).then(res => {
+//                     dinamicData.value = res.data
 
-                })
+//                 })
 
-            })
-    }
-}
+//             })
+//     }
+// }
 
 
 
 
 onMounted(() => {
-    findMenu()
+    const parentPage = `/${route.fullPath.split('/')[1]}`
+    store.menuFind(parentPage, route.fullPath)
+
 
 
 
@@ -63,11 +66,11 @@ onMounted(() => {
 
 
         <pre>
-            {{ dinamicData }}
+            {{ store.menuShow }}
         </pre>
         <div class="2xl:w-[1076px] w-full">
             <div class=" w-full bg-white  rounded-xl p-8 ">
-                <div v-for="item in dinamicData?.dinamikMenus" :key="item.id">
+                <div v-for="item in store.menuShow?.dinamikMenus" :key="item.id">
 
                     <UiDescriptions />
 

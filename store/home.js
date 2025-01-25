@@ -105,7 +105,11 @@ export const useHomeStore = defineStore('home', {
     //     ],
     //   },
     // ],
-    optionsData: []
+    optionsData: [],
+    menuData: null,
+    menuShow: null,
+    siteInfo:null
+
 
   }),
   actions: {
@@ -121,9 +125,7 @@ export const useHomeStore = defineStore('home', {
 
     menuDrop(data) {
 
-
-
-      if (this.optionsData[0] === data) {
+      if (this.optionsData[0] === data || data.title === 'SDG') {
         this.optionsData = []
         this.is_open = false
         return
@@ -148,9 +150,7 @@ export const useHomeStore = defineStore('home', {
 
     },
 
-    async getFacts() {
-      return await api.get('/siteinfo')
-    },
+ 
     async getYoutuveVideo() {
       return await api.get('/video_news')
     },
@@ -179,13 +179,48 @@ export const useHomeStore = defineStore('home', {
     },
     async getPartners() {
       return await api.get('/partners')
+    },
+
+    menuFind(parentPage, child) {
+      if (this.menus.length) {
+        this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+
+        this.getMenuShow(this.menuData.id).then(res => {
+          this.menuShow = res.data
+
+        })
+
+
+
+      } else {
+
+        this.getMenu().then(() => {
+
+          this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+
+          this.getMenuShow(this.menuData.id).then(res => {
+            this.menuShow = res.data
+
+          })
+        })
+      }
+    },
+    async getuseful_links() {
+      return await api.get('/partner-link')
+    },
+    async getsiteInfo () {
+      return await api.get('/siteinfo')
+        .then(res=> {
+          this.siteInfo = res.data.data
+        })
     }
 
-
-
+    
 
   },
- 
+
+  
+
 
 
 

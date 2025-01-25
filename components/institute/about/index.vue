@@ -1,7 +1,9 @@
 <script setup>
 import imgcarousel from '~/assets/imgs/kampus/carousel.png'
+import { useHomeStore } from '~/store/home';
 
-
+const store = useHomeStore()
+const route = useRoute()
 
 const data = [
     imgcarousel,
@@ -16,70 +18,67 @@ const data = [
     'https://picsum.photos/600/800?random=4',
 ]
 
+onMounted(() => {
+    const parentPage = `/${route.fullPath.split('/')[1]}`
+
+    store.menuFind(parentPage, route.fullPath)
+
+})
+
 
 </script>
 <template>
 
     <div class="2xl:w-[1076px] w-full">
-        <div class=" w-full bg-white  rounded-xl p-8 ">
-            <UiCarousel :data="data" />
+        <pre>
+        {{ store.menuShow?.dinamikMenus[0] }}
+        ---------------------------------
+        {{ store.menuShow?.dinamikMenus[1] }}
+
+       
+
+      </pre>
+
+        <div v-for="item in store.menuShow?.dinamikMenus" :key="item.id">
+            <div v-for="[key] in Object.entries(item.forms)" :key="key" class="2xl:w-[1076px]">
 
 
-            <div class="mt-8  pr-16">
-                <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
-                    Sizning
-                    muvaffaqiyat
-                    yo'lingiz!</h1>
-                <p class="text-[20px] ">
-                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
-                    marketing,
-                    boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
-                    psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-                    amaliyotga
-                    ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini
-                    rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga
-                    erishishlari uchun intellektual va dinamik muhit yaratamiz.
-                    Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-                    xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim, fan va innovatsiyalar
-                    vazirligi tomonidan berilgan 2024-yil 24-iyuldagi 327608-sonli litsenziyasi asosida
-                    talabalarga
-                    sifatli ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman jamiyatning jadal
-                    o'sib
-                    borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
-                    takomillashishda
-                    davom etmoqdamiz.
-                </p>
+                <div class=" w-full " v-for="data in item.forms[key] " :key="data.id">
+
+
+                    <div v-if="data.type == 'formmenu'"  class="bg-white  rounded-xl p-8  mt-10">
+                       
+                        <UiCarousel :data="data.photo" />
+                        <div class="mt-8   pr-16 containerText" v-html="data.text">
+
+                        </div>
+                    </div>
+
+                    <div v-if="data.type == 'formmenu1'">
+                        <HomeUsefulLinkCarusel :items="data.categories" :title="data.title"/>
+
+                    </div>
+                </div>
+
             </div>
 
 
 
-            <div class="mt-10  pr-16">
-                <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
-                    Sizning
-                    muvaffaqiyat
-                    yo'lingiz!</h1>
-                <p class="text-[20px] ">
-                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
-                    marketing,
-                    boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
-                    psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-                    amaliyotga
-                    ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini
-                    rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga
-                    erishishlari uchun intellektual va dinamik muhit yaratamiz.
-                    Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-                    xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim, fan va innovatsiyalar
-                    vazirligi tomonidan berilgan 2024-yil 24-iyuldagi 327608-sonli litsenziyasi asosida
-                    talabalarga
-                    sifatli ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman jamiyatning jadal
-                    o'sib
-                    borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
-                    takomillashishda
-                    davom etmoqdamiz.
-                </p>
-            </div>
+
         </div>
+
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.containerText ::v-deep(h2) {
+    font-size: 28px !important;
+    color: #06203D !important;
+    margin-bottom: 24px !important;
+
+}
+
+.containerText ::v-deep(p) {
+    font-size: 20px !important;
+}
+</style>

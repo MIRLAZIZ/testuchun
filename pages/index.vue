@@ -8,29 +8,22 @@ import herg from '~/assets/imgs/home/image 149.png'
 import econom from '~/assets/imgs/home/moliya.png'
 
 const store = useHomeStore()
+const links = ref(null)
 
 const items = ref([])
-// const items = [
-//   { id: 1, img: link1, link: 'wwwm.constitution.uz' },
-//   { id: 2, img: gov1, link: "www.gov.uz/oz/edu" },
-//   { id: 2, img: gov, link: "www.gov.uz" },
-//   { id: 2, img: creditExpress, link: "www.imv.uz" }
 
-
-// ]
-const items2 = [
-  { id: 1, img: herg, link: 'wwwm.constitution.uz' },
-  { id: 2, img: gov, link: "www.gov.uz/oz/edu" },
-  { id: 2, img: herg, link: "www.gov.uz/oz/edu" },
-  { id: 2, img: econom, link: "www.imv.uz" }
-]
 
 
 onMounted(() => {
   store.getPartners().then(res => {
-    items.value = res.data.data
-    
+    items.value = res.data.data    
   })
+
+  store.getuseful_links().then(res => {
+    links.value = res.data.data    
+  })
+
+
 })
 
 </script>
@@ -48,9 +41,9 @@ onMounted(() => {
       <HomeNews />
       <HomeIntsMedia />
       <HomeMarking />
-      <HomeUsefulLink :items="items" :title="'home\.partners_text'"/>
+      <HomeUsefulLink :items="items" :title="'home\.partners_text' "/>
       <HomeOurAdresses />
-      <HomeUsefulLink :items="items2" :title="'home\.usefulLinks'" />
+      <HomeUsefulLink :items="links" :title="'home\.usefulLinks'" />
 
 
   </div>

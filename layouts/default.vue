@@ -27,6 +27,7 @@ onMounted(() => {
     });
 
     store.getMenu()
+    store.getsiteInfo()
 })
 
 
