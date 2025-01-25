@@ -26,7 +26,7 @@ const store = useHomeStore()
 
 
         <!-- window img  -->
-        <div class=" flex justify-end boder "><img src="/assets/imgs/home/Group 1.png" alt=""
+        <div class=" flex justify-end boder box_img_hidden "><img src="/assets/imgs/home/Group 1.png" alt=""
                 class="w-[509px] h-[497px] ">
         </div>
 
@@ -58,5 +58,27 @@ const store = useHomeStore()
 
     color: #FFFFFF;
 
+}
+@media (max-width:1024px){
+    .caption {
+    font-family: 'Halvar Breitschrift';
+    font-size: 40px;
+    font-weight: 500;
+   width:500px;
+}
+}
+@media (max-width:800px){
+    .box_img_hidden{
+        display: none;
+    }
+}
+
+@media (max-width:600px){
+    .caption {
+    font-family: 'Halvar Breitschrift';
+    font-size: 26px;
+    font-weight: 500;
+   width:330px;
+}
 }
 </style>

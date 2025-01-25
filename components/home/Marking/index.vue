@@ -1,14 +1,14 @@
 <template>
     <div class="flex justify-center bg-[#06203D]">
-        <div class="mainContainer  h-[568px] ">
+        <div class="mainContainer  h-[568px] box_height">
 
-            <div class="px-[120px] w-full h-full">
-                <div class=" py-14 flex  h-full  ">
+            <div class="xl:px-[120px] lg:px-[30px] w-full h-full ">
+                <div class=" py-14 flex  h-full  box_ul_li">
                     <!-- buttons  -->
-                    <div class="w-2/4 h-full  flex flex-col justify-between">
+                    <div class="w-2/4 h-full  flex flex-col justify-between wrapper_full">
 
                         <div>
-                            <h2 class=" font-Halvar text-[28px] text-white  mb-6">{{
+                            <h2 class=" font-Halvar text-[28px] text-white  mb-6 ">{{
                                 store.dataTranslate['homeMarking.markings'] }}</h2>
                             <p class=" text-[#88929D]  text-xl">
                                 {{ store.dataTranslate['homeMarking.markings_text'] }}
@@ -17,7 +17,7 @@
 
 
                         <!-- Chap tomondagi tugmalar -->
-                        <div class=" flex flex-wrap gap-4" v-if="marks.length">
+                        <div class=" flex flex-wrap gap-4 ul_top " v-if="marks.length">
                             <button v-for="mark in marks" :key="mark.id"
                                 :class="[selectedMark === mark.id ? mark.color : '']"
                                 class="flex justify-center py-3 px-6  border border-[#354251] rounded-lg text-lg  text-white"
@@ -33,11 +33,11 @@
 
 
                     <!-- O'ng tomondagi kartalar -->
-                    <div class="relative  w-2/4  flex justify-end  " v-if="marks.length"
+                    <div class="relative  w-2/4  flex justify-end ul_right  " v-if="marks.length"
                         :style="{ paddingRight: (marks.length * 16) - 16 + 'px' }">
 
                         <div v-for="(mark, index) in marks" :key="mark.id"
-                            class="w-[329px]  h-[456px]  flex flex-col  justify-between"
+                            class="w-[329px]  h-[456px]  flex flex-col  justify-between box_content"
                             :class="`absolute p-6 rounded-lg shadow-lg ${mark.color} transition-all duration-500 ease-in-out`"
                             :style="{
                                 zIndex: selectedMark === mark.id ? 10 : (marks.length + 1 - mark.id),
@@ -139,6 +139,60 @@ function selectMark(id) {
 </script>
 
 <style scoped>
+@media (max-width:880px){
+    .box_ul_li{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .wrapper_full{
+        width:600px;
+    }
+    .box_height{
+        height:100%
+    }
+    .ul_right{
+        height: 30em;
+    }
+    .ul_top{
+        margin-top:32px;
+        margin-bottom:32px;
+    }
+}
+@media (max-width:600px){
+    .wrapper_full{
+        width:350px;
+    }
+    .wrapper_full h2{
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .wrapper_full p{
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .ul_right{
+        padding-left:15em;
+        padding-right: 4px !important;
+    }
+    .box_content{
+        padding:10px;
+        width:300px;
+    }
+    button{
+          font-weight: 400;
+        font-size: 14px;
+    }
+    .ul_right h3{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .ul_right p{
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
 .bg-dark-blue {
     background-color: #1e3a8a;
 }

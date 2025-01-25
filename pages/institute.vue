@@ -25,9 +25,10 @@ const items = [
                 <NuxtPage />
                 <UiSidebar />
             </div>
-            <div v-if="$route.fullPath == '/institute'">
+            <div v-if="$route.fullPath == '/institute'" class="w-full">
                 <HomeUsefulLink :items="items" />
                 <HomeOurAdresses />
+            
             </div>
         </div>
     </div>

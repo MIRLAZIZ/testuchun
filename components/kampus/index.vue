@@ -28,7 +28,7 @@ const data = [
             <div class="lg:w-[1076px] w-full bg-white p-8 mt-10  mb-[104px] rounded-xl">
 
                 <!-- kampus data  -->
-                <div>
+                <div class="the_kampus">
                     <h1 class="text-2xl font-medium">Toshkent menejment va iqtisodiyot universiteti</h1>
                     <p class="text-[20px] mt-2">
                         Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot, marketing,
@@ -46,7 +46,7 @@ const data = [
                 </div>
 
 
-                <div>
+                <div class="the_kampus">
                     <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti: Sizning
                         muvaffaqiyat
                         yo'lingiz!</h1>
@@ -107,7 +107,7 @@ const data = [
 
 
 
-                <div>
+                <div class="the_kampus">
                     <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti: Sizning
                         muvaffaqiyat
                         yo'lingiz!</h1>
@@ -140,7 +140,7 @@ const data = [
                 <img src="/assets/imgs/kampus/image.png" alt="" class="lg:w-[532px]  w-full  lg:h-[343px] object-cover rounded ">
 
                 <div class="lg:pl-6 lg:mt-0 mt-3 flex flex-col justify-between">
-                    <div>
+                    <div class="the_kampus" >
                         <h1 class="text-[24px] font-medium  "> Farg‘ona</h1>
                         <p class="mt-2  text-xl">Bugungi kunga qadar institut O‘zbekiston va xorijdagi xalqaro
                             universitetlar va
@@ -172,4 +172,19 @@ const data = [
 
 
 
-<style scoped></style>
+<style scoped>
+@media (max-width:600px){
+    .the_kampus h1{
+        font-weight: 500;
+        font-size:16px;
+    }
+    .the_kampus p{
+        font-weight: 400;
+        font-size:14px;
+    }
+    span{
+        font-size: 24px;
+        font-weight: 400;
+    }
+}
+</style>

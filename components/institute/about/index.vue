@@ -1,7 +1,11 @@
 <script setup>
 import imgcarousel from '~/assets/imgs/kampus/carousel.png'
 
-
+const datas = [
+    { id: 1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!' },
+    { id: 2, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!' },
+    
+]
 
 const data = [
     imgcarousel,
@@ -19,67 +23,33 @@ const data = [
 
 </script>
 <template>
+    <div class="">
 
-    <div class="2xl:w-[1076px] w-full">
-        <div class=" w-full bg-white  rounded-xl p-8 ">
+    <!-- <div class="sm:flex sm:flex-col sm:items-center sm:justify-center"> -->
+
+    <!-- <div class="2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper ">
+        <div class=" w-full bg-white  rounded-xl sm:p-8 box_wrapper_padding ">
             <UiCarousel :data="data" />
-
-
-            <div class="mt-8  pr-16">
-                <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
-                    Sizning
-                    muvaffaqiyat
-                    yo'lingiz!</h1>
-                <p class="text-[20px] ">
-                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
-                    marketing,
-                    boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
-                    psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-                    amaliyotga
-                    ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini
-                    rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga
-                    erishishlari uchun intellektual va dinamik muhit yaratamiz.
-                    Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-                    xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim, fan va innovatsiyalar
-                    vazirligi tomonidan berilgan 2024-yil 24-iyuldagi 327608-sonli litsenziyasi asosida
-                    talabalarga
-                    sifatli ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman jamiyatning jadal
-                    o'sib
-                    borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
-                    takomillashishda
-                    davom etmoqdamiz.
-                </p>
-            </div>
-
-
-
-            <div class="mt-10  pr-16">
-                <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
-                    Sizning
-                    muvaffaqiyat
-                    yo'lingiz!</h1>
-                <p class="text-[20px] ">
-                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
-                    marketing,
-                    boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
-                    psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-                    amaliyotga
-                    ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini
-                    rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga
-                    erishishlari uchun intellektual va dinamik muhit yaratamiz.
-                    Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-                    xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim, fan va innovatsiyalar
-                    vazirligi tomonidan berilgan 2024-yil 24-iyuldagi 327608-sonli litsenziyasi asosida
-                    talabalarga
-                    sifatli ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman jamiyatning jadal
-                    o'sib
-                    borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
-                    takomillashishda
-                    davom etmoqdamiz.
-                </p>
-            </div>
+            <UiDescriptions :data="datas" />
+        </div>
+    </div> -->
+    <div class="w-full ">
+        <div class=" w-full bg-white  rounded-xl sm:p-8 box_wrapper_padding ">
+            <UiCarousel :data="data" />
+            <UiDescriptions :data="datas" />
         </div>
     </div>
+    </div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+@media (max-width:640px){
+    .box_wrapper{
+        width:350px;
+    }
+    .box_wrapper_padding{
+        padding:10px
+    }
+}
+</style>

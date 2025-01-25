@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
 
   //main css
-  css: ['~/assets/css/main.css', '~/assets/css/font.css',"swiper/swiper-bundle.css"],
+  css: ['~/assets/css/main.css', '~/assets/css/font.css'],
 
   // tailwind install  
 

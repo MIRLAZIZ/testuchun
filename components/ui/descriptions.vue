@@ -1,30 +1,25 @@
 <template>
-<div>
-        <div v-for="item  in props.data" :key="item.id">
-            <div class="mt-8  pr-16"  >
-                <h1 class="text-[28px] text-[#06203D] font-medium  mb-6">{{item.name}}</h1>
-                <p class="text-[20px] ">
-                    <!-- Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot,
-                    marketing,
-                    boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va
-                    psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-                    amaliyotga
-                    ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini
-                    rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga
-                    erishishlari uchun intellektual va dinamik muhit yaratamiz.
-                    Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-                    xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim, fan va innovatsiyalar
-                    vazirligi tomonidan berilgan 2024-yil 24-iyuldagi 327608-sonli litsenziyasi asosida
-                    talabalarga
-                    sifatli ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman jamiyatning jadal
-                    o'sib
-                    borayotgan ehtiyojlarini qondirish uchun zamon bilan hamnafas rivojlanishda va
-                    takomillashishda
-                    davom etmoqdamiz. -->
+<div class=" sm:flex sm:flex-col sm:items-center sm:justify-center  div_wrapper_flex">
+
+        <div v-for="item  in props.data" :key="item.id" class="2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper">
+            <div class="mt-8  pr-16 div_wrapper_flex"  >
+                <h1 class="text-[28px] box_text text-[#06203D] font-medium  mb-6">{{item.name}}</h1>
+                <p class="box_title text-[20px] ">
                     {{item.description}}
                 </p>
             </div>
         </div>
+        <div v-for="item  in props.data" :key="item.id" >
+            <div v-if="item.button"  class="2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper">
+                <button
+                    class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white  mt-8">
+                       Yuklab olish
+                        <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
+                </button>
+            </div>
+        </div>
+    
+          
 
          
 
@@ -45,9 +40,28 @@ const props = defineProps({
       default: () => []
     }
 })
-// console.log('datas',props.data)
 </script>
 
 <style lang="scss" scoped>
+@media (max-width:640px){
+   .box_wrapper{
+        width:350px;
+    }
 
+.box_text{
+    font-size:16px;
+    font-weight: 500;
+}
+.box_title{
+    font-weight: 400px;
+    font-size:14px
+}
+  .div_wrapper_flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
+    }
+}
 </style>

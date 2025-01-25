@@ -30,17 +30,17 @@ const items2 = [
 <template>
   <div class="">
     <HomeBanner />
-      <HomeSciences />
+       <HomeSciences />
       <HomeAbautInstut />
       <HomeFacts />
-      <HomeStudents />
-      <HomeOurProgram />
-      <HomeQuestions />
+       <!-- <HomeStudents /> -->
+     <HomeOurProgram />
+       <HomeQuestions />
       <HomeNews />
-      <HomeIntsMedia />
+     <HomeIntsMedia />
       <HomeMarking />
-      <HomeUsefulLink :items="items" />
-      <HomeOurAdresses />
+       <HomeUsefulLink :items="items" />
+     <HomeOurAdresses />
       <HomeUsefulLink :items="items2" />
 
 

@@ -22,7 +22,7 @@ const items = [
         <div class="mainContainer">
 
 
-            <div class="grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  h-[630px] p-8">
+            <div class="box_wrapper grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-8">
                 <!-- Chap bo'lim -->
                 <div class="flex flex-col justify-between">
                     <div>
@@ -42,7 +42,7 @@ const items = [
                     </button>
 
 
-                    <div class="mt-6 grid grid-cols-2 gap-4   w-[556px]">
+                    <div class="mt-6 grid grid-cols-2 gap-4   xl:w-[556px] lg:w-[450px] box_ul">
 
                         <button v-for="item in items" :key="item.id"
                             class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
@@ -56,12 +56,12 @@ const items = [
                 </div>
 
                 <!-- O'ng bo'lim -->
-                <div class="flex flex-col items-center  relative h-full">
+                <div class="flex flex-col items-center  relative xl:h-full ">
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
 
                     <div
-                        class="absolute bg-white w-[80px] h-[80px]  flex justify-center items-center rounded-full right-6 bottom-6 ">
+                        class="absolute bg-white w-[80px] h-[80px]  flex justify-center items-center rounded-full xl:right-6 bottom-6 sm:right-15 ">
                         <img src="/assets/imgs/home/playVideo.png" alt="">
                     </div>
 
@@ -71,6 +71,38 @@ const items = [
     </div>
 </template>
 <style>
+
+@media (max-width:600px){   
+    .abautTitle{
+        font-weight: 500 !important;
+        font-size: 16px !important;
+    }
+    .abautBody{
+        font-weight: 400 !important;
+        font-size: 14px !important;
+    }
+    .mainContainer{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+
+    }
+    .box_ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .buttons{
+        max-width:100% !important;
+    }
+}
+
+@media (max-width:1024px){
+.box_wrapper{
+    display:flex;
+    flex-direction: column-reverse;
+}
+}
+
 .abautTitle {
     font-family: 'Halvar Breitschrift';
     font-size: 28px;

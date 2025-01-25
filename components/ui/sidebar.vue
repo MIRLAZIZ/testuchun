@@ -1,12 +1,9 @@
 <template>
     <div>
         <div class= " main_box">
-
             <div class="lg:w-[348px] bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
-
                 <div class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4  main_box_hidden ">
                     <h2 class="text-lg ">{{ getMenuLink.name }}</h2>
-
                     <div class="flex items-end h-full">
                         <img src="/assets/imgs/talim/Group 3.png" alt="" class="w-[33px] h-[32px]">
                     </div>
@@ -31,7 +28,7 @@
   <!-- Karusel elementlari -->
   <div class="karusel-content flex lg:flex-col sm:flex-row gap-4">
     <!-- Slayd 1 -->
-    <div class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 p-4 text-white img_width">
+    <div class="rounded-xl caronaVirus rektor lg:w-full md:w-[348px] sm:w-[348px] bg-blue-500 p-4 text-white img_width">
       <div class="flex flex-col justify-between h-full w-full">
         <div class="pr-[58px] flex justify-end">
           <img src="/assets/imgs/talim/coronavirus.png" alt="coronavirus img" class="w-[126px] h-[99px]">
@@ -101,7 +98,7 @@ function selectProgram(programId) {
 <style scoped>
 @media(max-width:640px){
     .rektor{
-        width:348px
+        width:330px !important;
     }
 }
 @media (max-width: 730px){
@@ -114,10 +111,9 @@ function selectProgram(programId) {
 }
 @media (max-width: 1024px) {
   .karusel-container {
-    overflow-x: auto;
+    overflow: auto;
     display: block; 
     width:730px;
-    overflow: auto;
     background-color: white;
     border-radius:12px;
     margin-bottom:1em;
@@ -130,27 +126,28 @@ function selectProgram(programId) {
   .karusel-content {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap; /* Elementlarni bir qatorda joylash */
-    gap: 1rem; /* Elementlar orasidagi masofa */
+    flex-wrap: nowrap; 
+    gap: 1rem;
+    flex-direction: row !important;
   }
 
   .karusel-content > div {
-    flex: 0 0 auto; /* Elementlar o'z o'lchamida qoladi */
-    min-width: 300px; /* Minimal kenglikni belgilash */
+    flex: 0 0 auto; 
+    min-width: 300px; 
   }
   .flat{
     display: grid;
-     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     gap:1em
   }
-    .main_box{
-        display:flex ;
-        justify-content:center;
-        flex-direction: column;
-        width:full; align-items:center; 
-    }
+  .main_box{
+    display:flex ;
+    justify-content:center;
+    flex-direction: column;
+    width:100%; 
+    align-items:center; 
+  }
 }
 
   .sm\:overflow-x-auto::-webkit-scrollbar {

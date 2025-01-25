@@ -37,23 +37,22 @@ const generet = [
 </script>
 <template>
     <div>
-        <div  class="relative w-full  "   >
+        <!-- <div  class="relative w-full  "   >
             <img  class="2xl:w-[100%] xl:w-[100%]" src="/assets/imgs/talim/tabiat.svg" alt="">
 
             <div class="text-center">
                  <p   class="font-medium  text-white absolute top-[25%] right-[30%] text-[64px] w-[630px]">IQTISODIYOT FAKULTETI</p>
-
             </div>
             <div class="text-center">
                 <p  class="absolute top-[65%] right-[38%] text-white font-normal text-lg"  >Asosiy / Bakalavr / 84309400943 -  Iqtisodiyot</p>
             </div>
-            <div class="flex justify-center absolute top-[80%] right-[10%] " >
-                     <EducationTypeedu :data="datatype" />
-            </div>
            
-        </div>
+           
+        </div> -->
 
-
+            <!-- <div class="flex justify-center absolute top-[80%] right-[10%] " >
+                     <EducationTypeedu :data="datatype" />
+            </div> -->
           <div class="mt-[187px] mb-[104px] flex items-center justify-center flex-col">
                 <div class="2xl:w-[1440px] flex items-center justify-center xl:[1000px]">
                     <div class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl">

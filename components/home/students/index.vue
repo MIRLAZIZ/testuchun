@@ -40,27 +40,19 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center">
-
-
-
+  <div class="flex justify-center items-center">
     <div class="mainContainer mt-[101px]">
       <UCarousel ref="carousel" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
-        class="rounded-lg overflow-hidden">
-
-        <div class="container py-10 p-[96px] flex justify-between w-full relative">
-
-
+        class="rounded-lg overflow-hidden flex items-center height-full">
+        <div class="container xl:py-10 p-[96px] flex justify-between 2xl:w-full xl:w-full lg:w-full relative">
           <!-- student  -->
-          <div class="w-[793px]  ">
+          <div class="w-[793px] ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
               <h1 class="font-normal text-white ml-2">{{ store.dataTranslate['home.acquaintance'] }} </h1>
             </div>
 
-
-            <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
-
+             <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
             <div class="flex flex-col h-[293px]  justify-between ">
 
               <div>
@@ -75,20 +67,13 @@ const goToNext = () => {
                 {{ store.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
               </button>
-
-
-
-
             </div>
           </div>
-
-
 
           <div class="studentsImg">
             <img :src="item.img" alt="" class="studentsImg">
 
-
-            <!-- carousel button  -->
+           <!-- carousel button  -->
           </div>
           <!-- arrow right  -->
           <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
@@ -98,17 +83,9 @@ const goToNext = () => {
           <!-- arrow left  -->
           <div class="absolute left-9 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F]" @click="goToPrev" />
-
           </div>
-
-
-
-
         </div>
-
       </UCarousel>
-
-
     </div>
   </div>
 
@@ -116,6 +93,14 @@ const goToNext = () => {
 
 
 <style scoped>
+@media (max-width:1024px){
+    .container{
+      /* display:flex;
+      flex-direction: column-reverse;
+      height:100%; */
+
+    }
+}
 .container {
   /* width: 1440px; */
   height: 532px;

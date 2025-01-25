@@ -136,7 +136,7 @@
 <template>
     <div class="flex justify-center">
 
-        <div class="h-[866px] mainContainer  my-[104px]  ">
+        <div class="h-full mainContainer  my-[104px]  ">
 
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
@@ -157,7 +157,7 @@
             </div>
 
 
-            <div class="flex">
+            <div class="flex wrapper_flex">
                 <!-- program items  -->
 
                 <div class="programItems">
@@ -165,7 +165,7 @@
                         :class="{ 'bg-white rounded-l-xl': item.id === progamItemId }" v-for="item in items"
                         :key="item.id" @click="selectItem(item)">
                         <img :src="item.img" alt="">
-                        <p class="ml-4">{{ item.name }}</p>
+                        <p class="ml-4 wrapper_title">{{ item.name }}</p>
 
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                     <h2 class="programmaTitle">IQTISODIYOT</h2>
                     <hr>
 
-                    <div class="grid grid-cols-2 gap-y-10">
+                    <div class="grid grid-cols-2 gap-y-10 flex_grid">
 
                         <!-- davomiyligi  -->
                         <div>
@@ -282,6 +282,51 @@
 
 
 <style scoped>
+@media (max-width:600px){
+    .programmaTitle {
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        line-height: 33.6px;
+    }
+    .programArgument{
+        font-size:18px !important;
+        font-weight: 400 !important;
+    }
+    .programDescription{
+        font-size:14px;
+        font-weight: 400;
+    }
+    .flex_grid{
+        display:flex;
+        flex-direction: column;
+    }
+}
+@media (max-width:1024px){
+    .wrapper_flex{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .programItems{
+        width:100% !important;
+        height: 100px !important;
+        display:flex;
+        gap:2em;
+        overflow: auto;
+        margin-bottom: 2em;
+    }
+    .programItem{
+        width:300px;
+    }
+    .wrapper_title{
+        width:250px;
+    }
+    .programmaData{
+        width:100% !important;
+        height: 100% !important;
+    }
+}
+
 .activeClass {
     color: #06203D !important;
     font-size: 28px !important;
@@ -310,7 +355,7 @@
 .programmaData {
     width: 821px;
     height: 730px;
-    ;
+    
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     padding: 32px;

@@ -1,6 +1,6 @@
 <template>
-    <div class="w-[1076px]" >
-        <div class="w-full bg-white  rounded-xl p-8">
+    <div class="w-full" >
+        <div class="w-full bg-white  rounded-xl lg:p-8">
             <UiCarousel :data="data" />
             <UiDescriptions :data="datas" />
         </div>

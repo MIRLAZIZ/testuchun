@@ -5,6 +5,7 @@ const store = useHomeStore()
 onMounted(() => {
     store.getTranslate()
 })
+
 </script>
 <template>
 

@@ -58,7 +58,7 @@ const toggleItem = (index) => {
     <div>
         <div class="mb-10 main_branch">
             <p class="text-[28px] font-medium mt-36 mb-10 text-[#06203D] text-center">KO'P BERILADIGAN SAVOLLAR</p>
-            <div class="bg-white w-[1052px] rounded-xl mb-4  min-h-[76px] flex justify-between items-center border-[1px] border-[#E6EDFA] xl:w-[900px] lg:w-[770px] md:w-[600px] sm:w-[600px] wrapper_li" v-for="(item, index) in items" :key="index">
+            <div class="bg-white w-[1052px] rounded-xl mb-4  min-h-[76px] flex justify-between items-center border-[1px] border-[#E6EDFA]  lg:w-[666px] md:w-[600px] sm:w-[600px] wrapper_li" v-for="(item, index) in items" :key="index">
                 <div class="p-4 w-[100%]">
                     <div class="flex flex-col  gap-3">
                         <div class=" pl-2 flex items-center   justify-between cursor-pointer " @click="toggleItem(index)">
@@ -89,6 +89,11 @@ const toggleItem = (index) => {
 
 }
 @media (max-width:640px){
+  .wrapper_li{
+    width:440px;
+  }
+}
+@media (max-width:450px){
   .wrapper_li{
     width:350px;
   }

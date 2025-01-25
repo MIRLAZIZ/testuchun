@@ -20,10 +20,10 @@ watch(question, (newValue) => {
 
 </script>
 <template>
-    <div class="h-[496px] bg-[#06203D] w-full flex justify-center py-12">
-        <div class=" mainContainer flex ">
+    <div class="lg:h-[496px] bg-[#06203D] w-full flex justify-center height_full py-12">
+        <div class=" mainContainer flex box_wrapper_top">
 
-            <div class="w-[712px] h-full flex flex-col justify-between  mr-[137px]">
+            <div class="w-full h-full flex flex-col justify-between  mr-[37px] ">
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
@@ -44,7 +44,7 @@ watch(question, (newValue) => {
 
             </div>
 
-            <div class="w-[591px] flex flex-col justify-between  ">
+            <div class="w-[591px] flex flex-col justify-between box_ul ">
 
                 <input type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
 
@@ -87,6 +87,39 @@ watch(question, (newValue) => {
 
 
 <style scoped>
+@media (max-width:640px){
+       .box_ul{
+        width:350px;
+        
+    }
+    .questionTextarea{
+        width:350px !important;
+    }
+    .questionsTitle{
+        font-weight: 500 !important;
+        font-size: 20px !important;
+    }
+    .questonsData{
+        font-weight: 400 !important;
+        font-size: 14px !important;
+    }
+}
+@media (max-width:1024px){
+    .box_wrapper_top{
+        display:flex;
+        flex-direction:column;
+        gap:2em;
+
+    }
+    .height_full{
+        height: 100%;
+    }
+    .box_ul{
+        display:flex;
+        gap:2em;
+        
+    }
+}
 .questionsTitle {
     font-family: 'Halvar Breitschrift';
     font-size: 28px;

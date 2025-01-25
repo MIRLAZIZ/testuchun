@@ -42,4 +42,10 @@ const navigationItems = [
         width:100%;
     }
 }
+/* @media(max-width:600px){
+    .box_wrapper_li li{
+        font-weight: 400;
+        font-size: 12px;
+    }
+} */
 </style>

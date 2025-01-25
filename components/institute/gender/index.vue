@@ -2,12 +2,13 @@
 
 </script>
 <template>
-    <div class="w-[1076px]  bg-white rounded-xl  p-8">
+  <div class="flex items-center justify-center">
+    <div class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl  xl:p-8 lg:p-2 the_box_gender ">
 
-        <div class="flex justify-between ">
+        <div class="flex justify-between the_box_gender">
 
 
-            <div class="w-[688px] mt-9">
+            <div class="w-[688px] mt-9 the_box_title">
                 <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">BIZDA JINSLAR ARO AJOYIB ERKINLIKLAR VA
                     SHAROITLAR BOR.</h1>
                 <p class="text-[20px] text-[#06203D]  font-normal mt-6">
@@ -23,7 +24,7 @@
                 </p>
             </div>
 
-            <div class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1]">
+            <div class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper">
                 <div class="flex flex-col justify-between h-full  ">
                     <div class="flex justify-between items-center">
                         <h1>o'qub yili</h1>
@@ -54,9 +55,9 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-end">
+                    <div class="flex justify-between items-end ">
                         <p>Jami soni</p>
-                        <p class="text-[#06203D] text-[32px] h-11">26000</p>
+                        <p class="text-[#06203D] text-[32px] h-11 the_title">26000</p>
                     </div>
 
                 </div>
@@ -66,11 +67,55 @@
 
 
     </div>
+  </div>    
 </template>
 
 
 
 <style scoped>
+
+@media(max-width:1024px){
+    .the_box_gender{
+        padding:10px;
+        width:750px;
+    }
+}
+@media(max-width:768px){
+    .the_box_gender{
+        padding:10px;
+        width:570px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:20px;
+
+    }
+    .the_box_title{
+        width:500px
+    }
+}
+@media(max-width:600px){
+    .the_box_title{
+        width:335px
+    }
+    .the_box_title h1{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .the_box_title p{
+        font-weight: 400;
+        font-size: 14px;
+    }
+     .the_box_gender{
+        padding:15px;
+        width:360px;
+    }
+    .the_title{
+        font-weight: 400;
+        font-size: 32px;
+    }
+}
+
 .dot1 {
     background: linear-gradient(90deg, #EC4899 0%, #A855F7 52.6%, #3B82F6 100%);
 

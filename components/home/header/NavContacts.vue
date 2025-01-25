@@ -70,41 +70,7 @@ onUnmounted(() => {
     </div>
 
 
-  <!-- <nav class="lg:hidden sm:flex items-center justify-between p-4 shadow-md">
-    <div class="flex items-center space-x-2">
-      <img src="" alt="Logo" class="w-10 h-10" />
-    </div>
-
-    <div class="hidden lg:flex items-center space-x-4">
-      <button class="w-12 h-12 bg-red-500 text-white rounded-lg flex justify-center items-center">
-        <i class="fas fa-sign-out-alt"></i>
-      </button>
-      <button class="w-12 h-12 bg-gray-100 rounded-lg flex justify-center items-center">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-
-    <button
-      class="lg:hidden w-10 h-10 bg-gray-100 rounded-lg flex justify-center items-center"
-      @click="toggleMenu()"
-    >
-      <i class="fas fa-bars">s</i>
-    </button>
-  </nav>
-
-
-  <div
-    v-if="isMenuOpen"
-    class="fixed inset-0 bg-black bg-opacity-50 flex justify-center "
-    @click.self="toggleMenu"
-  >
-    <div class="w-[100%] bg-white h-full  p-4 ">
-      <ul class="space-y-4">
-        <li><button class="text-red-500">Log Out</button></li>
-        <li><button>Menu</button></li>
-      </ul>
-    </div>
-  </div> -->
+ 
 
 </div>
     
@@ -112,12 +78,6 @@ onUnmounted(() => {
 
 
 <style scoped>
-/* .modal-enter-active, .modal-leave-active {
-  transition: opacity 0.3s;
-}
-.modal-enter, .modal-leave-to {
-  opacity: 0;
-} */
 .contactImgs>img {
     width: 28px;
     height: 28px;
