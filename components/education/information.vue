@@ -1,15 +1,12 @@
 <script setup>
-const sum = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
 const router = useRoute()
-function goToSinglePage() {
-  router.push('/education_single_page');
-}
+
 
 const props = defineProps({
     data:{
-        type: Array,
+        type: Object,
         required: true,
-        default: () => [],
+        default: () => {},
     }
 })
 

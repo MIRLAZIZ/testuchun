@@ -2,15 +2,18 @@
   <div class=" flex justify-center">
     <div class="sm:grid sm:grid-cols-3 sm:gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%] box_wrapper_li">
 
-
-      <!-- First Column -->
+      <!-- fristColumn -->
       <div class="sm:border-r">
         <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
           <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="(item, index) in firstColumn" :key="index" class="flex ">
+          <li v-for="item in firstColumn" :key="item.id" class="flex ">
 
-            <span class="text-gray-800">{{ store.dataTranslate[item] }}</span>
-            <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
+            <a :href="store.dataTranslate[item.link]" target="_blank">
+              <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
+              <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
+            </a>
+
+
           </li>
         </ul>
       </div>
@@ -21,8 +24,9 @@
       <div class="sm:border-r">
         <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
           <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="(item, index) in secondColumn" :key="index" class="flex">
-            <span class="text-gray-800">{{ store.dataTranslate[item] }}</span>
+          <li v-for="item in secondColumn" :key="item.id" class="flex cursor-pointer"
+            @click="$router.push(item.link)">
+            <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
             <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
           </li>
         </ul>
@@ -34,8 +38,9 @@
       <div class="">
         <ul class="flex flex-col justify-between h-full p-[55px] wrapper_ul ">
           <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="(item, index) in thirdColumn" :key="index" class="flex">
-            <span class="text-gray-800">{{ store.dataTranslate[item] }}</span>
+          <li v-for="item in thirdColumn" :key="item.id" class="flex cursor-pointer"
+            @click="$router.push(item.link)">
+            <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
             <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
           </li>
         </ul>
@@ -47,10 +52,30 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
 const store = useHomeStore();
-// Ro'yxatlar uchun ma'lumotlar
-const firstColumn = ['home.chemistry', 'home.career_center', 'home.vacancies'];
-const secondColumn = ['home.schedule', 'home.british_council', 'home.tender'];
-const thirdColumn = ['home.maps', 'home.events_calendar', 'home.contacts'];
+// const firstColumn = ['home.chemistry', 'home.schedule', 'home.maps', ];
+// const secondColumn = [ 'home.career_center', 'home.british_council', 'home.events_calendar', ];
+// const thirdColumn = ['home.vacancies', 'home.tender', 'home.contacts'];
+
+const firstColumn = [
+  { id: 1, name: 'home.chemistry', link: 'header.hemis_link' },
+  { id: 2, name: 'home.schedule', link: 'header.table_link' },
+  { id: 3, name: 'home.maps', link: 'header.map_link' }
+];
+
+const secondColumn = [
+  { id: 4, name: 'home.career_center', link: '/career_center' },
+  { id: 5, name: 'home.british_council', link: '/british_council' },
+  { id: 6, name: 'home.events_calendar', link: '/events_calendar' }
+];
+
+const thirdColumn = [
+  { id: 7, name: 'home.vacancies', link: '' },
+  { id: 8, name: 'home.tender', link: '' },
+  { id: 9, name: 'home.contacts', link: '' }
+];
+
+
+
 </script>
 
 <style scoped>

@@ -19,6 +19,7 @@ const store = useHomeStore()
 
             <button
                 class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
+                
                 {{ store.dataTranslate['home.submit_application'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
             </button>

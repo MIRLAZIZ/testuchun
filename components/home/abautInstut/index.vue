@@ -8,11 +8,12 @@ import { useHomeStore } from '~/store/home'
 const store = useHomeStore()
 
 const items = [
-    { id: 1, name: 'home.campus', img: kampus, link: 'kampus' },
-    { id: 2, name: 'home.auditorium', img: auditoriya, link: 'kampus' },
-    { id: 3, name: 'home.lkecture_hall', img: active, link: 'kampus' },
-    { id: 4, name: 'home.library', img: book, link: 'kampus' },
+    { id: 1, name: 'home.campus', img: kampus, link: '/kampus' },
+    { id: 2, name: 'home.auditorium', img: auditoriya, link: '/page/auditorium' },
+    { id: 3, name: 'home.lkecture_hall', img: active, link: '/page/activisthall' },
+    { id: 4, name: 'home.library', img: book, link: '/students/library' },
 ]
+
 
 </script>
 

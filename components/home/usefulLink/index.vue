@@ -1,19 +1,27 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center" >
         <div class="mainContainer h-[249px] my-[104px] ">
 
-            <h1 class="font-Halvar font-medium text-black text-[28px]">{{ store.dataTranslate['home.usefulLinks'] }}</h1>
+            <h1 class="font-Halvar font-medium text-black text-[28px]">{{ store.dataTranslate[props.title] }}</h1>
 
             <div class="relative mt-8">
                 <UCarousel v-slot="{ item }" :items="props.items" class="" ref="carousel">
 
-                    <div class="w-[343px]  h-[183px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
-                        <img :src="item.img" width="200" height="300" class="w-[284px] h-[89px]">
-                        <hr>
+                    <a :href="item?.link" target="_blank">
+                        <div
+                            class="w-[343px]  h-[183px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
+                            <img :src="item?.photo[store.currentImage]" width="200" height="300"
+                                class="w-[284px] h-[89px]" v-if="item?.photo">
+                            <hr>
 
-                        <p class="text-center">{{ item.link }}</p>
+                            <p class="text-center">{{ item.title }}</p>
 
-                    </div>
+                        </div>
+
+
+                    </a>
+
+
                 </UCarousel>
 
 
@@ -36,7 +44,7 @@
 </template>
 
 <script setup>
-import  { useHomeStore } from '~~/store/home';
+import { useHomeStore } from '~~/store/home';
 
 const store = useHomeStore()
 const props = defineProps({
@@ -44,6 +52,10 @@ const props = defineProps({
         type: Array,
         require: true,
         default: []
+    },
+    title: {
+        type: String,
+        require: true
     }
 })
 

@@ -70,8 +70,8 @@
 
 
 
-        </div>
     </div>
+  </div>
 </template>
 <script setup>
 import { useHomeStore } from "~/store/home";
@@ -80,18 +80,12 @@ const route = useRoute();
 const routePath = route.matched[0].path;
 const store = useHomeStore();
 const getMenuLink = computed(() => {
-    let menu = store.menus.find(menu => menu.link === routePath);
-    return menu ? menu : {};
+  let menu = store.menus.find(menu => menu.path === routePath);
+
+  return menu ? menu : {};
 })
 
-const programs = ref([
-    { id: 1, name: 'Bakalavr' },
-    { id: 2, name: 'Magistratura' },
-]);
-const selected = ref(null);
-function selectProgram(programId) {
-    selected.value = programId;
-}
+
 
 
 </script>
@@ -101,26 +95,30 @@ function selectProgram(programId) {
         width:330px !important;
     }
 }
-@media (max-width: 730px){
-      .karusel-container {
-            width:350px !important;     
-     }
-     .img_width{
-        width:320px;
-     }
+
+@media (max-width: 730px) {
+  .karusel-container {
+    width: 350px !important;
+  }
+
+  .img_width {
+    width: 320px;
+  }
 }
+
 @media (max-width: 1024px) {
   .karusel-container {
     overflow: auto;
     display: block; 
     width:730px;
     background-color: white;
-    border-radius:12px;
-    margin-bottom:1em;
+    border-radius: 12px;
+    margin-bottom: 1em;
 
   }
-  .active_link{
-    width:250px;
+
+  .active_link {
+    width: 250px;
   }
 
   .karusel-content {
@@ -135,11 +133,12 @@ function selectProgram(programId) {
     flex: 0 0 auto; 
     min-width: 300px; 
   }
-  .flat{
+
+  .flat {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
-    gap:1em
+    gap: 1em
   }
   .main_box{
     display:flex ;
@@ -150,40 +149,45 @@ function selectProgram(programId) {
   }
 }
 
-  .sm\:overflow-x-auto::-webkit-scrollbar {
-    display: none;
-  }
-  .sm\:overflow-x-auto {
-    -ms-overflow-style: none; /* IE10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-
-
-
-.wrapper{
-    background-color:#06203D;
+.sm\:overflow-x-auto::-webkit-scrollbar {
+  display: none;
 }
-.box{
-        background-color:#0156BA;
-        width:332px;
-        height:184px;
-        border-radius:12px; 
+
+.sm\:overflow-x-auto {
+  -ms-overflow-style: none;
+  /* IE10+ */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
+
+
+.wrapper {
+  background-color: #06203D;
+}
+
+.box {
+  background-color: #0156BA;
+  width: 332px;
+  height: 184px;
+  border-radius: 12px;
+}
+
 .hidden {
-    display: none;
+  display: none;
 
 }
 
 .caronaVirus {
-    background: linear-gradient(210.04deg, #0156BA 0%, #011454 100.11%);
-    height: 184px;
-    padding: 0 24px 24px 24px;
+  background: linear-gradient(210.04deg, #0156BA 0%, #011454 100.11%);
+  height: 184px;
+  padding: 0 24px 24px 24px;
 }
 
 
 .rektorContaner {
-    height: 184px;
-    background: linear-gradient(89.04deg, #0156BA 24.82%, #012BB7 156.07%);
+  height: 184px;
+  background: linear-gradient(89.04deg, #0156BA 24.82%, #012BB7 156.07%);
 
 }
 </style>

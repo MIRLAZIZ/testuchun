@@ -1,15 +1,9 @@
 <script setup>
 
 import imgcarousel from '~/assets/imgs/kampus/carousel.png'
+import { useHomeStore } from '~/store/home'
 
-// const props = defineProps({
-//     items: {
-//         type: Array,
-//         require: true,
-//         default: () => []
-//     }
-// })
-
+const store = useHomeStore()
 const props = defineProps({   
     data: {
         type: Array,
@@ -60,12 +54,12 @@ const goToNext = () => {
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item" class="w-full h-[566px] object-cover " draggable="false">
+                <img :src="item[store.currentImage]" class="w-full h-[566px] object-cover " draggable="false">
             </template>
 
             <template #indicator="{ onClick, page, active }">
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
-                    :class="[{ 'ml-[700px]': page === 1 }, { 'border-2 border-[#06203D]': active }]">
+                    :class="[{ 'border-2 border-[#06203D]': active }]">
                     <img :src="items[page - 1]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
 
                 </div>

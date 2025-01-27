@@ -5,6 +5,10 @@ import img3 from '/assets/imgs/kampus/image3.png'
 import img4 from '/assets/imgs/kampus/image4.png'
 import img5 from '/assets/imgs/kampus/image5.png'
 import img6 from '/assets/imgs/kampus/image6.png'
+import { useHomeStore } from '~/store/home'
+
+const route = useRoute()
+const store = useHomeStore()
 
 const data = [{
     id: 1,
@@ -44,11 +48,18 @@ const data = [{
 }
 ]
 
+onMounted(() => {
+    const parentPage = `/${route.fullPath.split('/')[1]}`
+    store.menuFind(parentPage, route.fullPath)
+})
+
 </script>
 <template>
     <div class="main_branch">
-        
-            <div class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D]   p-8 rounded-xl border-[#E6EDFA]-1  xl:w-[850px]  lg:w-[650px] md:w-[750px] sm:w-[620px] main_box">
+        {{ store.menuShow }}
+
+        <div
+            class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D]   p-8 rounded-xl border-[#E6EDFA]-1  xl:w-[850px]  lg:w-[650px] md:w-[750px] sm:w-[620px] main_box">
             <img src="/assets/imgs/kampus/menagement.png" alt="" class="h-[433px] w-[288px] rounded-xl img1">
 
 
@@ -67,38 +78,42 @@ const data = [{
             </div>
         </div>
 
-        <LibraryStudents  :data="data" />
+        <LibraryStudents :data="data" />
 
 
     </div>
 </template>
 <style lang="css" scoped>
-    @media (max-width:1024px){
-    .box_wrapper{
+@media (max-width:1024px) {
+    .box_wrapper {
         display: flex;
         flex-direction: column;
         height: auto;
 
     }
-     .main_branch{
+
+    .main_branch {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
     }
 }
-@media (max-width:640px){
-    .main_box{
-        display:flex;
+
+@media (max-width:640px) {
+    .main_box {
+        display: flex;
         flex-direction: column;
-        width:350px !important;
+        width: 350px !important;
         height: auto !important;
     }
-    .img1{
-        width:100%;
+
+    .img1 {
+        width: 100%;
     }
-    .main_box_width{
-        width:300px;
+
+    .main_box_width {
+        width: 300px;
     }
 }
 </style>

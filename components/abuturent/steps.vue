@@ -4,7 +4,7 @@
         <h2 class="text-center text-lg  mb-6 font-medium font-Halvar">
             RO'YHATDAN O'TISH BOSQICHLARI
         </h2>
-        <div class="grid grid-cols-3 gap-y-16 gap-x-8  relative">
+        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-y-16 gap-x-8  relative">
             <div v-for="(step, index) in steps" :key="index" class="flex flex-col items-center space-y-2 " ref="stepsContainer">
                 <div
                     class="flex items-center justify-center w-10 h-10 rounded-full border bg-white text-[#F7483B] font-bold relative z-10">
@@ -18,7 +18,7 @@
             <!-- Chiziq -->
             <div
             
-                class="absolute border-dashed border-2 border-gray-300 w-[84%]   right-0  rounded-xl  top-5 z-0 border-l-0" 
+                class="absolute border-dashed border-2 border-gray-300 w-[84%] steps  right-0  rounded-xl  top-5 z-0 border-l-0" 
                 :style="{ height: `${offsetHeightDiv}px` }">
             </div>
         </div>
@@ -74,4 +74,10 @@ onMounted(() => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+@media (max-width:1536px){
+    .steps{
+        display: none;
+    }
+}
+</style>

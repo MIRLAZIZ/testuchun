@@ -52,7 +52,7 @@ const navigateToPage = (item) => {
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @media (max-width:1024px){
     .main_branch{
         display: flex;

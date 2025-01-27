@@ -17,10 +17,19 @@ const items = [
     data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
   }
 ]
+
+const students = ref(null)
+
+
+onMounted(() => {
+  store.getStudents()
+    .then(res => {
+      students.value = res.data
+    })
+})
 const carousel = ref(null)
 // Function to go to the previous slide
 const goToPrev = () => {
-  console.log('ishladi');
 
   if (carousel.value) {
     carousel.value.prev(); // UCarouselning prev() funksiyasi
@@ -56,14 +65,15 @@ const goToNext = () => {
             <div class="flex flex-col h-[293px]  justify-between ">
 
               <div>
-                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.fullname }}</h1>
+                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.name }}</h1>
                 <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                  {{ item.data }}
+                  {{ item?.position?.length > 290 ? item.position?.substring(0, 290) + '...' : item.position }}
 
                 </p>
               </div>
 
-              <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white ">
+              <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white " 
+              @click="$router.push(`students/${item.id}`)">
                 {{ store.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
               </button>
@@ -73,7 +83,8 @@ const goToNext = () => {
           <div class="studentsImg">
             <img :src="item.img" alt="" class="studentsImg">
 
-           <!-- carousel button  -->
+
+            <!-- carousel button  -->
           </div>
           <!-- arrow right  -->
           <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">

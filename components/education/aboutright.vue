@@ -10,11 +10,6 @@
 
                                 </div>
                                 <div class="flex gap-2 mb-6 w-[416px]">
-                                      <!-- <div style="background-color:#F4F6FA" class="rounded-xl"  v-for="item in 4" :key="item.id">
-                                         <p class="text-slate-950 p-3 font-semibold text-xs">
-                                                General
-                                          </p>
-                                      </div> -->
                                         <div class="tabs-container">
                                             <div class="tab">
                                             <button
@@ -56,16 +51,35 @@
                                             </div>
                                         </div>
                                 </div>
-                                <!-- <div style="width:416px" class="">
-                                    <p class="font-normal text-base mb-2 text-slate-950">Toshkent menejment va iqtisodiyot institutiga xush kelibsiz!</p>
-                                    <p class="font-normal text-sm" style="color:#868587">TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz.</p>
-                                </div> -->
-                              
                             </div>
                         </div>
 
+
+
+
+
+
+
+
+
+
+
+                  
                       
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </template>
 
 <script setup>
