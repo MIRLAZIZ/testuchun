@@ -32,7 +32,7 @@ const goToNext = () => {
 </script>
 
 <template>
-
+    <div class="">
     <div class="relative  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
@@ -71,5 +71,22 @@ const goToNext = () => {
           </div>
 
     </div>
-
+</div>
 </template>
+<style lang="css" scoped>
+    @media (max-width:640px){
+    .box_wrapper{
+        width:350px;
+    }
+    .box_wrapper_padding{
+        padding:10px
+    }
+    .div_wrapper_flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
+    }
+}
+</style>

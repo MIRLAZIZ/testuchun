@@ -1,7 +1,10 @@
 <script setup>
 import imgcarousel from '~/assets/imgs/kampus/carousel.png'
 
-
+const datas = [
+    { id: 1, button:'yuklab olish', name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!' },
+    { id: 2, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!' },
+]
 
 const data = [
     imgcarousel,
@@ -17,14 +20,12 @@ const data = [
 ]            
 </script>
 <template>
-    <div class="2xl:w-[1076px] w-full">
-
-
+    <div class="w-full">
         <div class=" w-full bg-white  rounded-xl p-8 ">
             <UiCarousel :data="data" />
+            <UiDescriptions :data="datas" />
 
-
-            <div class="mt-8  pr-16">
+            <!-- <div class="mt-8  pr-16">
                 <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
                     Sizning
                     muvaffaqiyat
@@ -48,11 +49,11 @@ const data = [
                     takomillashishda
                     davom etmoqdamiz.
                 </p>
-            </div>
+            </div> -->
 
 
 
-            <div class="mt-10  pr-16">
+            <!-- <div class="mt-10  pr-16">
                 <h1 class="text-[28px] text-[#06203D]  mb-6">Toshkent menejment va iqtisodiyot instituti:
                     Sizning
                     muvaffaqiyat
@@ -76,12 +77,18 @@ const data = [
                     takomillashishda
                     davom etmoqdamiz.
                 </p>
+            </div> -->
+            <div class="2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper">
+                <div>
+                          <!-- <button
+                                class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white  mt-8">
+                            Yuklab olish
+                            <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
+                        </button> -->
+                </div>
+                   
             </div>
-            <button
-                class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white  mt-8">
-                Yuklab olish
-                <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
-            </button>
+        
         </div>
 
 

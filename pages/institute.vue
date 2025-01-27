@@ -18,16 +18,17 @@ const items = [
 </script>
 
 <template>
-    <div class="mb-[144px]">
+    <div class="mb-[144px] w-full">
         <UiBreadcrumb />
         <div class="w-full flex flex-col items-center">
-            <div class="flex 2xl:justify-between lg:flex-row lg:gap-2  box 2xl:w-[1440px] sm:justify-evenly   mt-10  ">
+            <div class="flex 2xl:justify-between lg:flex-row lg:gap-2  box 2xl:w-[1440px]  sm:justify-evenly w-full   mt-10  ">
                 <NuxtPage />
                 <UiSidebar />
             </div>
-            <div v-if="$route.fullPath == '/institute'">
+            <div v-if="$route.fullPath == '/institute'" class="w-full">
                 <HomeUsefulLink :items="items" />
                 <HomeOurAdresses />
+            
             </div>
         </div>
     </div>

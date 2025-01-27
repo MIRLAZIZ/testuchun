@@ -4,7 +4,7 @@
 
             <h1 class="font-Halvar font-medium text-[28px]">{{ props.items[0].title }}</h1>
 
-            <div class="relative mt-8">
+            <div class="relative mt-6">
                 <UCarousel v-slot="{ item }" :items="props?.items[0]?.posts" ref="carousel" class="h-[370px]">
 
                     <div

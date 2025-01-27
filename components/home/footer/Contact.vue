@@ -64,4 +64,14 @@ const store = useHomeStore()
         width: 100%
     }
 }
+@media (max-width:600px){
+    a {
+        font-weight: 500;
+        font-size: 18px;
+    }
+    p{
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
 </style>

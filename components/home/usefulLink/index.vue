@@ -26,13 +26,13 @@
 
 
                 <!-- arrow right  -->
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer translate-x-16">
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer translate-x-16 abs_right">
                     <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
                     <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-[#72705F]" @click="goToNext" />
                 </div>
 
                 <!-- arrow left  -->
-                <div class="absolute left-0 top-1/2  -translate-y-1/2 cursor-pointer -translate-x-16">
+                <div class="absolute left-0 top-1/2  -translate-y-1/2 cursor-pointer -translate-x-16 abs_left">
                     <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
                     <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F]" @click="goToPrev" />
 
@@ -80,4 +80,13 @@ const goToNext = () => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+@media (max-width:1600px){
+    .abs_right{
+        right:4em
+    }
+    .abs_left{
+        left:4em
+    }
+} 
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div class=" flex justify-center">
-    <div class="grid grid-cols-3 gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%]">
+    <div class="sm:grid sm:grid-cols-3 sm:gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%] box_wrapper_li">
 
       <!-- fristColumn -->
       <div class="border-r">
@@ -78,4 +78,26 @@ const thirdColumn = [
 
 </script>
 
-<style scoped></style>А
+<style scoped>
+@media (max-width:800px){
+  .wrapper_ul{
+    padding:51px 10px;
+    gap:20px;
+  }
+}
+@media (max-width:640px){
+  .box_wrapper_li {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width:345px;
+  }
+  .wrapper_hidden{
+    display: none;
+  }
+  .wrapper_ul{
+    padding:10px !important;
+    gap:20px;
+  }
+}
+</style>

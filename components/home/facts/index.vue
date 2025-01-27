@@ -15,7 +15,9 @@ onMounted(() => {
         <div class="mt-[104px] mainContainer">
             <h1 class="facts">{{ store.dataTranslate['home.facts_number'] }} </h1>
 
-            <div class="mt-6 grid grid-cols-3 gap-4">
+
+            
+            <div class="mt-6 lg:grid lg:grid-cols-3 lg:gap-4 md:grid md:grid-cols-2 md:gap-4  sm:grid sm:grid-cols-2 sm:gap-4 flex_box">
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
@@ -95,7 +97,7 @@ onMounted(() => {
                             </div>
                             <hr class="bg-[#E9EEF9]">
 
-                            <p class="text-[#06203D] ml-1">{{ store.dataTranslate['home.male_students'] }} </p>
+                            <p class="text-[#06203D] text_left ml-1">{{ store.dataTranslate['home.male_students'] }} </p>
                         </div>
 
 
@@ -126,6 +128,27 @@ onMounted(() => {
 
 
 <style scoped>
+@media (max-width:640px){
+    .flex_box{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+       grid-template-rows: repeat(4, 1fr);
+       gap: 1rem;      
+    }
+    .facts {
+    font-family: 'Halvar Breitschrift';
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    }
+    .text_left{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .factsNumber{
+        font-size: 24px !important;
+        font-weight: 400 !important;
+    }
+}
 .facts {
     font-family: 'Halvar Breitschrift';
     font-size: 28px;

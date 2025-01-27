@@ -32,14 +32,14 @@ onMounted(() => {
 <template>
   <div class="">
     <HomeBanner />
-      <HomeSciences />
+       <HomeSciences />
       <HomeAbautInstut />
       <HomeFacts />
-      <HomeStudents />
-      <HomeOurProgram />
-      <HomeQuestions />
+       <!-- <HomeStudents /> -->
+     <HomeOurProgram />
+       <HomeQuestions />
       <HomeNews />
-      <HomeIntsMedia />
+     <HomeIntsMedia />
       <HomeMarking />
       <HomeUsefulLink :items="items" :title="'home\.partners_text' "/>
       <HomeOurAdresses />

@@ -17,12 +17,6 @@ const addresses = [
     },
 ];
 
-
-
-
-
-
-
 </script>
 
 <template>
@@ -33,7 +27,7 @@ const addresses = [
             <h2 class="font-Halvar font-medium text-[28px]">{{ store.dataTranslate['home.location'] }}</h2>
             
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 ">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 box_flex">
                 <div v-for="(address, index) in addresses" :key="index"
                     class="bg-white shadow-lg rounded-lg overflow-hidden">
 
@@ -42,7 +36,7 @@ const addresses = [
                             loading="lazy"></iframe>
 
 
-                        <div class="p-4 absolute  bg-white w-[580px]  py-5 px-6 rounded-xl left-6 bottom-6 flex flex-col justify-between">
+                        <div class="p-4 absolute  bg-white w-[580px]  py-5 px-6 rounded-xl left-6 right-6 bottom-6 flex flex-col justify-between box_our ">
                             <h3 class="">
                                 <span class="">
                                 {{ store.dataTranslate[address.city] }}
@@ -56,16 +50,9 @@ const addresses = [
                                 </div>
                                 <p class="text-lg font-Halvar font-medium  flex items-center ml-2">
                                     {{ store.dataTranslate[address.address] }}</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
@@ -73,4 +60,42 @@ const addresses = [
 </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@media (max-width:1324px){
+    .box_our{
+        width:440px;  
+        left: 10px; 
+
+    }
+}
+@media (max-width:1024px){
+    .box_our{
+        width:540px;   
+        left: 20px; 
+    }
+}
+@media (max-width:650px){
+    .box_our{
+        width:440px;   
+        left: 10px; 
+    }
+    .mainContainer h2{
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .mainContainer h3{
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .mainContainer p{
+        font-weight: 500;
+        font-size: 12px;
+    }
+}
+@media (max-width:470px){
+    .box_our{
+        width:340px;   
+        left: 3px; 
+    }
+}
+</style>

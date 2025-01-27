@@ -3,12 +3,12 @@
 
 
 
-        <div class="mainContainer h-[571px] my-[104px] ">
-            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border">
+        <div class="mainContainer h-full my-[104px] ">
+            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
 
 
-                <div class="flex justify-between items-center">
 
+                <div class="flex justify-between items-center align">
                     <h2 class="text-2xl font-medium font-Halvar">{{ store.dataTranslate['home.ourNews'] }}</h2>
           
 
@@ -22,16 +22,17 @@
 
 
 
-                <div class="flex h-[411px]  justify-between">
+                <div class="flex h-[411px]  justify-between box_ul">
+
                     <!-- Main news item -->
-                    <div class="h-[411px]  w-[551px] ">
-                        <img :src="programItem?.images[0][store.currentImage]" alt="Institut yangiliklari rasmi"
+                    <div class="h-[411px]  w-[551px] img_width">
+                        <img :src="programItem?.images[0][currentImage]" alt="Institut yangiliklari rasmi"
                             class="w-full h-full rounded-lg" v-if="programItem?.images?.length" />
 
                     </div>
 
                     <!-- news desctiption  -->
-                    <div class="px-4 w-[445px] flex flex-col justify-between">
+                    <div class="px-4 w-[445px] flex flex-col justify-between width">
 
                         <div>
                             <div class="flex justify-between items-center text-sm text-[#9A999B] mb-2">
@@ -41,7 +42,7 @@
                                 </span>
                             </div>
 
-                            <h3 class="font-medium  text-xl leading-7" v-html="programItem?.desc?.substring(0, 200)">
+                            <h3 class="font-medium  text-xl leading-7 leand" v-html="programItem?.desc.substring(0, 200)">
 
                             </h3>
 
@@ -73,10 +74,14 @@
                                     </span>
                                 </div>
                             </div>
-                            <h3 class=" text-lg mb-5">{{ item?.title?.substring(0, 70) }}</h3>
+                            <h3 class=" text-lg mb-5 text" >{{ item?.title.substring(0, 70) }}</h3>
                             <hr>
 
-
+                            <button
+                                class="bg-red-500 lg:hidden text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
+                                {{ store.dataTranslate['home.see_all'] }}
+                                <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
+                            </button>
 
                         </div>
                     </div>
@@ -131,6 +136,47 @@ onMounted(() => {
 
 
 <style scoped>
+@media (max-width:700px){
+    .img_width{
+        width:340px;
+        height: 350px;
+    }
+    .width{
+        width:340px
+    }
+    .align{
+        padding:10px;
+    }
+    .align h2{
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .leand{
+        font-weight: 500px;
+        font-size: 16px;
+    }
+    .text{
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
+@media (max-width:1024px){
+    .dsiplay_hidden{
+        display:none;
+    }
+    .box_ul{
+        height:100%;
+        display:flex;
+        gap:2em;
+        flex-direction: column;
+        align-items: center;
+    }
+    .align{
+        display:flex;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+}
 .overflow-y-scroll::-webkit-scrollbar {
     width: 8px;
 }

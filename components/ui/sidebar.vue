@@ -96,10 +96,10 @@ const getMenuLink = computed(() => {
 
 </script>
 <style scoped>
-@media(max-width:640px) {
-  .rektor {
-    width: 348px
-  }
+@media(max-width:640px){
+    .rektor{
+        width:330px !important;
+    }
 }
 
 @media (max-width: 730px) {
@@ -114,10 +114,9 @@ const getMenuLink = computed(() => {
 
 @media (max-width: 1024px) {
   .karusel-container {
-    overflow-x: auto;
-    display: block;
-    width: 730px;
     overflow: auto;
+    display: block; 
+    width:730px;
     background-color: white;
     border-radius: 12px;
     margin-bottom: 1em;
@@ -131,25 +130,37 @@ const getMenuLink = computed(() => {
   .karusel-content {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    /* Elementlarni bir qatorda joylash */
+    flex-wrap: nowrap; 
     gap: 1rem;
-    /* Elementlar orasidagi masofa */
+    flex-direction: row !important;
   }
 
-  .karusel-content>div {
-    flex: 0 0 auto;
-    /* Elementlar o'z o'lchamida qoladi */
-    min-width: 300px;
-    /* Minimal kenglikni belgilash */
+  .karusel-content > div {
+    flex: 0 0 auto; 
+    min-width: 300px; 
   }
 
   .flat {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
     align-items: center;
-    gap: 1em
+    gap:1em
+  }
+  .main_box{
+    display:flex ;
+    justify-content:center;
+    flex-direction: column;
+    width:100%; 
+    align-items:center; 
+  }
+}
+
+  .sm\:overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  .sm\:overflow-x-auto {
+    -ms-overflow-style: none; /* IE10+ */
+    scrollbar-width: none; /* Firefox */
   }
 
   .main_box {
@@ -159,7 +170,7 @@ const getMenuLink = computed(() => {
     width: full;
     align-items: center;
   }
-}
+
 
 .sm\:overflow-x-auto::-webkit-scrollbar {
   display: none;

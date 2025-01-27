@@ -52,9 +52,7 @@ onMounted(() => {
 
         <div class="mainContainer my-[104px]">
             <!-- Section Title -->
-            <h2 class="text-2xl font-Halvar  font-medium  mb-8">{{ store.dataTranslate['home.our_video'] }} </h2>
-
-           
+            <h2 class="text-2xl font-Halvar  font-medium ul_title mb-8">{{ store.dataTranslate['home.our_video'] }}</h2>
 
             <!-- Video Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
@@ -98,5 +96,9 @@ onMounted(() => {
 
     </div>
 </template>
-
-<style scoped></style>
+<style lang="" scoped>
+/* .ul_title{
+    font-weight: 500;
+    font-size:22px;
+} */
+</style>
