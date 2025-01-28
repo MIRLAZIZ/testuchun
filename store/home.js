@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import educationVue from '~/pages/education.vue'
 import api from '~/utils/axios'
 
 
@@ -9,106 +10,12 @@ export const useHomeStore = defineStore('home', {
     is_open: false,
     currentImage: "",
     menus: [],
-    news: [],
-    // menus: [
-    //   {
-    //     id: 1,
-    //     name: 'Institut',
-    //     link: '/institute',
-    //     items: [
-    //       { id: 1, name: 'Biz haqimizda', routerlink: '/institute' },
-    //       { id: 2, name: 'Rahbariyat', routerlink: '/institute/management' },
-    //       { id: 2, name: 'Tashkiliy tuzilma', routerlink: '/institute/structures' },
-    //       { id: 3, name: 'Me’moriy hujjatlar', routerlink: '/institute/documents' },
-    //       { id: 4, name: 'Litsenziya va sertifikatlar', routerlink: '/institute/licenses' },
-    //       { id: 5, name: 'Bo’limlar', routerlink: '/institute/departments' },
-    //       { id: 6, name: 'Kafedralar', routerlink: '/institute/faculties' },
-    //       { id: 7, name: 'Противодейиствии коррупции', routerlink: '/institute/corruption' },
-    //       { id: 8, name: 'Молодежная политика', routerlink: '/institute/young' },
-    //       { id: 9, name: 'Гендерное равенство', routerlink: '/institute/gender' }
-
-    //     ],
-    //   },
-    //   {
-    //     id: 2,
-    //     name: 'Ta’lim dasturlari',
-    //     link: '/education',
-    //     items: [
-    //       { id: 1, name: 'Bakalavr', routerlink: '/education' },
-    //       { id: 2, name: 'Magistir', routerlink: '/education/magistratura' },
-
-
-    //     ],
-
-    //   },
-    //   {
-    //     id: 3,
-    //     name: 'Ilm fan',
-    //     link: '/science',
-    //     items: [
-    //       { id: 1, name: 'Ilmiy jurnal', routerlink: '/science' },
-    //       { id: 2, name: 'Sanoat 4.0 markazi', routerlink: '/science/industry' },
-    //       { id: 3, name: 'Litsenziya va sertifikatlar', routerlink: '/science/certifications' }
-
-
-
-
-    //     ],
-    //   }, 
-    //   {
-    //     id: 4,
-    //     name: 'Abituriyentlar uchun',
-    //     link: '/prospective-students',
-    //     items: [
-    //       { id: 1, name: 'Qabul qilish jarayoni', routerlink: '/prospective-students/admission' },
-    //       { id: 2, name: 'Talabalarga xizmat ko\'rsatish markazi', routerlink: '/prospective-students/service' },
-    //       { id: 3, name: 'Shartnomalar va grantlar', routerlink: '/prospective-students/grants' },
-
-
-    //     ],
-    //   },
-    //   {
-    //     id: 5,
-    //     name: 'Yangiliklar',
-    //     link: '/news',
-    //     items: [
-    //       { id: 1, name: 'Yangiliklar', routerlink: '/news' },
-
-
-
-    //     ],
-    //   },
-    //   {
-    //     id: 6,
-    //     name: 'Talabalar hayoti',
-    //     link: '/students',
-    //     items: [
-    //       { id: 1, name: 'Kutubxona', routerlink: '/students/library' },
-    //       { id: 2, name: 'Talabalar bilan tanishuv ', routerlink: '/students/meet_student' },
-    //       { id: 3, name: 'Ijtimoiy hayot', routerlink: '/students/social' },
-    //       // { id: 4, name: 'Tibbiyot punkiti', routerlink: 'Tibbiyot punkiti' },
-    //       // { id: 5, name: 'Ijtimoiy Himoya markazi', routerlink: 'Ijtimoiy Himoya markazi' },
-    //       // { id: 6, name: 'Sport majmuasi', routerlink: 'Tibbiyot punkiti' },
-    //       // { id: 7, name: 'Oshxona', routerlink: 'Tibbiyot punkiti' },
-    //       // { id: 8, name: 'Karyera markazi', routerlink: 'Tibbiyot punkiti' },
-    //       // { id: 9, name: 'Ijtimoiy kulub', routerlink: 'Tibbiyot punkiti' },
-
-
-    //     ],
-    //   },
-    //   {
-    //     id: 3,
-    //     name: 'SDG',
-    //     // link: '/sdg',
-    //     link: '/library',
-    //     items: [
-    //     ],
-    //   },
-    // ],
+    news: null,
     optionsData: [],
     menuData: null,
     menuShow: null,
-    siteInfo:null
+    siteInfo: null,
+    educationData: null
 
 
   }),
@@ -150,7 +57,7 @@ export const useHomeStore = defineStore('home', {
 
     },
 
- 
+
     async getYoutuveVideo() {
       return await api.get('/video_news')
     },
@@ -189,9 +96,6 @@ export const useHomeStore = defineStore('home', {
           this.menuShow = res.data
 
         })
-
-
-
       } else {
 
         this.getMenu().then(() => {
@@ -208,22 +112,43 @@ export const useHomeStore = defineStore('home', {
     async getuseful_links() {
       return await api.get('/partner-link')
     },
-    async getsiteInfo () {
+    async getsiteInfo() {
       return await api.get('/siteinfo')
-        .then(res=> {
+        .then(res => {
           this.siteInfo = res.data.data
         })
+    },
+    async getNewsOne(slug) {
+      return await api.get(`/news/${slug}`)
+    },
+
+    async getEducation() {
+      return await api.get('/educational-programs')
+        .then(res => {
+          this.educationData = res.data
+        })
+    },
+    async getEducutionOne(slug) {
+      return await api.get(`/educational-programs/${slug}`)
+    },
+
+    getMenuStatick(parentPage, child) {
+      if (this.menus.length) {
+        this.menuShow = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+      } else {
+        this.getMenu().then(() => {
+          this.menuShow = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+
+
+        })
+      }
+    },
+    async getCertificat() {
+      return await api.get('/certificates')
     }
 
-    
-
-  },
-
   
-
-
-
-
+  }
 })
 
 

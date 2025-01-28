@@ -3,7 +3,7 @@
         <div
             class="flex 2xl:w-[1076px] gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1  xl:w-[850px]  lg:w-[650px] md:w-[750px] sm:w-[620px] main_box">
             <div>
-                <img class="w-[199px] h-[254px] img1" :src="props.data?.photo[store.currentImage]" alt="">
+                <img class="w-[199px] h-[254px] img1 rounded-lg" :src="props.data?.photo[store.currentImage]" alt="">
             </div>
 
 
@@ -18,7 +18,7 @@
                     <div class="flex gap-4">
                         <p class="font-medium text-base">0</p>
                         <div>
-                            <img src="../../assets/imgs/talim/Eye.png" alt="">
+                            <img src="/assets/imgs/talim/Eye.png" alt="">
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                             style="border:1px solid #DCE5F5;padding:13px 32px" @click="copyLink">
                             <p class="font-medium text-base">link</p>
                             <div>
-                                <img src="../../assets/imgs/talim/copy.png" alt="">
+                                <img src="/assets/imgs/talim/copy.png" alt="">
                             </div>
                         </div>
 

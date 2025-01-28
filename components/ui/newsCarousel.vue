@@ -2,17 +2,17 @@
     <div class="flex justify-center">
         <div class="mainContainer  ">
 
-            <h1 class="font-Halvar font-medium text-[28px]">{{ props?.items[0]?.title }}</h1>
+            <h1 class="font-Halvar font-medium text-[28px]">{{ props.title }}</h1>
+           
 
             <div class="relative mt-6">
-                <UCarousel v-slot="{ item }" :items="props?.items[0]?.posts" ref="carousel" class="h-[370px]">
+                <UCarousel v-slot="{ item }" :items="props?.items" ref="carousel" class="h-[370px]">
 
-                    <div
-                        class="w-[348px]  rounded-xl p-3   flex flex-col  bg-white mr-4">
+                    <div class="w-[348px]  rounded-xl p-3   flex flex-col  bg-white mr-4">
                         <img :src="item?.images[0][store.currentImage]" width="320" height="200"
                             class="w-[324px] h-[200px] mb-4 rounded-lg">
-                       
-                            <div class="flex gap-2">
+
+                        <div class="flex gap-2">
                             <img class="w-5 h-5" src="/assets/imgs/talim/Calender.png" alt="">
                             <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">{{ item?.date?.substring(0, 10)
                                 }}</p>
@@ -52,6 +52,10 @@ const props = defineProps({
         require: true,
         default: []
     },
+    title: {
+        type: String,
+        require: true
+    }
 
 })
 

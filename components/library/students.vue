@@ -2,9 +2,10 @@
     <div class="main_branch" v-if="props.data">
    
         <div class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box">   
-            <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex border box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper" v-for="item in props.data.data" :key="item"  @click="$router.push(`/students/${item?.id}`)">
+
+            <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex border box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper" v-for="item in props.data.data" :key="item"  @click="$router.push(`/students/student-inner/${item?.id}`)">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->
-                <img :src="item?.photo[store.currentImage]" alt="" class="imgs h-[200px] w-[157px] object-cover ">
+                <img :src="item?.photo[store.currentImage]" alt="" class="imgs h-[200px] w-[157px] object-cover rounded-lg ">
                 <!-- </div> -->
 
                 <div class="flex box_wrapper_pad flex-col justify-center pl-6 ">
@@ -17,7 +18,7 @@
                     </p>
                     <hr class="border border-[#DCE5F5] my-6">
                     <UButton class="  bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
-                        Batafsil
+                        {{ store.dataTranslate['home.more_details'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6" />
                     </UButton>
                 </div>

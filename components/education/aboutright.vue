@@ -1,6 +1,6 @@
 <template>
     <div>
-         <div class="flex gap-6  w-[952px]">
+         <div class="flex gap-6  w-[952px]" v-if=false>
                             <div class="w-[464px] h-[416]" >
                                 <img src="../../assets/imgs/talim/build.svg" alt="">
                             </div>
@@ -71,9 +71,9 @@
 <script setup>
 const props = defineProps({
     data:{
-        type:Array,
+        type:Object,
         required:true,
-        default: () => [],
+        default: () => ({}),
 
     }
 })

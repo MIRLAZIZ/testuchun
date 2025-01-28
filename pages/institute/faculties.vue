@@ -19,4 +19,3 @@ const data = [
 
 
 
-<style lang="scss" scoped></style>

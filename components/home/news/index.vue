@@ -26,7 +26,7 @@
 
                     <!-- Main news item -->
                     <div class="h-[411px]  w-[551px] img_width">
-                        <img :src="programItem?.images[0][currentImage]" alt="Institut yangiliklari rasmi"
+                        <img :src="programItem?.images[0][store.currentImage]" alt="Institut yangiliklari rasmi"
                             class="w-full h-full rounded-lg" v-if="programItem?.images?.length" />
 
                     </div>

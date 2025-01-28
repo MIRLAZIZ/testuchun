@@ -24,6 +24,7 @@ const students = ref(null)
 onMounted(() => {
   store.getStudents()
     .then(res => {
+
       students.value = res.data
     })
 })
@@ -49,7 +50,7 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center" v-if="students">
+  <div class="flex justify-center" >
 
 
 
@@ -64,30 +65,30 @@ const goToNext = () => {
           <div class="w-[793px] ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
-              <h1 class="font-normal text-white ml-2">{{ store.dataTranslate['home.acquaintance'] }} </h1>
+              <h1 class="font-normal text-white ml-2">{{ store?.dataTranslate['home.acquaintance'] }} </h1>
             </div>
 
              <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
             <div class="flex flex-col h-[293px]  justify-between ">
 
               <div>
-                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item.name }}</h1>
+                <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item?.name }}</h1>
                 <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                  {{ item?.position?.length > 290 ? item.position?.substring(0, 290) + '...' : item.position }}
+                  {{ item?.position?.length > 290 ? item.position?.substring(0, 290) + '...' : item?.position }}
 
                 </p>
               </div>
 
               <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white " 
               @click="$router.push(`students/${item.id}`)">
-                {{ store.dataTranslate['home.more_details'] }}
+                {{ store?.dataTranslate['home.more_details'] }}
                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
               </button>
             </div>
           </div>
 
           <div class="studentsImg">
-            <img :src="item.photo[store.currentImage]" alt="" class="studentsImg">
+            <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg">
 
            <!-- carousel button  -->
           </div>
