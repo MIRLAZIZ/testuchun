@@ -1,120 +1,73 @@
 <template>
   <div>
-    {{props.data}}
+    <!-- <pre>
+    {{ props.data }}
+  </pre -->
+
     <div class="flex gap-6 w-[952px]">
       <div class="w-[464px] h-[416]">
-        <img src="/assets/imgs/talim/build.svg" alt="" />
+        <NuxtImg
+          :src="props.data?.entrance_requirement?.photo[store.currentImage]"
+          alt=""
+          class="w-full h-full rounded-xl"
+        />
       </div>
       <div
         class="rounded-xl h-[416px] w-[464px] flex justify-center flex-col"
         style="border: 1px solid #e6edfa; padding: 15px"
       >
         <div>
-          <p class="font-medium text-2xl mb-6">KIRISH TALABALRI</p>
+          <p class="font-medium text-2xl mb-6">
+            {{ props.data?.entrance_requirement?.name }}
+          </p>
         </div>
         <div class="flex gap-2 mb-6 w-[416px]">
           <div class="tabs-container">
             <div class="tab">
               <button
-                v-for="tab in tabs"
+                v-for="tab in props.data?.entrance_requirement?.skills"
                 :key="tab.id"
-                :class="{ active: tab.id === activeTab }"
-                @click="changeTab(tab.id)"
+                :class="{ active: tab?.id === activeTab }"
+                @click="changeTab(tab?.id)"
                 class="tab-buttons font-semibold text-sm text-black cursor-pointer"
               >
-                {{ tab.label }}
+                {{ tab.name }}
               </button>
             </div>
+
+
+
             <div class="tab-content">
-              <div
-                v-if="activeTab === 'general'"
+              <div             
                 class="flex flex-col gap-6 rounded-xl"
               >
                 <div
-                  style="width: 100%; padding: 24px"
                   class="rounded-xl"
-                  v-for="item in props.data"
-                  :key="item.id"
+                
                 >
                   <p class="font-normal text-base mb-2 text-slate-950">
-                    {{ item.description }}
+                  test
                   </p>
                   <p class="font-normal text-sm text-[#868587]">
-                    {{ item.descriptionall }}
-                  </p>
-                </div>
-              </div>
-              <div
-                v-if="activeTab === 'plan'"
-                class="flex flex-col gap-6 rounded-xl"
-              >
-                <div
-                  style="width: 100%; padding: 24px"
-                  class="rounded-xl"
-                  v-for="item in props.data"
-                  :key="item.id"
-                >
-                  <p class="font-normal text-base mb-2 text-slate-950">
-                    {{ item.description }}
-                  </p>
-                  <p class="font-normal text-sm text-[#868587]">
-                    {{ item.descriptionall }}
-                  </p>
-                </div>
-              </div>
-
-
-              <div
-                v-if="activeTab === 'plan1'"
-                class="flex flex-col gap-6 rounded-xl"
-              >
-                <div
-                  style="width: 100%; padding: 24px"
-                  class="rounded-xl"
-                  v-for="item in props.data"
-                  :key="item.id"
-                >
-                  <p class="font-normal text-base mb-2 text-slate-950">
-                    {{ item.description }}
-                  </p>
-                  <p class="font-normal text-sm text-[#868587]">
-                    {{ item.descriptionall }}
-                  </p>
-                </div>
-              </div>
-
-              
-              <div
-                v-if="activeTab === 'plan2'"
-                class="flex flex-col gap-6 rounded-xl"
-              >
-                <div
-                  style="width: 100%; padding: 24px"
-                  class="rounded-xl"
-                  v-for="item in props.data"
-                  :key="item.id"
-                >
-                  <p class="font-normal text-base mb-2 text-slate-950">
-                    {{ item.description }}
-                  </p>
-                  <p class="font-normal text-sm text-[#868587]">
-                    {{ item.descriptionall }}
+                   test
                   </p>
                 </div>
               </div>
             </div>
+
+
+            
           </div>
         </div>
-        <!-- <div style="width:416px" class="">
-                                    <p class="font-normal text-base mb-2 text-slate-950">Toshkent menejment va iqtisodiyot institutiga xush kelibsiz!</p>
-                                    <p class="font-normal text-sm" style="color:#868587">TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz.</p>
-                                </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useHomeStore } from "~/store/home";
+
+const store = useHomeStore();
 const props = defineProps({
   data: {
     type: Object,
@@ -122,17 +75,20 @@ const props = defineProps({
     default: () => ({}),
   },
 });
-const tabs = [
-  { id: "general", label: "General" },
-  { id: "plan", label: "English language" },
-  { id: "plan1", label: "Math" },
-  { id: "plan2", label: "age" },
-];
-const activeTab = ref("general");
+
+const activeTab = ref(null);
 
 const changeTab = (tabId) => {
   activeTab.value = tabId;
 };
+watch(
+  () => props.data?.entrance_requirement?.skills,
+  (newValue) => {
+    activeTab.value = newValue[0]?.id;
+  },
+  { deep: true }
+);
+
 </script>
 
 <style  scoped>

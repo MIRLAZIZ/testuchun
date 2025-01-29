@@ -1,12 +1,12 @@
 <template>
-  <div class="p-5 flex justify-center">
+  <div class="p-5 flex justify-center -translate-y-2/4">
     <!-- {{ props.data || "Ma’lumot yo‘q" }} -->
 
     <div
-      class="2xl:w-[1440px] w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
+      class="2xl:w-[1440px] h-[165px]  w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
     >
       <div
-        class=" w-full h-[101px] p-[15px] border-[1px] border-[#E6EDFA] rounded-lg"
+        class=" w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"
         v-for="item in datatype"
         :key="item.id"
       >
@@ -19,9 +19,7 @@
           </div>
           <div class="flex flex-col justify-center">
             <p class="">{{ item.name }}</p>
-            <!-- <p class="font-normal text-lg">
-              {{ item.description ? item.description : "" }}
-            </p> -->
+           
           </div>
         </div>
       </div>

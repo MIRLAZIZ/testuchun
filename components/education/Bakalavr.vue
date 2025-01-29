@@ -90,7 +90,7 @@ onMounted(() => {
         <div
           class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
         >
-        {{ data }}
+        <!-- {{ data }} -->
           <EducationTabsview :data="taps" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />

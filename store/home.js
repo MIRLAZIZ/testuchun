@@ -145,6 +145,9 @@ export const useHomeStore = defineStore('home', {
     },
     async getCertificat(page) {
       return await api.get(`/certificates?page=${page}`)
+    },
+    async getLeaderShips() {
+      return await api.get(`/leaderships`)
     }
 
   

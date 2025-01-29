@@ -24,8 +24,7 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="2xl:w-[1076px] w-full">
-    {{ store.menuShow }}
+  <div class="2xl:w-[1076px] w-full"> 
     <div
       v-for="(data, index) in processedMenus"
       :key="data.id"
@@ -36,7 +35,7 @@ const processedMenus = computed(() => {
       <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
         <UiCarousel :data="data.photo" />
         <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
-          <!-- {{ item.name }} -->{{ data.title }}
+          {{ data?.title }}
         </h1>
         <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
       </div>

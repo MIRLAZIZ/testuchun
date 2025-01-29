@@ -27,9 +27,11 @@
             :key="item"
           >
             <p class="mb-4 font-medium text-2xl">{{ item.name }}</p>
-            <p class="font-normal text-base">{{ item.description }}</p>
+            <p class="font-normal text-base" v-html="item.description"></p>
           </div>
         </div>
+
+        
 
         <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl">
           <div
