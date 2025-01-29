@@ -50,7 +50,6 @@ const datatype = computed(() => [
     img: globe,
     type: store.dataTranslate["footer.educational_period"],
     name: props.data?.form_education || "Kunduzgi 5-yil",
-    description: "Sirtqi 4-yil",
   },
   {
     id: 2,

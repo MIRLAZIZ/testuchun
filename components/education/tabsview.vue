@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="tabs-container">
+    
       <div class="tabs">
         <button
           v-for="tab in tabs"
@@ -12,6 +13,8 @@
           {{ tab.label }}
         </button>
       </div>
+
+      
       <div class="tab-content mt-5">
         <div
           v-if="activeTab === 'general'"
@@ -20,13 +23,14 @@
           <div
             style="width: 952px; border: 1px solid #e6edfa; padding: 24px"
             class="rounded-xl"
-            v-for="item in []"
+            v-for="item in props.data"
             :key="item"
           >
             <p class="mb-4 font-medium text-2xl">{{ item.name }}</p>
             <p class="font-normal text-base">{{ item.description }}</p>
           </div>
         </div>
+
         <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl">
           <div
             style="width: 952px; border: 1px solid #e6edfa; padding: 24px"

@@ -143,8 +143,8 @@ export const useHomeStore = defineStore('home', {
         })
       }
     },
-    async getCertificat() {
-      return await api.get('/certificates')
+    async getCertificat(page) {
+      return await api.get(`/certificates?page=${page}`)
     }
 
   

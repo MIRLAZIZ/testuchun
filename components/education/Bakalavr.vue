@@ -32,26 +32,21 @@ const datatype = [
   },
 ];
 
-const taps = [
+const taps = computed(() => [
   {
     id: 1,
-    name: "FAKULTET TAVSIFI",
-    description:
-      "Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga erishishlari uchun intellektual va dinamik muhit yaratamiz.",
+    name: data.value?.first_name,
+    description:data.value?.first_descriptionv
   },
   {
     id: 2,
-    name: "FAKULTET TAVSIFI",
-    description:
-      "Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga erishishlari uchun intellektual va dinamik muhit yaratamiz.",
-  },
+    name: data.value?.second_name,
+    description:data.value?.second_description  },
   {
     id: 3,
-    name: "FAKULTET TAVSIFI",
-    description:
-      "Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes dunyosida muvaffaqiyatli karyeraga erishishlari uchun intellektual va dinamik muhit yaratamiz.",
-  },
-];
+    name: data.value?.third_name,
+    description:data.value?.third_description  },
+])
 
 const aboutright = [
   {
@@ -85,7 +80,7 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <EducationTopCard  :data="data"/>
+    <EducationTopCard :data="data" />
     <!-- <pre> {{ data }}</pre>   -->
 
     <div
@@ -95,15 +90,16 @@ onMounted(() => {
         <div
           class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
         >
-          <EducationTabsview :data="data" />
+        {{ data }}
+          <EducationTabsview :data="taps" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
-          <EducationAboutleft  :data="data"/>
+          <EducationAboutleft :data="data" />
         </div>
       </div>
     </div>
 
-    <EducationAboutperson />
+    <!-- <EducationAboutperson /> -->
     <EducationComments />
   </div>
 </template>

@@ -8,12 +8,26 @@ const store = useHomeStore();
 const items = ref([]);
 const isOpen = ref(false);
 const data = ref(null);
+const page = ref(1);
+const pageData = ref(null);
+const route = useRoute();
 
 onMounted(() => {
-  store.getCertificat().then((res) => {
-    items.value = res.data;
+  store.getCertificat(page.value).then((res) => {
+    pageData.value = res.data.last_page;
+    items.value.push(...res.data.data);
   });
+  const prentPageOne = `/${route.fullPath.split('/')[1]}`
+  store.getMenuStatick(prentPageOne, route.fullPath)
+
+
 });
+const addCertificat = () => {
+  store.getCertificat(page.value).then((res) => {
+    items.value.push(...res.data.data);
+    pageData.value = res.data.last_page;
+  });
+};
 </script>
 <template>
   <div class="main_branch">
@@ -24,13 +38,17 @@ onMounted(() => {
         class="grid grid-cols-1 2xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2 2xl:gap-4 lg:gap-4 md:gap-3 sm:gap-2 box_wrapper_gap"
       >
         <div
-          v-for="(item, index) in items?.data"
+          v-for="(item, index) in items"
           :key="index"
           @click="(isOpen = true), (data = index)"
-          class="w-[348px] h-[600px] p-3 bg-white rounded-xl flex flex-col  certificate lg:w-[330px] box_wrapper_img1"
+          class="w-[348px] h-[600px] p-3 bg-white rounded-xl flex flex-col certificate lg:w-[330px] box_wrapper_img1"
         >
           <div class="h-[459px] relative">
-            <img :src="item?.photo[store.currentImage]" alt="" class="w-full h-full rounded-lg" />
+            <img
+              :src="item?.photo[store.currentImage]"
+              alt=""
+              class="w-full h-full rounded-lg"
+            />
 
             <div
               class="absolute bottom-0 left-0 certificateEye rounded-xl w-full h-[459px] bg-[#06203D66] opacity-80 flex justify-center items-center"
@@ -45,7 +63,7 @@ onMounted(() => {
 
           <div class="flex items-center gap-2 mt-4 mb-3">
             <div class="w-[5px] h-[5px] bg-[#F7483B] rounded-full"></div>
-            <span class="text-[#9A999B]">11.11.2024</span>
+            <span class="text-[#9A999B]">{{ item?.date?.substring(0, 10) }}</span>
           </div>
 
           <h1 class="text-xl font-medium">
@@ -57,6 +75,8 @@ onMounted(() => {
       <div class="flex justify-center mt-6">
         <button
           class="text-base w-[217px] h-[48px] px-8 bg-white rounded-lg flex justify-between items-center"
+          @click="addCertificat"
+          :disabled="pageData == page"
         >
           Ko'proq ko'rish
           <UIcon name="i-heroicons-plus" class="w-6 h-6 text-[#F7483B]" />
@@ -86,10 +106,10 @@ onMounted(() => {
           bilan hamnafas rivojlanishda va takomillashishda davom etmoqdamiz.
         </p>
       </div>
-
+{{ items }}
       <InstituteLicensesModalLicenses
         v-model:is-open="isOpen"
-        :items="items.data"
+        :items="items"
         :data_id="data"
       />
     </div>
