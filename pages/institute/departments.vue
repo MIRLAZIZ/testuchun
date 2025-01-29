@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
         <!-- <InstituteManagement/> -->
         <LibraryStudents  :data="data" />
 

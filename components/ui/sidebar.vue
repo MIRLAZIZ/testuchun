@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class= " main_box">
-            <div class="lg:w-[348px] bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
+            <div class="xl:w-[348px] lg:w-full bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
                 <div class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4  main_box_hidden ">
                     <h2 class="text-lg ">{{ getMenuLink.name }}</h2>
                     <div class="flex items-end h-full">
@@ -24,49 +24,49 @@
                 </div>
             </div>
 
-<div class="karusel-container lg:w-[348px] p-2 lg:mt-6 bg-white rounded-xl lg:block sm:flex sm:gap-5 sm:justify-center sm:mb-2">
-  <!-- Karusel elementlari -->
-  <div class="karusel-content flex lg:flex-col sm:flex-row gap-4">
-    <!-- Slayd 1 -->
-    <div class="rounded-xl caronaVirus rektor lg:w-full md:w-[348px] sm:w-[348px] bg-blue-500 p-4 text-white img_width">
-      <div class="flex flex-col justify-between h-full w-full">
-        <div class="pr-[58px] flex justify-end">
-          <img src="/assets/imgs/talim/coronavirus.png" alt="coronavirus img" class="w-[126px] h-[99px]">
-        </div>
-        <p class="font-Halvar text-xl font-medium">Karantin qoidalariga rioya qiling</p>
-      </div>
-    </div>
-    <!-- Slayd 2 -->
-    <div class="rounded-xl p-6 lg:my-2 rektorContaner flex flex-col justify-between lg:w-full rektor sm:w-[348px]    text-white">
-      <div class="flex gap-x-4">
-        <div class="flex items-center w-[100px]">
-          <img src="/assets/imgs/talim/image.png" alt="" class="w-[64px] h-[64px] rounded-full">
-        </div>
-        <p class="text-xl font-medium font-Halvar">REKTOR Bilan Bog'laning</p>
-      </div>
-      <button class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base">
-        Yozish
-      </button>
-    </div>
-    <!-- Slayd 3 -->
-    <div class="rounded-xl rektor p-6 lg:mt-4 h-[184px] w-full bg-[#00A3FF] flex flex-col justify-between lg:w-full sm:w-[348px]">
-      <div class="text-white flex justify-between w-full">
-        <div class="w-[100%]">
-          <p class="text-xl font-medium font-Halvar">TELEGRAM</p>
-          <div>
-            <p class="text-sm">yangiliklarni muntazam kuzatib boring</p>
-          </div>
-        </div>
-        <div class="w-[40%] flex justify-end items-start">
-          <img src="/assets/imgs/talim/Vector.svg" alt="" class="w-[63px] h-[50px]">
-        </div>
-      </div>
-      <button class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base font-medium">
-        Obuna bo'lish
-      </button>
-    </div>
-  </div>
-</div>
+            <div class="karusel-container lg:w-[348px] p-2 lg:mt-6 bg-white rounded-xl lg:block sm:flex sm:gap-5 sm:justify-center sm:mb-2">
+              <!-- Karusel elementlari -->
+              <div class="karusel-content flex lg:flex-col sm:flex-row gap-4">
+                <!-- Slayd 1 -->
+                <div class="rounded-xl caronaVirus rektor lg:w-full md:w-[348px] sm:w-[348px] bg-blue-500 p-4 text-white img_width">
+                  <div class="flex flex-col justify-between h-full w-full">
+                    <div class="pr-[58px] flex justify-end">
+                      <img src="/assets/imgs/talim/coronavirus.png" alt="coronavirus img" class="w-[126px] h-[99px]">
+                    </div>
+                    <p class="font-Halvar text-xl font-medium">Karantin qoidalariga rioya qiling</p>
+                  </div>
+                </div>
+                <!-- Slayd 2 -->
+                <div class="rounded-xl p-6 lg:my-2 rektorContaner flex flex-col justify-between lg:w-full rektor sm:w-[348px]    text-white">
+                  <div class="flex gap-x-4">
+                    <div class="flex items-center w-[100px]">
+                      <img src="/assets/imgs/talim/image.png" alt="" class="w-[64px] h-[64px] rounded-full">
+                    </div>
+                    <p class="text-xl font-medium font-Halvar">REKTOR Bilan Bog'laning</p>
+                  </div>
+                  <button class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base">
+                    Yozish
+                  </button>
+                </div>
+                <!-- Slayd 3 -->
+                <div class="rounded-xl rektor p-6 lg:mt-4 h-[184px] w-full bg-[#00A3FF] flex flex-col justify-between lg:w-full sm:w-[348px]">
+                  <div class="text-white flex justify-between w-full">
+                    <div class="w-[100%]">
+                      <p class="text-xl font-medium font-Halvar">TELEGRAM</p>
+                      <div>
+                        <p class="text-sm">yangiliklarni muntazam kuzatib boring</p>
+                      </div>
+                    </div>
+                    <div class="w-[40%] flex justify-end items-start">
+                      <img src="/assets/imgs/talim/Vector.svg" alt="" class="w-[63px] h-[50px]">
+                    </div>
+                  </div>
+                  <button class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base font-medium">
+                    Obuna bo'lish
+                  </button>
+                </div>
+              </div>
+            </div>
 
 
 
@@ -97,9 +97,9 @@ const getMenuLink = computed(() => {
 }
 
 @media (max-width: 730px) {
-  .karusel-container {
+  /* .karusel-container {
     width: 350px !important;
-  }
+  } */
 
   .img_width {
     width: 320px;
@@ -110,10 +110,11 @@ const getMenuLink = computed(() => {
   .karusel-container {
     overflow: auto;
     display: block; 
-    width:730px;
+    /* width:730px; */
     background-color: white;
     border-radius: 12px;
     margin-bottom: 1em;
+    width:100%;
 
   }
 

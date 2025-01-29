@@ -7,22 +7,22 @@
                                 :key="tab.id"
                                 :class="{ active: tab.id === activeTab }"
                                 @click="changeTab(tab.id)"
-                                class="tab-button font-semibold text-sm text-black cursor-pointer"
+                                class="tab-button font-semibold text-sm text-black cursor-pointer "
                             >
                                 {{ tab.label }}
                             </button>
                             </div>
                             <div class="tab-content mt-5">
                                 <div v-if="activeTab === 'general'" class="flex flex-col gap-6 rounded-xl">
-                                    <div style="width:952px;border:1px solid #E6EDFA;padding:24px;" class="rounded-xl  " v-for="item in props.data" :key="item.id">
-                                            <p class="mb-4 font-medium text-2xl">{{item.name}}</p>
-                                            <p class="font-normal text-base">{{item.description}}</p>
+                                    <div  class="rounded-xl 2xl:w-[952px] w-full border border-[#E6EDFA] p-6 " v-for="item in props.data" :key="item.id">
+                                            <p class="mb-4 font-medium text-2xl taps_title">{{item.name}}</p>
+                                            <p class="font-normal text-base taps_text">{{item.description}}</p>
                                         </div>
                                 </div>
                                 <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl">
-                                      <div style="width:952px;border:1px solid #E6EDFA;padding:24px;" class="rounded-xl  " v-for="item in props.data" :key="item.id">
-                                          <p class="mb-4 font-medium text-2xl">{{item.name}}</p>
-                                          <p class="font-normal text-base">{{item.description}}</p>
+                                      <div class="rounded-xl 2xl:w-[952px] w-full border border-[#E6EDFA] p-6" v-for="item in props.data" :key="item.id">
+                                          <p class="mb-4 font-medium text-2xl taps_title">{{item.name}}</p>
+                                          <p class="font-normal text-base taps_text">{{item.description}}</p>
                                       </div>
                                 </div>
                             </div>
@@ -55,6 +55,21 @@ const changeTab = (tabId) => {
 </script>
 
 <style lang="scss" >
+@media (max-width:600px){
+  
+  .tabs button {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .taps_title{
+     font-weight: 500;
+    font-size: 14px;
+  }
+  .taps_text{
+     font-weight: 400;
+    font-size: 12px;
+  }
+}
 .tabs-container {
   width: 100%;
   margin: 0 auto;

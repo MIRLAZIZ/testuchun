@@ -18,22 +18,16 @@ const data = ref(null)
 </script>
 <template>
 <div class="main_branch">
-
-
     <div class="2xl:w-[1076px] flex items-center flex-col xl:w-[900px] lg:w-[705px] md:w-[700px] sm:w-[600px] box_wrapper">
-
         <div class="grid grid-cols-1 2xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-2 2xl:gap-4 lg:gap-4 md:gap-3 sm:gap-2 box_wrapper_gap">
             <div v-for="(item, index) in items" :key="item.id" @click="isOpen = true, data = index"
                 class=" w-[348px]  h-[600px] p-3 bg-white rounded-xl flex flex-col justify-between certificate lg:w-[330px] box_wrapper_img1">
-
                 <div class="h-[459px]  relative">
                     <img :src="item.img" alt="" class="w-full h-full">
-
                     <div
                         class="absolute bottom-0 left-0  certificateEye  rounded-xl w-full h-[459px] bg-[#06203D66] opacity-80 flex justify-center items-center">
                         <button class="w-14 h-14 bg-[#BEC4CB] rounded-xl flex justify-center items-center ">
                             <UIcon name="i-heroicons-eye" class="w-8 h-8 text-white" />
-
                         </button>
                     </div>
                 </div>
@@ -42,11 +36,9 @@ const data = ref(null)
                     <div class="w-[5px] h-[5px] bg-[#F7483B] rounded-full"></div> <span class="text-[#9A999B]">{{
                         item.date }}</span>
                 </div>
-
                 <h1 class="text-xl  font-medium">
                     {{ item.title }}
                 </h1>
-
             </div>
         </div>
 
@@ -57,8 +49,6 @@ const data = ref(null)
                 <UIcon name="i-heroicons-plus" class="  w-6 h-6 text-[#F7483B]" />
             </button>
         </div>
-
-
 
         <div class="mt-16  p-8  bg-white rounded-xl pr-16 box_wrapper_li">
             <h1 class="text-[28px] text-[#06203D]   mb-6 box_text " >Toshkent menejment va iqtisodiyot instituti:
@@ -86,13 +76,9 @@ const data = ref(null)
             </p>
         </div>
 
-
-
-
-
         <InstituteLicensesModalLicenses v-model:is-open="isOpen" :items="items" :data_id="data" />
 
-    </div>
+       </div>
     </div>
 </template>
 
@@ -105,6 +91,13 @@ const data = ref(null)
 
 .certificate :hover .certificateEye {
     opacity: 1;
+}
+@media (max-width:1024px){
+    .main_branch{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media (max-width:640px){
     .box_text{

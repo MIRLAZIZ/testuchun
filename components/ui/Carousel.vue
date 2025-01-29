@@ -13,18 +13,7 @@ const props = defineProps({
 
 
 
-const items = [
-    imgcarousel,
-    'https://picsum.photos/600/800?random=2',
-    'https://picsum.photos/600/800?random=3',
-    'https://picsum.photos/600/800?random=4',
-    'https://picsum.photos/600/800?random=5',
-    'https://picsum.photos/600/800?random=6',
-    'https://picsum.photos/600/800?random=1',
-    'https://picsum.photos/600/800?random=2',
-    'https://picsum.photos/600/800?random=3',
-    'https://picsum.photos/600/800?random=4',
-]
+
 
 
 const carousel = ref(null)
@@ -43,8 +32,10 @@ const goToNext = () => {
 </script>
 
 <template>
-    <div class="sm:flex sm:flex-col sm:items-center sm:justify-center div_wrapper_flex">
-    <div class="relative  2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper" v-if="props.data">
+    <!-- <div class="2xl:w-[1000px] xl:w-[800px] lg:w-[620px] md:w-full sm:w-full box_wrapper "> -->
+    <div class="w-full">
+
+    <div class="relative  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
             container: 'rounded-lg',
@@ -59,8 +50,9 @@ const goToNext = () => {
 
             <template #indicator="{ onClick, page, active }">
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
-                    :class="[{ 'border-2 border-[#06203D]': active }]">
-                    <img :src="items[page - 1]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
+                    :class="[{ 'ml-3': page === 1 }, { 'border-2 border-[#06203D]': active }]">
+                  
+                    <img :src="props.data[page - 1][store.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
 
                 </div>
             </template>
@@ -86,7 +78,7 @@ const goToNext = () => {
 <style lang="css" scoped>
     @media (max-width:640px){
     .box_wrapper{
-        width:350px;
+        width:100%;
     }
     .box_wrapper_padding{
         padding:10px

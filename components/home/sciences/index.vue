@@ -100,4 +100,5 @@ const thirdColumn = [
     gap:20px;
   }
 }
+
 </style>

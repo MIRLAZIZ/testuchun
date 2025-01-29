@@ -20,16 +20,12 @@ const data = [
 ]            
 </script>
 <template>
-    <div class="w-full">
-        <div class=" w-full bg-white  rounded-xl p-8 ">
-            <UiCarousel :data="data" />
-            <UiDescriptions :data="datas" />
+    <div class="w-full flex flex-col items-center">
+        <div class=" w-full bg-white  rounded-xl 2xl:p-8 p-4 flex flex-col items-center">
+            <UiCarousel :data="data" /> 
+            <UiDescriptions :data="datas" /> 
 
-            <div class="2xl:w-[1076px] w-full xl:w-[900px] lg:w-[655px] md:w-[650px] sm:w-[600px] box_wrapper">
-                <div>
-                </div>
-                   
-            </div>
+         
         
         </div>
 

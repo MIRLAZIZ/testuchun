@@ -1,13 +1,9 @@
 <script setup>
-
 </script>
 <template>
   <div class="flex items-center justify-center">
     <div class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl  xl:p-8 lg:p-2 the_box_gender ">
-
         <div class="flex justify-between the_box_gender">
-
-
             <div class="w-[688px] mt-9 the_box_title">
                 <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">BIZDA JINSLAR ARO AJOYIB ERKINLIKLAR VA
                     SHAROITLAR BOR.</h1>
@@ -23,7 +19,6 @@
                     yaratamiz.
                 </p>
             </div>
-
             <div class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper">
                 <div class="flex flex-col justify-between h-full  ">
                     <div class="flex justify-between items-center">
@@ -32,26 +27,20 @@
                             <span>2024</span>
                             <UIcon name="i-heroicons-chevron-down" class="ml-2" />
                         </div>
-
-
                     </div>
-
                     <img src="/assets/imgs/kampus/Pie Chart.png" alt="" class="w-[192px] h-[192px]">
-
                     <div>
                         <div class="flex justify-between">
                             <span class="flex items-center">
                                 <div class="w-2 h-2 rounded-full dot1 mr-1"></div> Qiz bolalar
                             </span>
                             <span>12,000</span>
-
                         </div>
                         <div class="flex justify-between">
                             <span class="flex items-center">
                                 <div class="w-2 h-2 rounded-full dot2 mr-1"></div> O'g'il bolalar
                             </span>
                             <span>14,000</span>
-
                         </div>
                     </div>
 
@@ -59,31 +48,27 @@
                         <p>Jami soni</p>
                         <p class="text-[#06203D] text-[32px] h-11 the_title">26000</p>
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-
     </div>
   </div>    
 </template>
-
-
 
 <style scoped>
 
 @media(max-width:1024px){
     .the_box_gender{
         padding:10px;
-        width:750px;
+        /* width:750px; */
+        width:100%
     }
 }
 @media(max-width:768px){
     .the_box_gender{
         padding:10px;
-        width:570px;
+        /* width:570px; */
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -108,7 +93,8 @@
     }
      .the_box_gender{
         padding:15px;
-        width:360px;
+        /* width:360px; */
+        width:100%;
     }
     .the_title{
         font-weight: 400;

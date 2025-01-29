@@ -49,11 +49,17 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center" v-if="students">
+
+
+
     <div class="mainContainer mt-[101px]">
-      <UCarousel ref="carousel" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
-        class="rounded-lg overflow-hidden flex items-center height-full">
-        <div class="container xl:py-10 p-[96px] flex justify-between 2xl:w-full xl:w-full lg:w-full relative">
+
+      <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
+        class="rounded-lg overflow-hidden">
+
+        <div class="container py-10 p-[96px] flex justify-between w-full relative">
+ 
           <!-- student  -->
           <div class="w-[793px] ">
             <div class="flex items-center ">

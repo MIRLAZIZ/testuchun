@@ -23,7 +23,7 @@ const items = [
 
             <UiBreadcrumb />
         </div>
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center ">
             <div class="mainContainer flex  gap-4  flex-col lg:flex-row lg:justify-between   mt-10 mb-[144px] ">
                 <div class="2xl:w-[712px]  lg:w-full md:w-full  rounded-xl h-[594px] p-6 bg-white  flex flex-col justify-between "
                     v-for="item in items" :key="item.id">

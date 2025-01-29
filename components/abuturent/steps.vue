@@ -1,24 +1,26 @@
 <template>
-
-    <div class="bg-white p-8 rounded-lg w-full mt-16">
+     <div class="bg-white p-8 rounded-lg w-full mt-16 mb-16">
         <h2 class="text-center text-lg  mb-6 font-medium font-Halvar">
             RO'YHATDAN O'TISH BOSQICHLARI
         </h2>
         <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-y-16 gap-x-8  relative">
-            <div v-for="(step, index) in steps" :key="index" class="flex flex-col items-center space-y-2 " ref="stepsContainer">
+            <div v-for="(step, index) in steps" :key="index" class="flex xl:flex-col gap-2 xl:gap-0 items-center space-y-2 " ref="stepsContainer">
                 <div
-                    class="flex items-center justify-center w-10 h-10 rounded-full border bg-white text-[#F7483B] font-bold relative z-10">
+                    class="flex items-center justify-center xl:w-10 xl:h-10 w-[23px] h-[23px] rounded-full border bg-white text-[#F7483B] font-medium text-sm relative z-10">
                     {{ step.id }}
                 </div>
-                <div class="bg-[#F4F6FA] p-3 rounded-md text-center  font-medium mt-4">
+                <div class="bg-[#F4F6FA] p-3 rounded-md text-center  w-full font-medium mt-4">
+                    <p>
                     {{ step.text }}
+
+                    </p>
                 </div>
             </div>
 
             <!-- Chiziq -->
             <div
             
-                class="absolute border-dashed border-2 border-gray-300 w-[84%] steps  right-0  rounded-xl  top-5 z-0 border-l-0" 
+                class="absolute border-dashed border-2 border-gray-300 w-[84%] steps   right-0  rounded-xl  top-5 z-0 border-l-0" 
                 :style="{ height: `${offsetHeightDiv}px` }">
             </div>
         </div>
@@ -78,6 +80,16 @@ onMounted(() => {
 @media (max-width:1536px){
     .steps{
         display: none;
+    }
+}
+@media (max-width:600px){
+    h2{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    p{
+        font-weight: 500;
+        font-size: 14px;
     }
 }
 </style>

@@ -18,7 +18,7 @@ const data =[
 ]
 </script>
 <template>
-    <div>
+    <div class="2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
         <EducationInformation :data="data" />
         <EducationFaq />
 

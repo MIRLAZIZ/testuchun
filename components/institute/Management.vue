@@ -45,13 +45,7 @@ const items = [{
     img: img6,
     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-}
-]
-
-// onMounted(() => {
-//     const parentPage = `/${route.fullPath.split('/')[1]}`
-//     store.menuFind(parentPage, route.fullPath)
-// })
+}]
 
 </script>
 <template>

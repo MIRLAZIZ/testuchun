@@ -24,8 +24,8 @@ const data = [
 
 
 
-        <div class="flex justify-center ">
-            <div class="lg:w-[1076px] w-full bg-white p-8 mt-10  mb-[104px] rounded-xl">
+        <div class="flex justify-center px-2 ">
+            <div class="lg:w-[1024px] w-full bg-white p-8 mt-10  mb-[104px] rounded-xl ">
 
                 <!-- kampus data  -->
                 <div class="the_kampus">
@@ -66,8 +66,6 @@ const data = [
                     </p>
                 </div>
 
-
-
                 <div class="mt-6 grid lg:grid-cols-3 md:grid-cols-3  md:gap-x-2  gir-cols-1 lg:gap-x-4 gap-4 my-10">
 
                     <div class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border">
@@ -77,30 +75,21 @@ const data = [
                             <hr class="bg-[#E9EEF9]">
                         </div>
 
-
-
                         <p class="text-[#5D5D5F] text-left text-lg">Образовательные программы</p>
                     </div>
-
                     <div class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border">
                         <div>
                             <span class="text-[40px] ">1000</span>
                             <hr class="bg-[#E9EEF9]">
                         </div>
-
-
                         <p class="text-[#5D5D5F] text-left text-lg">количество аудитории</p>
                     </div>
-
                     <div class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border">
                         <div>
                             <span class="text-[40px] text-[#F7483B]">+</span>
                             <span class="text-[40px] ">24m<sup class="text-[24px]">2</sup></span>
                             <hr class="bg-[#E9EEF9]">
                         </div>
-
-
-
                         <p class="text-[#5D5D5F] text-left text-lg">Green zone</p>
                     </div>
                 </div>
@@ -126,9 +115,6 @@ const data = [
                         davom etmoqdamiz.
                     </p>
                 </div>
-
-
-
             </div>
 
         </div>

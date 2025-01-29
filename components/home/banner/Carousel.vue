@@ -57,7 +57,9 @@ onMounted(() => {
 
     <div class="absolute w-full h-[789px] flex justify-center  top-0  faceCarousel ">
 
-      <div class="mainContainer ">
+      <!-- <div class="mainContainer "> -->
+      <div class=" ">
+        
         <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" />
 
       </div>

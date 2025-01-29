@@ -55,12 +55,15 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="main_branch">
-        {{ store.menuShow }}
+    <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
+        <!-- {{ store.menuShow }} -->
 
         <div
-            class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D]   p-8 rounded-xl border-[#E6EDFA]-1  xl:w-[850px]  lg:w-[650px] md:w-[750px] sm:w-[620px] main_box">
+            class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D]   p-8 rounded-xl border-[#E6EDFA]-1     sm:w-[100%] main_box">
+            <div class="flex items-center justify-center">
             <img src="/assets/imgs/kampus/menagement.png" alt="" class="h-[433px] w-[288px] rounded-xl img1">
+
+            </div>
 
 
             <div class="flex  flex-col justify-center pl-6">
@@ -71,7 +74,7 @@ onMounted(() => {
                     boshlig'i</p>
 
                 <hr class="border border-[#19314C] my-6">
-                <UButton class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
+                <UButton class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base" @click="router.push('/')">
                     Batafsil
                     <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6" />
                 </UButton>
@@ -80,10 +83,17 @@ onMounted(() => {
 
         <LibraryStudents :data="data" />
 
+        <!-- <InstituteDetail  /> -->
+
 
     </div>
 </template>
 <style lang="css" scoped>
+@media (max-width:1200px){
+    .main_branch{
+        width:680px
+    }
+}
 @media (max-width:1024px) {
     .box_wrapper {
         display: flex;
@@ -93,6 +103,7 @@ onMounted(() => {
     }
 
     .main_branch {
+        width:100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -104,13 +115,13 @@ onMounted(() => {
     .main_box {
         display: flex;
         flex-direction: column;
-        width: 350px !important;
-        height: auto !important;
+        /* width: 350px !important;
+        height: auto !important; */
     }
 
-    .img1 {
+    /* .img1 {
         width: 100%;
-    }
+    } */
 
     .main_box_width {
         width: 300px;
