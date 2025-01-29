@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex gap-6 w-[952px]">
+    <div class="flex gap-6 w-[952px]" v-if="props.data?.activity">
         <!-- {{ props.data.activity }} -->
       <div
         class="rounded-xl w-[464px] flex flex-col justify-center"

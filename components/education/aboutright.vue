@@ -1,10 +1,8 @@
 <template>
   <div>
-    <!-- <pre>
-    {{ props.data }}
-  </pre -->
+   
 
-    <div class="flex gap-6 w-[952px]">
+    <div class="flex gap-6 w-[952px] " v-if="props.data?.entrance_requirement">
       <div class="w-[464px] h-[416]">
         <NuxtImg
           :src="props.data?.entrance_requirement?.photo[store.currentImage]"
@@ -84,7 +82,9 @@ const changeTab = (tabId) => {
 watch(
   () => props.data?.entrance_requirement?.skills,
   (newValue) => {
-    activeTab.value = newValue[0]?.id;
+   if(props.data?.entrance_requirement?.skills){
+     activeTab.value = props.data?.entrance_requirement?.skills[0]?.id
+   }
   },
   { deep: true }
 );

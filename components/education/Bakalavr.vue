@@ -36,17 +36,19 @@ const taps = computed(() => [
   {
     id: 1,
     name: data.value?.first_name,
-    description:data.value?.first_descriptionv
+    description: data.value?.first_descriptionv,
   },
   {
     id: 2,
     name: data.value?.second_name,
-    description:data.value?.second_description  },
+    description: data.value?.second_description,
+  },
   {
     id: 3,
     name: data.value?.third_name,
-    description:data.value?.third_description  },
-])
+    description: data.value?.third_description,
+  },
+]);
 
 const aboutright = [
   {
@@ -73,7 +75,7 @@ const route = useRoute();
 const data = ref({});
 
 onMounted(() => {
-  store.getEducutionOne(route.params.slug).then(res => {
+  store.getEducutionOne(route.params.slug).then((res) => {
     data.value = res.data;
   });
 });
@@ -90,7 +92,7 @@ onMounted(() => {
         <div
           class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
         >
-        <!-- {{ data }} -->
+          <!-- {{ data }} -->
           <EducationTabsview :data="taps" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
@@ -98,8 +100,12 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <pre>
+  {{ data?.employs }}
 
+</pre
+    >
     <!-- <EducationAboutperson /> -->
-    <EducationComments />
+    <EducationComments :data="data?.employs" />
   </div>
 </template>
