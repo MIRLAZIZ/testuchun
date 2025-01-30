@@ -1,31 +1,33 @@
 <template>
   <div>
-    <div
-   class="box_wrap"
-    >
-
+    <div class="box_wrap">
       <div>
-        <p class="text-2xl font-medium">Bitiruvchilar fikrlari</p>
-        {{ props.data }}
+        <p class="text-2xl font-medium">{{ store.dataTranslate['footer.professor'] }}</p>
+        <!-- {{ props.data }} -->
         <div class="flex gap-6">
-          <div v-for="item in 2" :key="item.id">
+          <div v-for="item in props.data" :key="item.id">
             <div
               class="flex gap-6 mt-4 rounded-xl w-[464px] h-[240px] border border-[#E6EDFA] bg-white p-4"
-            
             >
               <div style="width: 157px">
-                <img src="../../assets/imgs/talim/person.svg" alt="" />
+                <NuxtImg
+                  :src="item.photo[store.currentImage]"
+                  alt=""
+                  class="w-full h-full"
+                />
               </div>
-              <div style="width: 243px; hieght: 194px">
+              <div style="width: 243px;">
                 <div class="mb-4 substringTitele">
                   <p class="font-medium text-xl">
-                    Abduqayumov Abdumannon Abdulboriy o'g'li
+                    {{ item.name }}
                   </p>
                 </div>
-                <p class="font-normal text-base" style="color: #9a999b">
-                  Mening ismim Musirmanova Dilbar va men Toshkent menejment va
-                  iqtisodiyot instituti talabasiman.
-                </p>
+                
+                <p
+                  class="font-normal text-base"
+                  style="color: #9a999b"
+                  v-html="item.dec"
+                ></p>
               </div>
             </div>
           </div>
@@ -36,23 +38,24 @@
 </template>
 
 <script setup>
+import { useHomeStore } from "~/store/home";
+
+const store = useHomeStore();
 const props = defineProps({
   data: {
     type: Object,
     required: true,
+    default: () => ({}),
   },
-})
+});
 </script>
 
 <style scoped>
+.box_wrap {
+  margin-top: 187px;
+  margin-bottom: 104px;
 
-  .box_wrap{
-        margin-top: 187px;
-        margin-bottom: 104px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-  }
+}
 .substringTitele {
   width: 243px;
   text-overflow: ellipsis;

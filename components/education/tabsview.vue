@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="tabs-container">
-    
       <div class="tabs">
         <button
           v-for="tab in tabs"
@@ -14,7 +13,6 @@
         </button>
       </div>
 
-      
       <div class="tab-content mt-5">
         <div
           v-if="activeTab === 'general'"
@@ -31,17 +29,23 @@
           </div>
         </div>
 
-        
-
         <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl">
-          <div
-            style="width: 952px; border: 1px solid #e6edfa; padding: 24px"
-            class="rounded-xl"
-            v-for="item in props.data"
-            :key="item.id"
-          >
-            <p class="mb-4 font-medium text-2xl">{{ item.name }}</p>
-            <p class="font-normal text-base">{{ item.description }}</p>
+          <div class="rounded-xl w-[952px border border-[#E6EDFA] p-6]">
+            <h1 class="mb-4 font-medium text-2xl">{{ props.data[0]?.name }}</h1>
+            <p
+              class="font-normal text-base"
+              v-html="props.data[0]?.description"
+            ></p>
+          </div>
+
+          <EducationTapContent :item="item" />
+
+          <div class="rounded-xl w-[952px border border-[#E6EDFA] p-6]">
+            <h1 class="mb-4 font-medium text-2xl">{{ props.data[2]?.name }}</h1>
+            <p
+              class="font-normal text-base"
+              v-html="props.data[2]?.description"
+            ></p>
           </div>
         </div>
       </div>
@@ -52,6 +56,11 @@
 <script setup>
 const props = defineProps({
   data: {
+    type: Object,
+    required: true,
+    default: () => ({}),
+  },
+  item: {
     type: Object,
     required: true,
     default: () => ({}),

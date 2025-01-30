@@ -21,6 +21,10 @@ const processedMenus = computed(() => {
 
   return data || [];
 });
+
+onUnmounted(() => {
+  store.menuShow = null
+})
 </script>
 
 <template>

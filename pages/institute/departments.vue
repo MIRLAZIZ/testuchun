@@ -1,24 +1,28 @@
 <template>
-    <div>
-        <!-- <InstituteManagement/> -->
-        <LibraryStudents  :data="data" />
-
-    </div>
+  <div>
+  
+     <InstituteDepartaments :data="data" />
+  </div>
 </template>
 
 <script setup>
-import img1 from '../../assets/imgs/talim/person.svg'
+import { useHomeStore } from "~/store/home";
 
-const data =[
-    { id: 1,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' },
-    { id: 2,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' },
-    { id: 3,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' },
-    { id: 4,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' },
-    { id: 5,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' },
-    { id: 6,img:img1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: '' }
-]
+const store = useHomeStore();
+import img1 from "../../assets/imgs/talim/person.svg";
+import Institute from "../institute.vue";
+
+const route = useRoute();
+
+const data = ref(null);
+onMounted(() => {
+  store.getDepartament().then((res) => {
+    data.value = res.data;
+  });
+  const prentPageOne = `/${route.fullPath.split('/')[1]}`
+  store.getMenuStatick(prentPageOne, route.fullPath)
+});
 </script>
 
 <style scoped>
-
 </style>

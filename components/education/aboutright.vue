@@ -1,8 +1,6 @@
 <template>
   <div>
-   
-
-    <div class="flex gap-6 w-[952px] " v-if="props.data?.entrance_requirement">
+    <div class="flex gap-6 w-[952px]" v-if="props.data?.entrance_requirement">
       <div class="w-[464px] h-[416]">
         <NuxtImg
           :src="props.data?.entrance_requirement?.photo[store.currentImage]"
@@ -11,14 +9,14 @@
         />
       </div>
       <div
-        class="rounded-xl h-[416px] w-[464px] flex justify-center flex-col"
-        style="border: 1px solid #e6edfa; padding: 15px"
+        class="rounded-xl h-[416px] w-[464px] flex justify-center flex-col border p-4"
       >
         <div>
           <p class="font-medium text-2xl mb-6">
             {{ props.data?.entrance_requirement?.name }}
           </p>
         </div>
+
         <div class="flex gap-2 mb-6 w-[416px]">
           <div class="tabs-container">
             <div class="tab">
@@ -26,35 +24,26 @@
                 v-for="tab in props.data?.entrance_requirement?.skills"
                 :key="tab.id"
                 :class="{ active: tab?.id === activeTab }"
-                @click="changeTab(tab?.id)"
+                @click="changeTab(tab)"
                 class="tab-buttons font-semibold text-sm text-black cursor-pointer"
               >
                 {{ tab.name }}
               </button>
             </div>
 
-
-
             <div class="tab-content">
-              <div             
-                class="flex flex-col gap-6 rounded-xl"
-              >
-                <div
-                  class="rounded-xl"
-                
-                >
+              <div class="flex flex-col gap-6 rounded-xl">
+                <div class="rounded-xl">
                   <p class="font-normal text-base mb-2 text-slate-950">
-                  test
+                    {{ scillsData?.question }} {{ scillsData?.id }}
                   </p>
-                  <p class="font-normal text-sm text-[#868587]">
-                   test
-                  </p>
+                  <p
+                    class="font-normal text-sm text-[#868587]"
+                    v-html="scillsData?.answer"
+                  ></p>
                 </div>
               </div>
             </div>
-
-
-            
           </div>
         </div>
       </div>
@@ -75,20 +64,33 @@ const props = defineProps({
 });
 
 const activeTab = ref(null);
+const scillsData = ref(null);
 
-const changeTab = (tabId) => {
-  activeTab.value = tabId;
+const changeTab = (tab) => {
+  activeTab.value = tab.id;
+  scillsData.value = props.data.faq.find(
+    (item) => item.skills.name === tab.name
+  );
 };
 watch(
   () => props.data?.entrance_requirement?.skills,
   (newValue) => {
-   if(props.data?.entrance_requirement?.skills){
-     activeTab.value = props.data?.entrance_requirement?.skills[0]?.id
-   }
+    if (props.data?.entrance_requirement?.skills) {
+      activeTab.value = props.data?.entrance_requirement?.skills[0]?.id;
+    }
   },
   { deep: true }
 );
 
+watch(
+  () => props.data?.faq,
+  (newValue) => {
+    if (props.data?.faq) {
+      scillsData.value = props.data?.faq[0];
+    }
+  },
+  { deep: true }
+);
 </script>
 
 <style  scoped>

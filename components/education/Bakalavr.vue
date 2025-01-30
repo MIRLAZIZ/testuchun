@@ -73,39 +73,49 @@ const generet = [
 const store = useHomeStore();
 const route = useRoute();
 const data = ref({});
+const router = useRouter();
 
 onMounted(() => {
-  store.getEducutionOne(route.params.slug).then((res) => {
-    data.value = res.data;
-  });
+  if (!store.menuShow) {
+    router.go(-1);
+  } else {
+    store.getEducutionOne(route.params.slug).then((res) => {
+      data.value = res.data;
+      store.bgImg = res.data?.photo?.md;
+      store.slug = res.data?.name;
+      // console.log(res.data.name);
+    });
+  }
 });
+onUnmounted(() => {
+  store.slug = null
+  store.bgImg = null
+})
 </script>
 <template>
   <div>
     <EducationTopCard :data="data" />
     <!-- <pre> {{ data }}</pre>   -->
 
-    <div
-      class="mt-[187px] mb-[104px] flex items-center justify-center flex-col"
-    >
-      <div class="2xl:w-[1440px] flex items-center justify-center xl:[1000px]">
+    <div class="mt-[187px] mb-[104px] flex items-center flex-col">
+      <div class="2xl:w-[1440px] flex flex-col items-center xl:[1000px]">
         <div
           class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
         >
           <!-- {{ data }} -->
-          <EducationTabsview :data="taps" />
+          <EducationTabsview :data="taps" :item="data" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
           <EducationAboutleft :data="data" />
         </div>
+        <div class="w-[1016px] ">
+          <EducationComments :data="data?.employs" />
+        </div>
+        
       </div>
     </div>
-    <pre>
-  {{ data?.employs }}
+   
 
-</pre
-    >
     <!-- <EducationAboutperson /> -->
-    <EducationComments :data="data?.employs" />
   </div>
 </template>

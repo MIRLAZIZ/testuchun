@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import educationVue from '~/pages/education.vue'
 import api from '~/utils/axios'
 
 
@@ -15,7 +14,10 @@ export const useHomeStore = defineStore('home', {
     menuData: null,
     menuShow: null,
     siteInfo: null,
-    educationData: null
+    educationData: null,
+    bgImg:null,
+    slug: null,
+    currentImage2:null
 
 
   }),
@@ -148,7 +150,40 @@ export const useHomeStore = defineStore('home', {
     },
     async getLeaderShips() {
       return await api.get(`/leaderships`)
-    }
+    },
+    async getDocuments() {
+      return await api.get('/documents')
+    },
+
+    async getKafedra() {
+      return await api.get('/kafedralar')
+    },
+    async getFacultet() {
+      return await api.get('/facultet')
+    },
+    async getMenegment() {
+      return await api.get('/kafedralar')
+    },
+    async getDepartament() {
+      return await api.get('/department')
+    },
+
+    async getFacultetOne(id) {
+      return await api.get(`/kafedralar/${id}`)
+    },
+
+    async leaderships(id) {
+      return await api.get(`/leaderships/${id}`)
+    },
+    async getDepartamentOne(id) {
+      return await api.get(`/department/${id}`)
+    },
+    async getKafedraOne(id) {
+      return await api.get(`/kafedralar${id}`)
+    },
+
+
+
 
   
   }
