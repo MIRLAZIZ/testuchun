@@ -10,47 +10,53 @@ import { useHomeStore } from '~/store/home'
 const route = useRoute()
 const store = useHomeStore()
 
-const data = [{
-    id: 1,
-    img: management,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-},
-{
-    id: 2,
-    img: img2,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-},
-{
-    id: 3,
-    img: img3,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-},
-{
-    id: 4,
-    img: img4,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-},
-{
-    id: 5,
-    img: img5,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-},
-{
-    id: 6,
-    img: img6,
-    name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
-    description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-}
-]
+// const data = [{
+//     id: 1,
+//     img: management,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// },
+// {
+//     id: 2,
+//     img: img2,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// },
+// {
+//     id: 3,
+//     img: img3,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// },
+// {
+//     id: 4,
+//     img: img4,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// },
+// {
+//     id: 5,
+//     img: img5,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// },
+// {
+//     id: 6,
+//     img: img6,
+//     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
+//     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
+// }
+// ]
+
+const data = ref([])
 
 onMounted(() => {
-    const parentPage = `/${route.fullPath.split('/')[1]}`
-    store.menuFind(parentPage, route.fullPath)
+    const prentPageOne = `/${route.fullPath.split('/')[1]}`
+    store.getMenuStatick(prentPageOne, route.fullPath)
+    store.getLeaderShips()
+    .then(res => {
+        data.value = res.data
+    })
 })
 
 </script>
@@ -83,7 +89,6 @@ onMounted(() => {
 
         <LibraryStudents :data="data" />
 
-        <!-- <InstituteDetail  /> -->
 
 
     </div>

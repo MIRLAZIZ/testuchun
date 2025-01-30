@@ -2,6 +2,7 @@
     <div>
         
         <LibraryAbout  :data="student" />
+        <LibraryStudent />
         
 
     </div>

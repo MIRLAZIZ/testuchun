@@ -1,29 +1,26 @@
 <script setup>
-import img1 from "/assets/imgs/talim/instetut.svg"
-const data =[
-    {id:1, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:2, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:3, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:4, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:5, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:6, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:7, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:8, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
-    {id:9, img1:img1 ,routerlink:"news-single",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
+import { useHomeStore } from "~/store/home";
 
-]
+const store = useHomeStore();
+
+import img1 from "/assets/imgs/talim/instetut.svg"
+
+
+
+onMounted(() => {
+    if (!store.news) {
+        store.getNews()
+    }
+})
 </script>
 <template>
     <div class="mb-[144px]">
-            <ScienceCertificat  :data="data"/>
-        
-                <NuxtPage />
-           
+        <ScienceCertificat :data="store.news?.data" />
+
+
 
 
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

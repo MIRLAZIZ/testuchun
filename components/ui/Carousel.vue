@@ -40,7 +40,7 @@ const goToNext = () => {
             item: 'basis-full',
             container: 'rounded-lg',
             indicators: {
-                wrapper: 'relative bottom-0 flex overflow-x-auto   [scrollbar-width:none] mt-3 '
+                wrapper: 'relative bottom-0 flex overflow-x-auto  flex justify-start  [scrollbar-width:none] mt-3 '
 
             }
         }" indicators class="rounded-lg" >
@@ -50,8 +50,8 @@ const goToNext = () => {
 
             <template #indicator="{ onClick, page, active }">
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
-                    :class="[{ 'ml-3': page === 1 }, { 'border-2 border-[#06203D]': active }]">
-                  
+                    :class="[ { 'border-2 border-[#06203D]': active }]">
+                    <!-- {{ props.data[page - 1][store.currentImage] }} -->
                     <img :src="props.data[page - 1][store.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
 
                 </div>
@@ -61,13 +61,13 @@ const goToNext = () => {
 
 
      
-          <div class="absolute right-9 top-[37%]  cursor-pointer">
+          <div class="absolute right-9 top-[37%]  cursor-pointer" v-if="props.data.length > 1">
            
             <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-white font-fol" @click="goToNext" />
           </div>
 
       
-          <div class="absolute left-9 top-[37%]  cursor-pointer">
+          <div class="absolute left-9 top-[37%]  cursor-pointer" v-if="props.data.length > 1">
             <UIcon name="i-heroicons-chevron-left" class="w-8 h-14 text-white font-bold" @click="goToPrev" />
 
           </div>

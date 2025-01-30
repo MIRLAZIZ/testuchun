@@ -2,11 +2,12 @@
 </script>
 <template>
     <div>
+        <UiBreadcrumb />
         <EducationBakalavr />
 
-    
+
     </div>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style scoped></style>

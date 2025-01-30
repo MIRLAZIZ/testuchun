@@ -25,6 +25,7 @@ const data = [
             <UiCarousel :data="data" /> 
             <UiDescriptions :data="datas" /> 
 
+        
          
         
         </div>

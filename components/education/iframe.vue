@@ -1,51 +1,31 @@
 <template>
     <div>
-                <!-- <div class="mt-14">
-                          <iframe width="952"
-                            height="536" 
-                            style="border-radius: 12px;"
-                            src="https://www.youtube.com/embed/cIu2Sxy4wqg?si=5TAfut_HT72UbmJq" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen></iframe>
-                        </div> -->
-                   <!-- <div class="mt-14">
-                          <iframe 
-                          class="w-[952px] ifram"
-                            height="536" 
-                            style="border-radius: 12px;"
-                            src="https://www.youtube.com/embed/cIu2Sxy4wqg?si=5TAfut_HT72UbmJq" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen></iframe>
-                        </div> -->
-                        <div class="mt-14">
-  <div class="aspect-w-16 aspect-h-9">
-    <iframe
-      class="rounded-lg"
-      src="https://www.youtube.com/embed/cIu2Sxy4wqg?si=5TAfut_HT72UbmJq"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-  </div>
-</div>
-
+              <!-- {{ props.data?.yt_link }} -->
+                   <div class="mt-14" v-html="props.data?.yt_link" >
+                          
+                        </div>
     </div>
 </template>
 
 <script setup>
+const props = defineProps({
+    data: {
+        type: Object,
+        required: true,
+    },
+})
 
 </script>
+<style scoped>
 
-<style lang="scss" scoped>
+.mt-14 ::v-deep(iframe)  {
+  width: 100% !important; /* yoki aniq px o'lcham */
+  height: 500px !important; /* kerakli balandlik */
+}
 @media (max-width:1028px){
   .ifram{
     width:100%;
   }
 }
 </style>
+

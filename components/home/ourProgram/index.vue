@@ -5,115 +5,28 @@
     const store = useHomeStore()
 
 
-    const selectedProgram = ref('Bakalavr')
-    const selectProgram = (program) => {
-        selectedProgram.value = program
+    const selectedProgram = ref(0)
+    const seletTypeEducution = (index) => {
+        selectedProgram.value = index
+        programitem.value = store.educationData[index].children[0]
+        progamItemId.value = store.educationData[index].children[0].id
     }
 
-    const items = [
-        {
-            id: 1, name: 'Iqtisodiyot', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 2, name: 'Buxgalteriya hisobiva audit', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: "yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 3, name: 'Moliya va moliyaviy texnologiyalar', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 4, name: 'Menejment', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 5, name: 'Marketing', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 6, name: 'Kadastr', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 7, name: 'Soliqlar va soliqqa tortish', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 8, name: 'Kompyuter injiniringi', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 9, name: 'Dasturiy ta\'minot muhandisligi', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
-        {
-            id: 10, name: 'Psixologiya', img: economy,
-            data: {
-                duration: '4 / 5',
-                acceptance: 'April',
-                location: 'Toshkent / Farg\'ona',
-                language: "O'zbek, Rus, Ingliz",
-                description: " yonalishi boyicha oquv dasturi talabalarga ushbu sohada fundamental bilim va amaliy konikmalarni beradi. Uning doirasida moliya, marketing, menejment, statistika va boshqalar kabi turli jihatlar organiladi. Ushbu ixtisoslashtirilgan dastur talabalarga iqtisodiy sohaning zamonaviy jihatlarini har tomonlama tushunish imkonini beradi va ularni biznes va moliyaning turli sohalarida     muvaffaqiyatli faoliyatga tayyorlaydi."
-            }
-        },
 
+    onMounted(() => {
+        if (!store.educationData) {
+            store.getEducation()
+                .then(() => {
 
-    ]
+                    programitem.value = store.educationData[0].children[0]
+                    progamItemId.value = store.educationData[0].children[0].id
+                })
+        }
+        else {
+            programitem.value = store.educationData[0].children[0]
+            progamItemId.value = store.educationData[0].children[0].id
+        }
+    })
 
     const programitem = ref(null)
     const progamItemId = ref(null)
@@ -123,38 +36,36 @@
 
     const selectItem = (data) => {
         progamItemId.value = data.id
-        programitem.value = data.data
+        programitem.value = data
 
     }
-    onMounted(() => {
-        programitem.value = items[0].data
-        progamItemId.value = items[0].id
-
-    })
 
 </script>
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center" v-if="store.educationData">
+
 
         <div class="h-full mainContainer  my-[104px]  ">
 
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
                 <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
+
             </div>
 
             <div class="mt-10">
-                <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 'Bakalavr' }"
-                    @click="selectProgram('Bakalavr')">
-                    {{ store.dataTranslate['home.bachelor'] }}
+                <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
+                    @click="seletTypeEducution(0)">
+                    {{ store.educationData[0].name }}
                 </button>
 
-                <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 'Magistratura' }"
-                    @click="selectProgram('Magistratura')">
-                    {{ store.dataTranslate['home.master'] }}
+                <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 1 }"
+                    @click="seletTypeEducution(1)">
+                    {{ store.educationData[1].name }}
                 </button>
 
             </div>
+
 
 
             <div class="flex wrapper_flex">
@@ -162,18 +73,22 @@
 
                 <div class="programItems">
                     <div class="programItem flex items-center  cursor-pointer"
-                        :class="{ 'bg-white rounded-l-xl': item.id === progamItemId }" v-for="item in items"
-                        :key="item.id" @click="selectItem(item)">
+                        :class="{ 'bg-white rounded-l-xl': item.id === progamItemId }"
+                        v-for="item in store.educationData[selectedProgram].children" :key="item.id"
+                        @click="selectItem(item)">
                         <img :src="item.img" alt="">
                         <p class="ml-4 wrapper_title">{{ item.name }}</p>
+
 
                     </div>
                 </div>
                 <!-- programma data  -->
                 <div class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
-                    :class="[{ 'rounded-tl-xl': progamItemId !== items[0].id }, { 'rounded-bl-xl': progamItemId !== items[items.length - 1].id }]">
+                    :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
+                    <pre>
 
-                    <h2 class="programmaTitle">IQTISODIYOT</h2>
+               </pre>
+                    <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
                     <div class="grid grid-cols-2 gap-y-10 flex_grid">
@@ -186,7 +101,7 @@
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
-                                    {{ programitem.duration }}
+                                    {{ programitem.daytime }}
                                 </p>
                             </div>
                         </div>
@@ -201,7 +116,7 @@
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
-                                    {{ upparCase(programitem.acceptance) }}
+                                    {{ programitem?.date }}
                                 </p>
                             </div>
                         </div>
@@ -216,14 +131,11 @@
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
-                                    {{ programitem.location }} shaharlari
+                                    {{ programitem.map }}
 
                                 </p>
                             </div>
                         </div>
-
-
-
 
 
                         <!-- Til  -->
@@ -234,7 +146,7 @@
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
-                                    {{ programitem.language }}
+                                    {{ programitem.lang }}
 
                                 </p>
                             </div>
@@ -244,9 +156,9 @@
                     </div>
                     <hr>
 
+
                     <div>
-                        <p class="programDescription">
-                            {{ programitem.description }}
+                        <p class="programDescription" v-html="programitem?.second_description?.substring(0, 400)">
                         </p>
                     </div>
 
@@ -282,47 +194,55 @@
 
 
 <style scoped>
-@media (max-width:600px){
+@media (max-width:600px) {
     .programmaTitle {
         font-size: 18px !important;
         font-weight: 500 !important;
         line-height: 33.6px;
     }
-    .programArgument{
-        font-size:18px !important;
+
+    .programArgument {
+        font-size: 18px !important;
         font-weight: 400 !important;
     }
-    .programDescription{
-        font-size:14px;
+
+    .programDescription {
+        font-size: 14px;
         font-weight: 400;
     }
-    .flex_grid{
-        display:flex;
+
+    .flex_grid {
+        display: flex;
         flex-direction: column;
     }
 }
-@media (max-width:1024px){
-    .wrapper_flex{
+
+@media (max-width:1024px) {
+    .wrapper_flex {
         display: flex;
         flex-direction: column;
 
     }
-    .programItems{
-        width:100% !important;
+
+    .programItems {
+        width: 100% !important;
         height: 100px !important;
-        display:flex;
-        gap:2em;
+        display: flex;
+        gap: 2em;
         overflow: auto;
         margin-bottom: 2em;
     }
-    .programItem{
-        width:300px;
+
+    .programItem {
+        width: 300px;
     }
-    .wrapper_title{
-        width:250px;
+
+    .wrapper_title {
+        width: 250px;
     }
-    .programmaData{
-        width:100% !important;
+
+    .programmaData {
+        width: 100% !important;
         height: 100% !important;
     }
 }
@@ -355,9 +275,10 @@
 .programmaData {
     width: 821px;
     height: 730px;
-    
+
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
     padding: 32px;
 }
 

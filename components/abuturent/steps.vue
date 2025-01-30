@@ -29,37 +29,40 @@
 </template>
 
 <script setup>
+import { useHomeStore } from "~/store/home";
+
+const store = useHomeStore();
 
 
-const steps = [
+const steps = computed(() => [
     {
         id: 1,
 
-        text: "Aloqa markazi bilan bog'lanish (ma'lumot olish)",
+        text: store.dataTranslate["contract.aloqa"],
     },
     {
         id: 2,
-        text: "Ariza topshirish va shaxsiy ma'lumotlar anketasini to'ldirish",
+        text: store.dataTranslate["contract.ariza"]
     },
     {
         id: 3,
-        text: "Imtihon sanasi va vaqtini bilish",
+        text: store.dataTranslate["contract.imtihon"]
     },
     {
         id: 6,
-        text: "Shartnomani olish",
+       text: store.dataTranslate["contract.shartnoma"]
     },
     {
         id: 5,
-        text: "Imtihon muvaffaqiyatli topshirilgandan so‘ng, barcha kerakli hujjatlarni taqdim etish",
+        text: store.dataTranslate["contract.imtihon1"]
     },
     {
         id: 4,
-        text: "Ro‘yhatdan o‘tish uchun to‘lovni amalga oshirish",
+        text: store.dataTranslate["contract.ro'yxat"]
     },
 
 
-]
+])
 const stepsContainer = ref()
 const offsetHeightDiv = ref(0)
 

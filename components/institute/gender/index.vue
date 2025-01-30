@@ -1,52 +1,54 @@
 <script setup>
+import { useHomeStore } from "~/store/home";
+import {useContactStore} from "~/store/contact";
+
+
+const store1 = useContactStore();
+const store = useHomeStore();
+onMounted(() =>{
+    store1.getStudents(2024)
+    
+})
 </script>
 <template>
   <div class="flex items-center justify-center">
     <div class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl  xl:p-8 lg:p-2 the_box_gender ">
         <div class="flex justify-between the_box_gender">
             <div class="w-[688px] mt-9 the_box_title">
-                <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">BIZDA JINSLAR ARO AJOYIB ERKINLIKLAR VA
-                    SHAROITLAR BOR.</h1>
+                <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">{{store.dataTranslate['about.about_gender']}}</h1>
                 <p class="text-[20px] text-[#06203D]  font-normal mt-6">
-                    Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu, iqtisodiyot, marketing,
-                    boshqaruv,
-                    kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida,
-                    hamda
-                    boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv
-                    muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va
-                    zamonaviy
-                    biznes dunyosida muvaffaqiyatli karyeraga erishishlari uchun intellektual va dinamik muhit
-                    yaratamiz.
+                        {{store.dataTranslate['about.toshkent']}}
                 </p>
             </div>
             <div class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper">
                 <div class="flex flex-col justify-between h-full  ">
                     <div class="flex justify-between items-center">
-                        <h1>o'qub yili</h1>
+                        <h1>{{store.dataTranslate['about.yil']}}</h1>
                         <div class="flex items-center">
                             <span>2024</span>
                             <UIcon name="i-heroicons-chevron-down" class="ml-2" />
                         </div>
                     </div>
-                    <img src="/assets/imgs/kampus/Pie Chart.png" alt="" class="w-[192px] h-[192px]">
+                    <!-- <img src="/assets/imgs/kampus/Pie Chart.png" alt="" class="w-[192px] h-[192px]"> -->
+                 <Chart />
                     <div>
                         <div class="flex justify-between">
                             <span class="flex items-center">
-                                <div class="w-2 h-2 rounded-full dot1 mr-1"></div> Qiz bolalar
+                                <div class="w-2 h-2 rounded-full dot1 mr-1"></div> {{store.dataTranslate['about.qiz_bolalar']}}
                             </span>
-                            <span>12,000</span>
+                            <span>{{store1.student?.female_students}}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="flex items-center">
-                                <div class="w-2 h-2 rounded-full dot2 mr-1"></div> O'g'il bolalar
+                                <div class="w-2 h-2 rounded-full dot2 mr-1"></div> {{store.dataTranslate['about.ogil_bolalar']}}
                             </span>
-                            <span>14,000</span>
+                            <span>{{store1.student?.male_students}}</span>
                         </div>
                     </div>
 
                     <div class="flex justify-between items-end ">
-                        <p>Jami soni</p>
-                        <p class="text-[#06203D] text-[32px] h-11 the_title">26000</p>
+                        <p> {{store.dataTranslate['about.jami']}}</p>
+                        <p class="text-[#06203D] text-[32px] h-11 the_title">{{ (store1.student?.male_students || 0) + (store1.student?.female_students || 0) }}</p>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ const items2 = [
        <HomeSciences />
       <HomeAbautInstut />
       <HomeFacts />
-       <!-- <HomeStudents /> -->
+       <HomeStudents />
      <HomeOurProgram />
        <HomeQuestions />
       <HomeNews />

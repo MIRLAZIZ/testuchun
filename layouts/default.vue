@@ -38,7 +38,7 @@ onUnmounted(() => {
 <template>
 
     <div class="bg-[#F4F6FA]">
-        <!-- <HomeHeaderNavBar /> -->
+        <HomeHeaderNavBar />
 
         <slot />
 

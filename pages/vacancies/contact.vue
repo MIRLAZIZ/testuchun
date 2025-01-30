@@ -15,8 +15,11 @@
           <hr>
           </div>
           <div>
-              <p class="text-gray-700">+998 99 200 02 02</p>
-          <p class="text-gray-700">+998 99 200 02 02</p>
+              <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[1]?.replace(/\s+/g, '')" class="text-[#000000] text-xl font-medium"> {{ store.siteInfo?.phone_number
+                                ?.split('|')[1] }}</a>
+                                <br>
+          <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[0]?.replace(/\s+/g, '')" class="text-black text-xl font-medium"> {{ store.siteInfo?.phone_number
+                                ?.split('|')[0] }}</a>
           </div>
          
         
@@ -31,8 +34,8 @@
           <hr>
           </div>
          
-          <p class="text-gray-700">
-            Toshkent, Yakkasaroy tumani, Shota Rustaveli ko‘chasi, 114
+          <p class="text-black font-medium text-xl">
+          {{ store.siteInfo?.address }}
           </p>
         </div>
 
@@ -45,7 +48,7 @@
             <hr>
           </div>
          
-          <p class="text-gray-700">info@timeedu.uz</p>
+          <a :href="'mailto:' + store.siteInfo?.email" class="text-black font-medium text-xl">{{ store.siteInfo?.email }}</a>
         </div>
 
         <!-- Ijtimoiy tarmoqlar -->
@@ -58,9 +61,9 @@
           </div>
          
           <div class="flex space-x-4 text-red-500">
-            <img src="/assets/imgs/vacansiec/Social.png" alt="">
-            <img src="/assets/imgs/vacansiec/youtube.png" alt="">
-            <img src="/assets/imgs/vacansiec/instagram.png" alt="">
+          <a :href="store.siteInfo?.instagram"><img src="/assets/imgs/vacansiec/Social.png" alt=""></a>  
+         <a :href="store.siteInfo?.youtube"><img src="/assets/imgs/vacansiec/youtube.png" alt=""></a>   
+           <a :href="store.siteInfo?.telegram"><img src="/assets/imgs/vacansiec/instagram.png" alt=""> </a> 
 
           </div>
         </div>
@@ -70,6 +73,9 @@
 </template>
 
 <script setup>
+import { useHomeStore } from '~/store/home'
+
+const store = useHomeStore()
 // const items =[
 //   {id:1,name:"Telifon raqam", description:"9992342332",description1:"122221221",}
 // ]

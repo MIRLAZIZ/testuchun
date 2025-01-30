@@ -3,35 +3,50 @@
     <h1 class="text-2xl font-medium mb-6">BO'SH ISH O'RINLARI</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 md:gap-6 sm:gap-2 gap-4  ">
       <div
-        v-for="vacancy in vacancies"
-        :key="vacancy.id"
+        v-for="vacancy in vacansiec1"
+        :key="vacancy"
         class="vacancy-card"
       >
-        <h2 class="font-medium text-xl mb-2">{{ vacancy.title }}</h2>
+      <!-- {{vacancy}} -->
+        <h2 class="font-medium text-xl mb-2" v-html="vacancy.title">
+        </h2> 
         <hr>
         <div class="flex items-center font-normal text-base  text-gray-500 mb-2 pt-3">
           <div class="flex items-center gap-2">
             <img src="/assets/imgs/vacansiec/Calender.png" alt="">
-            <span>{{ vacancy.schedule }}</span>
+            <span>{{ vacancy.week }}</span>
           </div>
           <div class="ml-auto flex items-center gap-2">
             <img src="/assets/imgs/vacansiec/Time.png" alt="">
             <span>{{ vacancy.date }}</span>
           </div>
         </div>
-        <div class="salary-section border p-3 rounded-lg font-medium text-base">
-          <p>{{ vacancy.salary }}</p>
+        <div class="salary-section border p-3 rounded-lg font-medium text-base" @click="$router.push(`vacancies/${vacancy.id}`)">
+          <p>{{ vacancy.price }} gacha </p>
           <img src="/assets/imgs/vacansiec/Vector.png" alt="">
         </div>
       </div>
     </div>
-    <div class="flex justify-center mt-6">
-      <button class="btn-load-more">Ko'proq ko'rish +</button>
-    </div>
+      <!-- <div class="flex justify-center mt-6">
+        <button class="btn-load-more">Ko'proq ko'rish +</button>
+      </div> -->
   </div>
 </template>
 
 <script setup>
+import {useContactStore} from '~/store/contact'
+
+const store = useContactStore()
+const vacansiec1 = ref(null)
+
+onMounted(() => {
+    store.getVacansiec()
+        .then(() => {
+            vacansiec1.value = store.vacansiec
+            // console.log('vacansiec', vacansiec1.value)
+        })
+})
+
 const vacancies = [
   {
     id: 1,
@@ -112,6 +127,7 @@ const vacancies = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width:518px;
 }
 .salary-section {
   display: flex;
@@ -122,6 +138,7 @@ const vacancies = [
   margin-top: 12px;
   display:flex;
   align-items: center;
+  cursor: pointer;
 }
 .salary-section :hover{
   color:red

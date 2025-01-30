@@ -9,7 +9,7 @@
                 </p>
             </div>
         </div>
-        <div v-for="item  in props.data" :key="item.id" class="w-full" >
+        <!-- <div v-for="item  in props.data" :key="item.id" class="w-full" >
             <div v-if="item.button"  class="w-full box_wrapper">
                 <button
                     class="bg-[#F7483B] w-[194px]  h-[48px] flex justify-center  items-center font-medium rounded-lg text-white  mt-8">
@@ -17,7 +17,7 @@
                         <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4">
                 </button>
             </div>
-        </div>
+        </div> -->
     
           
 

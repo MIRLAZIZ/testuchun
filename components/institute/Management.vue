@@ -52,7 +52,7 @@ const items = [{
     <div>
 
         <div class="grid grid-cols-2 gap-4 ">
-            {{ store.menuShow }} gghfhgg
+            <!-- {{ store.menuShow }} gghfhgg -->
 
             <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex bg-white" v-for="item in items" :key="item.id">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->
