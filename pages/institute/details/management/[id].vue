@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
+    <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]" v-if="data">
       <div class="bg-white rounded-xl">
         <div class="text-[18px] text-[#5D5D5F] pt-8 px-8 cursor-pointer">
           <span @click="$router.push('/')">Asosiy</span>/
@@ -126,7 +126,7 @@ const router = useRouter();
 
 onMounted(() => {
   if (!store.menuShow) {
-    router.back(-1);
+  store.menuShow = JSON.parse(localStorage.getItem("management"));
   }
   store.leaderships(route.params.id).then((res) => {
     data.value = res.data;

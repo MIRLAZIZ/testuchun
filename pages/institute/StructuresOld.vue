@@ -3,7 +3,7 @@ const showImage = ref(false)
 </script>
 <template>
     <div class="flex  justify-center">
-        <div class="2xl:w-[1076px] p-8 bg-white rounded-xl  xl:w-[900px] lg:w-[670px] md:w-[750px] sm:w-[600px] box_wrapper">
+        <div class="2xl:w-[1076px] p-8 bg-white rounded-xl  xl:w-[920px] lg:w-[650px] box_wrapper">
             <div>
                 <img 
                 src="/assets/imgs/kampus/image 150.png" 
@@ -77,11 +77,17 @@ const showImage = ref(false)
 
     </div>
 </template>
-<style lang="css" scoped>
-@media (max-width:640px){
+<style scoped>
+@media(max-width:1024px){
     .box_wrapper{
-        width:350px;
+        display: flex;
+        flex-direction: column;
     }
+}
+@media (max-width:640px){
+    /* .box_wrapper{
+        width:350px;
+    } */
     .box_padding{
         padding:0px
     }

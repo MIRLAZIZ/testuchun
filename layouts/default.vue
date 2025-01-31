@@ -1,55 +1,50 @@
 <script setup>
-import { useHomeStore } from '~/store/home'
-const store = useHomeStore()
+import { useHomeStore } from "~/store/home";
+const store = useHomeStore();
 
 const screenWidth = ref(0);
 
 const updateImage = () => {
-    if (screenWidth.value <= 600) {
-        store.currentImage = 'sm';
-        store.currentImage2 = 'sm_img';
-    } else if (screenWidth.value <= 1200) {
-        store.currentImage = 'md';
-        store.currentImage2 = 'md_img';
-    } else {
-       store.currentImage = 'lg';
-       store.currentImage2 = 'lg_img';
-    }
+  if (screenWidth.value <= 600) {
+    store.currentImage = "sm";
+    store.currentImage2 = "sm_img";
+  } else if (screenWidth.value <= 1200) {
+    store.currentImage = "md";
+    store.currentImage2 = "md_img";
+  } else {
+    store.currentImage = "lg";
+    store.currentImage2 = "lg_img";
+  }
 };
 
-
 onMounted(() => {
+  screenWidth.value = window.innerWidth;
+
+  store.getTranslate();
+  updateImage();
+
+  window.addEventListener("resize", () => {
     screenWidth.value = window.innerWidth;
-    
-    store.getTranslate()
     updateImage();
+  });
 
-
-    window.addEventListener("resize", () => {
-
-        screenWidth.value = window.innerWidth;
-        updateImage();
-    });
-
-    store.getMenu()
-    store.getsiteInfo()
-})
-
+  store.getMenu();
+  store.getsiteInfo();
+});
 
 onUnmounted(() => {
-    window.removeEventListener("resize", updateImage);
+  window.removeEventListener("resize", updateImage);
 });
 </script>
 <template>
+  <div class="bg-[#F4F6FA]">
 
-    <div class="bg-[#F4F6FA]">
-        <HomeHeaderNavBar /> 
+    <HomeHeaderNavBar />
 
-        <slot />
+    <slot />
 
-        <HomeFooter />
-
-    </div>
+    <HomeFooter />
+  </div>
 </template>
 
 

@@ -45,20 +45,14 @@ const items = [{
     img: img6,
     name: "Abduqayumov Abdumannon Abdulboriy o'g'li",
     description: "Yoshlar masalalari va ma'naviy-ma'rifiy ishlar departament boshlig'i"
-}
-]
-
-// onMounted(() => {
-//     const parentPage = `/${route.fullPath.split('/')[1]}`
-//     store.menuFind(parentPage, route.fullPath)
-// })
+}]
 
 </script>
 <template>
     <div>
 
         <div class="grid grid-cols-2 gap-4 ">
-            {{ store.menuShow }} gghfhgg
+            <!-- {{ store.menuShow }} gghfhgg -->
 
             <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex bg-white" v-for="item in items" :key="item.id">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->

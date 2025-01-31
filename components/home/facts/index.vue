@@ -13,7 +13,7 @@ onMounted(() => {
     <div class="flex justify-center " >
 
         <div class="mt-[104px] mainContainer">
-            <h1 class="facts">{{ store.dataTranslate['home.facts_number'] }} </h1>
+            <h1 class="facts">{{store.dataTranslate['home.facts_number']}} </h1>
 
 
             

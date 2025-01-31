@@ -15,7 +15,7 @@ const data = [
 ]
 </script>
 <template>
-    <div class="2xl:w-[1076px] w-full">
+    <div class="2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
         <div class=" w-full bg-white  rounded-xl p-8 ">
             <UiCarousel :data="data" />
 

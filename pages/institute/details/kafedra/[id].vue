@@ -1,25 +1,31 @@
 <template>
   <div>
-    <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px] border">
-      <div class="bg-white">
-        <div class="text-[18px] text-[#5D5D5F] pt-8 px-8">
+    <div
+      class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]"
+      v-if="data"
+    >
+      <div class="bg-white rounded-xl">
+        <div class="text-[18px] text-[#5D5D5F] pt-8 px-8 cursor-pointer">
           <span @click="$router.push('/')">Asosiy</span>/
-          <span>{{ store?.menuShow?.title }} /</span>
+          <span @click="$router.push('/institute/kafedralar')"
+            >{{ store?.menuShow?.title }} /</span
+          >
           <span>
-            {{ data?.simple_employee[0]?.first_name[$i18n.locale] }}
-            {{ data?.simple_employee[0]?.last_name[$i18n.locale] }}
-            {{ data?.simple_employee[0]?.surname[$i18n.locale] }}
+            {{ data?.first_name[$i18n.locale] }}gdfgsdf
+            {{ data?.last_name[$i18n.locale] }}
+            {{ data?.surname[$i18n.locale] }}
           </span>
         </div>
 
         <div
           class="flex 2xl:w-[1076px] xl:gap-8 sm:gap-4 xl:p-8 sm:p-4 gap-8 rounded-xl border-[#E6EDFA]-1 sm:w-[100%] main_box"
+          v-if="data"
         >
           <div class="w-[283px] h-[361px]">
             <NuxtImg
-              class="w-full h-full rounded-lg object-cover"
-              :src="data?.photo"
+              :src="data.photo"
               alt=""
+              class="h-full w-full rounded-xl img1 object-cover"
             />
           </div>
           <div
@@ -27,37 +33,36 @@
           >
             <div>
               <p class="mb-2 font-medium text-2xl main_box_width">
-                {{ data?.first_name }}
-                {{ data?.last_name }}
-                {{ data?.surname }}
+                {{ data.first_name[$i18n.locale] }}
+                {{ data?.last_name[$i18n.locale] }}
+                {{ data?.surname[$i18n.locale] }}
               </p>
               <p class="font-normal text-xl text-[#9A999B] main_box_width">
-                {{ data?.employ_type }}
+                {{ data?.employ_meta?.position?.name[$i18n.locale] }}
               </p>
             </div>
 
             <div class="flex gap-4 lg:mt-6 mt-4 flex-col">
               <div class="flex gap-4 flex_col">
                 <div
+                  v-if="data?.phone"
                   class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
                 >
-                  <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                   <img src="/assets/imgs/vacansiec/phone.png" alt="" />
                   <div>
                     <p class="text-[#5D5D5F] text-base font-normal">
                       Telefon raqam:
                     </p>
                     <p class="text-black font-normal text-base">
-                      <a href="tel:{{ data?.phone }}" target="_blank">
-                        {{ data?.phone }}</a
-                      >
+                      <a :href="'tel:' + data?.phone" target="_blank">
+                        {{ data?.phone }}
+                      </a>
                     </p>
                   </div>
                 </div>
                 <div
                   class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
                 >
-                  <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                   <img src="/assets/imgs/vacansiec/email.png" alt="" />
 
                   <div>
@@ -65,17 +70,17 @@
                       Elektron pochta:
                     </p>
                     <p class="text-black font-normal text-base">
-                      <a href="mailto:{{ data?.email }}" target="_blank">
-                        {{ data?.email }}</a
-                      >
+                      <a :href="'mailto:' + data?.email" target="_blank">
+                        {{ data?.email }}
+                      </a>
                     </p>
                   </div>
                 </div>
               </div>
+
               <div
                 class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
               >
-                <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                 <img
                   class="w-4 h-4"
                   src="/assets/imgs/vacansiec/vaqt.png"
@@ -86,7 +91,7 @@
                     Ish kunlari:
                   </p>
                   <p class="text-black font-normal text-base">
-                    Dushanba - Juma <span>09:00 - 18:00</span>
+                    {{ data.employ_meta?.employ?.work_time[[$i18n.locale]] }}
                   </p>
                 </div>
               </div>
@@ -97,11 +102,22 @@
                 <p
                   ref="text"
                   class="text"
-                  v-html="data?.dec?.substring(0, expanded)"
+                  v-html="
+                    data?.employ_meta?.employ?.dec[$i18n.locale]?.substring(
+                      0,
+                      expanded
+                    )
+                  "
                 ></p>
                 <button
-                  v-if="data?.dec?.length > expanded"
-                  @click="expanded = data?.dec?.length"
+                  v-if="
+                    data?.employ_meta?.employ?.dec[$i18n.locale]?.length >
+                    expanded
+                  "
+                  @click="
+                    expanded =
+                      data?.employ_meta?.employ?.dec[$i18n.locale]?.length
+                  "
                   class="text-red-500 font-bold"
                 >
                   Ko‘proq...
@@ -120,17 +136,16 @@ import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
 
-
 const expanded = ref(50);
 const data = ref(null);
 const route = useRoute();
-const router = useRouter()
+const router = useRouter();
 
 onMounted(() => {
-  if(!store.menuShow) {
-    router.back(-1)
+  if (!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("kafedra"));
   }
-  store.getKafedraOne(route.params.id).then((res) => {
+  store.getKafedraEmploy(route.params.id).then((res) => {
     data.value = res.data;
   });
 });
@@ -183,21 +198,6 @@ onMounted(() => {
 
     text-align: center;
   }
-}
-
-.copied-text {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #4caf50;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeInOut 2.5s ease-in-out;
-  z-index: 1000;
 }
 </style>
   

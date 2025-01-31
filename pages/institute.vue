@@ -18,12 +18,12 @@ const items = [
 </script>
 
 <template>
-    <div class="mb-[144px] w-full">
+    <div class="mb-[144px] ">
         <UiBreadcrumb />
-        <div class="w-full flex flex-col items-center">
-            <div class="flex 2xl:justify-between lg:flex-row lg:gap-2  box 2xl:w-[1440px]  sm:justify-evenly w-full   mt-10  ">
-                <NuxtPage />
-                <UiSidebar />
+        <div class=" flex flex-col items-center">
+            <div class="flex 2xl:justify-between  gap-2  box 2xl:w-[1440px]  sm:justify-evenly w-full p-2  mt-10  ">
+                <NuxtPage  />
+                <UiSidebar  />
             </div>
             <div v-if="$route.fullPath == '/institute'" class="w-full">
                 <HomeUsefulLink :items="items" />
@@ -34,7 +34,7 @@ const items = [
     </div>
 
 </template>
-<style lang="css" scoped>
+<style  scoped>
 @media (max-width:1024px){
 .box{
      display:flex;

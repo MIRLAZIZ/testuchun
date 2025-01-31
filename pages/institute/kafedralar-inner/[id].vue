@@ -11,7 +11,10 @@ const store = useHomeStore();
 const data = ref(null);
 const route = useRoute();
 onMounted(() => {
-  store.getFacultetOne(route.params.id).then((res) => {
+  if (!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("kafedra"));
+  }
+  store.getKafedraOne(route.params.id).then((res) => {
     data.value = res.data;
   });
 });

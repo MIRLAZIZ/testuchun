@@ -7,31 +7,34 @@
 
         <ul class="flex w-[768px] flex-wrap gap-6 text-lg box_wrapper_li  text-black">
             <li v-for="item in navigationItems" :key="item">
-                <!-- <NuxtLink :to="item.href">{{ item.label }}</NuxtLink> -->
-                {{ item.label }}
+                <NuxtLink :to="item.href">{{ item.label }}</NuxtLink>
+                <!-- {{ item.label }} -->
             </li>
         </ul>
     </nav>
 </template>
 
 <script setup>
-const navigationItems = [
-    { id: 1, label: 'Biz haqimizda', href: '/about' },
-    { id: 2, label: 'Rahbariyat', href: '/services' },
-    { id: 3, label: 'Bizning missiyamiz', href: '/contact' },
-    { id: 4, label: 'Talim dasturi', href: '/blog' },
-    { id: 5, label: 'Qabul qilish jarayoni', href: '/contact' },
-    { id: 6, label: 'Talabalar xizmatlari', href: '/contact' },
-    { id: 7, label: 'Fakultetlar', href: '/contact' },
-    { id: 8, label: 'Biz bilan bog’lanish', href: '/contact' },
+import { useHomeStore } from "~/store/home";
+
+const store = useHomeStore();
+const navigationItems = computed(() => [
+    { id: 1, label: store.dataTranslate["footr.biz_haqimizda"], href: '/institute/about-Us' },
+    { id: 2, label: store.dataTranslate["footr.rahbariyat"], href: '/institute/management' },
+    // { id: 3, label:  store.dataTranslate["footr.missiya"], href: '/contact' },
+    { id: 4, label:  store.dataTranslate["footr.talim"], href: '/education/bachelor' },
+    { id: 5, label:  store.dataTranslate["footr.jarayon"], href: '/prospective-students/admission' },
+    { id: 6, label:  store.dataTranslate["footr.talabalar"], href: '/prospective-students/service' },
+    { id: 7, label: store.dataTranslate["footr.facultet"], href: '/institute/faculties' },
+    { id: 8, label: store.dataTranslate["footr.bog'lanish"], href: '/vacancies/contact' },
 
 
 
-]
+])
 
 
 </script>
-<style lang="css" scoped>
+<style scoped>
 @media(max-width:1024px){
     .box_wrapper{
         display:flex;

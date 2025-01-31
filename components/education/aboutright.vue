@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="flex gap-6 w-[952px]" v-if="props.data?.entrance_requirement">
+   
+
+    <div class="flex gap-6  lg:w-[952px] w-full about" v-if="props.data?.entrance_requirement">
       <div class="w-[464px] h-[416]">
         <NuxtImg
           :src="props.data?.entrance_requirement?.photo[store.currentImage]"
@@ -94,8 +96,37 @@ watch(
 </script>
 
 <style  scoped>
-.tab {
-  display: flex;
+@media (max-width:600px){
+    .box_title{
+        font-size:14px;
+        font-weight: 500;;
+    }
+    .tab-content_title{
+        font-weight: 400px;
+        font-size: 14px;;
+    }
+    .tab-content_text{
+        font-weight: 400px;
+        font-size: 12px;;
+    }
+    .tab-buttons{
+        font-weight: 600;
+        font-size: 12px;
+    }
+       .tab{
+        flex-direction: column;
+    }
+}
+@media (max-width:1024px){
+    .about{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+}
+.tab{
+    display: flex;
 }
 .tab-buttons {
   padding: 10px 20px;

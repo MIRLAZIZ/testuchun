@@ -3,6 +3,7 @@
   
      <InstituteDepartaments :data="data" />
   </div>
+   
 </template>
 
 <script setup>
@@ -21,6 +22,10 @@ onMounted(() => {
   });
   const prentPageOne = `/${route.fullPath.split('/')[1]}`
   store.getMenuStatick(prentPageOne, route.fullPath)
+  if(store.menus){
+    localStorage.setItem('departments', JSON.stringify(store.menuShow));
+  }
+
 });
 </script>
 

@@ -5,9 +5,6 @@
     <div class="mb-[144px]">
         
                 <NuxtPage />
-           
-
-
     </div>
 </template>
 

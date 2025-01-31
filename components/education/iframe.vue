@@ -22,6 +22,10 @@ const props = defineProps({
   width: 100% !important; /* yoki aniq px o'lcham */
   height: 500px !important; /* kerakli balandlik */
 }
-
+@media (max-width:1028px){
+  .ifram{
+    width:100%;
+  }
+}
 </style>
 

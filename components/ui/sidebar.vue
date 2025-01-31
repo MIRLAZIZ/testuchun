@@ -107,6 +107,7 @@ const getMenuLink = computed(() => {
     width: 350px !important;
   }
 
+
   .img_width {
     width: 320px;
   }

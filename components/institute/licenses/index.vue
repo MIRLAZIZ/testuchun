@@ -126,6 +126,13 @@ const addCertificat = () => {
 .certificate :hover .certificateEye {
   opacity: 1;
 }
+@media (max-width:1024px){
+    .main_branch{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 @media (max-width: 640px) {
   .box_text {
     width: 243px;

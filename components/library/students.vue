@@ -14,7 +14,7 @@
                             40) }}
                     </h1>
                     <p class=" mt-2 text-[#88929D]">
-                        {{ item?.position.length > 70 ? item?.position.substring(0, 70) + '...' : item?.position }}
+                        {{ item?.position?.length > 70 ? item?.position?.substring(0, 70) + '...' : item?.position }}
                     </p>
                     <hr class="border border-[#DCE5F5] my-6">
                     <UButton class="  bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
@@ -47,7 +47,7 @@ const props = defineProps({
     data: {
         type: Object,
         requered:true,
-      default: ()=>null
+      default: ()=>({}) || null
 
     }
 }) 

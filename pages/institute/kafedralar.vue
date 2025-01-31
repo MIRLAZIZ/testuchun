@@ -11,6 +11,9 @@ onMounted(() => {
   })
   const prentPageOne = `/${route.fullPath.split('/')[1]}`
   store.getMenuStatick(prentPageOne, route.fullPath)
+  if(store.menus){
+    localStorage.setItem('kafedra', JSON.stringify(store.menuShow));
+  }
 });
 </script>
 

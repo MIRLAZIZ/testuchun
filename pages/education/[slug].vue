@@ -9,7 +9,9 @@ onMounted(() => {
   const parentPage = `/${route.fullPath.split("/")[2]}`;
   const prentPageOne = `/${route.fullPath.split("/")[1]}`;
   store.getMenuStatick(prentPageOne, route.fullPath);
-  console.log(prentPageOne, route.fullPath);
+  if (store.menus) {
+    localStorage.setItem('education', JSON.stringify(store.menuShow));
+  }
   
 
   if (!store.educationData) {

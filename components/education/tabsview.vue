@@ -79,7 +79,22 @@ const changeTab = (tabId) => {
 };
 </script>
 
-<style >
+<style scoped>
+@media (max-width:600px){
+  
+  .tabs button {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .taps_title{
+     font-weight: 500;
+    font-size: 14px;
+  }
+  .taps_text{
+     font-weight: 400;
+    font-size: 12px;
+  }
+}
 .tabs-container {
   width: 100%;
   margin: 0 auto;

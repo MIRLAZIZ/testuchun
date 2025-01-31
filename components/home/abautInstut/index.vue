@@ -20,7 +20,9 @@ const items = [
 <template>
     <div class="w-full flex justify-center">
 
-        <div class="mainContainer">
+        <!-- <div class="mainContainer"> -->
+        <div class="">
+
 
 
             <div class="box_wrapper grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-8">

@@ -32,21 +32,20 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-    <div class="2xl:w-[1076px] w-full">
-        <div v-for="data in processedMenus" :key="data.id" class="w-full"
-            :class="{ 'mt-16': data.order !== Math.min(data.order) && data.type !== 'formmenu3' }">
+    <div class="2xl:w-[1076px]  xl:w-[920px] lg:w-[650px] md:w-[700px] sm:w-[630px] w-full">
+          <!-- <pre>{{processedMenus}}</pre>  -->
 
-            <!-- formmmenu1 -->
-            <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
+        <div v-for="(data,index) in processedMenus" :key="data.id" class="w-full"
+            :class="{ 'mt-10': index !== 0 &&  data.type !== 'formmenu3' } ">
+
+            <div v-if="data.type === 'formmenu' " class="bg-white rounded-xl p-8">
                 <UiCarousel :data="data.photo" />
                 <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
             </div>
 
-            <!-- formmenu2 -->
-            <HomeUsefulLinkCarusel v-else-if="data.type === 'formmenu1'" :items="data.categories" :title="data.title" />
 
-            <!-- fomrmenu3  -->
-            <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
+            <HomeUsefulLinkCarusel v-if="data.type === 'formmenu1'" :items="data.categories" :title="data?.title" />
+
         </div>
     </div>
 </template>

@@ -5,7 +5,7 @@
     <div>
         <InstituteLicenses />
         
-
+    
 
     </div>
 </template>

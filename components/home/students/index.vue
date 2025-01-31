@@ -90,7 +90,7 @@ const goToNext = () => {
           <div class="studentsImg">
             <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg">
 
-           <!-- carousel button  -->
+            <!-- carousel button  -->
           </div>
           <!-- arrow right  -->
           <div class="absolute right-9 top-1/2 transform -translate-y-1/2 cursor-pointer">

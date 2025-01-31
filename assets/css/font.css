@@ -1,29 +1,28 @@
 @font-face {
     font-family: 'Halvar Breitschrift';
-    src: url('~/assets/fonts/HalvarBreit-Rg.ttf') format('truetype');
+    src: url('@/assets/fonts/HalvarBreit-Rg.ttf') format('truetype');
     font-weight: 400; 
     font-style: normal;
   }
   @font-face {
     font-family: 'Halvar Breitschrift';
-    src: url('~/assets/fonts/HalvarBreit-Md.ttf') format('truetype');
+    src: url('@/assets/fonts/HalvarBreit-Md.ttf') format('truetype');
     font-weight: 500; 
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Halvar Breitschrift';
-    src: url('~/assets/fonts/HalvarBreit-Bd.ttf') format('truetype');
+    src: url('@/assets/fonts/HalvarBreit-Bd.ttf') format('truetype');
     font-weight: 700; 
     font-style: normal;
   }
 
   @font-face {
     font-family: 'manrope';
-    src: url('~/assets/fonts/Manrope-SemiBold.ttf');
+    src: url('@/assets/fonts/Manrope-SemiBold.ttf');
     font-weight:600 ;
     font-style: normal;
   }
-  /* "D:\proyektlar\timeEdu\timeedu\assets\fonts\Manrope-SemiBold.ttf" */
 
     

@@ -1,36 +1,7 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
 import img1 from "/assets/imgs/talim/watch.svg";
-const datatype = [
-  {
-    id: 1,
-    img: img1,
-    type: "Turi",
-    name: "Kunduzgi 5-yil",
-    description: "Sirtqi 4-yil",
-  },
-  {
-    id: 2,
-    img: img1,
-    type: "Til",
-    name: "O'zbek Rus Ingliz ",
-    description: "",
-  },
-  {
-    id: 3,
-    img: img1,
-    type: "Manzil",
-    name: "Toshkent Shahri",
-    description: "",
-  },
-  {
-    id: 4,
-    img: img1,
-    type: "Boshlanish sanasi",
-    name: "01 aprel , 2024",
-    description: "",
-  },
-];
+
 
 const taps = computed(() => [
   {
@@ -50,25 +21,9 @@ const taps = computed(() => [
   },
 ]);
 
-const aboutright = [
-  {
-    id: 1,
-    name: "Kirish talablari",
-    description: "Toshkent menejment va iqtisodiyot institutiga xush kelibsiz!",
-    descriptionall:
-      "TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz.",
-  },
-  // {id:2, name:"Kirish talablari",description:"Toshkent menejment va iqtisodiyot institutiga xush kelibsiz!",descriptionall:"TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz."},
-  // {id:3, name:"Kirish talablari",description:"Toshkent menejment va iqtisodiyot institutiga xush kelibsiz!",descriptionall:"TMII bu, iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida, hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz, talabalarning imkoniyatlarini rivojlantirish, shakllantirish va zamonaviy biznes intellektual va dinamik muhit yaratamiz."}
-];
 
-const aboutleft = [];
-const generet = [
-  { id: 1, name: "general" },
-  { id: 2, name: "English language" },
-  { id: 3, name: "Math" },
-  { id: 4, name: "Age" },
-];
+
+
 
 const store = useHomeStore();
 const route = useRoute();
@@ -76,26 +31,23 @@ const data = ref({});
 const router = useRouter();
 
 onMounted(() => {
+  store.getEducutionOne(route.params.slug).then((res) => {
+    data.value = res.data;
+    store.bgImg = res.data?.photo?.md;
+    let slugName = {
+      slugText: res.data?.slug,
+    };
+    store.slugData = slugName;
+  });
+
   if (!store.menuShow) {
-    router.go(-1);
-  } else {
-    store.getEducutionOne(route.params.slug).then((res) => {
-      data.value = res.data;
-      store.bgImg = res.data?.photo?.md;
-      store.slug = res.data?.name;
-      // console.log(res.data.name);
-    });
+    store.menuShow = JSON.parse(localStorage.getItem("education"));
   }
 });
-onUnmounted(() => {
-  store.slug = null
-  store.bgImg = null
-})
 </script>
 <template>
   <div>
     <EducationTopCard :data="data" />
-    <!-- <pre> {{ data }}</pre>   -->
 
     <div class="mt-[187px] mb-[104px] flex items-center flex-col">
       <div class="2xl:w-[1440px] flex flex-col items-center xl:[1000px]">
@@ -108,13 +60,11 @@ onUnmounted(() => {
           <EducationAboutright :data="data" />
           <EducationAboutleft :data="data" />
         </div>
-        <div class="w-[1016px] ">
+        <div class="w-[1016px]">
           <EducationComments :data="data?.employs" />
         </div>
-        
       </div>
     </div>
-   
 
     <!-- <EducationAboutperson /> -->
   </div>

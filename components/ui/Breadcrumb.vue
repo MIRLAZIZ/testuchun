@@ -1,42 +1,52 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
+import { computed } from 'vue';
 
 const store = useHomeStore();
+
+// Xavfsiz background URL olish uchun computed property
+const backgroundImage = computed(() => {
+  return store.menuShow?.dinamikMenus?.length 
+    ? store.menuShow.dinamikMenus[0]?.background 
+    : store.bgImg
+});
+
+// Background mavjudligini tekshirish uchun computed property
+const hasBackground = computed(() => {
+  return !!backgroundImage.value;
+});
 </script>
 
 <template>
   <div
     class="bg-white flex flex-col items-center justify-center py-[48px] bgImg"
     :style="{
-      'background-image': `url(${
-        store.menuShow?.dinamikMenus[0]?.background || store.bgImg
-      })`,
+      'background-image': hasBackground ? `url(${backgroundImage})` : undefined
     }"
     :class="{
-      'h-[400px] text-white':
-        store.menuShow?.dinamikMenus[0]?.background || store.bgImg,
+      'h-[400px] text-white': hasBackground
     }"
   >
-    <!-- {{  getMenuLink }} -->
     <h1
       class="text-[40px] font-medium text-[#06203D]"
       :class="{
-        'text-white':
-          store.menuShow?.dinamikMenus[0]?.background || store.bgImg,
+        'text-red-500': hasBackground
       }"
     >
       {{ store.menuShow?.title }}
     </h1>
+
     <div
       class="text-[#5D5D5F] text-lg"
       :class="{
-        'text-white':
-          store.menuShow?.dinamikMenus[0]?.background || store.bgImg,
+        'text-red-500': hasBackground
       }"
     >
       <button @click="$router.push('/')">Asosiy</button> /
-      <button>{{ store.menuShow?.title }}</button>
-      <button v-if="store.slug">/ {{ store.slug }}</button>
+      <button @click="$router.push(`${store.menuShow?.path}`)">{{ store.menuShow?.title || store?.slugData?.title }} </button>
+      <button v-if="store.slugData?.slugText">
+        / {{ store.slugData.slugText }}
+      </button>
     </div>
   </div>
 </template>

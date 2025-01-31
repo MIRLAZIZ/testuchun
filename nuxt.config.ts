@@ -11,11 +11,24 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-    }
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap"
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        },
+      ]
+
+    },
+
   },
 
   //main css
-  css: ['~/assets/css/main.css', '~/assets/css/font.css'],
+  css: ['@/assets/css/main.css', '@/assets/css/font.css'],
+  
 
   // tailwind install  
 
@@ -30,7 +43,7 @@ export default defineNuxtConfig({
     '~/plugins/axios.ts'
   ],
 
-  
+
 
   runtimeConfig: {
     public: {
@@ -69,8 +82,8 @@ export default defineNuxtConfig({
   alias: {
     'image': fileURLToPath(new URL('./assets/images', import.meta.url)),
   },
-  
-  
 
-  
+
+
+
 })

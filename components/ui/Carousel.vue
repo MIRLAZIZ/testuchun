@@ -32,7 +32,9 @@ const goToNext = () => {
 </script>
 
 <template>
-    <div class="">
+    <!-- <div class="2xl:w-[1000px] xl:w-[800px] lg:w-[620px] md:w-full sm:w-full box_wrapper "> -->
+    <div class="w-full">
+
     <div class="relative  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
@@ -73,10 +75,10 @@ const goToNext = () => {
     </div>
 </div>
 </template>
-<style lang="css" scoped>
+<style  scoped>
     @media (max-width:640px){
     .box_wrapper{
-        width:350px;
+        width:100%;
     }
     .box_wrapper_padding{
         padding:10px

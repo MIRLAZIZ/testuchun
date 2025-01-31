@@ -21,7 +21,7 @@
                             </p>
                         </div>
                         <div>
-                            <!-- <p class="font-medium text-xl text-[#000000]">Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi</p> -->
+                           
                             <p class="font-medium text-xl">{{ item.title ? item.title : '' }}</p>
 
                         </div>

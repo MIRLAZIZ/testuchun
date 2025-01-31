@@ -16,7 +16,7 @@ const router = useRouter();
 
 onMounted(() => {
   if (!store.menuShow) {
-    router.back(-1);
+    store.menuShow = JSON.parse(localStorage.getItem("departments"));
   }
   store.getDepartamentOne(route.params.id).then((res) => {
     data.value = res.data;

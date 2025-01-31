@@ -3,9 +3,9 @@
     <div class="sm:grid sm:grid-cols-3 sm:gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%] box_wrapper_li">
 
       <!-- fristColumn -->
-      <div class="border-r">
-        <ul class="flex flex-col justify-between p-[55px] h-full">
-          <hr class="bg-[#ECF1FB]">
+      <div class="sm:border-r">
+        <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
+          <hr class="bg-[#ECF1FB] wrapper_hidden">
           <li v-for="item in firstColumn" :key="item.id" class="flex ">
 
             <a :href="store.dataTranslate[item.link]" target="_blank">
@@ -21,9 +21,9 @@
 
 
       <!-- Second Column -->
-      <div class="border-r">
-        <ul class="flex flex-col justify-between p-[55px] h-full">
-          <hr class="bg-[#ECF1FB]">
+      <div class="sm:border-r">
+        <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
+          <hr class="bg-[#ECF1FB] wrapper_hidden">
           <li v-for="item in secondColumn" :key="item.id" class="flex cursor-pointer"
             @click="$router.push(item.link)">
             <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
@@ -36,8 +36,8 @@
 
       <!-- Third Column -->
       <div class="">
-        <ul class="flex flex-col justify-between h-full p-[55px]">
-          <hr class="bg-[#ECF1FB]">
+        <ul class="flex flex-col justify-between h-full p-[55px] wrapper_ul ">
+          <hr class="bg-[#ECF1FB] wrapper_hidden">
           <li v-for="item in thirdColumn" :key="item.id" class="flex cursor-pointer"
             @click="$router.push(item.link)">
             <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
@@ -100,4 +100,5 @@ const thirdColumn = [
     gap:20px;
   }
 }
+
 </style>

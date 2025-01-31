@@ -14,7 +14,6 @@ const props = defineProps({
 </script>
 <template>
   <div class="flex justify-center items-center main_branch">
-    <pre>{{ props.data }}</pre>
     <div
       class="2xl:w-[1052px] grid 2xl:grid-cols-3 2xl:grid-rows-3 2xl:gap-4 xl:w-[900px] xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-4 xl:justify-center lg:w-[650px] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-3 lg:justify-center md:w-[700px] md:justify-around md:gap-2 md:grid md:grid-cols-2 md:grid-rows-2 sm:w-[600px] sm:gap-2 sm:justify-center sm:grid sm:grid-rows-2 sm:grid-cols-2 main_box"
     >

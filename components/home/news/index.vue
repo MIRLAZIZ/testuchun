@@ -6,6 +6,8 @@
         <div class="mainContainer h-full my-[104px] ">
             <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
 
+        <div class="mainContainer h-full my-[104px] ">
+            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
 
 
                 <div class="flex justify-between items-center align">
@@ -14,7 +16,7 @@
 
                     <button
                     @click="$router.push('/news')"
-                        class="bg-red-500 text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
+                        class="bg-red-500 text-white w-[233px] h-[48px] font-medium rounded-md dsiplay_hidden  flex items-center justify-center">
                         {{ store.dataTranslate['home.see_all'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
                     </button>
@@ -91,6 +93,8 @@
             </div>
         </div>
     </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
@@ -101,34 +105,14 @@ const store = useHomeStore()
 
 const programItem = ref(null)
 
-// const selectItem = (item) => {
-//     console.log('item', item);
-
-//     programItem.value = item
-// }
-
-
-
 onMounted(() => {
-
     // programItem.value = news[0]
     store.getNews()
         .then(() => {
             programItem.value = store.news.data[0]
-
-
         })
 
-
 })
-
-
-
-
-
-
-
-
 
 
 
