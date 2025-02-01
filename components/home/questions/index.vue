@@ -1,5 +1,8 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
+import {useContactStore} from '~/store/contact'
+const stored = useContactStore();
+import { toast } from 'vue3-toastify'
 
 const store = useHomeStore()
 const question = ref({
@@ -8,6 +11,22 @@ const question = ref({
     message: null
 
 })
+function send(){
+    if (!question.value.name || !question.value.telNumber || !question.value.message) {
+          toast.info('Iltimos, barcha maydonlarni to‘ldiring')
+
+        return;
+    }
+    else{
+          toast.success('Xabar muvaffaqqiyatli yuborildi')
+            stored.postContact(question.value.name,question.value.telNumber,question.value.message)
+            question.name.value = null,
+            question.telNumber.value = null,
+            question.message.value = null
+             console.log(question.value.name,question.value.telNumber,question.value.message)
+    }
+}
+
 watch(question, (newValue) => {
 
    let telNumberString = String(newValue.telNumber)
@@ -45,37 +64,23 @@ watch(question, (newValue) => {
             </div>
 
             <div class="w-[591px] flex flex-col justify-between box_ul ">
-
-                <input type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
-
-
-                <!-- tel input  -->
+                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span
                         class="text-gray-400 font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
-                    <input type="number" class=" focus:outline-none bg-inherit h-full pl-2  w-full text-lg text-white"
+                    <input required type="number" class=" focus:outline-none bg-inherit h-full pl-2  w-full text-lg text-white"
                         v-model="question.telNumber" />
                 </div>
-
-
-
-
                 <div>
-                    <textarea class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
+                    <textarea required class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
 
                 </div>
                 <div>
-                    <button class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
+                    <button @click="send()" class="bg-[#F7483B] w-[164px]  h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
                         {{ store.dataTranslate['home.send'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6 text-white" />
                     </button>
-
-
-
-
                 </div>
-
-
             </div>
 
 

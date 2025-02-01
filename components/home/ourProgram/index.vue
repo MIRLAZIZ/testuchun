@@ -1,8 +1,49 @@
-    <script setup>
-    import economy from '/assets/imgs/home/econom.png'
-    import { useHomeStore } from '~/store/home'
+<script setup>
+import economy from '/assets/imgs/home/econom.png'
+import { useHomeStore } from '~/store/home'
+import {useContactStore} from '~/store/contact'
+const stored = useContactStore();
+import { toast } from 'vue3-toastify'
+const modalVisible = ref(false) 
 
-    const store = useHomeStore()
+const question = ref({
+    name: null,
+    telNumber: null,
+    message: null
+
+})
+function send(){
+    modalVisible.value = false
+    if (!question.value.name || !question.value.telNumber || !question.value.message) {
+          toast.info('Iltimos, barcha maydonlarni to‘ldiring')
+        return;
+    }
+    else{
+          toast.success('Xabar muvaffaqqiyatli yuborildi')
+            stored.postContact(question.value.name,question.value.telNumber,question.value.message)
+            //  console.log(question.value.name,question.value.telNumber,question.value.message)
+             question.name.value = null,
+            question.telNumber.value = null,
+            question.message.value = null
+    }
+}
+
+watch(question, (newValue) => {
+
+   let telNumberString = String(newValue.telNumber)
+    if (telNumberString.length >= 9) {
+        question.value.telNumber = Number(telNumberString.slice(0, 9))
+
+    }
+}, { deep: true })
+
+
+
+
+
+
+
+const store = useHomeStore()
 
 
     const selectedProgram = ref(0)
@@ -161,40 +202,113 @@
                         <p class="programDescription" v-html="programitem?.second_description?.substring(0, 400)">
                         </p>
                     </div>
-
                     <div>
-
-                        <div class="flex">
-
-
+                        <div class="flex mt-4">
                             <button
                                 class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium rounded-lg">
                                 {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
-
-                            <button
+                            <button   @click="modalVisible = true"
                                 class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
                             </button>
-
-
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </div>
+
+
+
+
+
+        <div  @click.self="modalVisible = false" v-if="modalVisible" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div class="w-[591px] flex flex-col justify-between box_ul gap-3 bg-[#06203D] p-6 rounded-lg">
+                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
+                <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
+                    <span class="text-gray-400 font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
+                    <input required type="number" class="focus:outline-none bg-inherit h-full pl-2 w-full text-lg text-white" v-model="question.telNumber" />
+                </div>
+
+                <div>
+                    <textarea required class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
+                </div>
+
+                <div>
+                    <button @click="send" class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
+                        {{ store.dataTranslate['home.send'] }}
+                        <UIcon name="i-heroicons-arrow-long-right" class="ml-6 w-6 h-6 text-white" />
+                    </button>
+                </div>
+            </div>
+            </div>
+  
+
     </div>
 
 </template>
 
 
 <style scoped>
+.questionInput {
+    width: 100%;
+    height: 64px;
+    padding: 18px 24px 18px 24px;
+    border-radius: 12px;
+    border: 1px solid #88929D;
+    background: inherit;
+    color: white;
+    outline: none;
+}
+
+.questionInput::placeholder,
+.questionTextarea::placeholder {
+    color: #88929D;
+    font-size: 18px;
+}
+
+.questionTextarea {
+    width: 100%;
+    height: 172px;
+    padding: 18px 24px 18px 24px;
+    border-radius: 12px;
+    border: 1px solid #88929D;
+    background: inherit;
+    resize: none;
+    outline: none;
+    color: #fff;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:700px){
+     /* .questionTextarea{
+        width:350px !important;
+    } */
+}
+
 @media (max-width:600px) {
+          .box_ul{
+        width:350px;
+        
+    }
+    /* .questionTextarea{
+        width:350px !important;
+    } */
     .programmaTitle {
         font-size: 18px !important;
         font-weight: 500 !important;
@@ -223,7 +337,11 @@
         flex-direction: column;
 
     }
-
+  .box_ul{
+        display:flex;
+        gap:2em;
+        
+    }
     .programItems {
         width: 100% !important;
         height: 100px !important;

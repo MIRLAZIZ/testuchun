@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   plugins: [
-    '~/plugins/axios.ts'
+    '~/plugins/axios.ts','~/plugins/vue3-toastify.js'
   ],
 
   
