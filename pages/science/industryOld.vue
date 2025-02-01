@@ -37,6 +37,7 @@ const data = [
     'https://picsum.photos/600/800?random=4',
 ]
 
+
 </script>
 
 <style scoped>
