@@ -7,7 +7,10 @@
                 <div class="grid grid-cols-auto-fit pt-12 pb-10 px-6  w-full">
                     <button v-for="option in store.optionsData[0]?.children" :key="option"
                         class=" text-gray-700 hover:text-red-700  text-left ">
-                        <p @click="$router.push(option.path)">{{ option.title }} </p>
+                        <div v-if="option.path">
+                            <p @click="$router.push(option.path)">{{ option.title }} </p>
+
+                        </div>
 
                     </button>
 
