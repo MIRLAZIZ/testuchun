@@ -76,22 +76,18 @@
     <div class="flex gap-4 mt-4">
       <a href="https://t.me/" target="_blank" class="social-icon">
       <img src="/assets/imgs/vacansiec/telegram1.png" alt="">
-        <!-- <UIcon name="i-heroicons-paper-airplane" class="w-6 h-6 text-gray-500" /> -->
       </a>
       <a href="https://instagram.com/" target="_blank" class="social-icon">
       <img src="/assets/imgs/vacansiec/instagram1.png" alt="">
 
-        <!-- <UIcon name="i-heroicons-camera" class="w-6 h-6 text-gray-500" /> -->
       </a>
       <a href="https://facebook.com/" target="_blank" class="social-icon">
-        <!-- <UIcon name="i-heroicons-facebook" class="w-6 h-6 text-gray-500" /> -->
       <img src="/assets/imgs/vacansiec/facebook.png" alt="">
 
       </a>
       <a href="https://twitter.com/" target="_blank" class="social-icon">
-      <img src="/assets/imgs/vacansiec/twitter  .png" alt="">
+      <img src="/assets/imgs/vacansiec/twitter.png" alt="">
 
-        <!-- <UIcon name="i-heroicons-twitter" class="w-6 h-6 text-gray-500" /> -->
       </a>
     </div>
   </div>
