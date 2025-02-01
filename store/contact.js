@@ -31,7 +31,19 @@ export const useContactStore = defineStore('contact', {
             .then(res => {
                 this.student = res.data
             })
-          }
+          },
+          async postContact(name, phone_number, message) {
+            
+               return await api.post('/contacts', {
+                name: name,
+                phone_number:String(phone_number),
+                message: message
+              })
+              .then(res => {
+                // console.log('this.contact', this.contact)
+              })
+        
+          },
     }
 
 

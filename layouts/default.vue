@@ -37,15 +37,40 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="bg-[#F4F6FA]">
 
-    <HomeHeaderNavBar />
+    <div class="bg-[#F4F6FA]">
+        <div class="box_hidden2">
+             <HomeHeaderNavBar />
 
-    <slot />
+        </div>
+        <div class="box_hidden1">
+            <Sidebarmini  />
+        </div>
+            <!-- <Sidebarmini  /> -->
+             <!-- <HomeHeaderNavBar /> -->
+
+        <slot />
 
     <HomeFooter />
   </div>
 </template>
 
 
-<style scoped></style>
+<style scoped>
+@media(max-width:1200px){
+    .box_hidden2{
+        display:none !important
+    }
+}
+@media(min-width:1200px){
+    .box_hidden1{
+        display:none !important
+    }
+}
+.box_hidden1{
+    display:block
+}
+.box_hidden2{
+    display:block
+}
+</style>

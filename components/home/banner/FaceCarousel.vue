@@ -5,16 +5,10 @@ const store = useHomeStore()
 </script>
 <template>
 
-    <div class="grid grid-cols-2  w-full h-[789px]  mt-[106px]" style="grid-template-columns: 60% 40%;">
-
-
-
-
-
+    <div class="grid grid-cols-2  w-full h-[789px]  mt-[50px]" style="grid-template-columns: 70% 30%;">
         <!-- caption  -->
-        <div class=" h-[500px] flex flex-col justify-start  ">
-            <h1 class="caption mt-14" v-html="store.dataTranslate['home.time']">
-
+        <div class=" h-[500px] home_wrapper flex flex-col justify-around  ">
+            <h1 class="caption " v-html="store.dataTranslate['home.time']">
             </h1>
 
             <button
@@ -33,16 +27,16 @@ const store = useHomeStore()
 
 
         <!-- left arrow -->
-        <div class="absolute left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
+        <div class="absolute home_left left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
-            <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-[#72705F]" @click="$emit('left')" />
+            <UIcon name="i-heroicons-chevron-left" class="  w-12 h-20 text-[#72705F]" @click="$emit('left')" />
 
         </div>
 
         <!-- arrow right  -->
-        <div class="absolute right-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
+        <div class="absolute home_right  right-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
-            <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-[#72705F]" @click="$emit('right')" />
+            <UIcon name="i-heroicons-chevron-right" class="  w-12 h-20 text-[#72705F]" @click="$emit('right')" />
         </div>
 
 
@@ -51,12 +45,15 @@ const store = useHomeStore()
 
 
 <style scoped>
+.home_wrapper{
+    margin-left:9em;
+}
 .caption {
     font-family: 'Halvar Breitschrift';
     font-size: 64px;
     font-weight: 500;
     line-height: 76.8px;
-
+    /* margin-left:5em; */
     color: #FFFFFF;
 
 }
@@ -72,14 +69,30 @@ const store = useHomeStore()
     .box_img_hidden{
         display: none;
     }
+    .home_wrapper{
+        display: flex;
+        justify-content: flex-end;
+        margin-left:3em;
+    }
 }
 
+@media (max-width:640px){
+       .home_left{
+        position: absolute;
+        left:12px;
+    }
+    .home_right{
+        position: absolute;
+        right: 12px;
+    }
+}
 @media (max-width:600px){
     .caption {
     font-family: 'Halvar Breitschrift';
     font-size: 26px;
     font-weight: 500;
    width:330px;
-}
+    }
+ 
 }
 </style>

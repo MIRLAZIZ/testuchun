@@ -45,7 +45,6 @@ onMounted(() => {
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg overflow-hidden">
 
-      <!-- video  -->
       <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false" loop>
         <source :src="item?.file" type="video/mp4" class="w-full ">
       </video>

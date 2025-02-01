@@ -25,9 +25,9 @@ const items = [
 
 
 
-            <div class="box_wrapper grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-8">
+            <div class="box_wrapper grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-8" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
-                <div class="flex flex-col justify-between">
+                <div class="flex banner_left flex-col justify-between">
                     <div>
                         <h1 class="abautTitle ">
                             {{ store.dataTranslate['home.time'] }}
@@ -59,7 +59,7 @@ const items = [
                 </div>
 
                 <!-- O'ng bo'lim -->
-                <div class="flex flex-col items-center  relative xl:h-full ">
+                <div class="flex flex-col items-center   relative xl:h-full ">
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
 
@@ -96,6 +96,12 @@ const items = [
     }
     .buttons{
         max-width:100% !important;
+    }
+}
+
+@media (min-width: 1400px){
+    .banner_left{
+        margin-left:5em;
     }
 }
 
