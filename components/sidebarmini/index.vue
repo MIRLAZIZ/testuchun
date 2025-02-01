@@ -2,7 +2,7 @@
   <div class="h-[60px] bg-white">
     <!-- Sidebar toggle button -->
     <div class="flex justify-between items-center mt-4">
-        <router-link class=" ml-2  p-2 rounded-lg z-50" >
+        <router-link to="" class=" ml-2  p-2 rounded-lg z-50" >
           <img src="/assets/imgs/vacansiec/menegment.png" :class="{ 'fixed': isSidebarOpen }" alt="">
         </router-link>
         <div class="flex gap-2  mr-2 ">
