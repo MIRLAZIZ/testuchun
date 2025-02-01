@@ -9,7 +9,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 @media (max-width:1200px){
     .main_branch{
         width:680px

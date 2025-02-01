@@ -1,8 +1,7 @@
 <template>
     <div>
-        
         <LibraryAbout  :data="student" />
-        <LibraryStudent />
+        <!-- <LibraryStudent /> -->
         
 
     </div>
@@ -22,6 +21,11 @@ const route = useRoute()
        .then(res => {
            student.value = res.data
        })
+       if(!store.menuShow){
+           store.menuShow = JSON.parse(localStorage.getItem('studentlar'));
+           console.log(store.menuShow);
+           
+       }
 
    })
 </script>

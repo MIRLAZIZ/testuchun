@@ -1,38 +1,39 @@
 <script setup>
-import { useHomeStore } from '~/store/home'
-const store = useHomeStore()
+import { useHomeStore } from "~/store/home";
+const store = useHomeStore();
 
 const screenWidth = ref(0);
 
 const updateImage = () => {
-    if (screenWidth.value <= 600) {
-        store.currentImage = 'sm';
-    } else if (screenWidth.value <= 1200) {
-        store.currentImage = 'md';
-    } else {
-       store.currentImage = 'lg';
-    }
+  if (screenWidth.value <= 600) {
+    store.currentImage = "sm";
+    store.currentImage2 = "sm_img";
+  } else if (screenWidth.value <= 1200) {
+    store.currentImage = "md";
+    store.currentImage2 = "md_img";
+  } else {
+    store.currentImage = "lg";
+    store.currentImage2 = "lg_img";
+  }
 };
 
-
 onMounted(() => {
+  screenWidth.value = window.innerWidth;
+
+  store.getTranslate();
+  updateImage();
+
+  window.addEventListener("resize", () => {
     screenWidth.value = window.innerWidth;
-    store.getTranslate()
     updateImage();
+  });
 
-    window.addEventListener("resize", () => {
-
-        screenWidth.value = window.innerWidth;
-        updateImage();
-    });
-
-    store.getMenu()
-    store.getsiteInfo()
-})
-
+  store.getMenu();
+  store.getsiteInfo();
+});
 
 onUnmounted(() => {
-    window.removeEventListener("resize", updateImage);
+  window.removeEventListener("resize", updateImage);
 });
 </script>
 <template>
@@ -48,11 +49,10 @@ onUnmounted(() => {
             <!-- <Sidebarmini  /> -->
              <!-- <HomeHeaderNavBar /> -->
 
-        <slot />
+    <slot />
 
-        <HomeFooter />
-
-    </div>
+    <HomeFooter />
+  </div>
 </template>
 
 

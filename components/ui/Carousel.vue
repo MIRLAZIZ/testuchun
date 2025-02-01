@@ -75,7 +75,7 @@ const goToNext = () => {
     </div>
 </div>
 </template>
-<style lang="css" scoped>
+<style  scoped>
     @media (max-width:640px){
     .box_wrapper{
         width:100%;

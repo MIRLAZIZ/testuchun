@@ -17,7 +17,7 @@
                             <img src="/assets/imgs/talim/Eye.png" alt="">
                         </div>
                     </div>
-                    <div class="relative ">
+                    <div class="relative ml-3">
                         <span v-if="isCopied" class="copied-text absolute" @animationend="hideCopiedText">
                             Ko'chirildi
                         </span>

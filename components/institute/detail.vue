@@ -82,7 +82,7 @@ kafedrada 60310100 – Iqtisodiyot (tarmoqlar va sohalar bo‘yicha);
 const expanded = ref(false);
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .text {
   overflow: hidden;
   font-weight: 400;
@@ -116,9 +116,7 @@ const expanded = ref(false);
     }
     .main_box {
         display: flex;
-        flex-direction: column;
-        // width: 350px !important;
-        // height: auto !important;
+        flex-direction: column;   
         align-items: center;
     }
     .flex_col{

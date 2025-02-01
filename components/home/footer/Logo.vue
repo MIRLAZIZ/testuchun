@@ -21,12 +21,12 @@ const store = useHomeStore();
 const navigationItems = computed(() => [
     { id: 1, label: store.dataTranslate["footr.biz_haqimizda"], href: '/institute/about-Us' },
     { id: 2, label: store.dataTranslate["footr.rahbariyat"], href: '/institute/management' },
-    { id: 3, label:  store.dataTranslate["footr.missiya"], href: '/contact' },
+    // { id: 3, label:  store.dataTranslate["footr.missiya"], href: '/contact' },
     { id: 4, label:  store.dataTranslate["footr.talim"], href: '/education/bachelor' },
     { id: 5, label:  store.dataTranslate["footr.jarayon"], href: '/prospective-students/admission' },
     { id: 6, label:  store.dataTranslate["footr.talabalar"], href: '/prospective-students/service' },
     { id: 7, label: store.dataTranslate["footr.facultet"], href: '/institute/faculties' },
-    { id: 8, label: store.dataTranslate["footr.bog'lanish"], href: '/contact' },
+    { id: 8, label: store.dataTranslate["footr.bog'lanish"], href: '/vacancies/contact' },
 
 
 
@@ -34,7 +34,7 @@ const navigationItems = computed(() => [
 
 
 </script>
-<style lang="css" scoped>
+<style scoped>
 @media(max-width:1024px){
     .box_wrapper{
         display:flex;

@@ -11,6 +11,7 @@ const props = defineProps({
 })
 
 
+
 </script>
 <template>
     <div class="2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">

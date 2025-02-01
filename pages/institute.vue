@@ -34,7 +34,7 @@ const items = [
     </div>
 
 </template>
-<style lang="css" scoped>
+<style  scoped>
 @media (max-width:1024px){
 .box{
      display:flex;

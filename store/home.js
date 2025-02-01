@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import educationVue from '~/pages/education.vue'
 import api from '~/utils/axios'
 
 
@@ -15,7 +14,12 @@ export const useHomeStore = defineStore('home', {
     menuData: null,
     menuShow: null,
     siteInfo: null,
-    educationData: null
+    educationData: null,
+    bgImg: null,
+    slugData: null,
+    currentImage2: null,
+    menuOpen: true
+
 
 
   }),
@@ -134,23 +138,84 @@ export const useHomeStore = defineStore('home', {
 
     getMenuStatick(parentPage, child) {
       if (this.menus.length) {
-        this.menuShow = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+        this.menuShow = this.menus.find(menu => menu.path === parentPage)?.children.find(item => item.path === child)
       } else {
         this.getMenu().then(() => {
-          this.menuShow = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+          this.menuShow = this.menus.find(menu => menu.path === parentPage)?.children.find(item => item.path === child)
 
 
         })
       }
     },
+
+
     async getCertificat(page) {
       return await api.get(`/certificates?page=${page}`)
     },
+
+
     async getLeaderShips() {
       return await api.get(`/leaderships`)
+    },
+
+    async leaderships(id) {
+      return await api.get(`/leaderships/${id}`)
+    },
+
+
+
+    async getDocuments() {
+      return await api.get('/documents')
+    },
+
+    async getKafedra() {
+      return await api.get('/kafedralar')
+    },
+    async getKafedraOne(id) {
+      return await api.get(`/kafedralar/${id}`)
+    },
+
+
+    async getFacultet() {
+      return await api.get('/fakultet')
+    }, 
+
+    async getFacultetOne(id) {
+      return await api.get(`/fakultet/${id}`)
+    },
+
+
+    async getDepartament() {
+      return await api.get('/department')
+    },
+    async getDepartamentOne(id) {
+      return await api.get(`/department/${id}`)
+    },
+
+    async getKafedraEmploy(id) {
+      return await api.get(`/kafedralar/user/${id}`)
+
+    },
+    async getFacultetaEmploy(id) {
+      return await api.get(`/fakultet/user/${id}`)
+
+    },
+    async getKampus() {
+      return await api.get('/kampus')
+    },
+    async getKampusOne(slug) {
+      return await api.get(`/kampus/${slug}`)
+    },
+
+    async getFaq() {
+      return await api.get('/faq')
     }
 
-  
+
+
+
+
+
   }
 })
 

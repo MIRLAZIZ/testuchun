@@ -1,12 +1,13 @@
 <template>
-  <div class="p-5 flex justify-center -translate-y-2/4">
-    <!-- {{ props.data || "Ma’lumot yo‘q" }} -->
-
+  <div
+    class="p-5 flex justify-center"
+    :class="{ '-translate-y-2/4': store.bgImg }"
+  >
     <div
-      class="2xl:w-[1440px] h-[165px]  w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
+      class="2xl:w-[1440px] lg:h-[165px] h-full w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
     >
       <div
-        class=" w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"
+        class="w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"
         v-for="item in datatype"
         :key="item.id"
       >
@@ -14,12 +15,11 @@
           class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-around"
         >
           <div class="flex gap-2">
-            <img :src="item.img " alt="" class="w-5 h-5"/>
+            <img :src="item.img" alt="" class="w-5 h-5" />
             <p class="font-normal text-[#868587] text-lg">{{ item.type }}</p>
           </div>
           <div class="flex flex-col justify-center">
             <p class="">{{ item.name }}</p>
-           
           </div>
         </div>
       </div>

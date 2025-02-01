@@ -11,9 +11,15 @@
 import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore()
+
+onMounted(() => {
+    if (!store.menuShow) {
+        store.menuShow = JSON.parse(localStorage.getItem("grants"));
+    }
+})
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 @media (max-width:600px){
     h2 {
         font-size: 20px;

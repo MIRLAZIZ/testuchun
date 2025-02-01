@@ -77,7 +77,7 @@ const showImage = ref(false)
 
     </div>
 </template>
-<style lang="css" scoped>
+<style scoped>
 @media(max-width:1024px){
     .box_wrapper{
         display: flex;

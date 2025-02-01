@@ -79,6 +79,8 @@ onMounted(() => {
 
 </script>
 
+
+
 <style scoped>
 @media (max-width:1536px){
     .steps{

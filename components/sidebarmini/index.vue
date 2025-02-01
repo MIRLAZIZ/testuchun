@@ -50,18 +50,6 @@
   </li>
 </ul>
 
-
-        <!-- Contact Info -->
-        <!-- <div class="mt-6 border-t pt-4">
-          <p class="text-gray-500">📍 Toshkent, Yakkasaroy tumani, Shota Rustaveli ko'chasi, 114</p>
-          <div class="flex gap-3 mt-4">
-            <UIcon name="i-heroicons-paper-airplane" class="w-6 h-6 text-blue-500 cursor-pointer" />
-            <UIcon name="i-heroicons-globe-alt" class="w-6 h-6 text-blue-500 cursor-pointer" />
-            <UIcon name="i-heroicons-share" class="w-6 h-6 text-blue-500 cursor-pointer" />
-          </div>
-        </div> -->
-
-
   <div class="p-4">
     <div class="flex items-center gap-2 text-gray-600">
       <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-gray-500" />

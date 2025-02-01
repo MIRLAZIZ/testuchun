@@ -1,5 +1,5 @@
 <script setup>
-import { useHomeStore } from '~~/store/home';
+import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore()
 const items = [

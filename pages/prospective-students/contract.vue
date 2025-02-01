@@ -1,30 +1,35 @@
 <template>
-    <div>
-        <div class="2xl:w-[1076px] w-full">
+  <div>
+    <div class="2xl:w-[1076px] w-full">
+      <div class="w-full bg-white rounded-xl p-8">
+        <UiDescriptions :data="data" />
+      </div>
 
-
-
-            <div class=" w-full bg-white  rounded-xl p-8 ">
-                <UiDescriptions :data="data" />
-
-            </div>
-
-            <div>
-           <AbuturentBaclavrGrand  />
-
-
-            </div>
-        </div>
+      <div>
+        <AbuturentBaclavrGrand />
+      </div>
     </div>
+  </div>
 </template>
 
 <script setup>
+import { useHomeStore } from "~/store/home";
 
+const store = useHomeStore();
 const data = [
-{ id: 1, name: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!', description: 'Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!' },
-]
+  {
+    id: 1,
+    name: "Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!",
+    description:
+      "Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!",
+  },
+];
 
-
+onMounted(() => {
+  if (!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("grants"));
+  }
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped></style>
