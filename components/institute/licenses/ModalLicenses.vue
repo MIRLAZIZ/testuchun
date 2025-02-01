@@ -6,12 +6,12 @@ const props = defineProps({
   isOpen: {
     type: Boolean,
     required: true,
-    default: false,
+    default: () => false,
   },
   items: {
     type: Array,
     require: true,
-    default: () => [],
+    default: () => ([]),
   },
   data_id: {
     type: Number,

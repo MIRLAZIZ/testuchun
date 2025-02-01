@@ -4,8 +4,9 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineNuxtConfig({
   // compatibilityDate: '2024-11-01',
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   ssr: true,
+  debug: true,
 
   app: {
     head: {
@@ -28,9 +29,9 @@ export default defineNuxtConfig({
 
   //main css
   css: ['@/assets/css/main.css', '@/assets/css/font.css'],
-  
 
-  // tailwind install  
+
+
 
   compatibilityDate: '2025-01-04',
 
