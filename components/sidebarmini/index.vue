@@ -1,8 +1,8 @@
 <template>
   <div class="h-[60px] bg-white">
     <!-- Sidebar toggle button -->
-    <div class="flex justify-between items-center mt-4">
-        <router-link to="" class=" ml-2  p-2 rounded-lg z-50" >
+    <div class="flex justify-between items-center mt-4 z-50 bg-white">
+        <router-link to="" class="bg-white  ml-2  p-2 rounded-lg z-50" >
           <img src="/assets/imgs/vacansiec/menegment.png" :class="{ 'fixed': isSidebarOpen }" alt="">
         </router-link>
         <div class="flex gap-2  mr-2 ">
@@ -29,37 +29,25 @@
       <div class="w-full  h-full bg-white p-6 overflow-y-auto">
         <div class="flex justify-between items-center mb-6">
         </div>
+        <ul class="mt-20 ">
+          <li v-for="item in store.menus" :key="item.id" class="mb-2">
+            <div @click.stop="toggleMenu(item)"  v-if="item.path !== '/page' && item.slug !== 'section-menu'" class="flex justify-between items-center cursor-pointer py-2">
+              <span class="text-lg font-medium">{{ item.title }}</span>
+              <UIcon v-if="item.title !== 'SDG'" :name="item.isOpen ? 'i-heroicons-chevron-up' : 'i-heroicons-chevron-down'" class="w-5 h-5" />
+            </div>
+
+            <ul v-if="item.isOpen" class="ml-4 text-gray-700">
+              <li v-for="option in item.children" :key="option.id" class="py-1">
+                <div class="flex items-center gap-2">
+                  <p @click="isSidebarOpen = false; $router.push(option.path)">{{ option.title }}  </p>
+                  <UIcon name="i-heroicons-arrow-up-right" class="w-4 h-4 text-red-500" />
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
 
-
-        <ul class="mt-20">
-      <li v-for="item in store.menus" :key="item.id" class="mb-2">
-        <div @click.stop="toggleMenu(item)" class="flex justify-between items-center cursor-pointer py-2">
-          <span class="text-lg font-medium">{{ item.title }}</span>
-          <UIcon v-if="item.title !== 'SDG'" :name="item.isOpen ? 'i-heroicons-chevron-up' : 'i-heroicons-chevron-down'" class="w-5 h-5" />
-        </div>
-
-    <ul v-if="item.isOpen" class="ml-4 text-gray-700">
-      <li v-for="option in item.children" :key="option.id" class="py-1">
-        <div class="flex items-center gap-2">
-          <p @click="isSidebarOpen = false; $router.push(option.path)">{{ option.title }}  </p>
-          <UIcon name="i-heroicons-arrow-up-right" class="w-4 h-4 text-red-500" />
-        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-
-        <!-- Contact Info -->
-        <!-- <div class="mt-6 border-t pt-4">
-          <p class="text-gray-500">📍 Toshkent, Yakkasaroy tumani, Shota Rustaveli ko'chasi, 114</p>
-          <div class="flex gap-3 mt-4">
-            <UIcon name="i-heroicons-paper-airplane" class="w-6 h-6 text-blue-500 cursor-pointer" />
-            <UIcon name="i-heroicons-globe-alt" class="w-6 h-6 text-blue-500 cursor-pointer" />
-            <UIcon name="i-heroicons-share" class="w-6 h-6 text-blue-500 cursor-pointer" />
-          </div>
-        </div> -->
 
 
   <div class="p-4">
@@ -74,7 +62,7 @@
     </p>
 
     <div class="flex gap-4 mt-4">
-      <a href="https://t.me/" target="_blank" class="social-icon">
+      <!-- <a href="https://t.me/" target="_blank" class="social-icon">
       <img src="/assets/imgs/vacansiec/telegram1.png" alt="">
       </a>
       <a href="https://instagram.com/" target="_blank" class="social-icon">
@@ -88,7 +76,12 @@
       <a href="https://twitter.com/" target="_blank" class="social-icon">
       <img src="/assets/imgs/vacansiec/twitter.png" alt="">
 
-      </a>
+      </a> -->
+            <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram.png" alt=""></a>
+          <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram.png" alt=""></a>
+          <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook.png" alt=""></a>
+          <a href="" target="_blank"> <img src="/assets/imgs/home/twiter.png" alt=""></a>
+
     </div>
   </div>
 

@@ -72,10 +72,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import activeBullsety from '~/assets/imgs/home/bullseye.png'
 import book from '~/assets/imgs/home/book.png'
-import wallet from '/assets/imgs/home/wallet.png'
+import wallet from '~/assets/imgs/home/wallet.png'
 import briefcace from '~/assets/imgs/home/briefcase.png'
 import arrowTrend from '~/assets/imgs/home/arrow-trend-up.png'
 import activeBook from '~/assets/imgs/home/book-open.svg'

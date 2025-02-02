@@ -6,7 +6,7 @@
       class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box"
     >
       <div
-        class="w-[530px] h-[240px] rounded-xl p-5 flex  box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
+        class="w-[530px] bg-white h-[240px] rounded-xl p-5 flex  box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
         v-for="item in props.data"
         :key="item"
         @click="$router.push(`/institute/details/departament/${item?.employ_meta?.department_id}`)"

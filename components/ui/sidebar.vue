@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class=" main_box">
-      <div class="lg:w-[348px] bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
+      <div class="lg:w-[348px]  bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
 
         <div
           class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4  main_box_hidden ">
@@ -103,9 +103,9 @@ const getMenuLink = computed(() => {
 }
 
 @media (max-width: 730px) {
-  .karusel-container {
+  /* .karusel-container {
     width: 350px !important;
-  }
+  } */
 
 
   .img_width {
@@ -117,13 +117,15 @@ const getMenuLink = computed(() => {
   .karusel-container {
     overflow: auto;
     display: block; 
-    width:730px;
+    /* width:730px; */
     background-color: white;
     border-radius: 12px;
     margin-bottom: 1em;
-
+    width: 100%;
   }
-
+  .main_box_hidden{
+    display: none;
+  }
   .active_link {
     width: 250px;
   }
@@ -168,7 +170,7 @@ const getMenuLink = computed(() => {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: full;
+    width: 100%;
     align-items: center;
   }
 
