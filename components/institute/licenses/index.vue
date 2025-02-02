@@ -106,12 +106,11 @@ const addCertificat = () => {
           bilan hamnafas rivojlanishda va takomillashishda davom etmoqdamiz.
         </p>
       </div>
-<!-- {{ items }} -->
-      <!-- <InstituteLicensesModalLicenses
+      <InstituteLicensesModalLicenses
         v-model:is-open="isOpen"
         :items="items"
         :data_id="data"
-      /> -->
+      />
     </div>
   </div>
 </template>

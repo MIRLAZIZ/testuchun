@@ -44,7 +44,7 @@ onMounted(() => {
             {{ store.dataTranslate["home.more_details"] }}
             <UIcon
               name="i-heroicons-arrow-up-right"
-              class="ml-6 w-5 h-5 text-[#F7483B]"
+              class="ml-6 w-4 h-4 text-[#F7483B] "
             />
           </a>
         </div>

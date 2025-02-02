@@ -1,7 +1,7 @@
 <template>
     <div>
               <!-- {{ props.data?.yt_link }} -->
-                   <div class="mt-14" v-html="props.data?.yt_link" >
+                   <div class="mt-14" v-html="props.data?.yt_link"  v-if="props && props.data?.yt_link">
                           
                         </div>
     </div>

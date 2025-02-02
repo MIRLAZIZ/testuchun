@@ -30,7 +30,7 @@ const hasBackground = computed(() => {
     <h1
       class="text-[40px] font-medium text-[#06203D]"
       :class="{
-        'text-red-500': hasBackground
+        'text-white': hasBackground
       }"
     >
       {{ store.menuShow?.title }}
@@ -39,7 +39,7 @@ const hasBackground = computed(() => {
     <div
       class="text-[#5D5D5F] text-lg"
       :class="{
-        'text-red-500': hasBackground
+        'text-white': hasBackground
       }"
     >
       <button @click="$router.push('/')">Asosiy</button> /
