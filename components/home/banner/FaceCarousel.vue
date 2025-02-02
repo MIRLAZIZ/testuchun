@@ -5,9 +5,9 @@ const store = useHomeStore()
 </script>
 <template>
 
-    <div class="grid grid-cols-2  w-full h-[789px]  mt-[50px]" style="grid-template-columns: 70% 30%;">
+    <div class="grid lg:grid-cols-2  w-full lg:px-56 h-[789px]  mt-[50px]" >
         <!-- caption  -->
-        <div class=" h-[500px] home_wrapper flex flex-col justify-around  ">
+        <div class=" h-[500px] home_wrapper flex flex-col lg:justify-around justify-center  ">
             <h1 class="caption " v-html="store.dataTranslate['home.time']">
             </h1>
 
@@ -18,14 +18,10 @@ const store = useHomeStore()
                 <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
             </button>
         </div>
-
-
-        <!-- window img  -->
+       <!-- window img  -->
         <div class=" flex justify-end boder box_img_hidden "><img src="/assets/imgs/home/Group 1.png" alt=""
                 class="w-[509px] h-[497px] ">
         </div>
-
-
         <!-- left arrow -->
         <div class="absolute home_left left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
@@ -45,9 +41,9 @@ const store = useHomeStore()
 
 
 <style scoped>
-.home_wrapper{
+/* .home_wrapper{
     margin-left:9em;
-}
+} */
 .caption {
     font-family: 'Halvar Breitschrift';
     font-size: 64px;
@@ -65,10 +61,14 @@ const store = useHomeStore()
    width:500px;
 }
 }
-@media (max-width:800px){
-    .box_img_hidden{
+
+@media (max-width:1200px){
+   .box_img_hidden{
         display: none;
     }
+}
+@media (max-width:800px){
+ 
     .home_wrapper{
         display: flex;
         justify-content: flex-end;

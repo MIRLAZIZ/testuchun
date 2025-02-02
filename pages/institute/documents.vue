@@ -16,7 +16,7 @@ onMounted(() => {
 <template>
   <div class="flex justify-center items-start main_branch">
     <div
-      class="2xl:w-[1052px] grid 2xl:grid-cols-3 2xl:grid-rows-3 2xl:gap-4 xl:w-[900px] xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-4 xl:justify-center lg:w-[650px] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-3 lg:justify-center md:w-[600px] md:justify-around md:gap-2 sm:w-[300px] md:grid md:grid-cols-2 md:grid-rows-2 sm:gap-2 sm:justify-center main_box"
+      class="2xl:w-[1052px] grid 2xl:grid-cols-3  2xl:gap-4 xl:w-[900px] xl:grid xl:grid-cols-2  xl:gap-4 xl:justify-center lg:w-[650px] lg:grid lg:grid-cols-2  lg:gap-3 lg:justify-center md:w-[600px] md:justify-around md:gap-2 sm:w-[300px] md:grid md:grid-cols-2  sm:gap-2 sm:justify-center main_box"
     >
       <div
         v-for="item in items?.data"

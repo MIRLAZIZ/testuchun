@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import educationVue from '~/pages/education.vue'
+// import educationVue from '~/pages/education.vue'
 import api from '~/utils/axios'
 
 
@@ -9,6 +9,8 @@ export const useContactStore = defineStore('contact', {
         contact:null,
         vacansiecId:null,
         student:null,
+        documents:null,
+        certificate:null
     }),
     actions:{
         async getVacansiec() {
@@ -44,6 +46,21 @@ export const useContactStore = defineStore('contact', {
               })
         
           },
+          async getDocument(){
+            return await api.get('/journals')
+            .then(res => {
+              this.documents = res.data.data
+              console.log('this.documents', this.documents)
+            })
+          },
+          async getCertificate(){
+            return await api.get('/certificates')
+            .then(res =>{
+              this.certificate = res.data.data
+              console.log('this.certificate', this.certificate)
+            })
+          }
+
     }
 
 

@@ -1,11 +1,20 @@
 <template>
     <div>
-        <ScienceCertificat :data="data" />
+        <ScienceCertificat :data="store.certificate" />
     </div>
 </template>
 
 <script setup>
+import { useContactStore } from '/store/contact'
 import img1 from "../../assets/imgs/talim/instetut.svg"
+import { onMounted } from "vue"
+
+const store = useContactStore()
+onMounted(()=>{
+    store.getCertificate()
+    console.log("Certificate",store.certificate)
+})
+
 const data =[
     {id:1, img1:img1 ,routerlink:"science-industry",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},
     {id:2, img1:img1 ,routerlink:"science-industry",date:"11 22 2022", name:'Oʻzbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokama qilindi'},

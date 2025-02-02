@@ -1,5 +1,14 @@
 <script setup>
+import {useContactStore} from '/store/contact'
+import {onMounted} from 'vue'
 import img1 from "../../assets/imgs/talim/Download.png"
+const store = useContactStore()
+
+onMounted(()=>{
+    store.getDocument()
+    console.log(store.documents,'Download')
+})
+
 const data_ab = ref(true)
 const data = [
     {id:1, name:"Iqtisodiyot", date:"11 22 2020 ", img1:img1},
@@ -20,15 +29,19 @@ const data = [
 
 <template>
     <div>
-        <div v-show="data_ab">
+        <!-- <div v-show="data_ab">
             <Science :data="data" />
 
-        </div>
-        <div v-show="!data_ab">
+        </div> -->
+            
+            <Science :data="store.documents" />
+
+        <!-- <div v-show="!data_ab">
         <ScienceAbout />
 
-        </div>
+        </div> -->
     </div>
 </template>
 
 
+<style  scoped></style>

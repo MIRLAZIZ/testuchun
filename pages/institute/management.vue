@@ -76,7 +76,7 @@ onMounted(() => {
         class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box"
       >
         <div
-          class="w-[530px]  rounded-xl p-5 flex border box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
+          class="w-full  rounded-xl p-5 flex border box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
           v-for="item in data[0]?.manage_employ"
           :key="item"
           @click="$router.push(`/institute/details/management/${item?.id}`)"
