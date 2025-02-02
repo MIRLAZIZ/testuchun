@@ -1,7 +1,7 @@
 <script setup>
 
 import { useHomeStore } from "~/store/home";
-import time from "@/assets/imgs/vacansiec/vaqt.png"
+import time from "@/assets/imgs/vacansiec/hour.png"
 
 const route = useRoute();
 const store = useHomeStore();

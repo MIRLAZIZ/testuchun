@@ -68,7 +68,7 @@ Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida no
 </template>
 
 <script setup>
-import time from "@/assets/imgs/vacansiec/vaqt.png"
+import time from "@/assets/imgs/vacansiec/hour.png"
 
 const fullText = ref(`2023 yil Toshkent menejment va iqtisodiyot instituti tarkibida 
 “Umumiqtisodiy fanlar” kafedrasi tashkil qilingan. 2023/2024 o‘quv yilida 
