@@ -18,14 +18,10 @@ const store = useHomeStore()
                 <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
             </button>
         </div>
-
-
-        <!-- window img  -->
+       <!-- window img  -->
         <div class=" flex justify-end boder box_img_hidden "><img src="/assets/imgs/home/Group 1.png" alt=""
                 class="w-[509px] h-[497px] ">
         </div>
-
-
         <!-- left arrow -->
         <div class="absolute home_left left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
