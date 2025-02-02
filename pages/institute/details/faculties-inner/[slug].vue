@@ -92,7 +92,7 @@
               >
                 <img
                   class="w-4 h-4"
-                  src="/assets/imgs/vacansiec/vaqt.png"
+                  :src="time"
                   alt=""
                 />
                 <div>
@@ -187,6 +187,9 @@
   
   <script setup>
 import { useHomeStore } from "~/store/home";
+import time from "@/assets/imgs/vacansiec/vaqt.png"
+
+
 const store = useHomeStore();
 const data = ref(null);
 const expanded = ref(50);

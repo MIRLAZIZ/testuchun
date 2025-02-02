@@ -37,7 +37,7 @@
                         </div>
                         <div class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full">
                                 <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
-                            <img class="w-4 h-4" src="/assets/imgs/vacansiec/vaqt.png" alt="">
+                            <img class="w-4 h-4" :src="time" alt="">
                             <div>
                                 <p class="text-[#5D5D5F] text-base font-normal">Ish kunlari:</p>
                                 <p class="text-black font-normal text-base">Dushanba - Juma <span>09:00 - 18:00</span> </p>
@@ -68,6 +68,8 @@ Toshkent menejment va iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida no
 </template>
 
 <script setup>
+import time from "@/assets/imgs/vacansiec/vaqt.png"
+
 const fullText = ref(`2023 yil Toshkent menejment va iqtisodiyot instituti tarkibida 
 “Umumiqtisodiy fanlar” kafedrasi tashkil qilingan. 2023/2024 o‘quv yilida 
 kafedrada 60310100 – Iqtisodiyot (tarmoqlar va sohalar bo‘yicha); 
