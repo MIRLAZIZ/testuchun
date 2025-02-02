@@ -32,4 +32,3 @@ const data = [
 </template>
 
 
-<style  scoped></style>

@@ -4,9 +4,11 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineNuxtConfig({
   // compatibilityDate: '2024-11-01',
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   ssr: true,
-  debug: true,
+  build: {
+    transpile: ['module-name'],  // Xatolikni keltirayotgan modulni qo'shing
+  },
 
   app: {
     head: {
@@ -29,6 +31,7 @@ export default defineNuxtConfig({
 
   //main css
   css: ['@/assets/css/main.css', '@/assets/css/font.css'],
+  
 
 
 
@@ -41,7 +44,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   plugins: [
-    '~/plugins/axios.ts','~/plugins/vue3-toastify.js'
+    '~/plugins/vue3-toastify.js'
   ],
 
 
