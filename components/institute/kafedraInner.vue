@@ -181,7 +181,7 @@ const props = defineProps({
   data: {
     type: Object,
     requered: true,
-    default: () => [],
+    default: () => ([]),
   },
 });
 const isCopied = ref(false);

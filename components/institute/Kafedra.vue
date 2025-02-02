@@ -8,7 +8,7 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-    default: () => [],
+    default: () => ([]),
   },
 });
 </script>

@@ -61,7 +61,7 @@ const props = defineProps({
   data: {
     type: Object,
     requered: true,
-    default: () => null,
+    default: () =>({}) || null,
   },
 })
 </script>
