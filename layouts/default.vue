@@ -40,18 +40,18 @@ onUnmounted(() => {
 
     <div class="bg-[#F4F6FA]">
         <div class="box_hidden2">
-             <HomeHeaderNavBar data-aos="zoom-in-up" />
+             <HomeHeaderNavBar  />
 
         </div>
         <div class="box_hidden1">
-            <Sidebarmini  data-aos="zoom-in-up" />
+            <Sidebarmini   />
         </div>
             <!-- <Sidebarmini  /> -->
              <!-- <HomeHeaderNavBar /> -->
 
         <slot />
 
-    <HomeFooter  data-aos="zoom-in-down" />
+    <HomeFooter   />
   </div>
 </template>
 
