@@ -1,7 +1,7 @@
 <template>
   <div class=" bg-white  " :class="{ 'fixed_side': isSidebarOpen }">
     <div class="flex h-[60px] justify-between items-center   z-50 bg-white" >
-        <router-link to="" class="bg-white  ml-2  p-2 rounded-lg z-50" >
+        <router-link to="/" class="bg-white  ml-2  p-2 rounded-lg z-50" >
           <img src="/assets/imgs/vacansiec/menegment.png" class="h-[32px]"  alt="">
         </router-link>
         <div class="flex gap-2 items-center  mr-2 h-[48px] ">
