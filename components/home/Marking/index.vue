@@ -37,7 +37,7 @@
                         :style="{ paddingRight: (marks.length * 16) - 16 + 'px' }">
 
                         <div v-for="(mark, index) in marks" :key="mark.id"
-                            class="w-[329px]  h-[456px]  flex flex-col  justify-between box_content"
+                            class="sm:w-[329px] w-[300px]  h-[456px]  flex flex-col  justify-between box_content"
                             :class="`absolute p-6 rounded-lg shadow-lg ${mark.color} transition-all duration-500 ease-in-out`"
                             :style="{
                                 zIndex: selectedMark === mark.id ? 10 : (marks.length + 1 - mark.id),
@@ -172,12 +172,12 @@ function selectMark(id) {
         font-size: 14px;
     }
     .ul_right{
-        padding-left:15em;
+        padding-left:13em;
         padding-right: 4px !important;
     }
     .box_content{
         padding:10px;
-        width:300px;
+        width:270px;
     }
     button{
           font-weight: 400;

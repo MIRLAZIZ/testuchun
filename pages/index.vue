@@ -35,7 +35,7 @@ onMounted(() => {
     <HomeOurProgram />
      <HomeQuestions />
    <HomeNews   />
-   <!-- <HomeIntsMedia /> -->
+   <HomeIntsMedia />
     <HomeMarking />
     <HomeUsefulLink  :items="items" :title="'home\.partners_text'" />
     <HomeOurAdresses  />
