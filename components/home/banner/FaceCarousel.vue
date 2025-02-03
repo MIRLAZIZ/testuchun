@@ -8,10 +8,9 @@ const store = useHomeStore()
     <div class="grid lg:grid-cols-2   mainContainer lg:px-56 h-[789px]  mt-[50px]" >
         <!-- caption  -->
         <div class=" h-[500px] home_wrapper flex flex-col lg:justify-around justify-center  ">
-            
             <div>
-<h1 class="caption " v-html="store.dataTranslate['home.time']">
-            </h1>
+                <h1 class="caption " v-html="store.dataTranslate['home.time']">
+                </h1>
             </div>
             <button
                 class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
