@@ -1,10 +1,10 @@
 <template>
     <div class="flex justify-center" v-if="programItem">
-        <div class="mainContainer h-full my-[64px] ">
-            <div class=" rounded-xl h-full p-10 flex flex-col justify-between  align">
+        <div class="    mainContainer h-full my-[64px]  ">
+            <div class=" rounded-xl bg-white border h-full p-10 flex flex-col justify-between  align">
 
-        <div class=" h-full my-[104px] ">
-            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
+        <div class=" h-full ">
+            <div class="  h-full flex flex-col justify-between  align">
 
 
                 <div class="flex justify-between items-center align">
@@ -59,7 +59,7 @@
                     </div>
 
                     <!-- News list -->
-                    <div class="w-[308px] h-[300px] overflow-y-scroll ">
+                    <div class="w-[308px] h-[300px] overflow-y-scroll mt-4 ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
 

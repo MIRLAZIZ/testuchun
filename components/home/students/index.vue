@@ -51,12 +51,12 @@ const goToNext = () => {
 
 <template>
   <div class="flex justify-center" >
-    <div class="mainContainer mt-[101px]">
+    <div class="mainContainer  mt-[101px]">
 
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 
-        <div class="container_wrap sm:py-10 sm:p-[96px] p-3 flex justify-between w-full relative">
+        <div class="container_wrap sm:py-10 sm:p-[96px]  flex justify-between w-full relative">
  
           <!-- student  -->
           <div class="2xl:w-[793px] w-full ">
@@ -67,7 +67,7 @@ const goToNext = () => {
 
              <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
             <div class="flex flex-col  justify-between gap-2">
-
+          
               <div>
                 <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item?.name }}</h1>
                 <p class="text-[#88929D] text-[20px] leading-7 mt-6">
@@ -126,14 +126,27 @@ const goToNext = () => {
 
 
 <style scoped>
-@media (max-width:1400px){
+@media (max-width:1080px){
+  .container_wrap {
+      width: 800px !important;    
+  }
+}
+@media (min-width:1400px){
     .container_wrap{
       /* display:flex;
       flex-direction: column-reverse; */
-      height:100% !important;
-      width:100% !important;
+      
+      width:1200px !important;
 
     }
+}
+@media (max-width:1400px){
+  .container_wrap {
+    width: 1000px;
+    margin:0px 5px;
+ 
+    
+  }
 }
 @media (max-width:600px){
     .studentsImg {
@@ -150,6 +163,7 @@ const goToNext = () => {
       flex-direction: column;
       align-items: center;
       gap: 32px;
+      height:100% !important;
     }
     .student_block{
       display: block ;
@@ -172,12 +186,14 @@ const goToNext = () => {
 
     }
 }
+.student_Container{
+  width:1200px
+}
 .container_wrap {
-  width: 1305px;
+  /* width: 800px; */
   height: 532px;
   border-radius: 12px;
   background: #06203D;
-  /* width:100%; */
 }
 
 .imgTranstion {
