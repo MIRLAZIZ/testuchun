@@ -37,8 +37,11 @@
 
             <div class="flex gap-4 lg:mt-6 mt-4 flex-col">
               <div class="flex gap-4 flex_col">
+
+
                 <div
                   class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                  v-if="data?.phone"
                 >
                   <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                   <img src="/assets/imgs/vacansiec/phone.png" alt="" />
@@ -53,8 +56,11 @@
                     </p>
                   </div>
                 </div>
+
+
                 <div
                   class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                  v-if="data?.email"
                 >
                   <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                   <img src="/assets/imgs/vacansiec/email.png" alt="" />
@@ -73,8 +79,8 @@
               </div>
               <div
                 class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+               
               >
-                <!-- <UIcon name="i-heroicons-phone" class="text-gray-400 w-5 h-5" /> -->
                 <img
                   class="w-4 h-4"
                   :src="time"
@@ -93,14 +99,15 @@
 
             <div class="mt-6">
               <div class="text_padding">
-                <p
+                <p v-if="data && data?.dec[$i18n.locale]"
                   ref="text"
                   class="text"
-                  v-html="data?.dec?.substring(0, expanded)"
+                  v-html="data?.dec[$i18n.locale]?.substring(0, expanded)"
                 ></p>
+                <!-- {{ data?.dec }} -->
                 <button
-                  v-if="data?.dec?.length > expanded"
-                  @click="expanded = data?.dec?.length"
+                  v-if="data?.dec[$i18n.locale]?.length > expanded"
+                  @click="expanded = data?.dec[$i18n.locale]?.length"
                   class="text-red-500 font-bold"
                 >
                   Ko‘proq...
@@ -116,8 +123,7 @@
 
 <script setup>
 import { useHomeStore } from "~/store/home";
-import time from "@/assets/imgs/vacansiec/hour.png"
-
+import time from "@/assets/imgs/vacansiec/hour.png";
 
 const store = useHomeStore();
 
@@ -128,7 +134,7 @@ const router = useRouter();
 
 onMounted(() => {
   if (!store.menuShow) {
-  store.menuShow = JSON.parse(localStorage.getItem("management"));
+    store.menuShow = JSON.parse(localStorage.getItem("management"));
   }
   store.leaderships(route.params.id).then((res) => {
     data.value = res.data;

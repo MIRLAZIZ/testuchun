@@ -6,8 +6,8 @@ const store = useHomeStore();
 const route = useRoute();
 
 onMounted(() => {
-  // const parentPage = `/${route.fullPath.split("/")[1]}`;
-  // store.menuFind(parentPage, route.fullPath);
+//   const parentPage = `/${route.fullPath.split("/")[1]}`;
+//   store.menuFind(parentPage, route.fullPath);
 });
 
 // Ma'lumotlarni yagona massivga keltirami

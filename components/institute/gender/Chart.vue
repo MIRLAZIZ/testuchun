@@ -37,7 +37,7 @@ const initChart = () => {
     type: 'pie',
     data: {
       datasets: [{
-        data: [props.boys, props.girls],
+        data: [props.boys == 0 ? 3 : props.boys, props.girls == 0 ? 5 : props.girls],
         backgroundColor: ['#0A376A', '#CA4EC7']
       }]
     },
