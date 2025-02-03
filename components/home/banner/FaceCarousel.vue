@@ -8,9 +8,11 @@ const store = useHomeStore()
     <div class="grid lg:grid-cols-2   mainContainer lg:px-56 h-[789px]  mt-[50px]" >
         <!-- caption  -->
         <div class=" h-[500px] home_wrapper flex flex-col lg:justify-around justify-center  ">
-            <h1 class="caption " v-html="store.dataTranslate['home.time']">
+            
+            <div>
+<h1 class="caption " v-html="store.dataTranslate['home.time']">
             </h1>
-
+            </div>
             <button
                 class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
                 
@@ -58,7 +60,9 @@ const store = useHomeStore()
         font-size: 40px;
         font-weight: 500;
         width:500px;
+
     }
+
 }
 
 @media (max-width:1500px){
@@ -95,6 +99,8 @@ const store = useHomeStore()
             font-size: 35px;
             font-weight: 500;
         width:330px;
+    line-height:50px;
+
     }
 }
 
@@ -111,7 +117,7 @@ const store = useHomeStore()
     font-family: 'Halvar Breitschrift';
     font-size: 28px;
     font-weight: 500;
-   width:100%;
+   width:84%;
     }
 }
 </style>
