@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center" v-if="programItem">
-        <div class="mainContainer h-full my-[104px] ">
+        <div class="mainContainer h-full my-[64px] ">
             <div class=" rounded-xl h-full p-10 flex flex-col justify-between  align">
 
         <div class=" h-full my-[104px] ">
@@ -152,7 +152,7 @@ onMounted(() => {
         display:flex;
         gap:2em;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
     .align{
         display:flex;

@@ -21,7 +21,7 @@ const items = [
     <div class="w-full flex justify-center">
 
         <!-- <div class="mainContainer"> -->
-        <div class="">
+        <div class="mainContainer">
 
 
 

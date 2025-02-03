@@ -11,7 +11,7 @@
                         <div
                             class="w-[343px]  h-[183px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
                             <img :src="item?.photo[store.currentImage]" width="200" height="300"
-                                class="w-[284px] h-[89px]" v-if="item?.photo">
+                                class="w-[284px] h-[89px] object-cover" v-if="item?.photo">
                             <hr>
 
                             <p class="text-center">{{ item.title }}</p>

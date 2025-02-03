@@ -161,7 +161,7 @@ function selectMark(id) {
 }
 @media (max-width:600px){
     .wrapper_full{
-        width:350px;
+        width:280px;
     }
     .wrapper_full h2{
         font-weight: 500;

@@ -44,7 +44,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   plugins: [
-    '~/plugins/vue3-toastify.js'
+    '~/plugins/vue3-toastify.js',
+    '~/plugins/client.js'
   ],
 
 

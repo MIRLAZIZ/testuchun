@@ -5,7 +5,7 @@ const store = useHomeStore()
 </script>
 <template>
 
-    <div class="grid lg:grid-cols-2  w-full lg:px-56 h-[789px]  mt-[50px]" >
+    <div class="grid lg:grid-cols-2   mainContainer lg:px-56 h-[789px]  mt-[50px]" >
         <!-- caption  -->
         <div class=" h-[500px] home_wrapper flex flex-col lg:justify-around justify-center  ">
             <h1 class="caption " v-html="store.dataTranslate['home.time']">
@@ -19,18 +19,17 @@ const store = useHomeStore()
             </button>
         </div>
        <!-- window img  -->
-        <div class=" flex justify-end boder box_img_hidden "><img src="/assets/imgs/home/Group 1.png" alt=""
-                class="w-[509px] h-[497px] ">
+        <div class=" flex justify-end boder box_img_hidden ">
+            <img src="/assets/imgs/home/Group 1.png" alt="" class="w-[509px] h-[497px] ">
         </div>
         <!-- left arrow -->
-        <div class="absolute home_left left-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
+        <div class="absolute home_left 2xl:left-24 left-2 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
             <UIcon name="i-heroicons-chevron-left" class="  w-12 h-20 text-[#72705F]" @click="$emit('left')" />
-
         </div>
 
         <!-- arrow right  -->
-        <div class="absolute home_right  right-24 top-1/2 transform -translate-y-1/2 cursor-pointer">
+        <div class="absolute home_right  2xl:right-24 right-2 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
             <UIcon name="i-heroicons-chevron-right" class="  w-12 h-20 text-[#72705F]" @click="$emit('right')" />
         </div>
@@ -55,17 +54,34 @@ const store = useHomeStore()
 }
 @media (max-width:1024px){
     .caption {
-    font-family: 'Halvar Breitschrift';
-    font-size: 40px;
-    font-weight: 500;
-   width:500px;
-}
+        font-family: 'Halvar Breitschrift';
+        font-size: 40px;
+        font-weight: 500;
+        width:500px;
+    }
 }
 
+@media (max-width:1500px){
+    .caption {
+        font-family: 'Halvar Breitschrift';
+        font-size: 60px;
+        font-weight: 500;
+        width:730px;
+    }
+}
 @media (max-width:1200px){
    .box_img_hidden{
         display: none;
     }
+    .mainContainer{
+        display:flex;
+        grid-template-columns: 1fr;
+    }
+     .caption {
+    
+        width:500px;
+    }
+   
 }
 @media (max-width:800px){
  
@@ -73,6 +89,12 @@ const store = useHomeStore()
         display: flex;
         justify-content: flex-end;
         margin-left:3em;
+    }
+     .caption {
+            font-family: 'Halvar Breitschrift';
+            font-size: 35px;
+            font-weight: 500;
+        width:330px;
     }
 }
 
@@ -85,14 +107,11 @@ const store = useHomeStore()
         position: absolute;
         right: 12px;
     }
-}
-@media (max-width:600px){
-    .caption {
+       .caption {
     font-family: 'Halvar Breitschrift';
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 500;
-   width:330px;
+   width:100%;
     }
- 
 }
 </style>

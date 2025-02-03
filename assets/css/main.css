@@ -13,6 +13,17 @@
   color: #000;
 }
 
+.aos-element {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aos-element {
+  transform: none;
+}
+
 
 @media (max-width:1280px) {
   .mainContainer {
