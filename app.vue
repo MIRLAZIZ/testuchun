@@ -15,8 +15,11 @@ useSeoMeta({
 
 <template>
   <NuxtLayout>
+    
     <NuxtPage />
 
   </NuxtLayout>
 
 </template>
+
+

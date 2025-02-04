@@ -4,7 +4,7 @@
     :class="{ '-translate-y-2/4': store.bgImg }"
   >
     <div
-      class="2xl:w-[1440px] h-[165px] w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
+      class="  w-full bg-white grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6  rounded-xl "
     >
       <div
         class="w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"

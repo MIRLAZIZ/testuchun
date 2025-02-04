@@ -1,7 +1,6 @@
 <script setup>
-
 import { useHomeStore } from "~/store/home";
-import time from "@/assets/imgs/vacansiec/hour.png"
+import time from "@/assets/imgs/vacansiec/hour.png";
 
 const route = useRoute();
 const store = useHomeStore();
@@ -20,13 +19,20 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="main_branch">
+  <div class="w-full">
     <div>
-      <div class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
-        <div class="bg-white rounded-xl">
-          <div class="text-[18px] text-[#5D5D5F] pt-8 px-8">
-            <span @click="$router.push('/')">Asosiy</span>/
-            <span>{{ store?.menuShow?.title }} /</span>
+      <div class="w-full">
+        <div class="bg-white rounded-xl cursor-pointer p-8">
+          <div class="text-[18px] text-[#5D5D5F] mb-8">
+            <span @click="$router.push('/')">{{
+              store.dataTranslate["home.home"]
+            }}</span
+            >/
+
+            <span @click="$router.push('/institute/departments')"
+              >{{ store?.menuShow?.title }} /</span
+            >
+
             <span>
               {{ data?.department_boss?.first_name[$i18n.locale] }}
               {{ data?.department_boss?.last_name[$i18n.locale] }}
@@ -34,27 +40,29 @@ onMounted(() => {
             </span>
           </div>
 
+          <!-- data  -->
           <div
-            class="flex 2xl:w-[1076px] xl:gap-8 sm:gap-4 xl:p-8 sm:p-4 gap-8 rounded-xl border-[#E6EDFA]-1 sm:w-[100%] main_box"
+            class="flex w-full flex-col md:flex-row gap-8 rounded-xl"
             v-if="data && data.department_boss"
           >
-            <div class="w-[283px] h-[361px]">
+            <div
+              class="md:w-[283px] h-[361px] flex justify-center w-full flex-shrink-0"
+            >
               <NuxtImg
                 :src="data.department_boss[store.currentImage2]"
                 alt=""
-                class="h-[433px] w-[288px] rounded-xl img1 object-cover"
+                class="w-full h-full sm:w-[283px] rounded-lg object-cover"
               />
             </div>
-            <div
-              class="lg:w-[741px] md:w-[70%] sm:w-[60%] w-full img1 flex flex-col flex_col"
-            >
+
+            <div class="flex flex-col w-full">
               <div>
-                <p class="mb-2 font-medium text-2xl main_box_width">
+                <p class="mb-2 font-medium text-[28px]">
                   {{ data.department_boss?.first_name[$i18n.locale] }}
                   {{ data?.department_boss.last_name[$i18n.locale] }}
                   {{ data?.department_boss.surname[$i18n.locale] }}
                 </p>
-                <p class="font-normal text-xl text-[#9A999B] main_box_width">
+                <p class="font-normal text-xl text-[#9A999B]">
                   {{
                     data?.department_boss?.employ_meta?.position.name[
                       $i18n.locale
@@ -63,36 +71,42 @@ onMounted(() => {
                 </p>
               </div>
 
-              <div class="flex gap-4 lg:mt-6 mt-4 flex-col">
-                <div class="flex gap-4 flex_col">
+              <div class="flex gap-1 lg:mt-6 mt-6 flex-col">
+                <div class="flex gap-1 flex-col 2xl:flex-row">
                   <div
-                    class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                    v-if="data?.department_boss?.phone"
+                    class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                   >
-                    <img src="/assets/imgs/vacansiec/phone.png" alt="" />
+                    <img
+                      src="/assets/imgs/vacansiec/phone.png"
+                      alt="Phone number"
+                    />
                     <div>
-                      <p class="text-[#5D5D5F] text-base font-normal">
-                        Telefon raqam:
+                      <p class="text-[#5D5D5F]">
+                        {{ store.dataTranslate["contract.phone_number"] }}
                       </p>
-                      <p class="text-black font-normal text-base">
+                      <p>
                         <a
                           :href="'tel:' + data?.department_boss?.phone"
                           target="_blank"
                         >
-                          {{ data?.department_boss?.phone }}</a
-                        >
+                          {{ data?.department_boss?.phone }}
+                        </a>
                       </p>
                     </div>
                   </div>
+
                   <div
-                    class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                    v-if="data?.department_boss?.email"
+                    class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                   >
                     <img src="/assets/imgs/vacansiec/email.png" alt="" />
 
                     <div>
-                      <p class="text-[#5D5D5F] text-base font-normal">
-                        Elektron pochta:
+                      <p class="text-[#5D5D5F]">
+                        {{ store.dataTranslate["contract.email"] }}
                       </p>
-                      <p class="text-black font-normal text-base">
+                      <p>
                         <a
                           :href="'mailto:' + data?.department_boss?.email"
                           target="_blank"
@@ -104,18 +118,14 @@ onMounted(() => {
                   </div>
                 </div>
                 <div
-                  class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                  class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                 >
-                  <img
-                    class="w-4 h-4"
-                    :src="time"
-                    alt=""
-                  />
+                  <img class="w-4 h-4" :src="time" alt="" />
                   <div>
-                    <p class="text-[#5D5D5F] text-base font-normal">
-                      Ish kunlari:
+                    <p class="text-[#5D5D5F]">
+                      {{ store.dataTranslate["contract.working_days"] }}
                     </p>
-                    <p class="text-black font-normal text-base">
+                    <p>
                       {{ data.department_boss.work_time[[$i18n.locale]] }}
                     </p>
                   </div>
@@ -134,7 +144,7 @@ onMounted(() => {
                     @click="expanded = data?.dec?.length"
                     class="text-red-500 font-bold"
                   >
-                    Ko‘proq...
+                    {{ store.dataTranslate["contract.more"] }}...
                   </button>
                 </div>
               </div>
@@ -145,31 +155,27 @@ onMounted(() => {
     </div>
 
     <!-- xodimlar  -->
-
-    <div class="main_branch">
-      <h1 class="font-Halvar font-medium text-black text-[28px] my-6 mt-20">
-        Xodimlar
+    <div v-if="data && data.simple_employee && data.simple_employee.length">
+      <h1 class="font-Halvar font-medium text-[28px] my-6 mt-20">
+        {{ store.dataTranslate["contract.employees"] }}
       </h1>
 
-      <div
-        class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box"
-      >
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div
-          class="w-[530px]  rounded-xl p-5 flex  box_wrapper xl:w-[430px] bg-white xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
+          class="w-full rounded-xl p-5 flex lg:flex-col xl:flex-row bg-white"
           v-for="item in data?.simple_employee"
           :key="item"
-          @click="$router.push(`/institute/details/${item?.id}`)"
         >
-          <div class=" h-[200px] w-[157px]">
+          <div class="h-[200px] w-[157px] flex-shrink-0">
             <NuxtImg
               :src="item[store?.currentImage2]"
               alt=""
-              class="imgs  object-cover w-full h-full rounded-lg"
+              class="imgs object-cover w-full h-full rounded-lg"
             />
           </div>
 
-          <div class="flex box_wrapper_pad flex-col justify-center pl-6">
-            <h1 class="text-xl font-medium ">
+          <div class="flex flex-col justify-center pl-6">
+            <h1 class="text-xl font-medium">
               {{ item?.first_name[$i18n.locale] }}
               {{ item?.last_name[$i18n.locale] }}
               {{ item?.surname[$i18n.locale] }}
@@ -184,36 +190,4 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style  scoped>
-@media (max-width: 1024px) {
-  .box_wrapper {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
 
-  .main_branch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 640px) {
-  .main_box {
-    display: flex;
-    flex-direction: column;
-    width: 350px !important;
-    height: auto !important;
-  }
-
-  .img1 {
-    width: 100%;
-  }
-
-  .main_box_width {
-    width: 300px;
-  }
-}
-</style>

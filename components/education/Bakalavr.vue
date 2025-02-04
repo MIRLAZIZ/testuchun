@@ -2,7 +2,6 @@
 import { useHomeStore } from "~/store/home";
 import img1 from "/assets/imgs/talim/watch.svg";
 
-
 const taps = computed(() => [
   {
     id: 1,
@@ -20,10 +19,6 @@ const taps = computed(() => [
     description: data.value?.third_description,
   },
 ]);
-
-
-
-
 
 const store = useHomeStore();
 const route = useRoute();
@@ -46,15 +41,12 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div>
-    <EducationTopCard :data="data" />
+  <div class="w-full flex justify-center border border-red-500">
+    <div class="mainContainer">
+      <EducationTopCard :data="data" />
 
-    <div class="mt-[187px] mb-[104px] flex items-center flex-col">
-      <div class="2xl:w-[1440px] flex flex-col items-center xl:[1000px]">
-        <div
-          class="w-[1016px] bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
-        >
-          <!-- {{ data }} -->
+      <!-- <div class="w-full flex flex-col items-center">
+        <div class="w-[1016px] bg-white flex flex-col items-center rounded-xl">
           <EducationTabsview :data="taps" :item="data" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
@@ -63,9 +55,7 @@ onMounted(() => {
         <div class="w-[1016px]">
           <EducationComments :data="data?.employs" />
         </div>
-      </div>
+      </div> -->
     </div>
-
-    <!-- <EducationAboutperson /> -->
   </div>
 </template>

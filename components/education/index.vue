@@ -14,9 +14,9 @@ const props = defineProps({
 
 </script>
 <template>
-    <div class="2xl:w-[1076px] xl:w-[920px] lg:w-[650px]">
+    <div class="w-full">
         <EducationInformation :data="props.data" />
-        <EducationFaq />
+        <!-- <EducationFaq /> -->
 
 
     </div>

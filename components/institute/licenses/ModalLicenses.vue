@@ -53,13 +53,10 @@ const printPage = () => {
       <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         img { max-width: 100%; height: auto; }
-        .downloadButton {
-          display: none;
-        }
+      
       </style>
     </head>
     <body>
-      ${printContent}
     </body>
     </html>
   `);
@@ -73,6 +70,7 @@ const printPage = () => {
 <template>
   <div>
     <UModal class="box_hidden" v-model="props.isOpen" prevent-close>
+   
       <UCard>
         <div
           class="flex justify-between lg:gap-3 box_flex 2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px] custom-modal box_height bg-white p-10"
