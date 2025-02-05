@@ -17,7 +17,6 @@ export const useContactStore = defineStore('contact', {
             return await api.get('/vacancies')
               .then(res => {
                 this.vacansiec = res.data.data
-                // console.log('this.vacansiec', this.vacansiec)
               })
       
           },
@@ -25,7 +24,6 @@ export const useContactStore = defineStore('contact', {
             return await api.get(`/vacancies/${id}`)
                 .then(res => {
                     this.vacansiecId = res.data
-                    // console.log('this.vacansiec1121', this.vacansiecId)
                 })
           },
           async getStudents(filer){
@@ -42,7 +40,6 @@ export const useContactStore = defineStore('contact', {
                 message: message
               })
               .then(res => {
-                // console.log('this.contact', this.contact)
               })
         
           },
@@ -50,15 +47,19 @@ export const useContactStore = defineStore('contact', {
             return await api.get('/journals')
             .then(res => {
               this.documents = res.data.data
-              console.log('this.documents', this.documents)
             })
           },
           async getCertificate(){
             return await api.get('/certificates')
             .then(res =>{
               this.certificate = res.data.data
-              console.log('this.certificate', this.certificate)
             })
+          },
+          async getJurnalOne(slug) {
+            return await api.get(`/journals/${slug}`)
+          },
+          async getCertificateOne(slug) {
+            return await api.get(`/certificates/${slug}`)
           }
 
     }

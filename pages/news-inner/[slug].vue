@@ -1,13 +1,13 @@
 <template>
   <div class="flex justify-center items-center">
-    <div class="2xl:w-[1076px] w-full">
+    <div class="mainContainer   w-full">
       <div class="w-full bg-white rounded-xl p-8 mt-10">
         <div class="mb-8">
           <div class="flex justify-between">
             <div>
               <p class="font-normal text-lg text-[#5D5D5F]">
-                <button @click="$router.push('/')">Asosiy</button> /
-                <button @click="$router.push('/news')">{{store.menuShow?.title}}</button>
+                <button @click="$router.push('/')">{{ store.dataTranslate["home.home"] }}</button> /
+                <button @click="$router.push(`${store.menuShow?.path}`)">{{store.menuShow?.title}}</button>
               </p>
             </div>
 
@@ -30,8 +30,11 @@
             </div>
           </div>
         </div>
-        <UiCarousel :data="newsData?.images" />
-        <div class="mt-8 2xl:pr-16 containerText" v-html="newsData?.desc"></div>
+
+
+
+        <UiCarousel :data="newsData?.images"  />
+        <div class="2xl:pr-16 containerText mt-8" v-html="newsData?.desc"></div>
       </div>
 
       

@@ -15,27 +15,13 @@ onMounted(() => {
  
 });
 
-const data_ab = ref(true);
-const data = [
-  { id: 1, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 2, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 3, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 4, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 5, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 6, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 7, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 9, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 10, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 11, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-  { id: 12, name: "Iqtisodiyot", date: "11 22 2020 ", img1: img1 },
-];
+
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <Science :data="store.documents" />
   </div>
 </template>
 
 
-<style  scoped></style>
