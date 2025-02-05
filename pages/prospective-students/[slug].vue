@@ -24,8 +24,8 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="2xl:w-[1076px] w-full">
-    <div v-if="processedMenus && processedMenus.length">
+  <div class="2xl:w-[1076px]">
+    <div v-if="processedMenus && processedMenus.length" class="w-full">
       <div
         v-for="(data, index) in processedMenus"
         :key="data.id"
@@ -33,7 +33,7 @@ const processedMenus = computed(() => {
         :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
       >
         <!-- formmmenu1 -->
-        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
+        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl w-full p-8">
           <UiCarousel :data="data.photo" />
           <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
             {{ data?.title }}
@@ -42,19 +42,19 @@ const processedMenus = computed(() => {
         </div>
 
         <!-- formmenu2 -->
-        <HomeUsefulLinkCarusel
+        <!-- <HomeUsefulLinkCarusel
           v-else-if="data.type === 'formmenu1'"
           :items="data.categories"
           :title="data.title"
-        />
+        /> -->
 
         <!-- fomrmenu3  -->
         <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
       </div>
-      <div v-if="$route.fullPath == '/prospective-students/admission'">
+      <!-- <div v-if="$route.fullPath == '/prospective-students/admission'">
         <AbuturentSteps />
         <AbuturentRequirements />
-      </div>
+      </div> -->
     </div>
     <div v-else>
       <h1 class="text-center font-Halvar text-3xl">Ma'lumotlar mavjud emas</h1>

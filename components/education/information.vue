@@ -20,6 +20,7 @@ const props = defineProps({
         v-for="item in props.data?.children"
         :key="item.id"
       >
+      {{ item?.skills }}
         <p class="font-medium ">{{ item.name }}</p>
 
         <hr class="border border-[#DCE5F5]" />

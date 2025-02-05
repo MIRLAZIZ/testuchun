@@ -2,7 +2,7 @@
   <div>
     <div class="2xl:w-[1076px] w-full">
       <div class="w-full bg-white rounded-xl p-8">
-        <UiDescriptions :data="data" />
+        <!-- <UiDescriptions :data="data" /> -->
       </div>
 
       <div>

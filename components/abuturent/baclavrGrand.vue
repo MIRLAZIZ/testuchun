@@ -14,7 +14,7 @@
         Magistratura
       </button>
     </div>
-    <hr class="bg-red-700" />
+    <hr  />
 
 
     <!-- Grid Cards -->

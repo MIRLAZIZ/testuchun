@@ -39,23 +39,26 @@ onMounted(() => {
     store.menuShow = JSON.parse(localStorage.getItem("education"));
   }
 });
+onUnmounted(() => {
+  store.bgImg = null;
+})
 </script>
 <template>
-  <div class="w-full flex justify-center border border-red-500">
+  <div class="w-full flex justify-center">
     <div class="mainContainer">
       <EducationTopCard :data="data" />
 
-      <!-- <div class="w-full flex flex-col items-center">
-        <div class="w-[1016px] bg-white flex flex-col items-center rounded-xl">
+      <div class="w-full flex flex-col items-center">
+        <div class="xl:w-[1016px] w-full bg-white flex flex-col p-8 items-center rounded-xl">
           <EducationTabsview :data="taps" :item="data" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
-          <EducationAboutleft :data="data" />
+          <EducationAboutleft :data="data"  class="mt-10"/>
         </div>
-        <div class="w-[1016px]">
+        <div class=" xl:w-[1016px] w-full">
           <EducationComments :data="data?.employs" />
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>

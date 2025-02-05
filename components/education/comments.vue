@@ -1,67 +1,74 @@
 <template>
-  <div>
-    <div class="box_wrap" v-if="props.data && props.data.length">
-      <div>
-        <p class="text-2xl font-medium">
-          {{ store.dataTranslate["footer.professor"] }}
-        </p>
-        <!-- {{ props.data }} -->
-        <div class="flex gap-6">
-          <div v-for="item in props.data" :key="item.id">
-            <div
-              class="flex gap-6 mt-4 rounded-xl w-[464px] border border-[#E6EDFA] bg-white p-4"
-            >
-              <div style="width: 157px">
-                <NuxtImg
-                  :src="item.photo[store.currentImage]"
-                  alt=""
-                  class="w-full h-[206px] rounded-lg object-cover"
-                />
-              </div>
-              <div style="width: 243px">
-                <div class="mb-4 substringTitele">
-                  <p class="font-medium text-xl">
-                    {{ item.name }}
-                  </p>
-                </div>
-                <p
-                  class="font-normal text-base"
-                  style="color: #9a999b"
-                  v-html="item.dec"
-                ></p>
-              </div>
-            </div>
+  <section class="w-full border p-4 lg:p-6">
+    <div v-if="professors.length" class="space-y-6">
+      <!-- Title -->
+      <h2 class="text-xl md:text-2xl font-medium">
+        {{ store.dataTranslate["footer.professor"] }}
+      </h2>
+
+      <!-- Professors Grid -->
+      <div class="grid grid-cols-2 gap-4 lg:gap-6">
+        <!-- Professor Card -->
+        <div
+          v-for="professor in professors"
+          :key="professor.id"
+          class="flex flex-col md:flex-row gap-4 lg:gap-6 p-4 bg-white rounded-xl border"
+        >
+          <!-- Image Container -->
+          <div class="w-full md:w-[157px] h-[206px] flex-shrink-0">
+            <NuxtImg
+              :src="professor.photo[store.currentImage]"
+              :alt="professor.name"
+              class="w-full h-full rounded-lg object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <h3 class="font-medium text-lg md:text-xl mb-4 line-clamp-2">
+              {{ professor.name }}
+              
+            </h3>
+            
+            <p 
+              v-if="isProfessorDescValid(professor.dec)"
+              class="font-normal text-sm md:text-base text-[#9a999b]"
+              v-html="truncateText(professor.dec, 100)"
+            ></p>
+           
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
 import { useHomeStore } from "~/store/home";
+import { computed } from 'vue';
 
 const store = useHomeStore();
+
 const props = defineProps({
   data: {
-    type: Object,
+    type: Array,
     required: true,
-    default: () => ({}),
+    default: () => [],
   },
 });
-</script>
 
-<style scoped>
-.box_wrap {
-  margin-top: 187px;
-  margin-bottom: 104px;
-}
-.substringTitele {
-  width: 243px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-</style>
+// Computed
+const professors = computed(() => {
+  return Array.isArray(props.data) ? props.data : [];
+});
+
+// Methods
+const isProfessorDescValid = (desc) => {
+  return typeof desc === 'string' && desc.trim().length > 0;
+};
+
+const truncateText = (text, length) => {
+  if (!text) return '';
+  return text.length > length ? text.substring(0, length) + '...' : text;
+};
+</script>
