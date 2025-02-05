@@ -1,46 +1,48 @@
 <template>
-  <div class=" w-full flex justify-center">
-    <div class="sm:grid sm:grid-cols-3  mr-10 ml-10 bg-white rounded-lg shadow-md  mainContainer h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
+  <div class=" w-full flex justify-center ">
+    <div class="mainContainer just_content">
+      <div class="sm:grid sm:grid-cols-3   bg-white rounded-lg shadow-md   h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
 
-      <!-- fristColumn -->
-      <div class="sm:border-r">
-        <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
-          <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="item in firstColumn" :key="item.id" class="flex ">
-            <a :href="store.dataTranslate[item.link]" target="_blank">
+        <!-- fristColumn -->
+        <div class="sm:border-r">
+          <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
+            <hr class="bg-[#ECF1FB] wrapper_hidden">
+            <li v-for="item in firstColumn" :key="item.id" class="flex ">
+              <a :href="store.dataTranslate[item.link]" target="_blank">
+                <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
+                <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+
+        <!-- Second Column -->
+        <div class="sm:border-r">
+          <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
+            <hr class="bg-[#ECF1FB] wrapper_hidden">
+            <li v-for="item in secondColumn" :key="item.id" class="flex cursor-pointer"
+              @click="$router.push(item.link)">
               <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
               <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
-            </a>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
 
 
 
-      <!-- Second Column -->
-      <div class="sm:border-r">
-        <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
-          <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="item in secondColumn" :key="item.id" class="flex cursor-pointer"
-            @click="$router.push(item.link)">
-            <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
-            <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
-          </li>
-        </ul>
-      </div>
-
-
-
-      <!-- Third Column -->
-      <div class="">
-        <ul class="flex flex-col justify-between h-full p-[55px] wrapper_ul ">
-          <hr class="bg-[#ECF1FB] wrapper_hidden">
-          <li v-for="item in thirdColumn" :key="item.id" class="flex cursor-pointer"
-            @click="$router.push(item.link)">
-            <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
-            <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
-          </li>
-        </ul>
+        <!-- Third Column -->
+        <div class="">
+          <ul class="flex flex-col justify-between h-full p-[55px] wrapper_ul ">
+            <hr class="bg-[#ECF1FB] wrapper_hidden">
+            <li v-for="item in thirdColumn" :key="item.id" class="flex cursor-pointer"
+              @click="$router.push(item.link)">
+              <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
+              <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -66,9 +68,9 @@ const secondColumn = [
 ];
 
 const thirdColumn = [
-  { id: 7, name: 'home.vacancies', link: '' },
+  { id: 7, name: 'home.vacancies', link: '/vacancies' },
   { id: 8, name: 'home.tender', link: '' },
-  { id: 9, name: 'home.contacts', link: '' }
+  { id: 9, name: 'home.contacts', link: '/vacancies/contacts' }
 ];
 
 
@@ -88,6 +90,10 @@ const thirdColumn = [
     flex-direction: column;
     height: auto;
     width:345px;
+  }
+  .just_content{
+    display: flex;
+    justify-content: center;
   }
   .wrapper_hidden{
     display: none;

@@ -52,14 +52,11 @@ const goToNext = () => {
 <template>
   <div class="flex justify-center" >
     <div class="mainContainer  mt-[101px]">
-
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
-
-        <div class="container_wrap sm:py-10 sm:p-[96px]  flex justify-between w-full relative">
- 
-          <!-- student  -->
-          <div class="2xl:w-[793px] w-full ">
+        <div class="container_wrap sm:py-10 py-5 sm:p-[96px] p-[30px]  flex justify-between w-full relative">
+         <!-- student  -->
+          <div class="2xl:w-[763px] sm:w-[70%] w-full ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
               <h1 class="font-normal text-white ml-2">{{ store?.dataTranslate['home.acquaintance'] }} </h1>
@@ -100,8 +97,8 @@ const goToNext = () => {
             </div>
           </div>
 
-          <div class="studentsImg">
-            <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg">
+          <div class="studentsImg overflow-hidden">
+            <img :src="item?.photo[store.currentImage]" alt="" class="w-full h-full object-fill">
 
             <!-- carousel button  -->
           </div>
@@ -128,21 +125,29 @@ const goToNext = () => {
 <style scoped>
 @media (max-width:1080px){
   .container_wrap {
-      width: 800px !important;    
+      width: 750px !important;    
   }
 }
-@media (min-width:1400px){
+@media (min-width:1750px){
     .container_wrap{
       /* display:flex;
       flex-direction: column-reverse; */
       
-      width:1200px !important;
+      width:1305px !important;
 
     }
 }
-@media (max-width:1400px){
+@media (max-width:1750px){
   .container_wrap {
-    width: 1000px;
+    width: 1100px;
+    margin:0px 5px;
+ 
+    
+  }
+}
+@media (max-width:1440px){
+  .container_wrap {
+    width: 970px;
     margin:0px 5px;
  
     
@@ -156,14 +161,32 @@ const goToNext = () => {
       object-fit: cover;
 
     }
+     
 }
+
+@media (max-width:400px){
+    .studentsImg {
+      width: 100% !important;
+      height: 452px;
+      border-radius: 12px;
+      object-fit: cover;
+
+    }
+     
+}
+
 @media (max-width:800px){
     .container_wrap{
-      display:flex;
+      /* display:flex; */
       flex-direction: column;
       align-items: center;
       gap: 32px;
       height:100% !important;
+      width:100% !important;
+
+    }
+    .imgTranstion{
+      display: none;
     }
     .student_block{
       display: block ;
@@ -209,6 +232,6 @@ const goToNext = () => {
   width: 352px;
   height: 452px;
   border-radius: 12px;
-
+  object-fit: cover;
 }
 </style>

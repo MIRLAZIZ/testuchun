@@ -46,9 +46,7 @@ onUnmounted(() => {
         <div class="box_hidden1">
             <Sidebarmini   />
         </div>
-            <!-- <Sidebarmini  /> -->
-             <!-- <HomeHeaderNavBar /> -->
-
+    
         <slot />
 
     <HomeFooter   />

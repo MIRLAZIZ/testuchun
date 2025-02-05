@@ -9,11 +9,11 @@ const store = useHomeStore()
             <div class="w-full flex gap-6  box_wrapper ">
 
                 <div class="w-[324px] box_wrapper_width">
-                    <p class="text-lg text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
+                    <p class="sm:text-lg font-normal text-sm  text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
                         <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[1]?.replace(/\s+/g, '')"
-                            class="text-[#1E1A22]" target="_blank">
+                            class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
                             {{ store.siteInfo?.phone_number
                                 ?.split('|')[1] }}
                         </a>
@@ -25,7 +25,7 @@ const store = useHomeStore()
                     <p class="text-lg text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/envelope.png" alt="" class="mr-2 w-[26px] h-[26px]">
-                        <a :href="'mailto:' + store.siteInfo?.email" target="_blank" class="text-[#1E1A22]">{{ store.siteInfo?.email }}</a>
+                        <a :href="'mailto:' + store.siteInfo?.email" target="_blank" class="text-[#06203D] sm:text-lg  text-[12px]">{{ store.siteInfo?.email }}</a>
 
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const store = useHomeStore()
                     <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p>
                     <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
-                        <p>{{ store.siteInfo?.address }}</p>
+                        <span class="text-[#06203D] font-medium  sm:text-[22px]  text-sm" >{{ store.siteInfo?.address }}</span>
                     </div>
                 </div>
 
@@ -67,11 +67,11 @@ const store = useHomeStore()
 @media (max-width:600px){
     a {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 14px;
     }
     p{
-        font-weight: 500;
-        font-size: 18px;
+        font-weight: 400;
+        font-size: 14px;
     }
 }
 </style>

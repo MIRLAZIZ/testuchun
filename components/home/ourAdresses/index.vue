@@ -24,7 +24,7 @@ const addresses = [
 
         <div class="mainContainer">
             <div class=" ">
-            <h2 class="font-Halvar font-medium text-[28px]">{{ store.dataTranslate['home.location'] }}</h2>
+            <h2 class="font-Halvar font-medium sm:text-[28px]  text-xl">{{ store.dataTranslate['home.location'] }}</h2>
             
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 box_flex">
@@ -36,7 +36,7 @@ const addresses = [
                             loading="lazy"></iframe>
 
 
-                        <div class="p-4 absolute  bg-white w-[580px]  py-5 px-6 rounded-xl left-6 right-6 bottom-6 flex flex-col justify-between box_our ">
+                        <div class="p-4 absolute  bg-white 2xl:w-[580px] xl:w-[490px]  py-5 px-6 rounded-xl left-6 right-2 bottom-6 flex flex-col justify-between box_our ">
                             <h3 class="">
                                 <span class="">
                                 {{ store.dataTranslate[address.city] }}

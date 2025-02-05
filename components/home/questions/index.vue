@@ -46,13 +46,9 @@ watch(question, (newValue) => {
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
-                    <h1 class=" ml-2 text-white">{{ store.dataTranslate['home.questions'] }}</h1>
+                    <h1 class=" ml-2 text-white font-normal text-base">{{ store.dataTranslate['home.questions'] }}</h1>
                 </div>
 
-
-                <!-- Оставьте заявку и мы <br> ответим в течение <span class="text-[#F7483B] font-medium">
-                    24 часов
-                </span> -->
                 <div>
                     <h1 class="questionsTitle" v-html="store.dataTranslate['home.submit_questions']">
                     </h1>
@@ -64,10 +60,10 @@ watch(question, (newValue) => {
             </div>
 
             <div class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
-                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
+                <input required type="text" class="questionInput placeholder-[#2E4259]" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span
-                        class="text-gray-400 font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
+                        class="text-white font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
                     <input required type="number" class=" focus:outline-none bg-inherit h-full pl-2  w-full text-lg text-white"
                         v-model="question.telNumber" />
                 </div>
@@ -103,7 +99,7 @@ watch(question, (newValue) => {
     }
     .questionsTitle{
         font-weight: 500 !important;
-        font-size: 20px !important;
+        font-size: 24px !important;
     }
     .questonsData{
         font-weight: 400 !important;
@@ -157,7 +153,7 @@ watch(question, (newValue) => {
 
 .questionInput::placeholder,
 .questionTextarea::placeholder {
-    color: #88929D;
+    color: #2E4259;
     font-size: 18px;
 }
 

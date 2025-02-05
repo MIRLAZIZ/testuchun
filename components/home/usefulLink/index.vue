@@ -2,19 +2,25 @@
     <div class="flex justify-center" >
         <div class="mainContainer h-[249px] my-[104px] ">
 
-            <h1 class="font-Halvar font-medium text-black text-[28px]">{{ store.dataTranslate[props.title] }}</h1>
+            <h1 class="font-Halvar font-medium text-black sm:text-[28px] text-xl">{{ store.dataTranslate[props.title] }}</h1>
 
             <div class="relative mt-8">
                 <UCarousel v-slot="{ item }" :items="props.items" class="" ref="carousel">
 
                     <a :href="item?.link" target="_blank">
                         <div
-                            class="w-[343px]  h-[183px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
-                            <img :src="item?.photo[store.currentImage]" width="200" height="300"
-                                class="w-[284px] h-[89px] object-cover mb-3" v-if="item?.photo">
-                            <hr>
+                            class="w-[343px]  h-[200px] rounded-xl px-8 py-6 flex flex-col  items-center bg-white mr-4">
+                            <div class="w-[153px] h-[78px] mb-3 ">
+                                <img :src="item?.photo[store.currentImage]" 
+                                class="w-full h-full object-cover " v-if="item?.photo">
+                                
+                            </div>                           
+                            <div class="w-full">
+                                <hr>
 
-                            <p class="text-center mt-3">{{ item.title }}</p>
+                            <p class="text-center mt-4">{{ item.title }}</p>
+
+                            </div>
 
                         </div>
 

@@ -2,7 +2,7 @@
   <div class=" min-h-screen vacancy-container   ">
     <div class="container mx-auto ">
       <!-- Sarlavha -->
-      <div class="bg-white 2xl:w-[1052px] w-full p-6 mb-6 h-[124px]">
+      <div class="bg-white  w-full p-6 mb-6 ">
           <h1 class="text-3xl font-medium text-center mb-4">{{store.vacansiecId?.title}}</h1>
           <div class="flex items-center justify-center mb-4 w-full gap-6">
               <div class="flex items-center gap-2 text-gray-500">

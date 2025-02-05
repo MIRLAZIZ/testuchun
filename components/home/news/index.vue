@@ -7,7 +7,7 @@
             <div class="  h-full flex flex-col justify-between  align">
 
 
-                <div class="flex justify-between items-center align">
+                <div class="flex justify-between items-center align mb-[39px]">
                     <h2 class="text-2xl font-medium font-Halvar">{{ store.dataTranslate['home.ourNews'] }}</h2>
           
 
@@ -24,14 +24,14 @@
                 <div class="flex h-[411px]  justify-between box_ul">
 
                     <!-- Main news item -->
-                    <div class="h-[411px]  w-[551px] img_width">
+                    <div class="h-[411px] sm:w-[551px] w-[300px] img_width">
                         <img :src="programItem?.images[0][store.currentImage]" alt="Institut yangiliklari rasmi"
                             class="w-full h-full rounded-lg" v-if="programItem?.images?.length" />
 
                     </div>
 
                     <!-- news desctiption  -->
-                    <div class="px-4 w-[445px] flex flex-col justify-between width">
+                    <div class="sm:px-4 w-[445px] flex flex-col justify-between width">
 
                         <div>
                             <div class="flex justify-between items-center text-sm text-[#9A999B] mb-2">
@@ -60,7 +60,7 @@
 
                     <!-- News list -->
                     <div class="w-[308px] h-[300px] overflow-y-scroll mt-4 ">
-                        <div v-for="(item, index) in store.news.data" :key="index" class="bg-white p-4 cursor-pointer "
+                        <div v-for="(item, index) in store.news.data" :key="index" class="bg-white sm:p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
 
                             <div class="flex justify-between items-center text-sm text-gray-500 mb-2 ">
@@ -73,7 +73,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <h3 class=" text-lg mb-5 text" >{{ item?.title.substring(0, 70) }}</h3>
+                            <h3 class=" text-lg mb-5 text text-[#06203D]" >{{ item?.title.substring(0, 70) }}</h3>
                             <hr>
 
                            
@@ -82,7 +82,7 @@
                         
                     </div>
                      <button
-                                class="bg-red-500 lg:hidden text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
+                                class="bg-red-500 lg:hidden sm:mx-4 text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
                                 {{ store.dataTranslate['home.see_all'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
                             </button>
@@ -119,6 +119,14 @@ onMounted(() => {
 
 
 <style scoped>
+@media (max-width:400px){
+    .align{
+        width: 350px;
+    }
+    .img_width{
+        width: 330px  !important;
+    }
+}
 @media (max-width:700px){
     .img_width{
         width:340px;

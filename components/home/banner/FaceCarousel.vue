@@ -86,7 +86,7 @@ const store = useHomeStore()
         grid-template-columns: 1fr;
     }
      .caption {
-    
+        text-align: center;
         width:95%;
     }
     .home_wrapper{
@@ -117,7 +117,7 @@ const store = useHomeStore()
 }
 
 @media (max-width:640px){
-       .home_left{
+    .home_left{
         position: absolute;
         left:12px;
     }
@@ -125,11 +125,27 @@ const store = useHomeStore()
         position: absolute;
         right: 12px;
     }
-       .caption {
-            font-family: 'Halvar Breitschrift';
-            font-size: 35px;
-            font-weight: 500;
-        width:84%;
-            }
+    .caption {
+        font-family: 'Halvar Breitschrift';
+       
+        width:67%;
+        text-align: left;
+    }
+    .Carusel_button {
+        justify-content: flex-start;
+    }
+
+
+}
+@media (max-width:600px){
+    .caption{
+        font-size: 28px;
+        font-weight: 500;
+        /* width:80% */
+    }
+    .Carusel_button button{
+        font-weight: 500;
+        font-size: 12px;
+    }
 }
 </style>

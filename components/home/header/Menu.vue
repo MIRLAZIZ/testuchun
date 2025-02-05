@@ -3,7 +3,7 @@
     <ul v-for="menu in store.menus" :key="menu.id" class="relative">
       <li
         @click.stop="store.menuDrop(menu)"
-        class="px-4 text-[#020105] xl:text-sm 2xl:text-base cursor-pointer flex"
+        class="lg:px-2 px-4 text-[#020105] xl:text-sm 2xl:text-base cursor-pointer flex"
         v-if="menu.path !== '/page' && menu.slug !== 'section-menu' "
       >
         {{ menu.title }}

@@ -5,7 +5,7 @@
       <div
         v-for="vacancy in vacansiec1"
         :key="vacancy"
-        class="vacancy-card"
+        class="vacancy-card 2xl:w-[518px] lg:w-[500px] md:w-[350px] w-full"
       >
       <!-- {{vacancy}} -->
         <h2 class="font-medium text-xl mb-2" v-html="vacancy.title">
@@ -127,7 +127,7 @@ const vacancies = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:518px;
+  /* width:518px; */
 }
 .salary-section {
   display: flex;

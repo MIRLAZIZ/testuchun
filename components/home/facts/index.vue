@@ -17,32 +17,32 @@ onMounted(() => {
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
-                        <span class="factsNumber ">{{ store.siteInfo?.educational_programs ? store.siteInfo?.educational_programs
+                        <span class="factsNumber  text-[#06203D] ">{{ store.siteInfo?.educational_programs ? store.siteInfo?.educational_programs
                             : 0 }}</span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.educational_programs'] }}</p>
+                    <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.educational_programs'] }}</p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
-                        <span class="factsNumber ">{{ store.siteInfo?.audience_size ? store.siteInfo?.audience_size : 0 }}</span>
+                        <span class="factsNumber  text-[#06203D] ">{{ store.siteInfo?.audience_size ? store.siteInfo?.audience_size : 0 }}</span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.number_auditories'] }}</p>
+                    <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.number_auditories'] }}</p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
-                        <span class="factsNumber ">{{ store.siteInfo?.green_zone ? store.siteInfo?.green_zone : 0 }}m<sup
-                                class="lg:text-[32px] text-[26px]">2</sup></span>
+                        <span class="factsNumber  text-[#06203D] ">{{ store.siteInfo?.green_zone ? store.siteInfo?.green_zone : 0 }}m<sup
+                                class="lg:text-[32px] sm:text-[22px]">2</sup></span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left"></p>{{ store.dataTranslate['home.green_zone'] }}
+                    <p class="text-[#5D5D5F] text-left"></p>{{ store.dataTranslate['home.green_zone'] }}
                 </div>
 
 
@@ -50,44 +50,44 @@ onMounted(() => {
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
-                        <span class="factsNumber ">{{ store.siteInfo?.library_collection ? store.siteInfo?.library_collection : 0
+                        <span class="factsNumber  text-[#06203D] ">{{ store.siteInfo?.library_collection ? store.siteInfo?.library_collection : 0
                             }}</span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.library_fund'] }} </p>
+                    <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.library_fund'] }} </p>
                 </div>
 
                 <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
-                        <span class="factsNumber ">{{store.siteInfo?.number_of_students ? store.siteInfo?.number_of_students : 0
+                        <span class="factsNumber  text-[#06203D] ">{{store.siteInfo?.number_of_students ? store.siteInfo?.number_of_students : 0
                             }}</span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 
-                    <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.number_students'] }} </p>
+                    <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.number_students'] }} </p>
                 </div>
 
                 <div class="h-[164px] 2xl:px-8 xl:py-6 lg:px-6 lg:py-4 sm:px-4 sm:py-3 bg-white w-full rounded-xl ">
                     <div class="flex h-full w-full">
                         <div class="flex flex-col justify-between h-full w-full pr-3">
                             <div class="flex items-center">
-                                <img src="/assets//imgs/home/Frame (1).png" class="w-[32px] h-[32px]" alt="">
-                                <span class="factsNumber ">{{ store.siteInfo?.male_students ? store.siteInfo?.male_students : 0
+                                <img src="/assets//imgs/talim/male.png" class="w-[40px] h-[40px] object-cover" alt="">
+                                <span class="factsNumber text-[#06203D]">{{ store.siteInfo?.male_students ? store.siteInfo?.male_students : 0
                                     }}</span>
                             </div>
                             <hr class="bg-[#E9EEF9]">
 
-                            <p class="text-[#06203D] text_left ml-1">{{ store.dataTranslate['home.male_students'] }} </p>
+                            <p class="text-[#5D5D5F] text_left ml-1">{{ store.dataTranslate['home.male_students'] }} </p>
                         </div>
                         <div class="flex flex-col justify-between h-full  w-full pl-3">
                             <div class="flex items-center">
-                                <img src="/assets//imgs/home/Frame.png" alt="" class="w-[32px] h-[32px]">
-                                <span class="factsNumber ml-1 ">{{ store.siteInfo?.female_students ?
+                                <img src="/assets//imgs/talim/female.png" alt="" class="w-[40px] h-[40px] object-cover">
+                                <span class="factsNumber ml-1 text-[#06203D] ">{{ store.siteInfo?.female_students ?
                                     store.siteInfo?.female_students : 0 }}</span>
                             </div>
                             <hr class="bg-[#E9EEF9]">
-                            <p class="text-[#06203D] text-left">{{ store.dataTranslate['home.female_students'] }} </p>
+                            <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.female_students'] }} </p>
                         </div>
                     </div>
                 </div>

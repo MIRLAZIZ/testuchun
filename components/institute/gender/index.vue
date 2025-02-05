@@ -28,7 +28,7 @@ onMounted(() => {
     <div
       class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl xl:p-8 lg:p-2 the_box_gender"
     >
-      <div class="flex justify-between the_box_gender">
+      <div class="flex justify-between gap-16 the_box_gender">
         <div class="w-[688px] mt-9 the_box_title">
           <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">
             {{ store.dataTranslate["about.about_gender"] }}
@@ -38,21 +38,25 @@ onMounted(() => {
           </p>
         </div>
         <div
-          class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper"
+          class="w-[260px]  p-4 rounded-lg border border-[#F1F1F1] the_wrapper"
         >
           <div class="flex flex-col justify-between h-full">
             <div class="flex justify-between items-center">
               <h1>{{ store.dataTranslate["about.yil"] }}</h1>
-              <div class="flex items-center">
-                <select  v-model="selectedYear" class="focus:outline-none  cursor-pointer" @change="store1.getStudents(selectedYear)">
-                  <option v-for="year in years" :key="year" :value="year" >
+              <div class="flex items-center relative">
+                <select  v-model="selectedYear" class="focus:outline-none  w-4 cursor-pointer" @change="store1.getStudents(selectedYear)">
+                  <option v-for="year in store1.student" :key="year" :value="year" >
+                    
                     {{ year }} 
+
                   </option>
                 </select>
-                <UIcon name="i-heroicons-chevron-down" class="ml-2" />
+                <UIcon name="i-heroicons-chevron-down" class="ml-2 absolute" />
               </div>
             </div>
-
+            <pre>
+              <!-- {{store1.student}} -->
+            </pre>
             <InstituteGenderChart
               :girls="store1.student?.female_students"
               :boys="store1.student?.male_students"
