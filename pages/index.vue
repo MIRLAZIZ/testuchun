@@ -39,7 +39,6 @@ onMounted(() => {
     <HomeUsefulLink :items="items" :title="'home\.partners_text'" />
     <HomeOurAdresses />
     <HomeUsefulLink :items="links" :title="'home\.usefulLinks'" />
-  
   </div>
 </template>
 
