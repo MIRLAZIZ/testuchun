@@ -1,14 +1,17 @@
 <template>
-    <div class="main_branch">
+    <div class="">
         <div
-            class="flex 2xl:w-[1076px] gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1  xl:w-[850px]  lg:w-[650px] md:w-[750px] sm:w-[620px] main_box">
-            <div>
-                <img class="w-[199px] h-[254px] img1 rounded-lg" :src="props.data?.photo[store.currentImage]" alt="">
+            class="flex gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1   main_box">
+            <div class="  sm:w-[200px] ">
+                <div class="md:w-[199px] sm:w-[210px] w-[329px] sm:h-[254px] h-[361px] rounded-lg ">
+                <img class=" w-full h-full" :src="props.data?.photo[store.currentImage]" alt="">
+
+                </div>
             </div>
-            <div class="w-[741px] img1 flex flex-col justify-between">
+            <div class="lg:w-[68%] md:w-[72%]  sm:w-[55%] img1 flex flex-col justify-between">
                 <div>
-                    <p class="mb-2 font-medium text-xl main_box_width ">{{ props.data?.name }}</p>
-                    <p class="font-normal text-xl main_box_width ">{{ props.data?.position }} </p>
+                    <p class="mb-2 sm:font-medium sm:text-xl text-lg  main_box_width ">{{ props.data?.name }}</p>
+                    <p class="sm:font-normal sm:text-xl text-sm main_box_width ">{{ props.data?.position }} </p>
                 </div>
                 <div class="flex gap-4 mt-10  items-center">
                     <div class="flex gap-4">
@@ -78,17 +81,21 @@ const hideCopiedText = () => {
     .main_box {
         display: flex;
         flex-direction: column;
-        width: 350px !important;
+        /* width: 350px !important; */
         height: auto !important;
+        align-items: center ;
     }
 
     .img1 {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .main_box_width {
+    /* .main_box_width {
         width: 300px;
-    }
+    } */
 }
 
 

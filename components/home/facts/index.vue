@@ -131,7 +131,7 @@ onMounted(() => {
     }
     .factsNumber{
         font-size: 24px !important;
-        font-weight: 400 !important;
+        font-weight: 500 !important;
     }
 }
 .facts {

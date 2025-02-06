@@ -13,14 +13,12 @@ const items = [
 ]
 const carousel = ref(null)
 
-// Function to go to the previous slide
 const goToPrev = () => {
   if (carousel.value) {
     carousel.value.prev(); // UCarouselning prev() funksiyasi
   }
 };
 
-// Function to go to the next slide
 const goToNext = () => {
   if (carousel.value) {
     carousel.value.next(); // UCarouselning next() funksiyasi
@@ -37,17 +35,43 @@ onMounted(() => {
 
 })
 
+
+function extractLinkFromP(pTagContent) {
+    // P tagi ichidan linkni ajratib olish uchun regex
+    const linkPattern = /https?:\/\/[^\s<>]+/g;
+    
+    // Linkni topish
+    const match = pTagContent.match(linkPattern);
+    
+    // Agar link topilsa, birinchi linkni qaytarish
+    if (match && match.length > 0) {
+        return match[0];
+    }
+    
+    // Link topilmasa null qaytarish
+    return null;
+}
+
 </script>
 
 <template>
   <div class="relative w-full xl:h-[789px] h-[689px]  ">
- 
+    <pre>
+        {{item}}
+      </pre>
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg overflow-hidden">
+      <pre>
+        {{item}}
+      </pre>
+        <iframe v-if="item?.desc"
+          class="w-full h-[789px] object-cover"  
+          :src="formatYoutubeUrl(item?.desc)" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen>
+      </iframe>
 
-      <video v-if="item.type === 'video'" class="w-full h-[789px] object-cover" muted draggable="false" loop>
-        <source :src="item?.file" type="video/mp4" class="w-full ">
-      </video>
 
 
       <!-- image  -->

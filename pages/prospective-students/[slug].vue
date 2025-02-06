@@ -24,7 +24,7 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="lg:max-w-[calc(100%-348px)] w-full">
+  <div class="lg:max-w-[calc(100%-364px)] w-full">
     <div v-if="processedMenus && processedMenus.length" class="w-full">
       <div
         v-for="(data, index) in processedMenus"
