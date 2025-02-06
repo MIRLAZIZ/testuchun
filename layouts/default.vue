@@ -46,6 +46,11 @@ onMounted(() => {
           newsFind.children.push(newsChild);
         });
       }
+
+      // const allChildren = store.menus
+      //   .flatMap((item) => item.children)
+      //   .map((item) => item.path);
+      // console.log(allChildren, "allChildren");
     });
   });
   store.getsiteInfo();
