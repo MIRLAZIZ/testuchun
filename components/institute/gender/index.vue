@@ -1,33 +1,53 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
 import { useContactStore } from "~/store/contact";
+import { ref, onMounted } from 'vue';
 
-// Hozirgi yilni olish
+// Store initialization
+const store1 = useContactStore();
+const store = useHomeStore();
+
+// Years calculation
 const currentYear = new Date().getFullYear();
-
-// Boshlanish yili (JavaScript vaqt hisobi boshlagan yili - 1970)
-const startYear = new Date(0).getFullYear(); // 1970
-
-// Yillar ro‘yxatini yaratish
+const startYear = new Date(0).getFullYear();
 const years = ref([]);
 for (let i = startYear; i <= currentYear; i++) {
   years.value.push(i);
 }
 
-// Tanlangan yil (default - hozirgi yil)
+// Dropdown state
+const isOpen = ref(false);
 const selectedYear = ref(currentYear);
+const dropdownRef = ref(null);
 
-const store1 = useContactStore();
-const store = useHomeStore();
+// Toggle dropdown
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
+
+// Select year and update data
+const selectYear = (year) => {
+  selectedYear.value = year;
+  store1.getStudents(year);
+  isOpen.value = false;
+};
+
+// Close dropdown when clicking outside
 onMounted(() => {
+  document.addEventListener('click', (event) => {
+    if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
+      isOpen.value = false;
+    }
+  });
+  
+  // Initial data fetch
   store1.getStudents(selectedYear.value);
 });
 </script>
+
 <template>
   <div class="flex items-center justify-center">
-    <div
-      class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl xl:p-8 lg:p-2 the_box_gender"
-    >
+    <div class="2xl:w-[1076px] xl:w-[900px] lg:w-[660px] bg-white rounded-xl xl:p-8 lg:p-2 the_box_gender">
       <div class="flex justify-between the_box_gender">
         <div class="w-[688px] mt-9 the_box_title">
           <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">
@@ -37,19 +57,40 @@ onMounted(() => {
             {{ store.dataTranslate["about.toshkent"] }}
           </p>
         </div>
-        <div
-          class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper"
-        >
+        <div class="w-[260px] h-[393px] p-4 rounded-lg border border-[#F1F1F1] the_wrapper">
           <div class="flex flex-col justify-between h-full">
             <div class="flex justify-between items-center">
               <h1>{{ store.dataTranslate["about.yil"] }}</h1>
-              <div class="flex items-center">
-                <select  v-model="selectedYear" class="focus:outline-none  cursor-pointer" @change="store1.getStudents(selectedYear)">
-                  <option v-for="year in years" :key="year" :value="year" >
-                    {{ year }} 
-                  </option>
-                </select>
-                <UIcon name="i-heroicons-chevron-down" class="ml-2" />
+              
+              <!-- Custom Select -->
+              <div class="relative" ref="dropdownRef">
+                <button 
+                  @click="toggleDropdown"
+                  class="flex items-center justify-between min-w-[100px] px-3 py-2  rounded-md hover:bg-gray-50 focus:outline-none cursor-pointer"
+                >
+                  <span class="mr-2">{{ selectedYear }}</span>
+                  <UIcon 
+                    name="i-heroicons-chevron-down" 
+                    class="transition-transform duration-200"
+                    :class="{ 'rotate-180': isOpen }"
+                  />
+                </button>
+
+                <!-- Dropdown menu -->
+                <div
+                  v-if="isOpen"
+                  class="absolute right-0 z-10 mt-1 w-full max-h-60 overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                >
+                  <div 
+                    v-for="year in years" 
+                    :key="year"
+                    @click="selectYear(year)"
+                    class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                    :class="{ 'bg-blue-50 text-blue-700': selectedYear === year }"
+                  >
+                    {{ year }}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -78,10 +119,7 @@ onMounted(() => {
             <div class="flex justify-between items-end">
               <p>{{ store.dataTranslate["about.jami"] }}</p>
               <p class="text-[#06203D] text-[32px] h-11 the_title">
-                {{
-                  (store1.student?.male_students || 0) +
-                  (store1.student?.female_students || 0)
-                }}
+                {{ (store1.student?.male_students || 0) + (store1.student?.female_students || 0) }}
               </p>
             </div>
           </div>
@@ -95,14 +133,13 @@ onMounted(() => {
 @media (max-width: 1024px) {
   .the_box_gender {
     padding: 10px;
-    /* width:750px; */
     width: 100%;
   }
 }
+
 @media (max-width: 768px) {
   .the_box_gender {
     padding: 10px;
-    /* width:570px; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -113,6 +150,7 @@ onMounted(() => {
     width: 500px;
   }
 }
+
 @media (max-width: 600px) {
   .the_box_title {
     width: 335px;
@@ -127,13 +165,31 @@ onMounted(() => {
   }
   .the_box_gender {
     padding: 15px;
-    /* width:360px; */
     width: 100%;
   }
   .the_title {
     font-weight: 400;
     font-size: 32px;
   }
+}
+
+/* Custom scrollbar */
+.overflow-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E0 #EDF2F7;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: #EDF2F7;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #CBD5E0;
+  border-radius: 3px;
 }
 
 .dot1 {
@@ -143,10 +199,4 @@ onMounted(() => {
 .dot2 {
   background: linear-gradient(134.72deg, #06203d -0.13%, #1054a3 105.34%);
 }
-
-select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
- }
 </style>

@@ -25,22 +25,23 @@ onMounted(() => {
 
 
 <template>
-  <div class="">
-    <HomeBanner />
-    <HomeSciences />
-    <HomeAbautInstut />
-    <HomeFacts />
-    <HomeStudents />
+  <div class="w-full">
+    <HomeBanner  
+     />
+     <HomeSciences  />
+    <HomeAbautInstut  />
+    <HomeFacts  />
+     <HomeStudents  />
     <HomeOurProgram />
-    <HomeQuestions />
-    <HomeNews />
-    <HomeIntsMedia />
+     <HomeQuestions />
+   <HomeNews   />
+   <HomeIntsMedia />
     <HomeMarking />
-    <HomeUsefulLink :items="items" :title="'home\.partners_text'" />
-    <HomeOurAdresses />
-    <HomeUsefulLink :items="links" :title="'home\.usefulLinks'" />
+    <HomeUsefulLink  :items="items" :title="'home\.partners_text'" />
+    <HomeOurAdresses  />
+    <HomeUsefulLink :items="links"  :title="'home\.usefulLinks'" /> 
+  
   </div>
 </template>
 
 
-<style scoped></style>

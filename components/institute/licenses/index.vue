@@ -106,7 +106,6 @@ const addCertificat = () => {
           bilan hamnafas rivojlanishda va takomillashishda davom etmoqdamiz.
         </p>
       </div>
-{{ items }}
       <InstituteLicensesModalLicenses
         v-model:is-open="isOpen"
         :items="items"

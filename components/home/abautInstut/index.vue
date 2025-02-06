@@ -21,11 +21,11 @@ const items = [
     <div class="w-full flex justify-center">
 
         <!-- <div class="mainContainer"> -->
-        <div class="">
+        <div class="mainContainer">
 
 
 
-            <div class="box_wrapper grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-8" style="grid-template-columns: 50% 50%;">
+            <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
                 <div class="flex banner_left flex-col justify-between">
                     <div>
@@ -45,7 +45,7 @@ const items = [
                     </button>
 
 
-                    <div class="mt-6 grid grid-cols-2 gap-4   xl:w-[556px] lg:w-[450px] box_ul">
+                    <div class="mt-6 grid grid-cols-2 gap-4    box_ul">
 
                         <button v-for="item in items" :key="item.id"
                             class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
@@ -100,9 +100,9 @@ const items = [
 }
 
 @media (min-width: 1400px){
-    .banner_left{
+    /* .banner_left{
         margin-left:5em;
-    }
+    } */
 }
 
 @media (max-width:1024px){

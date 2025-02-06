@@ -1,13 +1,10 @@
 <template>
     <div class="flex justify-center" v-if="programItem">
+        <div class="    mainContainer h-full my-[64px]  ">
+            <div class=" rounded-xl bg-white border h-full p-10 flex flex-col justify-between  align">
 
-
-
-        <div class="mainContainer h-full my-[104px] ">
-            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
-
-        <div class="mainContainer h-full my-[104px] ">
-            <div class="bg-white rounded-xl h-full p-10 flex flex-col justify-between border align">
+        <div class=" h-full ">
+            <div class="  h-full flex flex-col justify-between  align">
 
 
                 <div class="flex justify-between items-center align">
@@ -62,7 +59,7 @@
                     </div>
 
                     <!-- News list -->
-                    <div class="w-[308px] overflow-y-scroll ">
+                    <div class="w-[308px] h-[300px] overflow-y-scroll mt-4 ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
 
@@ -79,14 +76,16 @@
                             <h3 class=" text-lg mb-5 text" >{{ item?.title.substring(0, 70) }}</h3>
                             <hr>
 
-                            <button
+                           
+
+                        </div>
+                        
+                    </div>
+                     <button
                                 class="bg-red-500 lg:hidden text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
                                 {{ store.dataTranslate['home.see_all'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
                             </button>
-
-                        </div>
-                    </div>
                 </div>
 
 
@@ -153,7 +152,7 @@ onMounted(() => {
         display:flex;
         gap:2em;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
     .align{
         display:flex;

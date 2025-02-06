@@ -68,10 +68,10 @@ const changeTab = (tab) => {
 // Initialize default values when component mounts
 onMounted(() => {
   if (props.item?.entrance_requirement?.skills?.length > 0) {
-    activeTab.value = props.item.entrance_requirement.skills[0].id;
+    activeTab.value = props.item.entrance_requirement.skills[1].id;
   }
   if (props.item?.faq?.length > 0) {
-    scillsData.value = props.item.faq[0];
+    scillsData.value = props.item.faq[1];
   }
 });
 
@@ -80,7 +80,7 @@ watch(
   () => props.item,
   (newValue) => {
     if (newValue?.entrance_requirement?.skills?.length > 0) {
-      activeTab.value = newValue.entrance_requirement.skills[0].id;
+      activeTab.value = newValue.entrance_requirement.skills[1].id;
     }
     if (newValue?.faq?.length > 0) {
       scillsData.value = newValue.faq[0];

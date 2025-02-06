@@ -2,7 +2,6 @@
 import { useHomeStore } from "~/store/home";
 import img1 from "/assets/imgs/talim/watch.svg";
 
-
 const taps = computed(() => [
   {
     id: 1,
@@ -20,10 +19,6 @@ const taps = computed(() => [
     description: data.value?.third_description,
   },
 ]);
-
-
-
-
 
 const store = useHomeStore();
 const route = useRoute();
@@ -44,28 +39,26 @@ onMounted(() => {
     store.menuShow = JSON.parse(localStorage.getItem("education"));
   }
 });
+onUnmounted(() => {
+  store.bgImg = null;
+})
 </script>
 <template>
-  <div>
-    <EducationTopCard :data="data" />
+  <div class="w-full flex justify-center">
+    <div class="mainContainer">
+      <EducationTopCard :data="data" />
 
-    <div class="mt-[100px] mb-[104px] flex items-center flex-col">
-      <div class="2xl:w-[1440px] flex flex-col items-center xl:w-[1000px] md:w-[760px] w-full">
-        <div
-          class="xl:w-[1016px] md:w-[750px] w-full bg-white pt-[72px] px-[32px] pb-[24px] flex flex-col gap-6 rounded-xl"
-        >
-          <!-- {{ data }} -->
+      <div class="w-full flex flex-col items-center">
+        <div class="xl:w-[1016px] w-full bg-white flex flex-col p-8 items-center rounded-xl">
           <EducationTabsview :data="taps" :item="data" />
           <EducationIframe :data="data" />
           <EducationAboutright :data="data" />
-          <EducationAboutleft :data="data" />
+          <EducationAboutleft :data="data"  class="mt-10"/>
         </div>
-        <div class="xl:w-[1016px] w-full">
+        <div class=" xl:w-[1016px] w-full">
           <EducationComments :data="data?.employs" />
         </div>
       </div>
     </div>
-
-    <!-- <EducationAboutperson /> -->
   </div>
 </template>

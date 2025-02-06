@@ -2,7 +2,7 @@
 
 useSeoMeta({
   title: 'TMII',
-  ogTitle: 'TimeEduan',
+  ogTitle: 'TimeEdu',
   description: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
   ogDescription: 'Toshkent Menejment va Iqtisodiyot Institut - Sizning Kelajagingizni Quramiz.',
   ogImage: 'https://i.ytimg.com/vi/BN73wVowi-o/mqdefault.jpg',
@@ -15,8 +15,11 @@ useSeoMeta({
 
 <template>
   <NuxtLayout>
+    
     <NuxtPage />
 
   </NuxtLayout>
 
 </template>
+
+

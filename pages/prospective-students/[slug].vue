@@ -24,8 +24,8 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="2xl:w-[1076px] w-full">
-    <div v-if="processedMenus && processedMenus.length">
+  <div class="lg:max-w-[calc(100%-348px)] w-full">
+    <div v-if="processedMenus && processedMenus.length" class="w-full">
       <div
         v-for="(data, index) in processedMenus"
         :key="data.id"
@@ -33,12 +33,12 @@ const processedMenus = computed(() => {
         :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
       >
         <!-- formmmenu1 -->
-        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
+        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl w-full p-8">
           <UiCarousel :data="data.photo" />
-          <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
+          <h1 class="sm:text-[28px] box_text text-[#06203D] font-medium mb-6">
             {{ data?.title }}
           </h1>
-          <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+          <div class="mt-8 2xl:pr-16 sm:text-xl  text-sm" v-html="data.text"></div>
         </div>
 
         <!-- formmenu2 -->
@@ -63,6 +63,7 @@ const processedMenus = computed(() => {
 </template>
 
 <style scoped>
+
 .containerText ::v-deep(p) {
   font-size: 20px !important;
 }

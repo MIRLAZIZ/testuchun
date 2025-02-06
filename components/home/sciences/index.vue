@@ -1,19 +1,16 @@
 <template>
-  <div class=" flex justify-center">
-    <div class="sm:grid sm:grid-cols-3 sm:gap-6 bg-white rounded-lg shadow-md  mainContainer h-[258px] translate-y-[-50%] box_wrapper_li">
+  <div class=" w-full flex justify-center">
+    <div class="sm:grid sm:grid-cols-3  mr-10 ml-10 bg-white rounded-lg shadow-md  mainContainer h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
 
       <!-- fristColumn -->
       <div class="sm:border-r">
         <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
           <hr class="bg-[#ECF1FB] wrapper_hidden">
           <li v-for="item in firstColumn" :key="item.id" class="flex ">
-
             <a :href="store.dataTranslate[item.link]" target="_blank">
               <span class="text-gray-800">{{ store.dataTranslate[item.name] }}</span>
               <UIcon name="i-heroicons-arrow-up-right" class="text-[#F7483B] ml-2" />
             </a>
-
-
           </li>
         </ul>
       </div>
@@ -63,15 +60,15 @@ const firstColumn = [
 ];
 
 const secondColumn = [
-  { id: 4, name: 'home.career_center', link: '/career_center' },
-  { id: 5, name: 'home.british_council', link: '/british_council' },
-  { id: 6, name: 'home.events_calendar', link: '/events_calendar' }
+  { id: 4, name: 'home.career_center', link: '/page/career_center' },
+  { id: 5, name: 'home.british_council', link: '/page/british_council' },
+  { id: 6, name: 'home.events_calendar', link: '/page/events_calendar' }
 ];
 
 const thirdColumn = [
-  { id: 7, name: 'home.vacancies', link: '' },
-  { id: 8, name: 'home.tender', link: '' },
-  { id: 9, name: 'home.contacts', link: '' }
+  { id: 7, name: 'home.vacancies', link: '/vacancies' },
+  { id: 8, name: 'home.tender', link: '/news/tender' },
+  { id: 9, name: 'home.contacts', link: '/vacancies/contact' }
 ];
 
 

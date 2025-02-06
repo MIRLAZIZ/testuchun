@@ -76,4 +76,3 @@ onUnmounted(() => {
 </template>
 
 
-<style scoped></style>

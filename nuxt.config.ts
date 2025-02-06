@@ -6,6 +6,9 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
   ssr: true,
+  build: {
+    transpile: ['module-name'],  // Xatolikni keltirayotgan modulni qo'shing
+  },
 
   app: {
     head: {
@@ -20,6 +23,12 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         },
+       
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.svg',
+        }
       ]
 
     },
@@ -30,7 +39,8 @@ export default defineNuxtConfig({
   css: ['@/assets/css/main.css', '@/assets/css/font.css'],
   
 
-  // tailwind install  
+
+
 
   compatibilityDate: '2025-01-04',
 
@@ -40,7 +50,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   plugins: [
-    '~/plugins/axios.ts','~/plugins/vue3-toastify.js'
+    '~/plugins/vue3-toastify.js',
+    '~/plugins/client.js'
   ],
 
 

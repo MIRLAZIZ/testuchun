@@ -40,18 +40,18 @@ onUnmounted(() => {
 
     <div class="bg-[#F4F6FA]">
         <div class="box_hidden2">
-             <HomeHeaderNavBar />
+             <HomeHeaderNavBar  />
 
         </div>
         <div class="box_hidden1">
-            <Sidebarmini  />
+            <Sidebarmini   />
         </div>
             <!-- <Sidebarmini  /> -->
              <!-- <HomeHeaderNavBar /> -->
 
-    <slot />
+        <slot />
 
-    <HomeFooter />
+    <HomeFooter   />
   </div>
 </template>
 

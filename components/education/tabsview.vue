@@ -1,46 +1,47 @@
 <template>
-  <div>
-    <div class="tabs-container">
-      <div class="tabs">
+  <div class="w-full">
+    <div class="w-full">
+      <div class=" flex gap-8">
+        
         <button
           v-for="tab in tabs"
           :key="tab.id"
-          :class="{ active: tab.id === activeTab }"
+          :class="{'border-b-2 border-[#F7483B]': tab.id === activeTab }"
           @click="changeTab(tab.id)"
-          class="tab-button font-semibold text-sm text-black cursor-pointer"
+          class=" font-semibold text-sm text-[#010101] cursor-pointer   h-[32px] pb-3 "
         >
-          {{ tab.label }}
+          {{ tab.label  }} 
         </button>
-      </div>
 
-      <div class="tab-content mt-5">
+      </div>
+      <hr>
+
+      <div class=" w-full mt-10">
         <div
           v-if="activeTab === 'general'"
-          class="flex flex-col gap-6 rounded-xl"
+          class="flex flex-col w-full gap-6 rounded-xl"
         >
           <div
-            style="width: 100%; border: 1px solid #e6edfa; padding: 24px"
-            class="rounded-xl"
+            class="rounded-xl w-full border border-[#E6EDFA] p-6"
             v-for="item in props.data"
             :key="item"
           >
             <p class="mb-4 font-medium text-2xl">{{ item.name }}</p>
-            <p class="font-normal text-base" v-html="item.description"></p>
+            <p v-html="item.description"></p>
           </div>
         </div>
 
-        <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl">
-          <div class="rounded-xl w-[952px border border-[#E6EDFA] p-6]">
+        <div v-if="activeTab === 'plan'" class="flex flex-col gap-6 rounded-xl w-full">
+          <div class="rounded-xl border border-[#E6EDFA] p-6">
             <h1 class="mb-4 font-medium text-2xl">{{ props.data[0]?.name }}</h1>
             <p
-              class="font-normal text-base"
               v-html="props.data[0]?.description"
             ></p>
           </div>
 
           <EducationTapContent :item="item" />
 
-          <div class="rounded-xl w-[952px border border-[#E6EDFA] p-6]">
+          <div class="rounded-xl border border-[#E6EDFA]   p-6">
             <h1 class="mb-4 font-medium text-2xl">{{ props.data[2]?.name }}</h1>
             <p
               class="font-normal text-base"
@@ -79,40 +80,3 @@ const changeTab = (tabId) => {
 };
 </script>
 
-<style scoped>
-@media (max-width:600px){
-  
-  .tabs button {
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .taps_title{
-     font-weight: 500;
-    font-size: 14px;
-  }
-  .taps_text{
-     font-weight: 400;
-    font-size: 12px;
-  }
-}
-.tabs-container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.tabs {
-  display: flex;
-  border-bottom: 2px solid #eaeaea;
-}
-
-.tab-button {
-  padding: 10px 20px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.tab-button.active {
-  border-bottom: 2px solid #007bff;
-  color: #000;
-}
-</style>

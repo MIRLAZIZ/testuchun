@@ -14,23 +14,23 @@
         Magistratura
       </button>
     </div>
-    <hr class="bg-red-700" />
+    <hr  />
 
 
     <!-- Grid Cards -->
     <div
       v-if="store.educationData"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-6"
+      class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 mt-6"
     >
       <div
         v-for="card in store.educationData[showModal]?.children"
         :key="card.id"
         class="bg-white shadow-md rounded-xl p-6 pb-5"
       >
-        <h3 v-if="showModal == 1" class="text-[#2E4259] mb-2">Bakalavr</h3>
-        <h3 v-else class="text-[#2E4259] mb-2">Magistratura</h3>
+        <h3 v-if="showModal == 1" class="text-[#2E4259] mb-2 sm:text-base text-sm">Bakalavr</h3>
+        <h3 v-else class="text-[#2E4259] mb-2 sm:text-base text-sm">Magistratura</h3>
 
-        <p class="font-medium">{{ card.name }}</p>
+        <p class="font-medium sm:text-base text-sm">{{ card.name }}</p>
 
         <hr class="my-4" />
 
@@ -42,21 +42,21 @@
                 alt=""
                 class="w-5 h-5"
               />
-              <span class="text-[#5D5D5F] ml-2">Kunduzgi:</span>
+              <span class="text-[#5D5D5F] ml-2 sm:text-base text-sm">Kunduzgi:</span>
             </div>
-            <span class="font-medium text-[#06203D]">{{ card.daytime }}</span>
+            <span class="font-medium text-[#06203D] sm:text-base text-sm">{{ card.daytime }}</span>
           </div>
 
-          <div class="flex items-center justify-between">
+          <div v-if="showModal == 1" class="flex items-center justify-between">
             <div class="flex">
               <img
                 src="@/assets/imgs/kampus/Card 2.png"
                 alt=""
                 class="w-5 h-5"
               />
-              <span class="text-[#5D5D5F] ml-2">Sirtqi:</span>
+              <span class="text-[#5D5D5F] ml-2 sm:text-base text-sm">Sirtqi:</span>
             </div>
-            <span class="font-medium text-[#06203D]">{{ card.part_time }}</span>
+            <span class="font-medium text-[#06203D] sm:text-base text-sm">{{ card.part_time }}</span>
           </div>
         </div>
       </div>

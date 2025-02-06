@@ -27,7 +27,7 @@ const addresses = [
             <h2 class="font-Halvar font-medium text-[28px]">{{ store.dataTranslate['home.location'] }}</h2>
             
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 box_flex">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 box_flex">
                 <div v-for="(address, index) in addresses" :key="index"
                     class="bg-white shadow-lg rounded-lg overflow-hidden">
 

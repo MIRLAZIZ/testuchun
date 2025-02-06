@@ -1,25 +1,25 @@
 <template>
     <div class="main_branch" v-if="props.data">
    
-        <div class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box">   
+        <div class="grid xl:grid-cols-2 gap-4 lg:grid-cols-1 grid-cols-2 sm:items-center sm:justify-around  ">   
 
-            <div class=" w-[530px] h-[240px]  rounded-xl p-5 flex border box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper" v-for="item in props.data.data" :key="item"  @click="$router.push(`/students/student-inner/${item?.id}`)">
+            <div class="  bg-white w-full  rounded-xl p-5 flex border box_wrapper  xl:justify-center xl:items-center sm:items-center  justify-between main_box_wrapper" v-for="item in props.data.data" :key="item"  @click="$router.push(`/students/student-inner/${item?.id}`)">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->
                 <img :src="item?.photo[store.currentImage]" alt="" class="imgs h-[200px] w-[157px] object-cover rounded-lg ">
                 <!-- </div> -->
 
                 <div class="flex box_wrapper_pad flex-col justify-center pl-6 ">
-                    <h1 class="text-xl font-medium text-black">
+                    <h1 class="sm:text-xl text-base font-medium text-black">
                         {{ item?.name?.length > 40 ? item?.name?.substring(0, 40) + '...' : item?.name?.substring(0,
                             40) }}
                     </h1>
-                    <p class=" mt-2 text-[#88929D]">
+                    <p class=" mt-2 sm:text-lg text-sm text-[#88929D]">
                         {{ item?.position?.length > 70 ? item?.position?.substring(0, 70) + '...' : item?.position }}
                     </p>
                     <hr class="border border-[#DCE5F5] my-6">
-                    <UButton class="  bg-[#F7483B] w-[164px]  h-[48px] flex justify-center hover:bg-[#F7483B] text-base">
+                    <UButton class="  bg-white border border-[#F7483B] sm:w-[164px] w-full  h-[48px] flex text-[#F7483B] justify-center hover:bg-[#F7483B] font-medium text-[12px] hover:text-white sm:text-base">
                         {{ store.dataTranslate['home.more_details'] }}
-                        <UIcon name="i-heroicons-arrow-long-right" class=" ml-6 w-6 h-6" />
+                        <UIcon name="i-heroicons-arrow-long-right" class=" sm:ml-6 ml-2 sm:w-6 w-3 sm:h-6 h-3" />
                     </UButton>
                 </div>
 
@@ -57,12 +57,12 @@ const props = defineProps({
 
 <style  scoped>
 @media (max-width:440px){
-    .main_box{
+    /* .main_box{
         gap:5px !important;
-    }
-    .main_box_wrapper{
+    } */
+    /* .main_box_wrapper{
         padding:5px !important;
-    }
+    } */
 }
 @media (max-width:640px){
     .box_wrapper_pad{
@@ -71,7 +71,12 @@ const props = defineProps({
     .img{
         width:100%;
     }
-    .main_box{
+     .main_branch{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    /* .main_box{
     width:300px;
     gap:2em;
     display: grid;
@@ -79,23 +84,28 @@ const props = defineProps({
 
     justify-content:center;
     
-    }
-    .main_box_wrapper{
+    } */
+    /* .main_box_wrapper{
         width:180px;
         padding:10px
-    }
+    } */
 }
 @media (max-width:1024px){
     .box_wrapper{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         height: auto;
 
     }
-     .main_branch{
+     /* .main_branch{
         display: flex;
         align-items: center;
         justify-content: center;
+    } */
+}
+@media (max-width:880px){
+    .box_wrapper{
+        flex-direction: column;
     }
 }
 </style>

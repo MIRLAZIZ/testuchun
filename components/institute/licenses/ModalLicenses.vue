@@ -6,12 +6,12 @@ const props = defineProps({
   isOpen: {
     type: Boolean,
     required: true,
-    default: false,
+    default: () => false,
   },
   items: {
     type: Array,
     require: true,
-    default: () => [],
+    default: () => ([]),
   },
   data_id: {
     type: Number,
@@ -53,10 +53,10 @@ const printPage = () => {
       <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         img { max-width: 100%; height: auto; }
+      
       </style>
     </head>
     <body>
-      ${printContent}
     </body>
     </html>
   `);
@@ -70,12 +70,13 @@ const printPage = () => {
 <template>
   <div>
     <UModal class="box_hidden" v-model="props.isOpen" prevent-close>
+   
       <UCard>
         <div
           class="flex justify-between lg:gap-3 box_flex 2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px] custom-modal box_height bg-white p-10"
         >
           <div class="md:w-[324px] box_block h-full">
-            <img
+            <NuxtImg
               class="w-full h-full rounded-r-lg"
               :src="props.items[itemIndex]?.photo[store.currentImage]"
               alt="certifacate img"
@@ -111,7 +112,7 @@ const printPage = () => {
               <hr class="border-[#ECF1FB] my-6" />
 
               <p>
-                <span class="text-[#9A999B]">Berilgan sana: </span
+                <span class="text-[#9A999B] downloadButton">Berilgan sana: </span
                 >{{ props.items[itemIndex]?.date?.substring(0, 10) }}
               </p>
             </div>
@@ -196,35 +197,6 @@ const printPage = () => {
   }
 }
 
-@media print {
-  body * {
-    visibility: hidden; /* Hamma narsani yashirish */
-  }
-  .custom-modal,
-  .custom-modal * {
-    visibility: visible; /* Faqat modal va uning ichidagi elementlarni ko'rsatish */
-    display: block; /* Modal va uning ichidagi barcha elementlar blok sifatida ko'rinishga kelsin */
-  }
 
-  /* Print uchun visibility: hidden ishlatish */
-  .custom-modal .printVisable {
-    display: none !important; /* Yashirish */
-  }
 
-  .custom-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    background-color: white; /* Modalni oq fon bilan chop qilish */
-  }
-
-  /* Modalning o'lchamini va joylashuvini saqlash */
-  .custom-modal .box_height {
-    width: 100% !important; /* O'lchamni 100% qilib saqlash */
-    height: auto !important;
-    overflow: hidden;
-  }
-}
 </style>

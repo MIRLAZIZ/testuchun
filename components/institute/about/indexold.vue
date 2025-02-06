@@ -54,9 +54,7 @@ function getSortedForms(forms) {
     <div class="">
 
         <div class="2xl:w-[1076px] w-full ">
-            <pre>
-        <!-- {{ store.menuShow?.dinamikMenus }} -->
-       </pre>
+        
 
 
             <div v-for="item in store.menuShow?.dinamikMenus" :key="item.id">

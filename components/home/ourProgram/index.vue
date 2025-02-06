@@ -84,14 +84,10 @@ const store = useHomeStore()
 </script>
 <template>
     <div class="flex justify-center" v-if="store.educationData">
-
-
         <div class="h-full mainContainer  my-[104px]  ">
-
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
                 <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
-
             </div>
 
             <div class="mt-10">
@@ -104,7 +100,6 @@ const store = useHomeStore()
                     @click="seletTypeEducution(1)">
                     {{ store.educationData[1].name }}
                 </button>
-
             </div>
 
 
@@ -352,16 +347,19 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 
     .programItem {
-        width: 300px;
+        /* width: 300px; */
     }
 
     .wrapper_title {
-        width: 250px;
+        width: 290px;
     }
 
     .programmaData {
         width: 100% !important;
         height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        gap:16px
     }
 }
 
@@ -384,7 +382,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .programItem {
-    height: 73px;
+    /* height: 73px; */
     padding: 24px 32px 24px 32px;
     font-size: 18px;
 

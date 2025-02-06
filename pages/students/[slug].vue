@@ -35,10 +35,10 @@ const processedMenus = computed(() => {
         <!-- formmmenu1 -->
         <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
           <UiCarousel :data="data.photo" />
-          <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
+          <h1 class="sm:text-[28px] text-base box_text text-[#06203D] font-medium mb-6">
             {{ data?.title }}
           </h1>
-          <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+          <div class="mt-8 2xl:pr-16  sm:text-xl text-sm" v-html="data.text"></div>
         </div>
 
         <!-- formmenu2 -->
@@ -52,12 +52,7 @@ const processedMenus = computed(() => {
         <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
       </div>
     </div>
-    <div v-else><h1 class="text-center font-Halvar text-3xl ">Ma'lumotlar mavjud emas</h1></div>
+    <div v-else><h1 class="text-center font-Halvar sm:text-3xl text-lg">Ma'lumotlar mavjud emas</h1></div>
   </div>
 </template>
 
-<style scoped>
-.containerText ::v-deep(p) {
-  font-size: 20px !important;
-}
-</style>

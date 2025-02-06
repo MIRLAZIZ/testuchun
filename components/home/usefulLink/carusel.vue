@@ -1,13 +1,15 @@
 <template>
     <div class="flex justify-center ">
-        <div class="mainContainer  ">
+        <!-- <div class="mainContainer  "> -->
+        <div class="w-full  ">
 
-            <h1 class="font-Halvar font-medium text-[28px]">{{ props?.items[0]?.title }}</h1>
+
+            <h1 class="font-Halvar font-medium sm:text-[28px] text-[22px]">{{ props?.items[0]?.title }}</h1>
 
             <div class="relative mt-6">
                 <UCarousel v-slot="{ item }" :items="props?.items[0]?.posts" ref="carousel" class="">
                     <div
-                        class="w-[348px]  rounded-xl p-3   flex flex-col  bg-white mr-4">
+                        class="w-[348px]  rounded-xl p-3 mr-6  flex flex-col  bg-white ">
                         <img :src="item?.images[0][store.currentImage]" width="320" height="200"
                             class="w-[324px] h-[200px] mb-4 rounded-lg">
                        
@@ -16,7 +18,7 @@
                             <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">{{ item?.date?.substring(0, 10)
                                 }}</p>
                         </div>
-                        <h1 class="font-medium text-xl text-black mt-3 ">{{ item?.title }}</h1>
+                        <h1 class="font-medium sm:text-xl text-sm text-black mt-3 ">{{ item?.title }}</h1>
 
 
                     </div>
@@ -49,7 +51,7 @@ const props = defineProps({
     items: {
         type: Array,
         require: true,
-        default: []
+        default: ([])
     },
 
 })
@@ -75,4 +77,8 @@ const goToNext = () => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.snap-mandatory {
+    gap: 16px;
+}
+</style>

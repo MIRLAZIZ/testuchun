@@ -63,7 +63,7 @@ watch(question, (newValue) => {
 
             </div>
 
-            <div class="w-[591px] flex flex-col justify-between box_ul ">
+            <div class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
                 <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span
@@ -94,11 +94,12 @@ watch(question, (newValue) => {
 <style scoped>
 @media (max-width:640px){
        .box_ul{
-        width:350px;
+        /* width:350px; */
         
     }
     .questionTextarea{
-        width:350px !important;
+        /* width:350px !important; */
+        width:100% !important;
     }
     .questionsTitle{
         font-weight: 500 !important;

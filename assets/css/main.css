@@ -13,12 +13,23 @@
   color: #000;
 }
 
+.aos-element {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aos-element {
+  transform: none;
+}
+
 
 @media (max-width:1280px) {
   .mainContainer {
     width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
       }
 }
 
@@ -26,7 +37,7 @@
 
 @media (min-width: 1280px) {
   .mainContainer {
-    width: 100%;
+    width: 1200px;
     padding-left: 40px;
     padding-right: 40px;
     /* border: 1px solid red; */
@@ -38,7 +49,7 @@
 
  @media (min-width: 1440px) {
   .mainContainer {
-    width: 1440px; 
+    width: 1260px; 
     padding: 0;
   }
  }

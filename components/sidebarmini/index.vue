@@ -1,84 +1,67 @@
 <template>
-  <div class="h-[60px] bg-white">
-    <!-- Sidebar toggle button -->
-    <div class="flex justify-between items-center mt-4">
-        <router-link class=" ml-2  p-2 rounded-lg z-50" >
-          <img src="/assets/imgs/vacansiec/menegment.png" :class="{ 'fixed': isSidebarOpen }" alt="">
+  <div class=" bg-white  " :class="{ 'fixed_side': isSidebarOpen }">
+    <div class="flex h-[60px] justify-between items-center   z-50 bg-white" >
+        <router-link to="/" class="bg-white  ml-2  p-2 rounded-lg z-50" >
+          <img src="/assets/imgs/vacansiec/menegment.png" class="h-[32px]"  alt="">
         </router-link>
-        <div class="flex gap-2  mr-2 ">
-          <a href="https://register.timeedu.uz/">
-            <img src="/assets/imgs/vacansiec/logout.png"  class="z-50" alt="">
-
+        <div class="flex gap-2 items-center  mr-2 h-[48px] ">
+          <a href="https://register.timeedu.uz/" >
+            <img src="/assets/imgs/vacansiec/logout.png"   class="z-50 w-[50px] h-[48px]" alt="">
           </a>
             <button @click="isSidebarOpen = !isSidebarOpen" class="  p-2 rounded-lg z-50" >
-              <div v-if="!isSidebarOpen" class="bg-[#F4F6FA]  p-2 rounded-lg z-50">
-              <UIcon  name="i-heroicons-bars-3" class="w-6 h-6" />
-
-              </div>
-              <div v-else class="fixed bg-[#F4F6FA] ">
-                 <UIcon  name="i-heroicons-x-mark" class="   fixed w-6 h-6 right-5" />
-
-              </div>
+              <div v-if="!isSidebarOpen" class="bg-[#F4F6FA]   rounded-lg z-50 w-[50px] flex items-center justify-center h-[48px]">
+                <UIcon  name="i-heroicons-bars-3" class="w-6 h-6" /> 
+              </div>       
+                  <div v-else class="bg-[#F4F6FA]   rounded-lg z-50 w-[50px] flex items-center justify-center h-[48px]">
+                    <UIcon  name="i-heroicons-x-mark" class="w-6 h-6" />
+                  </div>
             </button>
         </div>
-       
     </div>
 
-
-    <div v-if="isSidebarOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40" @click.self="isSidebarOpen = false">
+    <div v-if="isSidebarOpen" class="  inset-0 bg-black bg-opacity-50 z-40" @click.self="isSidebarOpen = false">
       <div class="w-full  h-full bg-white p-6 overflow-y-auto">
-        <div class="flex justify-between items-center mb-6">
+        <hr>
+        <ul class="">
+          <li v-for="item in store.menus" :key="item.id" class="mb-2">
+            <div @click.stop="toggleMenu(item)"  v-if="item.path !== '/page' && item.slug !== 'section-menu'" class="flex justify-between items-center cursor-pointer py-2">
+              <span class="text-md font-normal">{{ item.title }}</span>
+              <UIcon v-if="item.title !== 'SDG'" :name="item.isOpen ? 'i-heroicons-chevron-up' : 'i-heroicons-chevron-down'" class="w-5 h-5" />
+            </div>
+
+            <ul v-if="item.isOpen" class=" ">
+              <li v-for="option in item.children" :key="option.id" class="py-1">
+                <div class="flex items-center gap-2">
+                  <p @click="isSidebarOpen = false; $router.push(option.path)" class="text-[#06203D] font-normal text-sm">{{ option.title }}  </p>
+                  <UIcon name="i-heroicons-arrow-up-right" class="w-4 h-4 text-red-700" />
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      
+      <div class="">
+        <hr>
+        <div class="px-5 py-6">
+              <div class="flex items-center gap-2 text-gray-600">
+              <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-gray-500" />
+              <span class="font-medium">Город:</span>
+            </div>
+            <p class="mt-1 text-lg text-gray-800">
+              <a href="https://goo.gl/maps/xyz" target="_blank" class="underline text-black">
+                Toshkent, Yakkasaroy tumani, Shota Rustaveli ko‘chasi, 114
+              </a>
+            </p>
         </div>
-
-
-
-        <ul class="mt-20">
-      <li v-for="item in store.menus" :key="item.id" class="mb-2">
-        <div @click.stop="toggleMenu(item)" class="flex justify-between items-center cursor-pointer py-2">
-          <span class="text-lg font-medium">{{ item.title }}</span>
-          <UIcon v-if="item.title !== 'SDG'" :name="item.isOpen ? 'i-heroicons-chevron-up' : 'i-heroicons-chevron-down'" class="w-5 h-5" />
+      
+        <hr>
+        <div class="flex gap-4  px-5 py-6">
+              <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram.png" alt=""></a>
+              <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram.png" alt=""></a>
+              <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook.png" alt=""></a>
+              <a href="" target="_blank"> <img src="/assets/imgs/home/twiter.png" alt=""></a>
         </div>
-
-    <ul v-if="item.isOpen" class="ml-4 text-gray-700">
-      <li v-for="option in item.children" :key="option.id" class="py-1">
-        <div class="flex items-center gap-2">
-          <p @click="isSidebarOpen = false; $router.push(option.path)">{{ option.title }}  </p>
-          <UIcon name="i-heroicons-arrow-up-right" class="w-4 h-4 text-red-500" />
-        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-  <div class="p-4">
-    <div class="flex items-center gap-2 text-gray-600">
-      <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-gray-500" />
-      <span class="font-medium">Город:</span>
-    </div>
-    <p class="mt-1 text-lg text-gray-800">
-      <a href="https://goo.gl/maps/xyz" target="_blank" class="underline text-black">
-        Toshkent, Yakkasaroy tumani, Shota Rustaveli ko‘chasi, 114
-      </a>
-    </p>
-
-    <div class="flex gap-4 mt-4">
-      <a href="https://t.me/" target="_blank" class="social-icon">
-      <img src="/assets/imgs/vacansiec/telegram1.png" alt="">
-      </a>
-      <a href="https://instagram.com/" target="_blank" class="social-icon">
-      <img src="/assets/imgs/vacansiec/instagram1.png" alt="">
-
-      </a>
-      <a href="https://facebook.com/" target="_blank" class="social-icon">
-      <img src="/assets/imgs/vacansiec/facebook.png" alt="">
-
-      </a>
-      <a href="https://twitter.com/" target="_blank" class="social-icon">
-      <img src="/assets/imgs/vacansiec/twitter.png" alt="">
-
-      </a>
-    </div>
-  </div>
+      </div>
 
       </div>
     </div>
@@ -144,8 +127,16 @@ const toggleMenu = (menu) => {
 </script>
 
 <style scoped>
-.fixed{
-  display: fixed;
+.fixed_side{
+  position: fixed;
+  z-index: 99;
+  width:100%;
+  height: 100%;
+  overflow: auto;
+ /* relative z-10 w-full h-full overflow-auto  */
+}
+.sidebar_top{
+  margin-top:16px
 }
 /* Mobil uslub */
 </style>

@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative w-full h-[789px]">
+  <div class="relative w-full xl:h-[789px] h-[689px]  ">
  
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg overflow-hidden">
@@ -54,10 +54,10 @@ onMounted(() => {
       <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else>
     </UCarousel>
 
-    <div class="absolute w-full h-[789px] flex justify-center  top-0  faceCarousel ">
+    <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
 
       <!-- <div class="mainContainer "> -->
-      <div class=" ">
+      <div class="  ">
         
         <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" />
 

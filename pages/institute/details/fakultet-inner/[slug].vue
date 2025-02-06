@@ -1,59 +1,55 @@
 <template>
-  <div>
-    <div
-      class="main_branch 2xl:w-[1076px] xl:w-[920px] lg:w-[650px]"
-      v-if="data"
-    >
-      <div class="bg-white rounded-xl">
-        <div class="text-[18px] text-[#5D5D5F] pt-8 px-8 cursor-pointer">
-          <span @click="$router.push('/')">Asosiy</span>/
+  <div class="w-full">
+    <div class="w-full" v-if="data">
+      <div class="bg-white rounded-xl cursor-pointer p-8">
+        <div class="text-[18px] text-[#5D5D5F] mb-8 cursor-pointer">
+          <span @click="$router.push('/')">{{
+            store.dataTranslate["home.home"]
+          }}</span
+          >/
           <span @click="$router.push('/institute/faculties')"
             >{{ store?.menuShow?.title }} /</span
           >
           <span>
-            {{ data?.first_name[$i18n.locale] }}gdfgsdf
+            {{ data?.first_name[$i18n.locale] }}
             {{ data?.last_name[$i18n.locale] }}
             {{ data?.surname[$i18n.locale] }}
           </span>
         </div>
-
-        <div
-          class="flex 2xl:w-[1076px] xl:gap-8 sm:gap-4 xl:p-8 sm:p-4 gap-8 rounded-xl border-[#E6EDFA]-1 sm:w-[100%] main_box"
-          v-if="data"
-        >
-          <div class="w-[283px] h-[361px]">
+        <!-- data  -->
+        <div class="flex w-full flex-col md:flex-row gap-8 rounded-xl">
+          <div
+            class="md:w-[283px] h-[361px] flex justify-center w-full flex-shrink-0"
+          >
             <NuxtImg
               :src="data.photo"
               alt=""
-              class="h-full w-full rounded-xl img1 object-cover"
+              class="w-full h-full sm:w-[283px] rounded-lg object-cover"
             />
           </div>
-          <div
-            class="lg:w-[741px] md:w-[70%] sm:w-[60%] w-full img1 flex flex-col flex_col"
-          >
+          <div class="flex flex-col w-full">
             <div>
-              <p class="mb-2 font-medium text-2xl main_box_width">
+              <p class="mb-2 font-medium text-2xl">
                 {{ data.first_name[$i18n.locale] }}
                 {{ data?.last_name[$i18n.locale] }}
                 {{ data?.surname[$i18n.locale] }}
               </p>
-              <p class="font-normal text-xl text-[#9A999B] main_box_width">
+              <p class="font-normal text-xl text-[#9A999B]">
                 {{ data?.employ_meta?.position?.name[$i18n.locale] }}
               </p>
             </div>
 
-            <div class="flex gap-4 lg:mt-6 mt-4 flex-col">
-              <div class="flex gap-4 flex_col">
+            <div class="flex gap-1 lg:mt-6 mt-4 flex-col">
+              <div class="flex gap-1 flex-col 2xl:flex-row">
                 <div
-                  v-if="data?.phone"
-                  class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                  class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                 >
                   <img src="/assets/imgs/vacansiec/phone.png" alt="" />
                   <div>
-                    <p class="text-[#5D5D5F] text-base font-normal">
-                      Telefon raqam:
+                    <p class="text-[#5D5D5F]">
+                      {{ store.dataTranslate["contract.phone_number"] }}
                     </p>
-                    <p class="text-black font-normal text-base">
+                    <p>
                       <a :href="'tel:' + data?.phone" target="_blank">
                         {{ data?.phone }}
                       </a>
@@ -61,15 +57,15 @@
                   </div>
                 </div>
                 <div
-                  class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                  class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                 >
                   <img src="/assets/imgs/vacansiec/email.png" alt="" />
 
                   <div>
-                    <p class="text-[#5D5D5F] text-base font-normal">
-                      Elektron pochta:
+                    <p class="text-[#5D5D5F]">
+                      {{ store.dataTranslate["contract.email"] }}
                     </p>
-                    <p class="text-black font-normal text-base">
+                    <p>
                       <a :href="'mailto:' + data?.email" target="_blank">
                         {{ data?.email }}
                       </a>
@@ -79,18 +75,14 @@
               </div>
 
               <div
-                class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
               >
-                <img
-                  class="w-4 h-4"
-                  src="/assets/imgs/vacansiec/vaqt.png"
-                  alt=""
-                />
+                <img class="w-4 h-4" :src="time" alt="" />
                 <div>
-                  <p class="text-[#5D5D5F] text-base font-normal">
-                    Ish kunlari:
+                  <p class="text-[#5D5D5F]">
+                    {{ store.dataTranslate["contract.working_days"] }}
                   </p>
-                  <p class="text-black font-normal text-base">
+                  <p>
                     {{ data.employ_meta?.employ?.work_time[[$i18n.locale]] }}
                   </p>
                 </div>
@@ -98,7 +90,7 @@
             </div>
 
             <div class="mt-6">
-              <div class="text_padding">
+              <div>
                 <p
                   ref="text"
                   class="text"
@@ -120,7 +112,7 @@
                   "
                   class="text-red-500 font-bold"
                 >
-                  Ko‘proq...
+                  {{ store.dataTranslate["contract.more"] }}...
                 </button>
               </div>
             </div>
@@ -133,6 +125,7 @@
     
     <script setup>
 import { useHomeStore } from "~/store/home";
+import time from "@/assets/imgs/vacansiec/hour.png";
 
 const store = useHomeStore();
 
@@ -152,53 +145,4 @@ onMounted(() => {
 });
 </script>
     
-    <style scoped>
-.text {
-  overflow: hidden;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Faqat 3 qatorni ko‘rsatish */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@media (max-width: 1280px) {
-  .flex_col {
-    flex-direction: column;
-  }
-}
-@media (max-width: 1024px) {
-  .main_branch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .text_padding {
-    padding: 2em;
-  }
-  .main_box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .flex_col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .main_box_width {
-    width: 100%;
-
-    text-align: center;
-  }
-}
-</style>
-    
+   
