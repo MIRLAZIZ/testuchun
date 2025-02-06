@@ -51,7 +51,11 @@ const items = [
                             class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
                             @click="$router.push(item.link)">
                             <img :src="item.img" alt="" class="w-[24px] h-[24px]">
-                            <p class="text-[#06203D] text-left">{{store.dataTranslate[item.name] }}</p>
+                            <div class="flex justify-between w-full ">
+                                <p class="text-[#06203D] text-left">{{store.dataTranslate[item.name] }}</p>
+
+                                <img src="/assets/imgs/talim/arrow-right-long.png" alt="" class=" sm:hidden  object-cover">
+                            </div>
                         </button>
 
                     </div>
@@ -64,11 +68,11 @@ const items = [
                         class="rounded-lg shadow-md abautImg" />
 
                     <div
-                        class="absolute bg-white w-[80px] h-[80px]  flex justify-center items-center rounded-full xl:right-6 bottom-6 sm:right-15 ">
+                        class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]  flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 ">
                         <img src="/assets/imgs/home/playVideo.png" alt="">
                     </div>
 
-                </div>
+                </div>  
             </div>
         </div>
     </div>
@@ -106,10 +110,14 @@ const items = [
 }
 
 @media (max-width:1024px){
-.box_wrapper{
-    display:flex;
-    flex-direction: column-reverse;
-}
+    .box_wrapper{
+        display:flex;
+        flex-direction: column-reverse;
+    }
+    .abautImg {
+        width: 100% !important;
+
+    }
 }
 
 .abautTitle {
@@ -129,7 +137,7 @@ const items = [
 }
 
 .buttons {
-    max-width: 270px;
+    /* max-width: 270px; */
     height: 107px;
     padding: 15px 16px 15px 16px;
     border-radius: 8px;

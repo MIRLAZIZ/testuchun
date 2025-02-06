@@ -24,28 +24,21 @@ const students = ref(null)
 onMounted(() => {
   store.getStudents()
     .then(res => {
-
       students.value = res.data
     })
 })
 const carousel = ref(null)
-// Function to go to the previous slide
 const goToPrev = () => {
-
   if (carousel.value) {
-    carousel.value.prev(); // UCarouselning prev() funksiyasi
+    carousel.value.prev();
   }
 };
 
-// Function to go to the next slide
 const goToNext = () => {
   if (carousel.value) {
-    carousel.value.next(); // UCarouselning next() funksiyasi
+    carousel.value.next();
   }
 };
-
-
-
 
 </script>
 
@@ -56,10 +49,9 @@ const goToNext = () => {
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 
-        <div class="container_wrap sm:py-10 sm:p-[96px]  flex justify-between w-full relative">
- 
+        <div class="container_wrap sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex justify-between w-full relative">
           <!-- student  -->
-          <div class="2xl:w-[793px] w-full ">
+          <div class="sm:w-[70%] w-full ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
               <h1 class="font-normal text-white ml-2">{{ store?.dataTranslate['home.acquaintance'] }} </h1>
@@ -101,7 +93,7 @@ const goToNext = () => {
           </div>
 
           <div class="studentsImg">
-            <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg">
+            <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg ">
 
             <!-- carousel button  -->
           </div>
@@ -131,7 +123,7 @@ const goToNext = () => {
       width: 800px !important;    
   }
 }
-@media (min-width:1400px){
+@media (min-width:1440px){
     .container_wrap{
       /* display:flex;
       flex-direction: column-reverse; */
@@ -140,20 +132,33 @@ const goToNext = () => {
 
     }
 }
-@media (max-width:1400px){
+@media (max-width:1440px){
   .container_wrap {
     width: 1000px;
-    margin:0px 5px;
- 
-    
+    margin:0px 5px;    
   }
 }
+/* @media (max-width:1280px){
+  .container_wrap {
+    width: 1000px;
+    margin:0px 5px;    
+  }
+} */
 @media (max-width:600px){
     .studentsImg {
-      width: 90% !important;
+      width: 390px !important;
       height: 452px;
       border-radius: 12px;
-      object-fit: cover;
+      object-fit: fill;
+
+    }
+}
+@media (max-width:450px){
+    .studentsImg {
+      width: 300px !important;
+      height: 452px;
+      border-radius: 12px;
+      object-fit: fill;
 
     }
 }
@@ -164,6 +169,7 @@ const goToNext = () => {
       align-items: center;
       gap: 32px;
       height:100% !important;
+      width:100% !important;
     }
     .student_block{
       display: block ;

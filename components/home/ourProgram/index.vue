@@ -39,10 +39,6 @@ watch(question, (newValue) => {
 
 
 
-
-
-
-
 const store = useHomeStore()
 
 
@@ -87,9 +83,8 @@ const store = useHomeStore()
         <div class="h-full mainContainer  my-[104px]  ">
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
-                <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
+                <h1 class="font-normal text-[#2E4259] sm:text-base text-sm ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
-
             <div class="mt-10">
                 <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
                     @click="seletTypeEducution(0)">
@@ -121,9 +116,6 @@ const store = useHomeStore()
                 <!-- programma data  -->
                 <div class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
                     :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
-                    <pre>
-
-               </pre>
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
@@ -178,7 +170,7 @@ const store = useHomeStore()
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/globe.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.language'] }}</span>
+                                <span class="text-[#5D5D5F] ml-2  font-normal sm:text-base text-sm">{{ store.dataTranslate['home.language'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument mt-3">
@@ -194,7 +186,7 @@ const store = useHomeStore()
 
 
                     <div>
-                        <p class="programDescription" v-html="programitem?.second_description?.substring(0, 400)">
+                        <p class="programDescription text-[#06203D]" v-html="programitem?.second_description?.substring(0, 400)">
                         </p>
                     </div>
                     <div>
@@ -205,7 +197,7 @@ const store = useHomeStore()
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
                             <button   @click="modalVisible = true"
-                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
+                                class="bg-white w-[216px] h-[48px] border border-[#DCE5F5]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
                             </button>
@@ -301,9 +293,17 @@ input[type="number"]::-webkit-outer-spin-button {
         width:350px;
         
     }
-    /* .questionTextarea{
-        width:350px !important;
-    } */
+     .wrapper_title {
+     
+        font-weight: 400px !important;
+        font-size: 14px !important;
+    }
+  
+    .selectProgram {
+        font-size: 20px !important;
+        color: #808D9D;
+        font-weight: 400;
+    }
     .programmaTitle {
         font-size: 18px !important;
         font-weight: 500 !important;
@@ -316,8 +316,8 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 
     .programDescription {
-        font-size: 14px;
-        font-weight: 400;
+        font-size: 14px !important;
+        font-weight: 400 !important;
     }
 
     .flex_grid {
@@ -339,19 +339,23 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     .programItems {
         width: 100% !important;
-        height: 100px !important;
+        height: 60px !important;
         display: flex;
         gap: 2em;
         overflow: auto;
         margin-bottom: 2em;
     }
-
-    .programItem {
-        /* width: 300px; */
+    .programItem{
+        padding:10px 12px !important;
+        border: 1px solid #E6EDFA;
+        border-radius: 8px;
+        text-align: center;
+        width:100%
     }
 
     .wrapper_title {
         width: 290px;
+     
     }
 
     .programmaData {
@@ -363,15 +367,21 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
+ .wrapper_title {
+    
+        font-weight: 400;
+        font-size: 18px;
+    }
+
 .activeClass {
     color: #06203D !important;
-    font-size: 28px !important;
+    /* font-size: 28px !important; */
 }
 
 .selectProgram {
-    font-size: 24px;
+    font-size: 28px;
     color: #808D9D;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .programItems {
@@ -412,7 +422,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 32px;
     font-weight: 400;
     line-height: 38.4px;
-
+    color: #06203D;
 }
 
 .programDescription {
