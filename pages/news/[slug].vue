@@ -14,6 +14,7 @@ onMounted(() => {
   //   store.getNews();
   const prentPageOne = `/${route.fullPath.split("/")[1]}`;
   store.getMenuStatick(prentPageOne, route.fullPath);
+
   if (store.menus) {
     localStorage.setItem("news", JSON.stringify(store.menuShow));
   }
