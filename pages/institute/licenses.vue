@@ -111,6 +111,10 @@ const addCertificat = () => {
         :items="items"
         :data_id="data"
       />
+       <!-- <InstituteLicensesModalLicenses
+        :items="items"
+        :data_id="data"
+      /> -->
     </div>
   </div>
 </template>
