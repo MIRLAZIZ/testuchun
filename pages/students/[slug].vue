@@ -24,7 +24,7 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="2xl:w-[1076px] w-full">
+  <div class="lg:max-w-[calc(100%-348px)] w-full">
     <div v-if="processedMenus && processedMenus.length">
       <div
         v-for="(data, index) in processedMenus"
@@ -52,7 +52,9 @@ const processedMenus = computed(() => {
         <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
       </div>
     </div>
-    <div v-else><h1 class="text-center font-Halvar sm:text-3xl text-lg">Ma'lumotlar mavjud emas</h1></div>
+    <div v-else>
+      <h1 class="text-center font-Halvar sm:text-3xltext-lg">Ma'lumotlar mavjud emas</h1>
+    </div>
   </div>
 </template>
 

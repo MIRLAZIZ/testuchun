@@ -125,11 +125,21 @@ const store = useHomeStore()
         position: absolute;
         right: 12px;
     }
+      .Carusel_button{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
        .caption {
             font-family: 'Halvar Breitschrift';
             font-size: 35px;
             font-weight: 500;
         width:84%;
+        text-align: left;
+
             }
+    .home_wrapper{
+        text-align: flex-start;
+    }
 }
 </style>

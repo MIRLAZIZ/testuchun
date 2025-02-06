@@ -28,7 +28,26 @@ onMounted(() => {
     updateImage();
   });
 
-  store.getMenu();
+  store.getMenu().then(() => {
+    store.getCategorys().then((res) => {
+      let data = res?.data?.data;
+
+      let newsFind = store.menus.find((item) => item.path == "/news");
+      newsFind.children = [];
+
+      if (newsFind) {
+        data.forEach((element) => {
+          let newsChild = {
+            title: element.title,
+            path: `/news/${element.slug}`,
+            slug: element.slug,
+            dinamikMenus: [],
+          };
+          newsFind.children.push(newsChild);
+        });
+      }
+    });
+  });
   store.getsiteInfo();
 });
 
@@ -37,40 +56,38 @@ onUnmounted(() => {
 });
 </script>
 <template>
+  <div class="bg-[#F4F6FA]">
+    <div class="box_hidden2">
+      <HomeHeaderNavBar />
+    </div>
+    <div class="box_hidden1">
+      <Sidebarmini />
+    </div>
+    <!-- <Sidebarmini  /> -->
+    <!-- <HomeHeaderNavBar /> -->
 
-    <div class="bg-[#F4F6FA]">
-        <div class="box_hidden2">
-             <HomeHeaderNavBar  />
+    <slot />
 
-        </div>
-        <div class="box_hidden1">
-            <Sidebarmini   />
-        </div>
-            <!-- <Sidebarmini  /> -->
-             <!-- <HomeHeaderNavBar /> -->
-
-        <slot />
-
-    <HomeFooter   />
+    <HomeFooter />
   </div>
 </template>
 
 
 <style scoped>
-@media(max-width:1200px){
-    .box_hidden2{
-        display:none !important
-    }
+@media (max-width: 1200px) {
+  .box_hidden2 {
+    display: none !important;
+  }
 }
-@media(min-width:1200px){
-    .box_hidden1{
-        display:none !important
-    }
+@media (min-width: 1200px) {
+  .box_hidden1 {
+    display: none !important;
+  }
 }
-.box_hidden1{
-    display:block
+.box_hidden1 {
+  display: block;
 }
-.box_hidden2{
-    display:block
+.box_hidden2 {
+  display: block;
 }
 </style>

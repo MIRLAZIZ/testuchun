@@ -33,7 +33,10 @@ const processedMenus = computed(() => {
         :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
       >
         <!-- formmmenu1 -->
-        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl w-full p-8">
+        <div
+          v-if="data.type === 'formmenu'"
+          class="bg-white rounded-xl w-full p-8"
+        >
           <UiCarousel :data="data.photo" />
           <h1 class="sm:text-[28px] box_text text-[#06203D] font-medium mb-6">
             {{ data?.title }}

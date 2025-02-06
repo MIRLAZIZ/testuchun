@@ -1,7 +1,9 @@
 <template>
   <div class=" w-full flex justify-center">
-    <div class="sm:grid sm:grid-cols-3  mr-10 ml-10 bg-white rounded-lg shadow-md  mainContainer h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
+    <div class="   mainContainer sm:block   flex justify-center ">
+      <div class="bg-white  rounded-lg sm:grid sm:grid-cols-3 shadow-md   h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
 
+     
       <!-- fristColumn -->
       <div class="sm:border-r">
         <ul class="flex flex-col justify-between p-[55px] h-full wrapper_ul">
@@ -42,6 +44,7 @@
           </li>
         </ul>
       </div>
+       </div>
     </div>
   </div>
 </template>

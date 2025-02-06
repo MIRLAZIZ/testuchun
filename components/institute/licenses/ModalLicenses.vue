@@ -11,7 +11,7 @@ const props = defineProps({
   items: {
     type: Array,
     require: true,
-    default: () => ([]),
+    default: () => [],
   },
   data_id: {
     type: Number,
@@ -42,35 +42,55 @@ const previousOne = () => {
   }
 };
 const printPage = () => {
-  const printContent = document.querySelector(".custom-modal").innerHTML; // Modalni tanlash
-  const printWindow = window.open("", "_blank", "width=800,height=600");
+  const printContent = document.querySelector(".custom-modal").innerHTML;
+  const printWindow = window.open("", "_blank");
 
-  printWindow.document.open();
   printWindow.document.write(`
     <html>
-    <head>
-      <title>Chop etish</title>
-      <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        img { max-width: 100%; height: auto; }
-      
-      </style>
-    </head>
-    <body>
-    </body>
+      <head>
+        <title>Print</title>
+        <style>
+          body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px;
+          }
+          img { 
+            max-width: 100%; 
+            height: auto; 
+          }
+          .no-print {
+            display: none !important;
+          }
+          .box_flex {
+            display: flex;
+            gap: 1rem;
+          }
+          .box_block {
+            width: 40%;
+          }
+          @media print {
+            body {
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        ${printContent}
+      </body>
     </html>
   `);
 
   printWindow.document.close();
   printWindow.print();
-  printWindow.close();
+  setTimeout(() => printWindow.close(), 300);
 };
 </script>
 
 <template>
   <div>
     <UModal class="box_hidden" v-model="props.isOpen" prevent-close>
-   
       <UCard>
         <div
           class="flex justify-between lg:gap-3 box_flex 2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px] custom-modal box_height bg-white p-10"
@@ -112,12 +132,13 @@ const printPage = () => {
               <hr class="border-[#ECF1FB] my-6" />
 
               <p>
-                <span class="text-[#9A999B] downloadButton">Berilgan sana: </span
+                <span class="text-[#9A999B] downloadButton"
+                  >Berilgan sana: </span
                 >{{ props.items[itemIndex]?.date?.substring(0, 10) }}
               </p>
             </div>
 
-            <div class="flex justify-between printVisable">
+            <div class="flex justify-between printVisable no-print">
               <div class="flex items-center gap-4">
                 <button
                   class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center"
@@ -146,7 +167,7 @@ const printPage = () => {
 
               <div>
                 <button
-                  class="bg-[#F7483B] w-[194px] h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+                  class="bg-[#F7483B] w-[194px] no-print  h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
                   @click="printPage"
                 >
                   Yuklab olish
@@ -172,6 +193,12 @@ const printPage = () => {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
 @media (max-width: 600px) {
   .box_height {
     width: 371px !important;
@@ -196,7 +223,4 @@ const printPage = () => {
     justify-content: center;
   }
 }
-
-
-
 </style>
