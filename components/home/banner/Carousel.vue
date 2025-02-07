@@ -15,13 +15,13 @@ const carousel = ref(null)
 
 const goToPrev = () => {
   if (carousel.value) {
-    carousel.value.prev(); // UCarouselning prev() funksiyasi
+    carousel.value.prev();
   }
 };
 
 const goToNext = () => {
   if (carousel.value) {
-    carousel.value.next(); // UCarouselning next() funksiyasi
+    carousel.value.next(); 
   }
 };
 const caruselData = ref(null)
@@ -30,8 +30,12 @@ onMounted(() => {
   store.getBanner()
     .then(res => {
       caruselData.value = res.data
+    // console.log(res.data,'baner')
+
+    // console.log(caruselData.value,'baner')
       
     })
+
 
 })
 
@@ -56,14 +60,14 @@ function extractLinkFromP(pTagContent) {
 
 <template>
   <div class="relative w-full xl:h-[789px] h-[689px]  ">
-    <pre>
+    <!-- <pre>
         {{item}}
-      </pre>
+      </pre> -->
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg overflow-hidden">
-      <pre>
+      <!-- <pre>
         {{item}}
-      </pre>
+      </pre> -->
         <iframe v-if="item?.desc"
           class="w-full h-[789px] object-cover"  
           :src="formatYoutubeUrl(item?.desc)" 
@@ -76,7 +80,7 @@ function extractLinkFromP(pTagContent) {
 
       <!-- image  -->
       <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else>
-    </UCarousel>
+       </UCarousel>
 
     <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
 
