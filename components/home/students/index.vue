@@ -17,10 +17,7 @@ const items = [
     data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
   }
 ]
-
 const students = ref(null)
-
-
 onMounted(() => {
   store.getStudents()
     .then(res => {
@@ -49,7 +46,6 @@ const goToNext = () => {
         class="rounded-lg overflow-hidden ">
 
         <div class="container_wrap sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex justify-between w-full relative">
-          <!-- student  -->
           <div class="sm:w-[70%] w-full ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
@@ -123,19 +119,8 @@ const goToNext = () => {
   }
 }
 @media (min-width:1440px){
-    .container_wrap{
-      /* display:flex;
-      flex-direction: column-reverse; */
-      
+    .container_wrap{    
       width:1200px !important;
-
-    
-/* 
-@media (max-width:1440px){
-  .container_wrap {
-    width: 1000px;
-    margin:0px 5px;     */
-
   }
 }
 @media (max-width:1440px){
@@ -144,12 +129,6 @@ const goToNext = () => {
     margin:0px 5px;    
   }
 }
-/* @media (max-width:1280px){
-  .container_wrap {
-    width: 1000px;
-    margin:0px 5px;    
-  }
-} */
 @media (max-width:600px){
     .studentsImg {
       width: 390px !important;

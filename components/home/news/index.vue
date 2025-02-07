@@ -41,7 +41,7 @@
                                 </span>
                             </div>
 
-                            <h3 class="font-medium  text-xl leading-7 leand text-[#06203D]" v-html="programItem?.desc.substring(0, 200)">
+                            <h3 class="font-medium  text-xl leading-7 leand  text-[#06203D]" v-html="programItem?.desc.substring(0, 200)">
 
                             </h3>
 
@@ -75,10 +75,7 @@
                                 </div>
                             </div>
                             <h3 class=" text-lg mb-5 text text-[#06203D]" >{{ item?.title.substring(0, 70) }}</h3>
-                            <!-- <hr> -->
-
-                           
-
+                        
                         </div>
                         
                     </div>
@@ -125,7 +122,10 @@ onMounted(() => {
         width: 350px;
     }
     .img_width{
-        width: 330px  !important;
+        width: 314px  !important;
+    }
+    .width{
+        width:317px
     }
 }
 @media (max-width:700px){
@@ -152,6 +152,7 @@ onMounted(() => {
         font-size: 16px;
     }
 }
+
 @media (max-width:1024px){
     .dsiplay_hidden{
         display:none;
