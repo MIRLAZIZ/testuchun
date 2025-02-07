@@ -52,17 +52,17 @@ onMounted(() => {
                      v-for="item in videosData.data" 
                      :key="item.id" 
                      @click="openVideo(item)">
-                    <div v-show="item.id !== actieveVideo">
+                    <!-- <div v-show="item.id !== actieveVideo">
                         <img :src="item.images[0][store.currentImage]" alt="O'zbekiston 2030"
                             class="w-full h-[275px] object-cover rounded-xl" />
+                    </div> -->
+                    <div v-html="item?.video_link" ref="iframeContainer" >
                     </div>
-                    <div v-html="item?.video_link" ref="iframeContainer" v-show="item.id === actieveVideo">
-                    </div>
-                    <div class="py-4">
+                    <div class="py-4 ">
                         <h3 class="sm:text-xl text-sm font-medium leading-7">
                             {{ item.description }}
                         </h3>
-                        <button class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
+                        <button @click="item?.video_link + '&autoplay=1&mute=1&rel=0'" class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
                             <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> 
                             {{ store.dataTranslate['home.video_watch'] }}
                         </button>

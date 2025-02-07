@@ -5,36 +5,11 @@ import {useContactStore} from '~/store/contact'
 const stored = useContactStore();
 import { toast } from 'vue3-toastify'
 const modalVisible = ref(false) 
+const openModal = () => (modalVisible.value = true);
+const closeModal = () => (modalVisible.value = false);
 
-const question = ref({
-    name: null,
-    telNumber: null,
-    message: null
 
-})
-function send(){
-    modalVisible.value = false
-    if (!question.value.name || !question.value.telNumber || !question.value.message) {
-          toast.info('Iltimos, barcha maydonlarni to‘ldiring')
-        return;
-    }
-    else{
-          toast.success('Xabar muvaffaqqiyatli yuborildi')
-            stored.postContact(question.value.name,question.value.telNumber,question.value.message)
-            //  console.log(question.value.name,question.value.telNumber,question.value.message)
-             question.name.value = null,
-            question.telNumber.value = null,
-            question.message.value = null
-    }
-}
 
-watch(question, (newValue) => {
-
-   let telNumberString = String(newValue.telNumber)
-    if (telNumberString.length >= 9) {
-        question.value.telNumber = Number(telNumberString.slice(0, 9))
-    }
-}, { deep: true })
 
 
 
@@ -113,7 +88,6 @@ const store = useHomeStore()
                     <hr>
 
                     <div class="grid grid-cols-2 sm:gap-y-10 gap-5 flex_grid">
-
                         <!-- davomiyligi  -->
                         <div>
                             <div class="flex">
@@ -126,7 +100,6 @@ const store = useHomeStore()
                                 </p>
                             </div>
                         </div>
-
                         <!-- qabul qilishi -->
                         <div>
                             <div class="flex">
@@ -180,8 +153,8 @@ const store = useHomeStore()
                                 {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
-                            <button   @click="modalVisible = true"
-                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
+                            <button   @click="openModal"
+                                class=" w-[216px] h-[48px] border bordr-[#DCE5F5]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 mr-1 w-5 h-5 text-[#06203D]" />
                             </button>
@@ -191,31 +164,7 @@ const store = useHomeStore()
             </div>
         </div>
 
-
-
-
-
-        <div  @click.self="modalVisible = false" v-if="modalVisible" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div class="w-[591px] flex flex-col justify-between box_ul gap-3 bg-[#06203D] p-6 rounded-lg">
-                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
-                <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
-                    <span class="text-gray-400 font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
-                    <input required type="number" class="focus:outline-none bg-inherit h-full pl-2 w-full text-lg text-white" v-model="question.telNumber" />
-                </div>
-
-                <div>
-                    <textarea required class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
-                </div>
-
-                <div>
-                    <button @click="send" class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center items-center rounded-lg font-medium text-white">
-                        {{ store.dataTranslate['home.send'] }}
-                        <UIcon name="i-heroicons-arrow-long-right" class="ml-6 w-6 h-6 text-white" />
-                    </button>
-                </div>
-            </div>
-            </div>
-  
+        <Modal :isOpen="modalVisible"  @close="closeModal"  />
 
     </div>
 
@@ -371,7 +320,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .programItems {
     width: 619px;
-    height: 730px;
+    /* height: 730px; */
 
 
 }

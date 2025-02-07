@@ -38,7 +38,7 @@ onMounted(() => {
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
                         <span class="factsNumber text-[#06203D] ">{{ store.siteInfo?.green_zone ? store.siteInfo?.green_zone : 0 }}m<sup
-                                class="lg:text-[32px] text-[22px]">2</sup></span>
+                                class="lg:text-[32px] text-base">2</sup></span>
                     </div>
                     <hr class="bg-[#E9EEF9]">
 

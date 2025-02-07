@@ -75,7 +75,7 @@ function extractLinkFromP(pTagContent) {
         {{item}}
       </pre> -->
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
-      class="rounded-lg w-full overflow-hidden">
+      class="w-full overflow-hidden">
       <!-- <pre>
         {{item}}
         </pre> 
@@ -100,11 +100,9 @@ function extractLinkFromP(pTagContent) {
     </UCarousel>
 
     <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
-
-      <!-- <div class="mainContainer "> -->
-      <div class="  ">
+      <div >
         
-        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" />
+        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" :item="caruselData?.data" />
 
       </div>
     </div>

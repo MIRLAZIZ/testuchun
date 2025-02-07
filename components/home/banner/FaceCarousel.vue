@@ -1,18 +1,34 @@
 <script setup>
 import { useHomeStore } from '~/store/home'
+const modalVisible = ref(false) 
+const openModal = () => (modalVisible.value = true);
+const closeModal = () => (modalVisible.value = false);
+
+const props = defineProps({
+  item: {
+    type: Array,
+    required: true,
+  },
+})
+
 const store = useHomeStore()
 </script>
 <template>
 
     <div class="grid lg:grid-cols-2   mainContainer lg:px-56 xl:h-[789px]  mt-[50px]" style="grid-template-columns: 65% 35%;" >
         <!-- caption  -->
-        <div class=" h-[500px] 2xl:w-[90%] home_wrapper  flex flex-col lg:justify-center justify-center  ">
+         <!-- {{props.item}}    -->
+        <div  class=" h-[500px] 2xl:w-[90%] home_wrapper  flex flex-col lg:justify-center justify-center  ">
             <div>
                 <h1  class="caption " v-html="store.dataTranslate['home.time']">
                 </h1>
+                
+                <h1  class="caption " >
+                    <!-- {{props.item[0]?.title}} -->
+                </h1>
             </div>
             <div class="Carusel_button">
-                     <button
+                     <button @click="openModal"
                         class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
                         {{ store.dataTranslate['home.submit_application'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
@@ -35,6 +51,8 @@ const store = useHomeStore()
             <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
             <UIcon name="i-heroicons-chevron-right" class="  w-12 h-20 text-[#72705F]" @click="$emit('right')" />
         </div>
+
+              <Modal :isOpen="modalVisible"  @close="closeModal"  />
 
 
     </div>
