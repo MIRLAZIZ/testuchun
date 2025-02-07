@@ -119,7 +119,7 @@ const store = useHomeStore()
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
-                    <div class="grid grid-cols-2 gap-y-10 flex_grid">
+                    <div class="grid grid-cols-2 sm:gap-y-10 gap-5 flex_grid">
 
                         <!-- davomiyligi  -->
                         <div>
@@ -128,7 +128,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.duration'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.daytime }}
                                 </p>
                             </div>
@@ -143,7 +143,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.acceptance'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem?.date }}
                                 </p>
                             </div>
@@ -158,7 +158,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.address'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.map }}
 
                                 </p>
@@ -173,7 +173,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2  font-normal sm:text-base text-sm">{{ store.dataTranslate['home.language'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.lang }}
 
                                 </p>
@@ -199,7 +199,7 @@ const store = useHomeStore()
                             <button   @click="modalVisible = true"
                                 class="bg-white w-[216px] h-[48px] border border-[#DCE5F5]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
-                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
+                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 mr-1 w-5 h-5 text-[#06203D]" />
                             </button>
                         </div>
                     </div>

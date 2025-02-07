@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class=" main_box">
-      <div class="lg:w-[348px]  bg-white rounded-lg p-4 lg:block  karusel-container  sm:flex sm:items-center  ">
+      <div class="lg:w-[348px] border border-[#E6EDFA]  bg-white rounded-lg  lg:block  karusel-container  sm:flex sm:items-center  ">
 
         <div
           class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4  main_box_hidden ">
@@ -13,17 +13,19 @@
         </div>
 
 
-        <div class=" mb-4 flat ">
+        <div class=" pb-3 ml-2 flat ">
           <div v-for="menu in getMenuLink.children" :key="menu.id"
-            class="flex items-center justify-between mt-3 text-black  rounded-lg cursor-pointer  px-4 h-[57px] hover:border hover:border-[#F4F6FA] active_link"
+            class="flex items-center justify-between mt-3 text-black  rounded-lg cursor-pointer  px-4 h-[44px] hover:border hover:border-[#F4F6FA] active_link"
             :class="{ 'bg-[#F4F6FA]': $route.fullPath === menu.path }" @click="$router.push(menu.path)">
-            <span class="text-lg font-medium">{{ menu.title }}</span>
+            <span class="sm:text-lg text-sm sm:font-medium font-normal">{{ menu.title }}</span>
 
 
-            <UIcon name="i-heroicons-check" class="w-6 h-6 text-[#F7483B] " v-show="$route.fullPath === menu.path" />
+            <UIcon name="i-heroicons-check" class="w-6 h-6 text-red-600 " v-show="$route.fullPath === menu.path" />
           </div>
         </div>
       </div>
+
+
 
       <div
         class="karusel-container lg:w-[348px] p-2 lg:mt-6 bg-white rounded-xl lg:block sm:flex sm:gap-5 sm:justify-center sm:mb-2">
@@ -118,7 +120,7 @@ const getMenuLink = computed(() => {
     overflow: auto;
     display: block; 
     /* width:730px; */
-    background-color: white;
+    /* background-color: white; */
     border-radius: 12px;
     margin-bottom: 1em;
     width: 100%;

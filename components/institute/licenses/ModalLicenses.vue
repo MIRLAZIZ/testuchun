@@ -90,24 +90,38 @@ const printPage = () => {
 
 <template>
   <div>
-    <UModal class="box_hidden" v-model="props.isOpen" prevent-close>
+    <UModal class="" v-model="props.isOpen" prevent-close>
       <UCard>
         <div
-          class="flex justify-between lg:gap-3 box_flex 2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px] custom-modal box_height bg-white p-10"
+          class="flex  justify-between lg:gap-3 box_flex 2xl:w-[1036px] lg:w-[1000px] h-[539px] md:w-[750px] custom-modal box_height bg-white md:p-10 p-5"
         >
-          <div class="md:w-[324px] box_block h-full">
+        <div class="flex">
+           <div class="md:w-[300px] box_block h-full">
             <NuxtImg
               class="w-full h-full rounded-r-lg"
               :src="props.items[itemIndex]?.photo[store.currentImage]"
               alt="certifacate img"
             />
+              
           </div>
+
+          <div
+                  class="flex ml-4 items-center justify-center w-12 h-12 border rounded-full cursor-pointer md:hidden"
+                  @click="emit('update:isOpen', false)"
+                >
+                  <UIcon
+                    name="i-heroicons-x-mark"
+                    class="w-7 h-7 text-[#2D264B]"
+                  />
+                </div>
+        </div>
+         
 
           <div
             class="lg:w-[592px] sm:w-[400px] flex flex-col justify-between h-full"
           >
             <div>
-              <div class="flex justify-between w-full">
+              <div class="flex md:justify-between md:mt-0 mt-6 md:gap-0 gap-1 items-center w-full">
                 <img src="/assets/imgs/kampus/image 154.png" alt="" />
 
                 <div
@@ -119,9 +133,12 @@ const printPage = () => {
                     class="w-7 h-7 text-[#2D264B]"
                   />
                 </div>
+                 <h1 class="md:hidden block text-2xl font-medium ">
+                {{ props.items[itemIndex]?.title }}
+              </h1>
               </div>
 
-              <h1 class="text-2xl font-medium mt-6">
+              <h1 class="md:block hidden text-2xl font-medium mt-6">
                 {{ props.items[itemIndex]?.title }}
               </h1>
               <p
@@ -138,7 +155,7 @@ const printPage = () => {
               </p>
             </div>
 
-            <div class="flex justify-between printVisable no-print">
+            <div class="md:mt-0 mt-6 flex justify-between sm:flex-row flex-row-reverse printVisable no-print">
               <div class="flex items-center gap-4">
                 <button
                   class="w-12 h-12 border border-[#DCE5F5] rounded-xl flex justify-center items-center"
@@ -167,7 +184,7 @@ const printPage = () => {
 
               <div>
                 <button
-                  class="bg-[#F7483B] w-[194px] no-print  h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+                  class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print  h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
                   @click="printPage"
                 >
                   Yuklab olish

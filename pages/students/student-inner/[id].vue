@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class=" lg:max-w-[calc(100%-364px)] w-full   ">
         <LibraryAbout  :data="student" />
         <!-- <LibraryStudent /> -->
         

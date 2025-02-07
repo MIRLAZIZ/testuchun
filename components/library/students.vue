@@ -1,8 +1,6 @@
 <template>
     <div class="main_branch" v-if="props.data">
-   
-        <div class="grid xl:grid-cols-2 gap-4 lg:grid-cols-1 grid-cols-2 sm:items-center sm:justify-around  ">   
-
+        <div class="grid  gap-4  grid-cols-2 sm:items-center sm:justify-around  ">   
             <div class="  bg-white w-full  rounded-xl p-5 flex border box_wrapper  xl:justify-center xl:items-center sm:items-center  justify-between main_box_wrapper" v-for="item in props.data.data" :key="item"  @click="$router.push(`/students/student-inner/${item?.id}`)">
                 <!-- <div class=" border h-[200px] w-[157px]"> -->
                 <img :src="item?.photo[store.currentImage]" alt="" class="imgs h-[200px] w-[157px] object-cover rounded-lg ">
@@ -76,19 +74,7 @@ const props = defineProps({
         align-items: center;
         justify-content: center;
     } 
-    /* .main_box{
-    width:300px;
-    gap:2em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    justify-content:center;
-    
-    } */
-    /* .main_box_wrapper{
-        width:180px;
-        padding:10px
-    } */
+   
 }
 @media (max-width:1024px){
     .box_wrapper{
@@ -97,13 +83,9 @@ const props = defineProps({
         height: auto;
 
     }
-     /* .main_branch{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    } */
+  
 }
-@media (max-width:880px){
+@media (max-width:1200px){
     .box_wrapper{
         flex-direction: column;
     }
