@@ -74,7 +74,7 @@ function extractLinkFromP(pTagContent) {
      <iframe 
         v-if="item?.desc"
         class="w-full sm:h-[789px] h-[620px]"  
-        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist='"
+        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1'"
         frameborder="0" 
         allow="autoplay; encrypted-media" 
         allowfullscreen>
