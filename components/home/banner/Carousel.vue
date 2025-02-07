@@ -64,30 +64,35 @@ function extractLinkFromP(pTagContent) {
         {{item}}
       </pre> -->
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
-      class="rounded-lg overflow-hidden">
+      class="w-full overflow-hidden">
       <!-- <pre>
         {{item}}
-      </pre> -->
-        <!-- <iframe v-if="item?.desc"
-          class="w-full h-[789px] object-cover"  
-          :src="formatYoutubeUrl(item?.desc)" 
-          frameborder="0" 
-          allow="autoplay; encrypted-media" 
-          allowfullscreen>
-      </iframe> -->
+        </pre> 
+     -->
+  
+   
+     <iframe 
+        v-if="item?.desc"
+        class="w-full sm:h-[789px] h-[620px]"  
+        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist='"
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+    </iframe>
+    <!-- <a  v-else-if="item.url" :href="item.url">
+       <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" >
 
+    </a> -->
 
 
       <!-- image  -->
-      <!-- <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else> -->
+      <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else>
        </UCarousel>
 
     <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
-
-      <!-- <div class="mainContainer "> -->
-      <div class="  ">
+      <div >
         
-        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" />
+        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" :item="caruselData?.data || []" />
 
       </div>
     </div>

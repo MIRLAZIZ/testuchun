@@ -9,7 +9,7 @@
 
                     <a :href="item?.link" target="_blank">
                         <div
-                            class="w-[343px]  h-[203px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
+                            class="w-[343px]  min-h-[203px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
                           <div class="w-[284px] h-[89px] overflow-hidden mb-3">
                                 <img :src="item?.photo[store.currentImage]" 
                                     class="w-full h-full object-cover" 

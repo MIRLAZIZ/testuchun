@@ -6,7 +6,8 @@
         class="lg:px-2 px-4 text-[#020105] xl:text-sm 2xl:text-base cursor-pointer flex"
         v-if="menu.path !== '/page' && menu.slug !== 'section-menu' "
       >
-        {{ menu.title }}
+       <span v-if="menu.title == 'SDG'"> <a target="__blank" :href="store.dataTranslate['header.sdg']"> {{ menu.title }}</a> </span>
+        <span v-else> {{ menu.title }}</span>
         <div v-if="menu.title !== 'SDG'">
           <svg
             class="-mr-1 h-5 w-5"

@@ -12,7 +12,7 @@
           
 
                     <button
-                    @click="$router.push('/news')"
+                    @click="$router.push('/news/yangiliklar')"
                         class="bg-red-500 text-white w-[233px] h-[48px] font-medium rounded-md dsiplay_hidden  flex items-center justify-center">
                         {{ store.dataTranslate['home.see_all'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />

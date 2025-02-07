@@ -5,8 +5,13 @@ import active from '~/assets/imgs/home/multi-user.png'
 import book from '~/assets/imgs/home/book-open.png'
 
 import { useHomeStore } from '~/store/home'
-const store = useHomeStore()
 
+
+const openModal = () => (modalVisible.value = true);
+const closeModal = () => (modalVisible.value = false);
+
+const store = useHomeStore()
+const modalVisible = ref(false) 
 const items = [
     { id: 1, name: 'home.campus', img: kampus, link: '/kampus' },
     { id: 2, name: 'home.auditorium', img: auditoriya, link: '/page/auditorium' },
@@ -34,7 +39,7 @@ const items = [
                         </p>
                     </div>
 
-                    <button
+                    <button @click="openModal"
                         class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
                       {{ store.dataTranslate['home.submit_application'] }}
                         <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
@@ -69,6 +74,9 @@ const items = [
                 </div>  
             </div>
         </div>
+
+        <Modal :isOpen="modalVisible"  @close="closeModal"  />
+
     </div>
 </template>
 <style>
