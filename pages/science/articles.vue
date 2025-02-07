@@ -16,12 +16,10 @@ onMounted(() => {
 
   const prentPageOne = `/${route.fullPath.split("/")[1]}`;
   homeStore.getMenuStatick(prentPageOne, route.fullPath);
+  if (homeStore.menus) {
+    localStorage.setItem("articles", JSON.stringify(homeStore.menuShow));
+  }
 });
-// if (homeStore.menus) {
-//   localStorage.setItem("articles", JSON.stringify(homeStore.menuShow));
-// }
-
-
 </script>
 
 <template>
@@ -33,7 +31,10 @@ onMounted(() => {
         :key="item.id"
         @click="$router.push(`/science/articles-inner/${item.slug}`)"
       >
-        <div class="h-[200px] w-full">
+        <div
+          class="h-[200px] w-full"
+          v-if="item && item.images && item.images[0]"
+        >
           <NuxtImg
             :src="item.images[0][homeStore.currentImage]"
             alt=""

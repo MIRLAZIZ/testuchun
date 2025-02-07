@@ -1,65 +1,74 @@
-<script setup>
-import { computed } from "vue";
-import { useHomeStore } from "~/store/home";
-
-const store = useHomeStore();
-const route = useRoute();
-
-onMounted(() => {
-  const parentPage = `/${route.fullPath.split("/")[1]}`;
-  store.menuFind(parentPage, route.fullPath);
-});
-
-// Ma'lumotlarni yagona massivga keltirami
-const processedMenus = computed(() => {
-  let data = store.menuShow?.dinamikMenus?.flatMap((item) =>
-    Object.entries(item.forms).flatMap(([, formArray]) => formArray)
-  );
-  if (data) {
-    data.sort((a, b) => Number(a.order) - Number(b.order));
-  }
-
-  return data || [];
-});
-</script>
-
 <template>
-  <div class="lg:max-w-[calc(100%-348px)] w-full">
-    <div v-if="processedMenus && processedMenus.length">
-      <div
-        v-for="(data, index) in processedMenus"
-        :key="data.id"
-        class="w-full"
-        :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
-      >
-        <!-- formmmenu1 -->
-        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-          <UiCarousel :data="data.photo" />
-          <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
-            {{ data?.title }}
-          </h1>
-          <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+  <div class="">
+    <div class="w-full" v-if="newsData">
+      <div class="w-full bg-white rounded-xl p-8">
+        <div class="mb-8">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-normal text-lg text-[#5D5D5F]">
+                <button @click="$router.push('/')">
+                  {{ store.dataTranslate["home.home"] }}
+                </button>
+                /
+                <button @click="$router.push(`${store.menuShow?.path}`)">
+                  {{ store.menuShow?.title }}
+                </button>
+              </p>
+            </div>
+
+            <div class="flex gap-6">
+              <div class="flex gap-2">
+                <img
+                  class="w-5 h-5"
+                  src="/assets/imgs/talim/Calender.png"
+                  alt=""
+                />
+                <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">
+                  {{ newsData?.date?.substring(0, 10) }}
+                </p>
+              </div>
+
+              <div class="flex gap-2">
+                <img class="w-5 h-5" src="/assets/imgs/talim/Eye.png" alt="" />
+                <p class="text-[#5D5D5F]">{{ newsData?.views_count }}</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- formmenu2 -->
-        <HomeUsefulLinkCarusel
-          v-else-if="data.type === 'formmenu1'"
-          :items="data.categories"
-          :title="data.title"
-        />
-
-        <!-- fomrmenu3  -->
-        <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
+        <UiCarousel :data="newsData?.images" />
+        <div class="2xl:pr-16 containerText mt-8" v-html="newsData?.desc"></div>
       </div>
-    </div>
-    <div v-else>
-      <h1 class="text-center font-Halvar text-3xl">Ma'lumotlar mavjud emas</h1>
     </div>
   </div>
 </template>
+  
+  <script setup>
+import { useHomeStore } from "~/store/home";
 
-<style scoped>
+const store = useHomeStore();
+const newsData = ref(null);
+
+const route = useRoute();
+onMounted(() => {
+  store.getNewsOne(route.params.slug).then((res) => {
+    newsData.value = res.data;
+  });
+
+  if (!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("articles"));
+  }
+});
+</script>
+  
+  <style scoped>
+.containerText ::v-deep(h2) {
+  font-size: 28px !important;
+  color: #06203d !important;
+  margin-bottom: 24px !important;
+}
+
 .containerText ::v-deep(p) {
-  font-size: 18px !important;
+  font-size: 20px !important;
 }
 </style>

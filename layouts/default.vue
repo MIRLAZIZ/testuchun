@@ -37,13 +37,17 @@ onMounted(() => {
 
       if (newsFind) {
         data.forEach((element) => {
+          if (element.slug !== "ilmi-maqolalar") {
+          }
           let newsChild = {
             title: element.title,
             path: `/news/${element.slug}`,
             slug: element.slug,
             dinamikMenus: [],
           };
-          newsFind.children.push(newsChild);
+          if (newsChild.slug !== "ilmi-maqolalar") {
+            newsFind.children.push(newsChild);
+          }
         });
       }
 
