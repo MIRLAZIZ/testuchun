@@ -8,7 +8,7 @@
           class=" rounded-xl p-3 bg-white cursor-pointer w-full"
           v-for="item in store.certificate"
           :key="item.id"
-          @click="$router.push(`/science/Scientific/certificate-inner/${item.id}`)"
+          @click="$router.push(`/science/certificate-inner/${item.id}`)"
           >
           <div class="h-[200px]">
             <NuxtImg :src="item.photo[homeStore.currentImage]" alt="" class="w-full h-full rounded-lg object-cover " />

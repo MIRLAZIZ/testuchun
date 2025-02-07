@@ -17,9 +17,9 @@ onMounted(() => {
   const prentPageOne = `/${route.fullPath.split("/")[1]}`;
   homeStore.getMenuStatick(prentPageOne, route.fullPath);
 });
-if (homeStore.menus) {
-  localStorage.setItem("articles", JSON.stringify(homeStore.menuShow));
-}
+// if (homeStore.menus) {
+//   localStorage.setItem("articles", JSON.stringify(homeStore.menuShow));
+// }
 
 
 </script>
@@ -31,7 +31,7 @@ if (homeStore.menus) {
         class="rounded-xl p-3 bg-white w-full cursor-pointer"
         v-for="item in data?.posts?.data"
         :key="item.id"
-        @click="$router.push(`/science/Scientific/articles-inner/${item.slug}`)"
+        @click="$router.push(`/science/articles-inner/${item.slug}`)"
       >
         <div class="h-[200px] w-full">
           <NuxtImg
