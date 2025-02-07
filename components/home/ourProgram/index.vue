@@ -72,7 +72,7 @@ const store = useHomeStore()
                 <!-- program items  -->
                 <div class="programItems">
                     <div class="programItem flex items-center  cursor-pointer"
-                        :class="{ 'bg-white border border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
+                        :class="{ 'bg-white border border-r-0 border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
                         v-for="item in store.educationData[selectedProgram].children" :key="item.id"
                         @click="selectItem(item)">
                         <img :src="item.img" alt="">
@@ -109,6 +109,7 @@ const store = useHomeStore()
                             <div>
                                 <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem?.date }}
+                                    
                                 </p>
                             </div>
                         </div>
@@ -148,7 +149,12 @@ const store = useHomeStore()
                     </div>
                     <div>
                         <div class="flex mt-4">
-                            <button
+                            <button v-if="selectedProgram === 0" @click="$router.push(`/education-inner/${programitem?.slug}`)"
+                                class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium  sm:text-base text-[12px] rounded-lg">
+                                {{ store.dataTranslate['home.more_details'] }}
+                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
+                            </button>
+                             <button v-if="selectedProgram === 1" @click="$router.push(`/education-inner/${programitem?.slug}`)"
                                 class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium  sm:text-base text-[12px] rounded-lg">
                                 {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />

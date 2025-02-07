@@ -6,7 +6,7 @@ const closeModal = () => (modalVisible.value = false);
 
 const props = defineProps({
   item: {
-    type: Array,
+    type: Object,
     required: true,
   },
 })

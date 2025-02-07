@@ -2,7 +2,7 @@
   <div class=" bg-white  " :class="{ 'fixed_side': isSidebarOpen }">
     <div class="flex h-[60px] justify-between items-center mainContainer  z-50 bg-white" >
         <router-link to="/" class="bg-white   py-2 rounded-lg z-50" >
-          <img src="/assets/imgs/vacansiec/menegment.png" class="h-[32px]"  alt="">
+          <img src="/assets/imgs/vacansiec/menegment.png" class="h-[32px] object-cover"  alt="">
         </router-link>
         <div class="flex gap-2 items-center   h-[48px] ">
           <a href="https://register.timeedu.uz/" >
@@ -44,12 +44,14 @@
         <hr>
         <div class="px-5 py-6">
               <div class="flex items-center gap-2 text-gray-600">
-              <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-gray-500" />
-              <span class="font-medium">Город:</span>
+              <!-- <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-gray-500" /> -->
+              <img src="assets/imgs/home/location-dot.png" class="w-[20px] h-[20px]" />
+
+              <span class="font-medium">{{store?.dataTranslate['header.city'] }}:</span>
             </div>
             <p class="mt-1 text-lg text-gray-800">
               <a href="https://goo.gl/maps/xyz" target="_blank" class="underline text-black">
-                Toshkent, Yakkasaroy tumani, Shota Rustaveli ko‘chasi, 114
+                {{store.dataTranslate['header.address']}}
               </a>
             </p>
         </div>
@@ -66,14 +68,12 @@
       </div>
     </div>
   </div>
-    <!-- </div> -->
 
 </template>
 
 <script setup>
 import { useHomeStore } from '~/store/home'
 const store = useHomeStore()
-
 
 const handleClickOutside = () => {
     store.is_open = false;
