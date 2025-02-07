@@ -90,10 +90,10 @@ function extractLinkFromP(pTagContent) {
         allow="autoplay; encrypted-media" 
         allowfullscreen>
     </iframe>
-    <a  v-else-if="item.url" :href="item.url">
+    <!-- <a  v-else-if="item.url" :href="item.url">
        <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" >
 
-    </a>
+    </a> -->
 
       <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" v-else>
 
