@@ -92,6 +92,10 @@ const thirdColumn = [
     height: auto;
     width:345px;
   }
+  .just_content{
+    display: flex;
+    justify-content: center;
+  }
   .wrapper_hidden{
     display: none;
   }

@@ -22,16 +22,12 @@ const openVideo = (item) => {
 
 }
 onMounted(() => {
-
-
     store.getYoutuveVideo().then(res => {
         videosData.value = res.data
-
     })
         .then(() => {
             if (iframeContainer.value) {
                 iframeContainer.value.forEach(item => {
-
                     const iframe = item.querySelector('iframe');
                     if (iframe) {
                         iframe.style.width = '100%';
@@ -41,14 +37,10 @@ onMounted(() => {
                 });
             }
         })
-
 })
 </script>
 
-
-
-<template>
-  
+<template> 
 <div class="flex justify-center" v-if="videosData">
     <div class="mainContainer mb-[104px] overflow-hidden">
         <h2 class="sm:text-2xl text-[22px] font-Halvar font-medium ul_title mb-8">

@@ -22,9 +22,6 @@ const items = [
 
         <!-- <div class="mainContainer"> -->
         <div class="mainContainer">
-
-
-
             <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
                 <div class="flex banner_left flex-col justify-between">
@@ -37,7 +34,6 @@ const items = [
                         </p>
                     </div>
 
-
                     <button
                         class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
                       {{ store.dataTranslate['home.submit_application'] }}
@@ -46,7 +42,6 @@ const items = [
 
 
                     <div class="mt-6 grid grid-cols-2 gap-4    box_ul">
-
                         <button v-for="item in items" :key="item.id"
                             class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
                             @click="$router.push(item.link)">
@@ -66,7 +61,6 @@ const items = [
                 <div class="flex flex-col items-center   relative xl:h-full ">
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
-
                     <div
                         class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]  flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 ">
                         <img src="/assets/imgs/home/playVideo.png" alt="">

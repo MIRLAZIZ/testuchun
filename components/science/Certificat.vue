@@ -6,7 +6,6 @@
                 <div class="2xl:w-[348px] rounded-xl p-3 border-[#E6EDFA] border bg-[#FFFFFF] xl:w-[300px] main_box_wrapper cursor-pointer "
                     v-for="item in props.data" :key="item.id" @click="$router.push(`/news-inner/${item.id}`)">
 
-
                     <div class="2xl:w-[324px] h-[200px] mb-4 xl:w-[100%] lg:w-[100%]">
                         <img :src="item.photo" alt="" class="w-full h-full rounded-lg  ">
 

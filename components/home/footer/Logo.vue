@@ -7,7 +7,7 @@
 
         <ul class="flex w-[768px] flex-wrap gap-6 sm:text-lg text-[12px] box_wrapper_li  text-[#06203D]">
             <li v-for="item in navigationItems" :key="item">
-                <NuxtLink :to="item.href">{{ item.label }}</NuxtLink>
+                <NuxtLink :to="item.href" class="font-normal sm:text-lg text-[12px]">{{ item.label }}</NuxtLink>
                 <!-- {{ item.label }} -->
             </li>
         </ul>

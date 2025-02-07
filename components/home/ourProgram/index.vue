@@ -33,15 +33,12 @@ watch(question, (newValue) => {
    let telNumberString = String(newValue.telNumber)
     if (telNumberString.length >= 9) {
         question.value.telNumber = Number(telNumberString.slice(0, 9))
-
     }
 }, { deep: true })
 
 
 
 const store = useHomeStore()
-
-
     const selectedProgram = ref(0)
     const seletTypeEducution = (index) => {
         selectedProgram.value = index
@@ -83,7 +80,7 @@ const store = useHomeStore()
         <div class="h-full mainContainer  my-[104px]  ">
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
-                <h1 class="font-normal text-[#2E4259] sm:text-base text-sm ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
+                <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
             <div class="mt-10">
                 <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
@@ -96,15 +93,11 @@ const store = useHomeStore()
                     {{ store.educationData[1].name }}
                 </button>
             </div>
-
-
-
             <div class="flex wrapper_flex">
                 <!-- program items  -->
-
                 <div class="programItems">
                     <div class="programItem flex items-center  cursor-pointer"
-                        :class="{ 'bg-white rounded-l-xl': item.id === progamItemId }"
+                        :class="{ 'bg-white border border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
                         v-for="item in store.educationData[selectedProgram].children" :key="item.id"
                         @click="selectItem(item)">
                         <img :src="item.img" alt="">
@@ -134,13 +127,11 @@ const store = useHomeStore()
                             </div>
                         </div>
 
-
-
                         <!-- qabul qilishi -->
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/calendar-notes.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.acceptance'] }}</span>
+                                <span class="text-[#5D5D5F] ml-2 font-normal sm:text-base  text-sm">{{ store.dataTranslate['home.acceptance'] }}</span>
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
@@ -148,8 +139,6 @@ const store = useHomeStore()
                                 </p>
                             </div>
                         </div>
-
-
 
                         <!-- manzil -->
                         <div>
@@ -160,11 +149,9 @@ const store = useHomeStore()
                             <div>
                                 <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.map }}
-
                                 </p>
                             </div>
                         </div>
-
 
                         <!-- Til  -->
                         <div>
@@ -179,11 +166,8 @@ const store = useHomeStore()
                                 </p>
                             </div>
                         </div>
-
-
                     </div>
                     <hr>
-
 
                     <div>
                         <p class="programDescription text-[#06203D]" v-html="programitem?.second_description?.substring(0, 400)">
@@ -192,12 +176,12 @@ const store = useHomeStore()
                     <div>
                         <div class="flex mt-4">
                             <button
-                                class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium rounded-lg">
+                                class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center items-center text-white font-medium  sm:text-base text-[12px] rounded-lg">
                                 {{ store.dataTranslate['home.more_details'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
                             <button   @click="modalVisible = true"
-                                class="bg-white w-[216px] h-[48px] border border-[#DCE5F5]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
+                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 mr-1 w-5 h-5 text-[#06203D]" />
                             </button>
@@ -341,7 +325,7 @@ input[type="number"]::-webkit-outer-spin-button {
         width: 100% !important;
         height: 60px !important;
         display: flex;
-        gap: 2em;
+        gap: 12px;
         overflow: auto;
         margin-bottom: 2em;
     }
@@ -353,6 +337,7 @@ input[type="number"]::-webkit-outer-spin-button {
         width:100%
     }
 
+ 
     .wrapper_title {
         width: 290px;
      
@@ -392,6 +377,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .programItem {
+
     /* height: 73px; */
     padding: 24px 32px 24px 32px;
     font-size: 18px;

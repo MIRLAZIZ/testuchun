@@ -46,7 +46,7 @@ watch(question, (newValue) => {
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
-                    <h1 class=" ml-2 text-white">{{ store.dataTranslate['home.questions'] }}</h1>
+                    <h1 class=" ml-2 text-white font-normal text-base">{{ store.dataTranslate['home.questions'] }}</h1>
                 </div>
 
                 <div>
@@ -60,7 +60,7 @@ watch(question, (newValue) => {
             </div>
 
             <div class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
-                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
+                <input required type="text" class="questionInput placeholder-[#2E4259]" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span
                         class="text-white font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
@@ -99,7 +99,7 @@ watch(question, (newValue) => {
     }
     .questionsTitle{
         font-weight: 500 !important;
-        font-size: 20px !important;
+        font-size: 24px !important;
     }
     .questonsData{
         font-weight: 400 !important;

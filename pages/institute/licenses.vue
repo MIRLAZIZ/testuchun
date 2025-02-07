@@ -41,9 +41,9 @@ const addCertificat = () => {
           v-for="(item, index) in items"
           :key="index"
           @click="(isOpen = true), (data = index)"
-          class=" h-[600px] p-3 bg-white rounded-xl certificate"
+          class=" sm:h-[600px] h-[323px] items-center p-3 bg-white rounded-xl certificate"
         >
-          <div class="h-[459px] relative">
+          <div class="sm:h-[459px] h-[211px] relative">
             <NuxtImg
               :src="item?.photo[store.currentImage]"
               alt=""
@@ -51,7 +51,7 @@ const addCertificat = () => {
             />
 
             <div
-              class="absolute bottom-0 left-0 certificateEye rounded-xl w-full h-[459px] bg-[#06203D66] opacity-80 flex justify-center items-center"
+              class="absolute bottom-0 left-0 certificateEye rounded-xl w-full sm:h-[459px]  bg-[#06203D66] opacity-80 flex justify-center items-center"
             >
               <button
                 class="w-14 h-14 bg-[#BEC4CB] rounded-xl flex justify-center items-center"

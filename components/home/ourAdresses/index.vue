@@ -24,7 +24,7 @@ const addresses = [
 
         <div class="mainContainer">
             <div class=" ">
-            <h2 class="font-Halvar font-medium text-[28px]">{{ store.dataTranslate['home.location'] }}</h2>
+            <h2 class="font-Halvar font-medium sm:text-[28px]  text-xl">{{ store.dataTranslate['home.location'] }}</h2>
             
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 box_flex">

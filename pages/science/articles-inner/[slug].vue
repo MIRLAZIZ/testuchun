@@ -60,6 +60,6 @@ const processedMenus = computed(() => {
 
 <style scoped>
 .containerText ::v-deep(p) {
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 </style>

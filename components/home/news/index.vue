@@ -83,7 +83,7 @@
                         
                     </div>
                      <button
-                                class="bg-red-500 lg:hidden text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
+                                class="bg-red-500 lg:hidden sm:mx-4 text-white w-[233px] h-[48px] font-medium rounded-md  flex items-center justify-center">
                                 {{ store.dataTranslate['home.see_all'] }}
                                 <UIcon name="i-heroicons-arrow-long-right" class="ml-2 w-6 h-6 text-white" />
                             </button>
@@ -120,6 +120,14 @@ onMounted(() => {
 
 
 <style scoped>
+@media (max-width:400px){
+    .align{
+        width: 350px;
+    }
+    .img_width{
+        width: 330px  !important;
+    }
+}
 @media (max-width:700px){
     /* .img_width{
         width:340px;

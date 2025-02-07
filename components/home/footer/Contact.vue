@@ -13,7 +13,7 @@ const store = useHomeStore()
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
                         <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[1]?.replace(/\s+/g, '')"
-                            class="text-[#1E1A22]" target="_blank">
+                            class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
                             {{ store.siteInfo?.phone_number
                                 ?.split('|')[1] }}
                         </a>
@@ -25,7 +25,7 @@ const store = useHomeStore()
                     <p class="text-lg text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/envelope.png" alt="" class="mr-2 w-[26px] h-[26px]">
-                        <a :href="'mailto:' + store.siteInfo?.email" target="_blank" class="text-[#1E1A22]">{{ store.siteInfo?.email }}</a>
+                        <a :href="'mailto:' + store.siteInfo?.email" target="_blank" class="text-[#06203D] sm:text-lg  text-[12px]">{{ store.siteInfo?.email }}</a>
 
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const store = useHomeStore()
 }
     a {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 14px;
         color: #06203D;
     }
     p{

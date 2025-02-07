@@ -93,7 +93,9 @@ onMounted(() => {
                 </div>
               </div>
             </div>
-
+            <pre>
+              <!-- {{store1.student}} -->
+            </pre>
             <InstituteGenderChart
               :girls="store1.student?.female_students"
               :boys="store1.student?.male_students"

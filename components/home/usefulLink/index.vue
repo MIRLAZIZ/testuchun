@@ -10,8 +10,13 @@
                     <a :href="item?.link" target="_blank">
                         <div
                             class="w-[343px]  h-[203px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
-                            <img :src="item?.photo[store.currentImage]" width="200" height="300"
-                                class="w-[284px] h-[89px] object-cover mb-3" v-if="item?.photo">
+                          <div class="w-[284px] h-[89px] overflow-hidden mb-3">
+                                <img :src="item?.photo[store.currentImage]" 
+                                    class="w-full h-full object-cover" 
+                                    v-if="item?.photo">
+                            </div>
+
+                    
                             <hr>
 
                             <p class="text-center mt-3 ">{{ item.title }}</p>

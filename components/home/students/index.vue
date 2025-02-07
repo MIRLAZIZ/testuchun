@@ -45,7 +45,6 @@ const goToNext = () => {
 <template>
   <div class="flex justify-center" >
     <div class="mainContainer  mt-[101px]">
-
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 
@@ -120,7 +119,7 @@ const goToNext = () => {
 <style scoped>
 @media (max-width:1080px){
   .container_wrap {
-      width: 800px !important;    
+      width: 750px !important;    
   }
 }
 @media (min-width:1440px){
@@ -130,7 +129,14 @@ const goToNext = () => {
       
       width:1200px !important;
 
-    }
+    
+/* 
+@media (max-width:1440px){
+  .container_wrap {
+    width: 1000px;
+    margin:0px 5px;     */
+
+  }
 }
 @media (max-width:1440px){
   .container_wrap {
@@ -161,10 +167,11 @@ const goToNext = () => {
       object-fit: fill;
 
     }
+     
 }
 @media (max-width:800px){
     .container_wrap{
-      display:flex;
+      /* display:flex; */
       flex-direction: column;
       align-items: center;
       gap: 32px;
@@ -215,6 +222,6 @@ const goToNext = () => {
   width: 352px;
   height: 452px;
   border-radius: 12px;
-
+  object-fit: cover;
 }
 </style>
