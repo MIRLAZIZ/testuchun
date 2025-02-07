@@ -22,16 +22,12 @@ const openVideo = (item) => {
 
 }
 onMounted(() => {
-
-
     store.getYoutuveVideo().then(res => {
         videosData.value = res.data
-
     })
         .then(() => {
             if (iframeContainer.value) {
                 iframeContainer.value.forEach(item => {
-
                     const iframe = item.querySelector('iframe');
                     if (iframe) {
                         iframe.style.width = '100%';
@@ -41,13 +37,10 @@ onMounted(() => {
                 });
             }
         })
-
 })
 </script>
 
-
-<template>
-  
+<template> 
 <div class="flex justify-center" v-if="videosData">
     <div class="mainContainer mb-[104px] overflow-hidden">
         <h2 class="sm:text-2xl text-[22px] font-Halvar font-medium ul_title mb-8">
@@ -59,10 +52,10 @@ onMounted(() => {
                      v-for="item in videosData.data" 
                      :key="item.id" 
                      @click="openVideo(item)">
-                    <div v-show="item.id !== actieveVideo">
+                    <!-- <div v-show="item.id !== actieveVideo">
                         <img :src="item.images[0][store.currentImage]" alt="O'zbekiston 2030"
                             class="w-full h-[275px] object-cover rounded-xl" />
-                    </div>
+                    </div> -->
                     <div v-html="item?.video_link" ref="iframeContainer" v-show="item.id === actieveVideo">
                     </div>
                     <div class="py-4">

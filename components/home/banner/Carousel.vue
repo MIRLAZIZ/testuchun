@@ -76,10 +76,10 @@ function extractLinkFromP(pTagContent) {
       </pre> -->
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg w-full overflow-hidden">
-      <!-- <pre>
+      <pre>
         {{item}}
         </pre> 
-     -->
+    
   
    
      <iframe 
@@ -90,10 +90,11 @@ function extractLinkFromP(pTagContent) {
         allow="autoplay; encrypted-media" 
         allowfullscreen>
     </iframe>
+    <a  v-else-if="item.url" :href="item.url">
+       <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" >
 
+    </a>
 
-      <!-- image  -->
-      <!-- <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" > -->
       <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" v-else>
 
     </UCarousel>
