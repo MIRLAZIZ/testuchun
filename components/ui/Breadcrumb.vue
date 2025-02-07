@@ -37,7 +37,7 @@ const hasBackground = computed(() => {
     </h1>
 
     <div
-      class="text-[#5D5D5F] text-lg"
+      class="text-[#5D5D5F] text-lg mt-4"
       :class="{
         'text-white': hasBackground
       }"

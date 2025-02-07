@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { fileURLToPath, URL } from 'node:url';
 
 export default defineNuxtConfig({
   // compatibilityDate: '2024-11-01',
@@ -23,7 +22,7 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         },
-       
+
         {
           rel: 'icon',
           type: 'image/png',
@@ -37,7 +36,7 @@ export default defineNuxtConfig({
 
   //main css
   css: ['@/assets/css/main.css', '@/assets/css/font.css'],
-  
+
 
 
 
@@ -90,9 +89,11 @@ export default defineNuxtConfig({
     ],
 
   },
-  alias: {
-    'image': fileURLToPath(new URL('./assets/images', import.meta.url)),
-  },
+  vite: {
+    server: {
+      middlewareMode: true
+    }
+  }
 
 
 

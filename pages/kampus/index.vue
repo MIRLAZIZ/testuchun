@@ -26,10 +26,12 @@ onMounted(() => {
   store.slugData = data;
   store.getKampus().then((res) => {
     items.value = res.data;
+    store.menuShow = null
   });
 });
 onUnmounted(() => {
   store.slugData = null;
+  
 })
 </script>
 <template>
