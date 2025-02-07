@@ -14,19 +14,19 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="flex justify-center items-start main_branch">
+  <div class="">
     <div
-      class="2xl:w-[1052px] grid 2xl:grid-cols-3  2xl:gap-4 xl:w-[900px] xl:grid xl:grid-cols-2  xl:gap-4 xl:justify-center lg:w-[650px] lg:grid lg:grid-cols-2  lg:gap-3 lg:justify-center md:w-[600px] md:justify-around md:gap-2 sm:w-[300px] md:grid md:grid-cols-2  sm:gap-2 sm:justify-center main_box"
+      class=" grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4"
     >
       <div
         v-for="item in items?.data"
         :key="item.id"
-        class="w-[340px] bg-white rounded-xl 2xl:px-6 2xl:pt-6 2xl:pb-5 h-[146px] flex flex-col justify-between xl:w-[100%] xl:px-4 xl:pb-4 xl:pt-4 lg:w-[100%] lg:px-3 lg:pb-3 lg:pt-3 md:w-[100%] md:px-3 md:pb-3 md:pt-3 sm:w-[300px] sm:pb-3 sm:pt-3 sm:px-3 main_box_wrapper"
+        class="w-full bg-white rounded-xl  h-[146px] flex flex-col justify-between p-6   "
       >
         <h1 class="font-medium">
           {{
             item?.title?.length > 30
-              ? item?.title?.slice(0, 60) + "..."
+              ? item?.title?.slice(0, 40) + "..."
               : item?.title
           }}
         </h1>
@@ -34,11 +34,11 @@ onMounted(() => {
         <hr class="border border-[#DCE5F5]" />
 
         <div
-          class="bg-white w-full text-[#5D5D5F] flex items-center hover:bg-white text-base"
+          class=" w-full text-[#5D5D5F]  "
         >
           <a
             :href="item.link"
-            class="flex justify-between w-full"
+            class="flex justify-between items-center w-full hover:text-[#F7483B] "
             target="_blank"
           >
             {{ store.dataTranslate["home.more_details"] }}
@@ -48,6 +48,7 @@ onMounted(() => {
             />
           </a>
         </div>
+
       </div>
     </div>
   </div>

@@ -15,17 +15,15 @@ const items = [
 ]
 const carousel = ref(null)
 
-// Function to go to the previous slide
 const goToPrev = () => {
   if (carousel.value) {
-    carousel.value.prev(); // UCarouselning prev() funksiyasi
+    carousel.value.prev();
   }
 };
 
-// Function to go to the next slide
 const goToNext = () => {
   if (carousel.value) {
-    carousel.value.next(); // UCarouselning next() funksiyasi
+    carousel.value.next(); 
   }
 };
 const caruselData = ref(null)
@@ -34,11 +32,13 @@ onMounted(() => {
   store.getBanner()
     .then(res => {
       caruselData.value = res.data
+    // console.log(res.data,'baner')
+
+    // console.log(caruselData.value,'baner')
       
     })
 
-    // extractLinkFromP("<p>https:\/\/www.youtube.com\/embed\/BN73wVowi-o?si=QJnyd2cyQRl5bb1x<\/p>")
-    // console.log( extractLinkFromP("<p>https:\/\/www.youtube.com\/embed\/BN73wVowi-o?si=QJnyd2cyQRl5bb1x<\/p>"))
+
 })
 
 function extractLinkFromP(pTagContent) {
@@ -71,7 +71,9 @@ function extractLinkFromP(pTagContent) {
 
 <template>
   <div class="relative w-full xl:h-[789px] h-[689px]  ">
- 
+    <!-- <pre>
+        {{item}}
+      </pre> -->
     <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="rounded-lg w-full overflow-hidden">
       <!-- <pre>

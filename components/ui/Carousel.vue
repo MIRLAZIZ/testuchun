@@ -35,17 +35,17 @@ const goToNext = () => {
     <!-- <div class="2xl:w-[1000px] xl:w-[800px] lg:w-[620px] md:w-full sm:w-full box_wrapper "> -->
     <div class="w-full">
 
-    <div class="relative  " v-if="props.data">
+    <div class="relative w-full  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
-            container: 'rounded-lg',
+            container: 'w-full rounded-lg ',
             indicators: {
                 wrapper: 'relative bottom-0 flex overflow-x-auto  flex justify-start  [scrollbar-width:none] mt-3 '
 
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item[store.currentImage]" class="w-full h-[566px] object-cover " draggable="false">
+                <img :src="item[store.currentImage]" class="w-full h-[366px] lg:h-[566px]  object-cover" draggable="false">
             </template>
 
             <template #indicator="{ onClick, page, active }">
@@ -90,5 +90,8 @@ const goToNext = () => {
         justify-content: center;
       
     }
+}
+.snap-mandatory {
+    gap: 16px;
 }
 </style>

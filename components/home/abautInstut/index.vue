@@ -46,12 +46,15 @@ const items = [
                             class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
                             @click="$router.push(item.link)">
                             <img :src="item.img" alt="" class="w-[24px] h-[24px]">
-                            <div class="flex justify-between w-full">
+                            <div class="flex justify-between w-full ">
                                 <p class="text-[#06203D] text-left">{{store.dataTranslate[item.name] }}</p>
-                                <img class="sm:hover:block hidden" src="/assets/imgs/talim/arrow-right-long.png" alt="">
+
+                                <img src="/assets/imgs/talim/arrow-right-long.png" alt="" class=" sm:hidden  object-cover">
                             </div>
                         </button>
+
                     </div>
+
                 </div>
 
                 <!-- O'ng bo'lim -->
@@ -59,10 +62,11 @@ const items = [
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
                     <div
-                        class="absolute bg-white sm:w-[80px] w-[55px] h-[55px] sm:h-[80px]  flex justify-center items-center rounded-full right-6 bottom-6  ">
+                        class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]  flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 ">
                         <img src="/assets/imgs/home/playVideo.png" alt="">
                     </div>
-                </div>
+
+                </div>  
             </div>
         </div>
     </div>
@@ -104,8 +108,9 @@ const items = [
         display:flex;
         flex-direction: column-reverse;
     }
-    .abautImg{
-        width:100% !important; 
+    .abautImg {
+        width: 100% !important;
+
     }
 }
 

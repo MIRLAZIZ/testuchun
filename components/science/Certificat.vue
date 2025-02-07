@@ -7,8 +7,7 @@
                     v-for="item in props.data" :key="item.id" @click="$router.push(`/news-inner/${item.id}`)">
 
                     <div class="2xl:w-[324px] h-[200px] mb-4 xl:w-[100%] lg:w-[100%]">
-                        <!-- <img src="../../assets/imgs/talim/instetut.svg" alt=""> -->
-                        <img :src="item.photo.md" alt="" class="w-full h-full object-cover rounded-lg  ">
+                        <img :src="item.photo" alt="" class="w-full h-full rounded-lg  ">
 
                     </div>
 

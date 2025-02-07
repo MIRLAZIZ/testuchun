@@ -10,7 +10,7 @@ const route = useRoute();
 const data = ref(null);
 
 onMounted(() => {
-  storeContact.getJurnalOne(route.params.slug).then((res) => {
+  storeContact.getCertificateOne(route.params.slug).then((res) => {
     data.value = res.data;
   });
 });
@@ -18,7 +18,6 @@ onMounted(() => {
 
 <template>
   <div class="2xl:w-[1076px] w-full">
-   
     <div v-if="data">
       <div class="w-full">
         <div class="bg-white rounded-xl p-8">

@@ -1,6 +1,6 @@
 <template>
      <div class="bg-white p-8 rounded-lg w-full mt-16 mb-16">
-        <h2 class="text-center text-lg  mb-6 font-medium font-Halvar">
+        <h2 class="text-center sm:text-2xl text-base  mb-6 font-medium font-Halvar">
             RO'YHATDAN O'TISH BOSQICHLARI
         </h2>
         <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-y-16 gap-x-8  relative">
@@ -9,7 +9,7 @@
                     class="flex items-center justify-center xl:w-10 xl:h-10 w-[23px] h-[23px] rounded-full border bg-white text-[#F7483B] font-medium text-sm relative z-10">
                     {{ step.id }}
                 </div>
-                <div class="bg-[#F4F6FA] p-3 rounded-md text-center  w-full font-medium mt-4">
+                <div class="bg-[#F4F6FA] p-3 rounded-md text-center sm:text-base text-sm  w-full font-medium mt-4">
                     <p>
                     {{ step.text }}
 

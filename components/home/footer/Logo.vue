@@ -2,10 +2,10 @@
     <nav class="flex  justify-between box_wrapper">
         <div>
 
-            <img src="/assets/imgs/home/footerLogo.png" alt="" class="w-[154px] h-[53px]">
+            <img src="/assets/imgs/home/footerLogo.png" alt="" class="sm:w-[154px] sm:h-[53px] w-[92px] h-[32px]">
         </div>
 
-        <ul class="flex w-[768px] flex-wrap gap-6 text-lg box_wrapper_li  text-black">
+        <ul class="flex w-[768px] flex-wrap gap-6 sm:text-lg text-[12px] box_wrapper_li  text-[#06203D]">
             <li v-for="item in navigationItems" :key="item">
                 <NuxtLink :to="item.href" class="font-normal sm:text-lg text-[12px]">{{ item.label }}</NuxtLink>
                 <!-- {{ item.label }} -->

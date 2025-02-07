@@ -47,38 +47,15 @@ onMounted(() => {
 
 
 <template>
-    <!-- <div class="flex justify-center" v-if="videosData">
-        <div class="mainContainer my-[104px] overflow-hidden">
-            <h2 class="text-2xl font-Halvar  font-medium ul_title mb-8">{{ store.dataTranslate['home.our_video'] }}</h2>
-            <div class="flex     lg:grid-cols-3 w-full overflow-auto gap-4 ">
-                <div class="w-[321px]" v-for="item in videosData.data" :key="item.id" @click="openVideo(item)">
-                    <div class=" " v-show="item.id !== actieveVideo">
-                        <img :src="item.images[0][store.currentImage]" alt="O'zbekiston 2030"
-                            class="w-full h-[275px] object-cover rounded-xl" />
-                    </div>
-                    <div v-html="item?.video_link" ref="iframeContainer" v-show="item.id === actieveVideo">
-                    </div>
-                    <div class="py-4">
-                        <h3 class="text-xl font-medium  leading-7">
-                            {{ item.description }}
-                        </h3>
-                        <button class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex items-center font-medium">
-                            <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> {{
-                                store.dataTranslate['home.video_watch'] }}
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="flex justify-center" v-if="videosData">
+  
+<div class="flex justify-center" v-if="videosData">
     <div class="mainContainer mb-[104px] overflow-hidden">
         <h2 class="sm:text-2xl text-[22px] font-Halvar font-medium ul_title mb-8">
             {{ store.dataTranslate['home.our_video'] }}
         </h2>
-        <div class="w-full overflow-x-auto xl:overflow-hidden">
+        <div class="w-full overflow-x-auto lg:overflow-hidden">
             <div class="flex lg:grid lg:grid-cols-3 gap-4 w-max lg:w-full">
-                <div class="lg:w-[100%] w-[321px] flex-shrink-0 lg:flex-shrink" 
+                <div class="lg:w-full w-[321px] flex-shrink-0 lg:flex-shrink" 
                      v-for="item in videosData.data" 
                      :key="item.id" 
                      @click="openVideo(item)">
@@ -89,10 +66,10 @@ onMounted(() => {
                     <div v-html="item?.video_link" ref="iframeContainer" v-show="item.id === actieveVideo">
                     </div>
                     <div class="py-4">
-                        <h3 class="text-xl font-medium leading-7">
+                        <h3 class="sm:text-xl text-sm font-medium leading-7">
                             {{ item.description }}
                         </h3>
-                        <button class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex items-center font-medium">
+                        <button class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
                             <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> 
                             {{ store.dataTranslate['home.video_watch'] }}
                         </button>

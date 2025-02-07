@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="flex gap-6 xl:w-[952px]  w-full about " v-if="props.data?.activity">
-        <!-- {{ props.data.activity }} -->
+  <div class="w-full">
+    <div class="flex gap-6  flex-col-reverse sm:flex-row  w-full " v-if="props.data?.activity">
       <div
-        class="rounded-xl w-[464px] flex flex-col justify-center"
-        style="border: 1px solid #e6edfa; padding: 15px"
+        class="rounded-xl lg:w-2/4 w-full flex flex-col  p-4 border border-[#e6edfa]"
       >
-        <p class="font-medium text-2xl mb-6">{{ props.data?.activity?.title }}</p>
+        <p class="font-medium text-2xl xl:mt-16 mb-6">{{ props.data?.activity?.title }}</p>
 
-        <div style="width: 416px">
+        <div >
           <p  v-html="props.data?.activity?.dec"></p>
         </div>
       </div>
-      <div class="w-[464px] h-[416]">
-        <NuxtImg :src="props.data?.activity?.photo[store.currentImage]" alt="" class="w-full h-full" />
+      <div class="lg:w-2/4 h-[272px]  md:h-[416px] w-full">
+        <NuxtImg :src="props.data?.activity?.photo[store.currentImage]" alt="" class="w-full h-full rounded-xl object-cover"  />
       </div>
     </div>
   </div>
@@ -31,5 +29,3 @@ const props = defineProps({
 })
 </script>
 
-<style  scoped>
-</style>

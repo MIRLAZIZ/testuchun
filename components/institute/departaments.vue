@@ -1,45 +1,44 @@
 <template>
-  <div class="main_branch" v-if="props.data">
-   
-
-    <div
-      class="grid xl:grid-cols-2 gap-4 mt-10 lg:grid-cols-1 sm:grid-cols-2 sm:items-center sm:justify-around 2xl:w-[1052px] xl:w-[900px] md:w-[650px] sm:w-[600px] main_box"
-    >
+  <div class="w-full">
+    <div class="grid grid-cols-2 gap-4 w-full" v-if="props.data">
       <div
-        class="w-[530px] bg-white h-[240px] rounded-xl p-5 flex  box_wrapper xl:w-[430px] xl:h-[300px] xl:justify-center xl:items-center sm:items-center sm:w-[100%] justify-between main_box_wrapper"
+        class="bg-white rounded-xl p-5 flex flex-col xl:flex-row gap-6 w-full"
         v-for="item in props.data"
         :key="item"
-        @click="$router.push(`/institute/details/departament/${item?.employ_meta?.department_id}`)"
       >
-        <div class="  h-[200px] w-[157px]">
-          
-         
-        <img
-          :src="item?.store?.currentImage2"
-          alt=""
-          class="imgs h-full w-full object-cover rounded-lg"
-        />
+        <div
+          class="h-[271px] xl:w-[157px] w-full flex justify-center flex-shrink-0"
+        >
+          <img
+            :src="item?.store?.currentImage2"
+            alt=""
+            class="imgs h-full w-full sm:w-[157px] object-cover rounded-lg"
+          />
         </div>
 
-        <div class="flex box_wrapper_pad flex-col justify-center pl-6">
-          <h1 class="text-xl font-medium ">
-            {{
-              item?.first_name[$i18n.locale]
-               
-            }}
-          </h1>
-          <p class="mt-2 text-[#88929D]">
-            {{
-            item?.employ_meta?.position?.name[$i18n.locale]
-            }}
-          </p>
-          <hr class="border border-[#DCE5F5] my-6" />
-          <UButton
-            class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center hover:bg-[#F7483B] text-base"
+        <div class="flex flex-col justify-between">
+          <div class="mb-4">
+            <h1 class="text-xl font-medium">
+              {{ item?.first_name[$i18n.locale] }}
+              {{ item?.last_name[$i18n.locale] }}
+              {{ item?.surname[$i18n.locale] }}
+            </h1>
+            <p class="mt-2 text-[#88929D]">
+              {{ item?.employ_meta?.position?.name[$i18n.locale] }}
+            </p>
+          </div>
+
+          <button
+            @click="
+              $router.push(
+                `/institute/details/departament/${item?.employ_meta?.department_id}`
+              )
+            "
+            class="border border-[#F7483B] w-[124px] rounded-lg h-9 2xl:h-[48px] text-[#F7483B] flex justify-center items-center"
           >
             {{ store.dataTranslate["home.more_details"] }}
             <UIcon name="i-heroicons-arrow-long-right" class="ml-6 w-6 h-6" />
-          </UButton>
+          </button>
         </div>
       </div>
     </div>
@@ -61,50 +60,9 @@ const props = defineProps({
   data: {
     type: Object,
     requered: true,
-    default: () =>({}) || null,
+    default: () => ({} || null),
   },
-})
+});
 </script>
 
-<style  scoped>
-@media (max-width: 440px) {
-  .main_box {
-    gap: 5px !important;
-  }
-  .main_box_wrapper {
-    padding: 5px !important;
-  }
-}
-@media (max-width: 640px) {
-  .box_wrapper_pad {
-    padding: 2px;
-  }
-  .img {
-    width: 100%;
-  }
-  .main_box {
-    width: 300px;
-    gap: 2em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 
-    justify-content: center;
-  }
-  .main_box_wrapper {
-    width: 180px;
-    padding: 10px;
-  }
-}
-@media (max-width: 1024px) {
-  .box_wrapper {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
-  .main_branch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-</style>

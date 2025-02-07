@@ -209,6 +209,13 @@ export const useHomeStore = defineStore('home', {
 
     async getFaq() {
       return await api.get('/faq')
+    },
+
+    async getCategorys() {
+      return await api.get('/categories')
+    },
+    async getCategoryFilter(slug) {
+      return await api.get(`/categories/${slug}`)
     }
 
 

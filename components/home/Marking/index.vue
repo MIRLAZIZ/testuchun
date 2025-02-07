@@ -2,7 +2,7 @@
     <div class="flex justify-center bg-[#06203D]">
         <div class="mainContainer  h-[568px] box_height">
 
-            <div class="xl:px-[120px] lg:px-[30px] w-full h-full ">
+            <div class="xl:px-[120px] lg:px-[30px] w-full flex justify-center items-center h-full ">
                 <div class=" py-14 flex  h-full  box_ul_li">
                     <!-- buttons  -->
                     <div class="sm:w-2/4 w-full h-full  flex flex-col justify-between wrapper_full">
@@ -146,7 +146,7 @@ function selectMark(id) {
         
     }
     .wrapper_full{
-        width:600px;
+        width:580px;
     }
     .box_height{
         height:100%
@@ -161,7 +161,11 @@ function selectMark(id) {
 }
 @media (max-width:600px){
     .wrapper_full{
-        width:100%;
+        width:344px;
+    }
+    .box_ul_li{
+        width:344px;
+
     }
     .wrapper_full h2{
         font-weight: 500;

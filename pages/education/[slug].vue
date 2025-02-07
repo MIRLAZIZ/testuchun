@@ -38,7 +38,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div>
+  <div class="w-full  ">
     <Education :data="data" />
   </div>
 </template>

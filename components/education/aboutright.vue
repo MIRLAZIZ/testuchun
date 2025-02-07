@@ -1,25 +1,29 @@
 <template>
-  <div>
-   
+  <div class="w-full">
+    
 
-    <div class="flex gap-6  lg:w-[952px] w-full about" v-if="props.data?.entrance_requirement">
-      <div class="w-[464px] h-[416]">
+    <div
+      class="flex gap-6  flex-col sm:flex-row w-full "
+      v-if="props.data?.entrance_requirement"
+    >
+      <div class="lg:w-2/4 h-[272px]  md:h-[416px] w-full">
         <NuxtImg
           :src="props.data?.entrance_requirement?.photo[store.currentImage]"
           alt=""
-          class="w-full h-full rounded-xl"
+          class="w-full h-full rounded-xl object-cover"
         />
       </div>
+
       <div
-        class="rounded-xl h-[416px] w-[464px] flex justify-center flex-col border p-4"
+        class="rounded-xl  lg:w-2/4 w-full flex  flex-col border p-4"
       >
         <div>
-          <p class="font-medium text-2xl mb-6">
+          <p class="font-medium text-2xl xl:mt-16 mb-6">
             {{ props.data?.entrance_requirement?.name }}
           </p>
         </div>
 
-        <div class="flex gap-2 mb-6 w-[416px]">
+        <div class="flex gap-2 mb-6 w-full">
           <div class="tabs-container">
             <div class="tab">
               <button
@@ -29,7 +33,7 @@
                 @click="changeTab(tab)"
                 class="tab-buttons font-semibold text-sm text-black cursor-pointer"
               >
-                {{ tab.name }}
+                {{ tab }}
               </button>
             </div>
 
@@ -96,46 +100,44 @@ watch(
 </script>
 
 <style  scoped>
-@media (max-width:600px){
-    .box_title{
-        font-size:14px;
-        font-weight: 500;;
-    }
-    .tab-content_title{
-        font-weight: 400px;
-        font-size: 14px;;
-    }
-    .tab-content_text{
-        font-weight: 400px;
-        font-size: 12px;;
-    }
-    .tab-buttons{
-        font-weight: 600;
-        font-size: 12px;
-    }
-       .tab{
-        flex-direction: column;
-    }
+@media (max-width: 600px) {
+  .box_title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .tab-content_title {
+    font-weight: 400px;
+    font-size: 14px;
+  }
+  .tab-content_text {
+    font-weight: 400px;
+    font-size: 12px;
+  }
+  .tab-buttons {
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .tab {
+    flex-direction: column;
+  }
 }
-@media (max-width:1024px){
-    .about{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
- 
-}
-.tab{
+@media (max-width: 1024px) {
+  .about {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.tab {
+  display: flex;
 }
 .tab-buttons {
   padding: 10px 20px;
- 
+
   transition: all 0.3s ease;
 }
 
 .tab-buttons.active {
-
   border-radius: 12px;
   color: white;
   background-color: #06203d;

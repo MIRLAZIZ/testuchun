@@ -28,7 +28,7 @@ const hasBackground = computed(() => {
     }"
   >
     <h1
-      class="text-[40px] font-medium text-[#06203D]"
+      class="sm:text-[40px] text-2xl font-medium text-[#06203D]"
       :class="{
         'text-white': hasBackground
       }"

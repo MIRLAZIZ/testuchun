@@ -1,10 +1,10 @@
 <template>
   <div
-    class="p-5 flex justify-center"
-    :class="{ '-translate-y-2/4': store.bgImg }"
+    class=""
+    :class="{ 'xl:-translate-y-2/4  -translate-y-[82px]': store.bgImg, 'mt-10 mb-[104px]': !store.bgImg }"
   >
     <div
-      class="2xl:w-[1440px] h-[165px] w-full bg-white text-black grid lg:grid-cols-5 sm:grid-cols-2 p-5 gap-6 justify-center rounded-xl items-center"
+      class="  w-full bg-white grid lg:grid-cols-5 sm:grid-cols-2 p-8 gap-6  rounded-xl "
     >
       <div
         class="w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"
@@ -19,7 +19,7 @@
             <p class="font-normal text-[#868587] text-lg">{{ item.type }}</p>
           </div>
           <div class="flex flex-col justify-center">
-            <p class="">{{ item.name }}</p>
+            <p class="text-[#06203D] text-lg">{{ item.name }}</p>
           </div>
         </div>
       </div>

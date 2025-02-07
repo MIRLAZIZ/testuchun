@@ -1,16 +1,14 @@
 <template>
   <div class=" bg-white  " :class="{ 'fixed_side': isSidebarOpen }">
-    <div class="mainContainer">
-
-    <div class="flex h-[60px] justify-between items-center   z-50 bg-white" >
-        <router-link to="/" class="bg-white  ml-2  p-2 rounded-lg z-50" >
+    <div class="flex h-[60px] justify-between items-center mainContainer  z-50 bg-white" >
+        <router-link to="/" class="bg-white   py-2 rounded-lg z-50" >
           <img src="/assets/imgs/vacansiec/menegment.png" class="h-[32px]"  alt="">
         </router-link>
-        <div class="flex gap-2 items-center  mr-2 h-[48px] ">
+        <div class="flex gap-2 items-center   h-[48px] ">
           <a href="https://register.timeedu.uz/" >
             <img src="/assets/imgs/vacansiec/logout.png"   class="z-50 w-[50px] h-[48px]" alt="">
           </a>
-            <button @click="isSidebarOpen = !isSidebarOpen" class="  p-2 rounded-lg z-50" >
+            <button @click="isSidebarOpen = !isSidebarOpen" class="  pl-2 py-2 rounded-lg z-50" >
               <div v-if="!isSidebarOpen" class="bg-[#F4F6FA]   rounded-lg z-50 w-[50px] flex items-center justify-center h-[48px]">
                 <UIcon  name="i-heroicons-bars-3" class="w-6 h-6" /> 
               </div>       
@@ -68,7 +66,7 @@
       </div>
     </div>
   </div>
-    </div>
+    <!-- </div> -->
 
 </template>
 

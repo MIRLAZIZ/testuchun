@@ -35,6 +35,9 @@ watch(question, (newValue) => {
         question.value.telNumber = Number(telNumberString.slice(0, 9))
     }
 }, { deep: true })
+
+
+
 const store = useHomeStore()
     const selectedProgram = ref(0)
     const seletTypeEducution = (index) => {
@@ -77,9 +80,8 @@ const store = useHomeStore()
         <div class="h-full mainContainer  my-[104px]  ">
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
-                <h1 class="font-normal sm:text-base text-sm text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
+                <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
-
             <div class="mt-10">
                 <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
                     @click="seletTypeEducution(0)">
@@ -98,20 +100,19 @@ const store = useHomeStore()
                         :class="{ 'bg-white border border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
                         v-for="item in store.educationData[selectedProgram].children" :key="item.id"
                         @click="selectItem(item)">
-                        
-                        <img :src="item.photo" alt="">
-                        <p class="sm:ml-4 wrapper_title text-[#06203D] whitespace-nowrap">{{ item.name }}</p>
+                        <img :src="item.img" alt="">
+                        <p class="ml-4 wrapper_title">{{ item.name }}</p>
+
+
                     </div>
                 </div>
                 <!-- programma data  -->
                 <div class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
                     :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
-                    <pre>
-               </pre>
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
-                    <div class="grid grid-cols-2 gap-y-10 flex_grid">
+                    <div class="grid grid-cols-2 sm:gap-y-10 gap-5 flex_grid">
 
                         <!-- davomiyligi  -->
                         <div>
@@ -120,7 +121,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.duration'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.daytime }}
                                 </p>
                             </div>
@@ -133,7 +134,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2 font-normal sm:text-base  text-sm">{{ store.dataTranslate['home.acceptance'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem?.date }}
                                 </p>
                             </div>
@@ -146,7 +147,7 @@ const store = useHomeStore()
                                 <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.address'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.map }}
                                 </p>
                             </div>
@@ -156,10 +157,10 @@ const store = useHomeStore()
                         <div>
                             <div class="flex">
                                 <img src="/assets/imgs/home/globe.png" alt="">
-                                <span class="text-[#5D5D5F] ml-2">{{ store.dataTranslate['home.language'] }}</span>
+                                <span class="text-[#5D5D5F] ml-2  font-normal sm:text-base text-sm">{{ store.dataTranslate['home.language'] }}</span>
                             </div>
                             <div>
-                                <p class="text-[#06203D]  programArgument mt-3">
+                                <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
                                     {{ programitem.lang }}
 
                                 </p>
@@ -169,7 +170,7 @@ const store = useHomeStore()
                     <hr>
 
                     <div>
-                        <p class="programDescription" v-html="programitem?.second_description?.substring(0, 400)">
+                        <p class="programDescription text-[#06203D]" v-html="programitem?.second_description?.substring(0, 400)">
                         </p>
                     </div>
                     <div>
@@ -180,9 +181,9 @@ const store = useHomeStore()
                                 <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-white " />
                             </button>
                             <button   @click="modalVisible = true"
-                                class="bg-white border border-[#DCE5F5] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium sm:text-base text-[12px] rounded-lg ml-6 ">
+                                class="bg-[#E6EDFA] w-[216px] h-[48px]  text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6 ">
                                 {{ store.dataTranslate['home.submit_application'] }}
-                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-5 h-5 text-[#06203D]" />
+                                <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 mr-1 w-5 h-5 text-[#06203D]" />
                             </button>
                         </div>
                     </div>
@@ -276,22 +277,17 @@ input[type="number"]::-webkit-outer-spin-button {
         width:350px;
         
     }
-    .programmaData{
-        padding:16px !important;
+     .wrapper_title {
+     
+        font-weight: 400px !important;
+        font-size: 14px !important;
     }
-    .programmaTitle{
-        font-size: 18px;
+  
+    .selectProgram {
+        font-size: 20px !important;
+        color: #808D9D;
+        font-weight: 400;
     }
-    .selectProgram{
-        font-size: 22px;
-    }
-      .wrapper_title {
-      
-        font-size: 14px;
-    }
-    /* .questionTextarea{
-        width:350px !important;
-    } */
     .programmaTitle {
         font-size: 18px !important;
         font-weight: 500 !important;
@@ -327,24 +323,24 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     .programItems {
         width: 100% !important;
-        height: 40px !important;
+        height: 60px !important;
         display: flex;
         gap: 12px;
         overflow: auto;
         margin-bottom: 2em;
     }
     .programItem{
-        width:100%;
-        padding:12px !important;
+        padding:10px 12px !important;
+        border: 1px solid #E6EDFA;
         border-radius: 8px;
-
+        text-align: center;
+        width:100%
     }
 
  
     .wrapper_title {
-        width: 100%;
-        font-weight: 400;
-        font-size: 18px;
+        width: 290px;
+     
     }
 
     .programmaData {
@@ -356,15 +352,21 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
+ .wrapper_title {
+    
+        font-weight: 400;
+        font-size: 18px;
+    }
+
 .activeClass {
     color: #06203D !important;
-    font-size: 28px !important;
+    /* font-size: 28px !important; */
 }
 
 .selectProgram {
     font-size: 28px;
     color: #808D9D;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .programItems {
@@ -406,7 +408,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 32px;
     font-weight: 400;
     line-height: 38.4px;
-
+    color: #06203D;
 }
 
 .programDescription {

@@ -9,28 +9,16 @@
 
                     <a :href="item?.link" target="_blank">
                         <div
-                            class="w-[343px]  h-[200px] rounded-xl px-8 py-6 flex flex-col  items-center bg-white mr-4">
-                            <div class="w-[153px] h-[78px] mb-3 ">
-                                <img :src="item?.photo[store.currentImage]" 
-                                class="w-full h-full object-cover " v-if="item?.photo">
-                                
-                            </div>                           
-                            <div class="w-full">
-                                <hr>
+                            class="w-[343px]  h-[203px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
+                            <img :src="item?.photo[store.currentImage]" width="200" height="300"
+                                class="w-[284px] h-[89px] object-cover mb-3" v-if="item?.photo">
+                            <hr>
 
-                            <p class="text-center mt-4">{{ item.title }}</p>
-
-                            </div>
+                            <p class="text-center mt-3 ">{{ item.title }}</p>
 
                         </div>
-
-
                     </a>
-
-
                 </UCarousel>
-
-
                 <!-- arrow right  -->
                 <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer translate-x-16 abs_right">
                     <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
