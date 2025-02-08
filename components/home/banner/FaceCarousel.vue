@@ -1,61 +1,87 @@
 <script setup>
-import { useHomeStore } from '~/store/home'
-const modalVisible = ref(false) 
+import { useHomeStore } from "~/store/home";
+const modalVisible = ref(false);
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
 const props = defineProps({
-  item: {
+  activeItem: {
     type: Object,
     required: true,
   },
-})
+});
 
-const store = useHomeStore()
+const store = useHomeStore();
+const goToExtraLink = (url) => {
+  if (url) {
+    window.open(url, "_blank");
+  }
+};
 </script>
 <template>
+  <div
+    class="grid lg:grid-cols-2 mainContainer lg:px-56 xl:h-[789px] mt-[50px]"
+    style="grid-template-columns: 65% 35%"
+  >
+    <!-- caption  -->
 
-    <div class="grid lg:grid-cols-2   mainContainer lg:px-56 xl:h-[789px]  mt-[50px]" style="grid-template-columns: 65% 35%;" >
-        <!-- caption  -->
-         <!-- {{props.item}}    -->
-        <div  class=" h-[500px] 2xl:w-[90%] home_wrapper  flex flex-col lg:justify-center justify-center  ">
-            <div>
-                <h1  class="caption " v-html="store.dataTranslate['home.time']">
-                </h1>
-                
-                <h1  class="caption " >
-                    <!-- {{props.item[0]?.title}} -->
-                </h1>
-            </div>
-            <div class="Carusel_button">
-                     <button @click="openModal"
-                        class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
-                        {{ store.dataTranslate['home.submit_application'] }}
-                        <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
-                    </button>
-            </div>
-           
-        </div>
-       <!-- window img  -->
-        <div class=" flex justify-end boder box_img_hidden ">
-            <img src="/assets/imgs/home/Group 1.png" alt="" class="w-[509px] h-[497px] ">
-        </div>
-        <!-- left arrow -->
-        <div class="absolute home_left 2xl:left-24 left-1 top-1/2 transform -translate-y-1/2 cursor-pointer">
-            <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
-            <UIcon name="i-heroicons-chevron-left" class="  w-12 h-20 text-[#72705F]" @click="$emit('left')" />
-        </div>
+    <div
+      class="h-[500px] 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
+      @click="goToExtraLink(props?.activeItem?.url)"
+    >
+      <div v-if="!props?.activeItem?.url">
+        <h1 class="caption">
+          {{ props?.activeItem?.title }}
+          {{ props?.activeItem?.url }}
+        </h1>
 
-        <!-- arrow right  -->
-        <div class="absolute home_right  2xl:right-24 right-1 top-1/2 transform -translate-y-1/2 cursor-pointer">
-            <!-- <img src=" /assets/imgs/home/angle-right.png" alt="" @click="$emit('right')"> -->
-            <UIcon name="i-heroicons-chevron-right" class="  w-12 h-20 text-[#72705F]" @click="$emit('right')" />
-        </div>
-
-              <Modal :isOpen="modalVisible"  @close="closeModal"  />
-
-
+        <h1 class="caption">
+          <!-- {{props.item[0]?.title}} -->
+        </h1>
+      </div>
+      <div class="Carusel_button" v-if="!props?.activeItem?.url">
+        <button
+          @click="openModal"
+          class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center items-center"
+        >
+          {{ store.dataTranslate["home.submit_application"] }}
+          <UIcon
+            name="i-heroicons-arrow-long-right"
+            class="w-5 h-5 text-white ml-2"
+          />
+        </button>
+      </div>
     </div>
+    <!-- window img  -->
+    <div
+      class="flex justify-end boder box_img_hidden"
+      @click="goToExtraLink(props?.activeItem?.url)"
+    >
+      <img
+        src="/assets/imgs/home/Group 1.png"
+        alt=""
+        class="w-[509px] h-[497px]"
+      />
+    </div>
+    <!-- left arrow -->
+    <div
+      class="absolute home_left 2xl:left-24 left-1 top-1/2 transform -translate-y-1/2 cursor-pointer h-[150px]  w-[150px] flex items-center"
+      @click="$emit('left')"
+    >
+      <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
+      <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-white" />
+    </div>
+
+    <!-- arrow right  -->
+    <div
+      class="absolute home_right 2xl:right-24 right-1 top-1/2 transform -translate-y-1/2 cursor-pointer  h-[150px] w-[150px] flex items-center justify-end"
+      @click="$emit('right')"
+    >
+      <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-white" />
+    </div>
+
+    <Modal :isOpen="modalVisible" @close="closeModal" />
+  </div>
 </template>
 
 
@@ -64,98 +90,90 @@ const store = useHomeStore()
     margin-left:9em;
 } */
 .caption {
-    font-family: 'Halvar Breitschrift';
-    font-size: 64px;
+  font-family: "Halvar Breitschrift";
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 76.8px;
+  /* margin-left:5em; */
+  color: #ffffff;
+}
+@media (max-width: 1024px) {
+  .caption {
+    font-family: "Halvar Breitschrift";
+    font-size: 40px;
     font-weight: 500;
-    line-height: 76.8px;
-    /* margin-left:5em; */
-    color: #FFFFFF;
-
-}
-@media (max-width:1024px){
-    .caption {
-        font-family: 'Halvar Breitschrift';
-        font-size: 40px;
-        font-weight: 500;
-        width:500px;
-
-    }
-
+    width: 500px;
+  }
 }
 
-@media (max-width:1500px){
-    .caption {
-        font-family: 'Halvar Breitschrift';
-        font-size: 52px;
-        font-weight: 500;
-        width:730px;
-        line-height:64px;
-
-    }
+@media (max-width: 1500px) {
+  .caption {
+    font-family: "Halvar Breitschrift";
+    font-size: 52px;
+    font-weight: 500;
+    width: 730px;
+    line-height: 64px;
+  }
 }
-@media (max-width:1200px){
-   .box_img_hidden{
-        display: none;
-    }
-    .mainContainer{
-        display:flex;
-        grid-template-columns: 1fr;
-    }
-     .caption {
-        text-align: center;
-        width:95%;
-    }
-    .home_wrapper{
-        text-align: center;
-    }
-    .Carusel_button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-   
+@media (max-width: 1200px) {
+  .box_img_hidden {
+    display: none;
+  }
+  .mainContainer {
+    display: flex;
+    grid-template-columns: 1fr;
+  }
+  .caption {
+    text-align: center;
+    width: 95%;
+  }
+  .home_wrapper {
+    text-align: center;
+  }
+  .Carusel_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
-@media (max-width:800px){
- 
-    .home_wrapper{
-        display: flex;
-        justify-content: flex-end;
-        margin-left:3em;
-    }
-     .caption {
-            font-family: 'Halvar Breitschrift';
-            font-size: 45px;
-            font-weight: 500;
-        width:330px;
-    line-height:55px;
-
-    }
+@media (max-width: 800px) {
+  .home_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 3em;
+  }
+  .caption {
+    font-family: "Halvar Breitschrift";
+    font-size: 45px;
+    font-weight: 500;
+    width: 330px;
+    line-height: 55px;
+  }
 }
 
-@media (max-width:640px){
-    .home_left{
-        position: absolute;
-        left:12px;
-    }
-    .home_right{
-        position: absolute;
-        right: 12px;
-    }
-      .Carusel_button{
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
-       .caption {
-            font-family: 'Halvar Breitschrift';
-            font-size: 35px;
-            font-weight: 500;
-        width:84%;
-        text-align: left;
-
-            }
-    .home_wrapper{
-        text-align: flex-start;
-    }
+@media (max-width: 640px) {
+  .home_left {
+    position: absolute;
+    left: 12px;
+  }
+  .home_right {
+    position: absolute;
+    right: 12px;
+  }
+  .Carusel_button {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .caption {
+    font-family: "Halvar Breitschrift";
+    font-size: 35px;
+    font-weight: 500;
+    width: 84%;
+    text-align: left;
+  }
+  .home_wrapper {
+    text-align: flex-start;
+  }
 }
 </style>
