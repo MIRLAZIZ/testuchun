@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 function navigateToScience(id) {
-  router.push(`/science/Scientific/inneer/${id}`);
+  router.push(`/science/inneer/${id}`);
 }
 const router = useRouter();
 const props = defineProps({
@@ -19,7 +19,7 @@ const props = defineProps({
         class="bg-white rounded-xl flex flex-col justify-between h-[140px] p-6 pb-5 w-full cursor-pointer"
         v-for="item in props.data"
         :key="item.id"
-        @click="$router.push(`/science/Scientific/inneer/${item.slug}`)"
+        @click="$router.push(`/science/inneer/${item.slug}`)"
       >
         <div class="flex items-start">
           <p>{{ item.title }}</p>

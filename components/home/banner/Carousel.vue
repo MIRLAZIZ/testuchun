@@ -1,8 +1,6 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
-const desc = {
-  desc:"<iframe width='560' height='315' src='https://www.youtube.com/embed/MKh0jNc5jWE' frameborder='0' allowfullscreen></iframe>"
-}
+
 const store = useHomeStore()
 const items = [
   { id: 1, file: 'https://s3-figma-videos-production-sig.figma.com/video/875745179923965945/TEAM/ab11/695f/-d275-41ce-807a-28d05b3c63f2?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EipkPKqdM3u63qX0WIdLTG6Qa7SVJdDFkpQqebmnIoQNWj2mHU5HU0xdt7N3Hr2exkUmK7ZROU~Y7~6Kvu9aAGP5~6zcxBFaHCmGm7viIM8IK1HaU~d~rQMn3mecLwCjURjkIGWigoW5fD7Yp~47L-xHIV1nMT8QmGdNfiNHYYsCBk2imbdmj8i4JaujPNIFfnLEL0ASpadWtyw3LM09~LJrMFCSwOUphlQ6-~FAqUggjDILtzfuPEgB4wYcAbwHwkKfc8s4JdLAqJ0adnZ69XA74QgUVkiV0Fz9zlU7Z7rmDsj6kJc8Z0lEH0aEznu32ujnU7MjnViy6MRhKmlbwg__', type: 'video' },
@@ -36,6 +34,7 @@ onMounted(() => {
 
 
 })
+
 
 function extractLinkFromP(pTagContent) {
     // P tagi ichidan linkni ajratib olish uchun regex
@@ -80,7 +79,7 @@ function extractLinkFromP(pTagContent) {
      <iframe 
         v-if="item?.desc"
         class="w-full sm:h-[789px] h-[620px]"  
-        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist=' + getVideoId(item?.desc)"
+        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1'"
         frameborder="0" 
         allow="autoplay; encrypted-media" 
         allowfullscreen>
@@ -90,9 +89,10 @@ function extractLinkFromP(pTagContent) {
 
     </a> -->
 
-      <img :src="item?.images[store.currentImage]" class="w-full sm:h-[789px] h-[620px]" draggable="false" v-else>
 
-    </UCarousel>
+      <!-- image  -->
+      <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else>
+       </UCarousel>
 
     <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
       <div >

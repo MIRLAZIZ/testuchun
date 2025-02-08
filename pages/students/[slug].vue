@@ -35,10 +35,10 @@ const processedMenus = computed(() => {
         <!-- formmmenu1 -->
         <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
           <UiCarousel :data="data.photo" />
-          <h1 class="sm:text-[28px] text-base box_text text-[#06203D] font-medium mb-6">
+          <h1 class="sm:text-[28px] text-base box_text text-[#06203D] font-medium mt-10 mb-6">
             {{ data?.title }}
           </h1>
-          <div class="mt-8 2xl:pr-16  sm:text-xl text-sm" v-html="data.text"></div>
+          <div class="2xl:pr-16  sm:text-xl text-sm" v-html="data.text"></div>
         </div>
 
         <!-- formmenu2 -->

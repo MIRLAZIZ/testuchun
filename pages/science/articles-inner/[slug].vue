@@ -1,7 +1,7 @@
 <template>
-  <div class="lg:max-w-[calc(100%-348px)] w-full">
-    <div class=" w-full">
-      <div class="w-full bg-white rounded-xl p-8 ">
+  <div class="">
+    <div class="w-full" v-if="newsData">
+      <div class="w-full bg-white rounded-xl p-8">
         <div class="mb-8">
           <div class="flex justify-between">
             <div>
@@ -39,18 +39,11 @@
         <UiCarousel :data="newsData?.images" />
         <div class="2xl:pr-16 containerText mt-8" v-html="newsData?.desc"></div>
       </div>
-
-    
     </div>
   </div>
 </template>
   
   <script setup>
-import imgcarousel from "~/assets/imgs/kampus/carousel.png";
-import gov from "~/assets/imgs/talim/Yangiliklar.png";
-import gov1 from "~/assets/imgs/talim/Yangiliklar.png";
-import creditExpress from "~/assets/imgs/home/creditExpress.png";
-import link1 from "~/assets/imgs/talim/Yangiliklar.png";
 import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
@@ -60,8 +53,6 @@ const route = useRoute();
 onMounted(() => {
   store.getNewsOne(route.params.slug).then((res) => {
     newsData.value = res.data;
-
-
   });
 
   if (!store.menuShow) {
