@@ -31,11 +31,7 @@ const caruselData = ref(null)
 onMounted(() => {
   store.getBanner()
     .then(res => {
-      caruselData.value = res.data
-    // console.log(res.data,'baner')
-
-    // console.log(caruselData.value,'baner')
-      
+      caruselData.value = res.data      
     })
 
 
@@ -61,12 +57,11 @@ function extractLinkFromP(pTagContent) {
     const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : '';
   }
-// Funksiyani ishlatish misollari:
-// const pContent = "<p>http://example.com/image.jpg</p>";
-// const link = extractLinkFromP(pContent);
-// console.log(link); // "http://example.com/image.jpg"
+ 
+ const itemData = (data) =>{
+  console.log('salom',data)
 
-
+ }
 </script>
 
 <template>
@@ -74,7 +69,7 @@ function extractLinkFromP(pTagContent) {
     <!-- <pre>
         {{item}}
       </pre> -->
-    <UCarousel ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
+    <UCarousel @change="itemData" ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="w-full overflow-hidden">
       <!-- <pre>
         {{item}}
@@ -102,7 +97,7 @@ function extractLinkFromP(pTagContent) {
     <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
       <div >
         
-        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" :item="caruselData?.data" />
+        <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" :item="caruselData?.data || []" />
 
       </div>
     </div>

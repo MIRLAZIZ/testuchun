@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class=" main_box">
-      <div class="lg:w-[348px] border border-[#E6EDFA]  bg-white rounded-lg  lg:block  karusel-container  sm:flex sm:items-center  ">
+      <div class="lg:w-[348px] border border-[#E6EDFA] lg:p-4  bg-white rounded-lg  lg:block  karusel-container  sm:flex sm:items-center  ">
 
         <div
           class="bg-[#06203D] h-[57px] text-white flex items-center justify-between rounded-md pl-4  main_box_hidden ">
@@ -15,7 +15,7 @@
 
         <div class=" pb-3 ml-2 flat ">
           <div v-for="menu in getMenuLink.children" :key="menu.id"
-            class="flex items-center justify-between mt-3 text-black  rounded-lg cursor-pointer  px-4 h-[44px] hover:border hover:border-[#F4F6FA] active_link"
+            class="flex items-center justify-between mt-3 text-black  rounded-lg cursor-pointer lg:h-[57px]  px-4 h-[44px] hover:border hover:border-[#F4F6FA] active_link"
             :class="{ 'bg-[#F4F6FA]': $route.fullPath === menu.path }" @click="$router.push(menu.path)">
             <span class="sm:text-lg text-sm sm:font-medium font-normal">{{ menu.title }}</span>
 
@@ -49,10 +49,10 @@
               </div>
               <p class="text-xl font-medium font-Halvar">REKTOR Bilan Bog'laning</p>
             </div>
-            <button
-              class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base">
+            <a :href="store.dataTranslate['3.telegram']"
+              class="w-full h-12 rounded-[8px] bg-white hover:bg-gray-100 flex items-center cursor-pointer justify-center text-[#231101] text-base">
               Yozish
-            </button>
+            </a>
           </div>
           <!-- Slayd 3 -->
           <div
@@ -68,10 +68,10 @@
                 <img src="/assets/imgs/talim/Vector.svg" alt="" class="w-[63px] h-[50px]">
               </div>
             </div>
-            <button
-              class="w-full h-12 bg-white hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base font-medium">
+            <a :href="store.dataTranslate['3.telegram']"
+              class="w-full h-12 rounded-[8px] bg-white cursor-pointer hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base font-medium">
               Obuna bo'lish
-            </button>
+            </a>
           </div>
         </div>
       </div>
