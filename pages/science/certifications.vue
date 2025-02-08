@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="w-full">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 w-full"
+        class="grid grid-cols-2 md:grid-cols-2 2xl:grid-cols-3 gap-4 w-full"
       >
         <div
           class=" rounded-xl p-3 bg-white cursor-pointer w-full"
@@ -10,8 +10,8 @@
           :key="item.id"
           @click="$router.push(`/science/certificate-inner/${item.id}`)"
           >
-          <div class="h-[200px]">
-            <NuxtImg :src="item.photo[homeStore.currentImage]" alt="" class="w-full h-full rounded-lg object-cover " />
+          <div class="sm:h-[459px] h-[200px]">
+            <NuxtImg :src="item.photo[homeStore.currentImage]" alt="" class="w-full h-full rounded-lg  " />
           </div>
 
           <div>

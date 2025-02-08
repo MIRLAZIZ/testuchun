@@ -50,10 +50,14 @@ onMounted(() => {
       caruselData.value = res.data
     })
 })
-const handleSlide = (event) => {
-  console.log('Slide event triggered:', event)
-  activeIndex.value = event
-}
+
+ const getVideoId=(url)=> {
+    if (!url) return '';
+    const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+    return match ? match[1] : '';
+  }
+ 
+
 
 const extractVideoId = (url) =>{
     // URL dan video ID ni ajratib olish
