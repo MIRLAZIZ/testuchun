@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   // compatibilityDate: '2024-11-01',
 
   devtools: { enabled: false },
-  loading: true,
   ssr: true,
   build: {
     transpile: ['module-name'],  // Xatolikni keltirayotgan modulni qo'shing

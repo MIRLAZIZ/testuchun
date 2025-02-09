@@ -4,6 +4,7 @@ const modalVisible = ref(false);
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
+const sum = ref(0)
 const props = defineProps({
   activeItem: {
     type: Object,

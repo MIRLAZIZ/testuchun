@@ -74,7 +74,7 @@ const store = useHomeStore()
 }
     a {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 22px;
         color: #06203D;
     }
     p{

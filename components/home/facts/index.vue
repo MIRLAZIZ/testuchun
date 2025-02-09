@@ -14,7 +14,7 @@ onMounted(() => {
         <div class="mt-[104px] mainContainer">
             <h1 class="facts">{{store.dataTranslate['home.facts_number']}} </h1>           
             <div class="mt-6 grid 2xl:grid-cols-3 lg:gap-4 lg:grid md:grid-cols-2 md:gap-4  sm:grid sm:grid-cols-2 sm:gap-4 flex_box">
-                <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
+                <div data-aos="fade-up" class=" h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
                         <span class="factsNumber text-[#06203D] ">{{ store.siteInfo?.educational_programs ? store.siteInfo?.educational_programs
@@ -25,7 +25,7 @@ onMounted(() => {
                     <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.educational_programs'] }}</p>
                 </div>
 
-                <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
+                <div data-aos="fade-down" class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#06203D] ">{{ store.siteInfo?.audience_size ? store.siteInfo?.audience_size : 0 }}</span>
                     </div>
@@ -34,7 +34,7 @@ onMounted(() => {
                     <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.number_auditories'] }}</p>
                 </div>
 
-                <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
+                <div data-aos="fade-up" class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
                         <span class="factsNumber text-[#06203D] ">{{ store.siteInfo?.green_zone ? store.siteInfo?.green_zone : 0 }}m<sup
@@ -47,7 +47,7 @@ onMounted(() => {
 
 
 
-                <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
+                <div data-aos="fade-down" class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber text-[#F7483B]">+</span>
                         <span class="factsNumber text-[#06203D]">{{ store.siteInfo?.library_collection ? store.siteInfo?.library_collection : 0
@@ -58,7 +58,7 @@ onMounted(() => {
                     <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.library_fund'] }} </p>
                 </div>
 
-                <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
+                <div data-aos="fade-up" class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between">
                     <div>
                         <span class="factsNumber  text-[#06203D]">{{store.siteInfo?.number_of_students ? store.siteInfo?.number_of_students : 0
                             }}</span>
@@ -68,7 +68,7 @@ onMounted(() => {
                     <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate['home.number_students'] }} </p>
                 </div>
 
-                <div class="h-[164px] 2xl:px-8 xl:py-6 lg:px-6 lg:py-4 sm:px-4 sm:py-3 bg-white w-full rounded-xl ">
+                <div data-aos="fade-down" class="h-[164px] 2xl:px-8 xl:py-6 lg:px-6 lg:py-4 sm:px-4 sm:py-3 bg-white w-full rounded-xl ">
                     <div class="flex h-full w-full">
                         <div class="flex flex-col justify-between h-full w-full py-3 pr-3">
                             <div class="flex items-center">

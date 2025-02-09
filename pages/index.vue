@@ -26,9 +26,8 @@ onMounted(() => {
 
 <template>
   <div class="w-full">
-    <HomeBanner  
-     />
-     <HomeSciences  />
+    <HomeBanner data-aos="fade-down"  />
+     <HomeSciences   data-aos="fade-up" />
     <HomeAbautInstut  />
     <HomeFacts  />
      <HomeStudents  />
