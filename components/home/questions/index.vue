@@ -42,7 +42,7 @@ watch(question, (newValue) => {
     <div class="lg:h-[496px] bg-[#06203D] w-full flex justify-center height_full py-12">
         <div class=" mainContainer flex box_wrapper_top">
 
-            <div class="w-full h-full flex flex-col justify-between  mr-[37px] ">
+            <div  data-aos="fade-up" class="w-full h-full flex flex-col justify-between  mr-[37px] ">
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
@@ -59,7 +59,7 @@ watch(question, (newValue) => {
 
             </div>
 
-            <div class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
+            <div  data-aos="fade-down" class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
                 <input required type="text" class="questionInput placeholder-[#2E4259]" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span
@@ -89,10 +89,6 @@ watch(question, (newValue) => {
 
 <style scoped>
 @media (max-width:640px){
-       .box_ul{
-        /* width:350px; */
-        
-    }
     .questionTextarea{
         /* width:350px !important; */
         width:100% !important;

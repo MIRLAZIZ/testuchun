@@ -29,7 +29,7 @@ const items = [
         <div class="mainContainer">
             <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
-                <div class="flex banner_left flex-col justify-between">
+                <div data-aos="fade-up" class=" flex banner_left flex-col justify-between">
                     <div>
                         <h1 class="abautTitle ">
                             {{ store.dataTranslate['home.time'] }}
@@ -63,7 +63,7 @@ const items = [
                 </div>
 
                 <!-- O'ng bo'lim -->
-                <div class="flex flex-col items-center   relative xl:h-full ">
+                <div data-aos="fade-down" class="flex flex-col items-center   relative xl:h-full ">
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
                     <div

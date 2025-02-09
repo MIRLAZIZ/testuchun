@@ -24,14 +24,14 @@
                 <div class="flex h-[411px]  justify-between box_ul">
 
                     <!-- Main news item -->
-                    <div class="h-[411px]  lg:w-[551px] w-full img_width">
+                    <div data-aos="zoom-in-up" class="h-[411px]  lg:w-[551px] w-full img_width">
                         <img :src="programItem?.images[0][store.currentImage]" alt="Institut yangiliklari rasmi"
                             class="w-full h-full rounded-lg object-fill" v-if="programItem?.images?.length" />
 
                     </div>
 
                     <!-- news desctiption  -->
-                    <div class="lg:px-4 lg:w-[445px] w-[100%] flex flex-col justify-between width">
+                    <div  data-aos="zoom-in-down" class="lg:px-4 lg:w-[445px] w-[100%] flex flex-col justify-between width">
 
                         <div class="">
                             <div class="flex justify-between items-center text-sm text-[#9A999B] mb-2">
@@ -59,7 +59,7 @@
                     </div>
 
                     <!-- News list -->
-                    <div class="lg:w-[308px] w-full h-[300px] overflow-y-scroll mt-4 ">
+                    <div data-aos="zoom-in-down" class="lg:w-[308px] w-full h-[300px] overflow-y-scroll mt-4 ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white lg:p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
                             <hr>

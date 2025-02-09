@@ -38,6 +38,30 @@ onMounted(() => {
             }
         })
 })
+
+
+// **Iframe ichidagi src ni olish va autoplay qo‘shish**
+const getVideoUrl = (item) => {
+    const match = item.video_link?.match(/src="([^"]+)"/);
+    if (!match || !match[1]) return ""; // Agar src topilmasa bo'sh qoldiramiz
+
+    try {
+        const url = new URL(match[1]); // src ni URL qilib olamiz
+        url.searchParams.set("autoplay", item.isPlaying ? "1" : "0"); 
+        url.searchParams.set("mute", "1"); 
+        url.searchParams.set("rel", "0"); // O'xshash videolarni o‘chiramiz
+        return url.toString();
+    } catch (error) {
+        console.error("Invalid URL:", match[1]);
+        return "";
+    }
+};
+
+// **Tugma bosilganda autoplay ni yoqish**
+const playVideo = (item) => {
+    item.isPlaying = true; // Video boshlansin
+};
+
 </script>
 
 <template> 
@@ -46,30 +70,47 @@ onMounted(() => {
         <h2 class="sm:text-2xl text-[22px] font-Halvar font-medium ul_title mb-8">
             {{ store.dataTranslate['home.our_video'] }}
         </h2>
-        <div class="w-full overflow-x-auto lg:overflow-hidden">
-            <div class="flex lg:grid lg:grid-cols-3 gap-4 w-max lg:w-full">
-                <div class="lg:w-full w-[321px] flex-shrink-0 lg:flex-shrink" 
-                     v-for="item in videosData.data" 
-                     :key="item.id" 
-                     @click="openVideo(item)">
-                    <!-- <div v-show="item.id !== actieveVideo">
-                        <img :src="item.images[0][store.currentImage]" alt="O'zbekiston 2030"
-                            class="w-full h-[275px] object-cover rounded-xl" />
-                    </div> -->
-                    <div v-html="item?.video_link" ref="iframeContainer" >
-                    </div>
-                    <div class="py-4 ">
-                        <h3 class="sm:text-xl text-sm font-medium leading-7">
-                            {{ item.title }}
-                        </h3>
-                        <!-- <button @click="item?.video_link + '&autoplay=1&mute=1&rel=0'" class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
-                            <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> 
-                            {{ store.dataTranslate['home.video_watch'] }}
-                        </button> -->
-                    </div>
+
+
+    <div data-aos="zoom-in" class="w-full overflow-x-auto lg:overflow-hidden">
+        <div class="flex lg:grid lg:grid-cols-3 gap-4 w-max lg:w-full">
+            <div class="lg:w-full w-[321px] flex-shrink-0 lg:flex-shrink" 
+                 v-for="item in videosData.data" 
+                 :key="item.id">
+                 
+                <div class="relative w-full aspect-video h-[275px] ">
+                    <iframe 
+                        class="w-full h-[275px] rounded-lg shadow-lg"
+                        v-if="getVideoUrl(item)" 
+                        :src="getVideoUrl(item)" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        height="275px"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video Title & Button -->
+                <div class="py-4">
+                    <h3 class="sm:text-xl text-sm font-medium leading-7">
+                        {{ item.title }}
+                    </h3>
+                    <button @click="playVideo(item)" 
+                            class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
+                        <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> 
+                        {{ store.dataTranslate['home.video_watch'] }}
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+
+
     </div>
 </div>
 

@@ -5,7 +5,7 @@
             <div class="xl:px-[120px] lg:px-[30px] w-full flex justify-center items-center h-full ">
                 <div class=" py-14 flex  h-full  box_ul_li">
                     <!-- buttons  -->
-                    <div class="sm:w-2/4 w-full h-full  flex flex-col justify-between wrapper_full">
+                    <div data-aos="zoom-in-down" class="sm:w-2/4 w-full h-full  flex flex-col justify-between wrapper_full">
 
                         <div>
                             <h2 class=" font-Halvar text-[28px] text-white  mb-6 ">{{
@@ -29,13 +29,9 @@
                         </div>
                     </div>
 
-
-
-
                     <!-- O'ng tomondagi kartalar -->
-                    <div class="relative  sm:w-2/4  w-full flex sm:justify-end ul_right  " v-if="marks.length"
+                    <div data-aos="zoom-in-up" class="relative  sm:w-2/4  w-full flex sm:justify-end ul_right  " v-if="marks.length"
                         :style="{ paddingRight: (marks.length * 16) - 16 + 'px' }">
-
                         <div v-for="(mark, index) in marks" :key="mark.id"
                             class="sm:w-[329px] w-[300px]  h-[456px]  flex flex-col  justify-between box_content"
                             :class="`absolute p-6 rounded-lg shadow-lg ${mark.color} transition-all duration-500 ease-in-out`"
@@ -51,18 +47,12 @@
                                 <h3 class="text-xl  mb-2">{{ store.dataTranslate[mark.label] }}</h3>
 
                                 <p>{{ store.dataTranslate[mark.description] }}</p>
-
-
                             </div>
                             <div>
-
                                 <hr class="bg-[#F2BC8C]   ">
                                 <img src="/assets/imgs/home/quotes.png" alt="" class="w-5 h-[18px] mt-[18px]">
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

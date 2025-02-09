@@ -1,26 +1,19 @@
 <template>
     <div class="flex justify-center" >
-        <div class="mainContainer h-[249px] my-[104px] ">
-
+        <div data-aos="fade-up" class="mainContainer h-[249px] my-[104px] ">
             <h1 class="font-Halvar font-medium text-black sm:text-[28px] text-xl">{{ store.dataTranslate[props.title] }}</h1>
-
             <div class="relative mt-8">
                 <UCarousel v-slot="{ item }" :items="props.items" class="" ref="carousel">
-
                     <a :href="item?.link" target="_blank">
                         <div
-                            class="w-[343px]  min-h-[203px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
-                          <div class="w-[284px] h-[89px] overflow-hidden mb-3">
+                            class="w-[343px]  min-h-[223px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4">
+                          <div class="w-[284px] h-[100px] overflow-hidden mb-3">
                                 <img :src="item?.photo[store.currentImage]" 
-                                    class="w-full h-full object-cover" 
+                                    class="w-full h-full object-contain " 
                                     v-if="item?.photo">
                             </div>
-
-                    
                             <hr>
-
                             <p class="text-center mt-3 ">{{ item.title }}</p>
-
                         </div>
                     </a>
                 </UCarousel>

@@ -8,11 +8,6 @@ const modalVisible = ref(false)
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
-
-
-
-
-
 const store = useHomeStore()
     const selectedProgram = ref(0)
     const seletTypeEducution = (index) => {
@@ -20,13 +15,10 @@ const store = useHomeStore()
         programitem.value = store.educationData[index].children[0]
         progamItemId.value = store.educationData[index].children[0].id
     }
-
-
     onMounted(() => {
         if (!store.educationData) {
             store.getEducation()
                 .then(() => {
-
                     programitem.value = store.educationData[0].children[0]
                     progamItemId.value = store.educationData[0].children[0].id
                 })
@@ -70,7 +62,7 @@ const store = useHomeStore()
             </div>
             <div class="flex wrapper_flex">
                 <!-- program items  -->
-                <div class="programItems">
+                <div class="programItems" data-aos="zoom-in-up">
                     <div class="programItem flex items-center  cursor-pointer"
                         :class="{ 'bg-white border border-r-0 border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
                         v-for="item in store.educationData[selectedProgram].children" :key="item.id"
@@ -82,7 +74,7 @@ const store = useHomeStore()
                     </div>
                 </div>
                 <!-- programma data  -->
-                <div class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
+                <div data-aos="zoom-in-down" class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
                     :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>

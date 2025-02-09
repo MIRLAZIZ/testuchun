@@ -21,29 +21,21 @@ const addresses = [
 
 <template>
     <div class="flex justify-center">
-
-        <div class="mainContainer">
+        <div class="mainContainer" data-aos="fade-up">
             <div class=" ">
-            <h2 class="font-Halvar font-medium sm:text-[28px]  text-xl">{{ store.dataTranslate['home.location'] }}</h2>
-            
-            
+            <h2 class="font-Halvar font-medium sm:text-[28px]  text-xl">{{ store.dataTranslate['home.location'] }}</h2>       
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 box_flex">
                 <div v-for="(address, index) in addresses" :key="index"
                     class="bg-white shadow-lg rounded-lg overflow-hidden">
-
                     <div class="relative">
                         <iframe :src="address.mapSrc" class="w-full h-[502px]" allowfullscreen=""
                             loading="lazy"></iframe>
-
-
                         <div class="p-4 absolute  bg-white 2xl:w-[580px] xl:w-[500px]  py-5 px-6 rounded-xl  left-3 right-6 bottom-6 flex flex-col justify-between box_our ">
                             <h3 class="">
                                 <span class="">
                                 {{ store.dataTranslate[address.city] }}
-
                                 </span>
                             </h3>
-
                             <div class="flex mt-4">
                                 <div class="w-[39px] h-[39px]">
                                     <img src="/assets/imgs/home/locationdot.png" alt="" class="">

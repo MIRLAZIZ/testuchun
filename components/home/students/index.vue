@@ -44,22 +44,20 @@ const goToNext = () => {
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 
-        <div class="bg-[#06203D] container_wrap gap-4 sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex justify-between w-full relative">
-          <div class="sm:w-[70%] w-full ">
+        <div class="bg-[#06203D] container_wrap gap-4 sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex lg:justify-between justify-center w-full relative">
+          <div data-aos="zoom-in" class="sm:w-[70%] w-full ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
               <h1 class="font-normal text-white ml-2">{{ store?.dataTranslate['home.acquaintance'] }} </h1>
             </div>
 
              <img src="/assets/imgs/home/“.png" alt="" class="imgTranstion">
-            <div class="flex flex-col  justify-between gap-2">
+            <div class="flex flex-col  justify-between  gap-2">
           
               <div>
                 <h1 class="text-[28px] text-white mt-9 relative z-10">{{ item?.name }}</h1>
-                <p class="text-[#88929D] text-[20px] leading-7 mt-6">
-                  {{ item?.position?.length > 290 ? item.position?.substring(0, 290) + '...' : item?.position }}
+                <p class="text-[#88929D] text-[20px] leading-7 mt-6" v-html="item?.dec?.length > 290 ? item.dec?.substring(0, 200) + '...' : item?.dec"></p>
 
-                </p>
               </div>
               <div class="flex justify-between items-center">
                       <button class="bg-[#F7483B] w-[156px]  h-[48px] flex justify-center rounded-lg items-center text-white " 
@@ -77,7 +75,7 @@ const goToNext = () => {
                               </div>
                            </div>
 
-                              <!-- arrow left  -->
+                         
                             
                         </div>
                          
@@ -86,7 +84,7 @@ const goToNext = () => {
             </div>
           </div>
 
-          <div class="studentsImg">
+          <div data-aos="zoom-in-up" class="studentsImg">
             <img :src="item?.photo[store.currentImage]" alt="" class="studentsImg ">
 
             <!-- carousel button  -->
