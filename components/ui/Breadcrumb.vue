@@ -42,10 +42,11 @@ const hasBackground = computed(() => {
         'text-white': hasBackground
       }"
     >
-      <button @click="$router.push('/')">Asosiy</button> /
-      <button @click="$router.push(`${store.menuShow?.path}`)">{{ store.menuShow?.title || store?.slugData?.title }} </button>
-      <button v-if="store.slugData?.slugText">
-        / {{ store.slugData.slugText }}
+      <button @click="$router.push('/')">{{ store.dataTranslate["home.home"] }}</button> 
+
+      <button @click="$router.push(`${store.menuShow?.path}`)"   v-if="store.menuShow  || store?.slugData"> / {{ store.menuShow?.title || store?.slugData?.title }} </button>
+
+      <button v-if="store.slugData?.slugText">    / {{ store.slugData.slugText }}
       </button>
     </div>
   </div>

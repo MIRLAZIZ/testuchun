@@ -18,7 +18,8 @@ export const useHomeStore = defineStore('home', {
     bgImg: null,
     slugData: null,
     currentImage2: null,
-    menuOpen: true
+    menuOpen: true,
+    educationFaqId:null
 
 
 

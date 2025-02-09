@@ -1,22 +1,8 @@
 <script setup>
-import student from '~/assets/imgs/home/student.png'
 import { useHomeStore } from '~/store/home'
 
 const store = useHomeStore()
-const items = [
-  {
-    id: 1, img: student, fullname: "MUSIRMANOVA DILVAR",
-    data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
-  },
-  {
-    id: 1, img: student, fullname: "MUSIRMANOVA DILVAR",
-    data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
-  },
-  {
-    id: 1, img: student, fullname: "MUSIRMANOVA DILVAR",
-    data: "Mening ismim Musirmanova Dilbar va men Toshkent menejment va iqtisodiyot instituti talabasiman. Mening tanlovim ushbu institutga tasodifan tushmadi: bu erda men izlayotgan narsamni aniq topdim — sifatli ta'lim, o'qitishga zamonaviy yondashuv va kasbiy va shaxsiy rivojlanish uchun imkoniyatlar."
-  }
-]
+
 const students = ref(null)
 onMounted(() => {
   store.getStudents()

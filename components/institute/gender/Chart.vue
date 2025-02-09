@@ -68,15 +68,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="chart-container">
-    <canvas ref="chartCanvas"></canvas>
+  <div>
+    <canvas ref="chartCanvas" width="192" height="192"></canvas>
   </div>
 </template>
 
 <style scoped>
-.chart-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
+
 </style>

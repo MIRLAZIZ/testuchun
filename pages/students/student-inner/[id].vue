@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import img1 from '/assets/imgs/talim/person.svg'
 import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore();

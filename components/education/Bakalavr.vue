@@ -1,6 +1,5 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
-import img1 from "/assets/imgs/talim/watch.svg";
 
 const taps = computed(() => [
   {
@@ -16,7 +15,7 @@ const taps = computed(() => [
   {
     id: 3,
     name: data.value?.third_name,
-    description: data.value?.third_description,
+    description: data.value?.third_description ,
   },
 ]);
 
@@ -29,18 +28,19 @@ onMounted(() => {
   store.getEducutionOne(route.params.slug).then((res) => {
     data.value = res.data;
     store.bgImg = res.data?.photo?.md;
+   store.educationFaqId = res.data?.faq?.filter(item => item.parent === null)[0]?.id;
+    
     let slugName = {
       slugText: res.data?.slug,
     };
     store.slugData = slugName;
   });
 
-  if (!store.menuShow) {
-    store.menuShow = JSON.parse(localStorage.getItem("education"));
-  }
+
 });
 onUnmounted(() => {
   store.bgImg = null;
+  store.slugData = null;
 })
 </script>
 <template>

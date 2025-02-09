@@ -4,23 +4,23 @@
             class="flex gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1   main_box">
             <div class="  sm:w-[200px] ">
                 <div class="md:w-[199px] sm:w-[210px] w-[329px] sm:h-[254px] h-[361px] rounded-lg ">
-                <img class=" w-full h-full" :src="props.data?.photo[store.currentImage]" alt="">
+                <NuxtImg class=" w-full h-full object-cover  rounded-xl" :src="props.data?.photo[store.currentImage]" alt="" />
 
                 </div>
             </div>
             <div class="lg:w-[68%] md:w-[72%]  sm:w-[55%] img1 flex flex-col justify-between">
                 <div>
                     <p class="mb-2 sm:font-medium sm:text-xl text-lg  main_box_width ">{{ props.data?.name }}</p>
-                    <p class="sm:font-normal sm:text-xl text-sm main_box_width ">{{ props.data?.position }} </p>
+                    <p class="sm:font-normal sm:text-xl text-sm main_box_width " v-html="props.data?.dec"> </p>
                 </div>
                 <div class="flex gap-4 mt-10  items-center">
-                    <div class="flex gap-4">
+                    <!-- <div class="flex gap-4">
                         <p class="font-medium text-base">0</p>
                         <div>
                             <img src="/assets/imgs/talim/Eye.png" alt="">
                         </div>
-                    </div>
-                    <div class="relative ml-3">
+                    </div> -->
+                    <div class="relative ">
                         <span v-if="isCopied" class="copied-text absolute" @animationend="hideCopiedText">
                             Ko'chirildi
                         </span>

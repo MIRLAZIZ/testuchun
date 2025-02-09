@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="flex gap-6  flex-col-reverse sm:flex-row  w-full " v-if="props.data?.activity">
+    <div class="flex gap-6  flex-col-reverse lg:flex-row  w-full " v-if="props.data?.activity">
       <div
         class="rounded-xl lg:w-2/4 w-full flex flex-col  p-4 border border-[#e6edfa]"
       >
