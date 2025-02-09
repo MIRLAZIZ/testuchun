@@ -57,10 +57,6 @@ function extractLinkFromP(pTagContent) {
     return match ? match[1] : '';
   }
  
- const itemData = (data) =>{
-  console.log('salom',data)
-
- }
 </script>
 
 <template>
@@ -68,7 +64,7 @@ function extractLinkFromP(pTagContent) {
     <!-- <pre>
         {{item}}
       </pre> -->
-    <UCarousel @change="itemData" ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
+    <UCarousel  ref="carousel" v-slot="{ item }" :items="caruselData?.data" :ui="{ item: 'basis-full' }"
       class="w-full overflow-hidden">
       <!-- <pre>
         {{item}}
@@ -92,15 +88,16 @@ function extractLinkFromP(pTagContent) {
 
       <!-- image  -->
       <img :src="item?.images[store.currentImage]" class="w-full h-[789px]" draggable="false" v-else>
-       </UCarousel>
-
-    <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
+          <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center  top-0  faceCarousel ">
       <div >
         
         <HomeBannerFaceCarousel @left="goToPrev" @right="goToNext" :item="caruselData?.data || []" />
 
       </div>
     </div>
+       </UCarousel>
+
+
 
 
   </div>

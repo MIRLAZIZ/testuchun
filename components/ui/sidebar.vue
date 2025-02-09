@@ -50,7 +50,7 @@
               <p class="text-xl font-medium font-Halvar">REKTOR Bilan Bog'laning</p>
             </div>
             <a :href="store.dataTranslate['3.telegram']"
-              class="w-full h-12 rounded-[8px] bg-white hover:bg-gray-100 flex items-center cursor-pointer justify-center text-[#231101] text-base">
+              class="w-full h-12 rounded-[8px] bg-white hover:bg-gray-100 flex items-center cursor-pointer justify-center text-[#231101] font-medium text-base">
               Yozish
             </a>
           </div>

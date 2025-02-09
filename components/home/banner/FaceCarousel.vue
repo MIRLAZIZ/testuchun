@@ -4,6 +4,7 @@ const modalVisible = ref(false)
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
+const sum = ref(0)
 const props = defineProps({
   item: {
     type: Object,
@@ -20,11 +21,12 @@ const store = useHomeStore()
          <!-- {{props.item}}    -->
         <div  class=" h-[500px] 2xl:w-[90%] home_wrapper  flex flex-col lg:justify-center justify-center  ">
             <div>
-                <h1  class="caption " v-html="store.dataTranslate['home.time']">
-                </h1>
+                <!-- <h1  class="caption " v-html="store.dataTranslate['home.time']">
+                </h1> -->
                 
                 <h1  class="caption " >
-                    <!-- {{props.item[0]?.title}} -->
+                    {{props.item[0]?.title}}
+                  
                 </h1>
             </div>
             <div class="Carusel_button">
@@ -43,7 +45,7 @@ const store = useHomeStore()
         <!-- left arrow -->
         <div class="absolute home_left 2xl:left-24 left-1 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
-            <UIcon name="i-heroicons-chevron-left" class="  w-12 h-20 text-[#72705F]" @click="$emit('left')" />
+            <UIcon name="i-heroicons-chevron-left" class="  w-12 h-20 text-[#72705F]" @click=" $emit('left')" />
         </div>
 
         <!-- arrow right  -->

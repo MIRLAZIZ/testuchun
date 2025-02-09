@@ -3,8 +3,8 @@
         <div
             class="flex gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1   main_box">
             <div class="  sm:w-[200px] ">
-                <div class="md:w-[199px] sm:w-[210px] w-[329px] sm:h-[254px] h-[361px] rounded-lg ">
-                <img class=" w-full h-full" :src="props.data?.photo[store.currentImage]" alt="">
+                <div class="md:w-[199px] sm:w-[210px] w-[300px] sm:h-[254px] h-[361px] rounded-lg ">
+                <img class=" w-full h-full rounded-lg" :src="props.data?.photo[store.currentImage]" alt="">
 
                 </div>
             </div>

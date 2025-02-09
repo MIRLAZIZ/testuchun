@@ -60,12 +60,12 @@ onMounted(() => {
                     </div>
                     <div class="py-4 ">
                         <h3 class="sm:text-xl text-sm font-medium leading-7">
-                            {{ item.description }}
+                            {{ item.title }}
                         </h3>
-                        <button @click="item?.video_link + '&autoplay=1&mute=1&rel=0'" class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
+                        <!-- <button @click="item?.video_link + '&autoplay=1&mute=1&rel=0'" class="text-[#F7483B] hover:text-[#F7483B] mt-4 flex sm:text-xl text-sm items-center font-medium">
                             <img src="/assets/imgs/home/play-circle.png" alt="" class="mr-2"> 
                             {{ store.dataTranslate['home.video_watch'] }}
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>

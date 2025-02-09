@@ -1,7 +1,6 @@
 <script setup>
 import student from '~/assets/imgs/home/student.png'
 import { useHomeStore } from '~/store/home'
-
 const store = useHomeStore()
 const items = [
   {
@@ -45,7 +44,7 @@ const goToNext = () => {
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 
-        <div class="container_wrap sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex justify-between w-full relative">
+        <div class="bg-[#06203D] container_wrap gap-4 sm:py-10 sm:p-[96px] px-[20px] py-[30px]  flex justify-between w-full relative">
           <div class="sm:w-[70%] w-full ">
             <div class="flex items-center ">
               <img src="/assets/imgs/home/Rectangle 16.png" alt="">
@@ -63,7 +62,7 @@ const goToNext = () => {
                 </p>
               </div>
               <div class="flex justify-between items-center">
-                      <button class="bg-[#F7483B] w-[156px] h-[48px] flex justify-center rounded-lg items-center text-white " 
+                      <button class="bg-[#F7483B] w-[156px]  h-[48px] flex justify-center rounded-lg items-center text-white " 
                         @click="$router.push(`students/${item.id}`)">
                           {{ store?.dataTranslate['home.more_details'] }}
                           <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
@@ -113,22 +112,22 @@ const goToNext = () => {
 
 
 <style scoped>
-@media (max-width:1080px){
+/* @media (max-width:1080px){
   .container_wrap {
       width: 750px !important;    
   }
-}
-@media (min-width:1440px){
+} */
+/* @media (min-width:1440px){
     .container_wrap{    
       width:1200px !important;
   }
-}
-@media (max-width:1440px){
+} */
+/* @media (max-width:1440px){
   .container_wrap {
     width: 1000px;
     margin:0px 5px;    
   }
-}
+} */
 @media (max-width:600px){
     .studentsImg {
       width: 390px !important;
@@ -181,12 +180,12 @@ const goToNext = () => {
 .student_Container{
   width:1200px
 }
-.container_wrap {
-  /* width: 800px; */
+/* .container_wrap {
+
   height: 532px;
   border-radius: 12px;
   background: #06203D;
-}
+} */
 
 .imgTranstion {
   width: 149px;
