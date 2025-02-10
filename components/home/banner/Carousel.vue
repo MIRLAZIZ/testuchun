@@ -1,21 +1,22 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
 import Logo from '../footer/Logo.vue';
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
 
-const store = useHomeStore()
-const carousel = ref(null)
+const store = useHomeStore();
+const carousel = ref(null);
 const activeIndex = ref(0);
-const caruselData = ref(null)
+const caruselData = ref(null);
+
 const activeItem = computed(() => {
-  if (caruselData.value?.data ) {
-    return caruselData.value.data[carousel.value.page-1]
+  if (caruselData.value?.data) {
+    return caruselData.value.data[carousel.value.page - 1];
   }
-  return null
-})
+  return null;
+});
 
 const goToPrev = () => {
   if (carousel.value) {
-    // console.log('carousel.value', carousel.value.page)
     carousel.value.prev();
   }
 };
@@ -29,76 +30,84 @@ const goToNext = () => {
 function extractLinkFromP(pTagContent) {
   const linkPattern = /https?:\/\/[^\s<>]+/g;
   const match = pTagContent.match(linkPattern);
-  if (match && match.length > 0) {
-    return match[0];
-  }
-  return null;
+  return match && match.length > 0 ? match[0] : null;
 }
-watch(activeIndex, (newValue) => {
-  if(newValue === null)  {
-  
-    
-  } else{
-    console.log('not null');
-    
-  }
-  console.log('Active index changed to:', newValue)
-}, { deep: true })
+
+const getVideoId = (url) => {
+  if (!url) return '';
+  const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+  return match ? match[1] : '';
+};
+
+const extractVideoId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+// **🔹 Video o'lchamini moslashtirish**
+const resizeVideo = () => {
+  nextTick(() => {
+    const videos = document.querySelectorAll('iframe');
+    if (!videos.length) return;
+
+    videos.forEach((video) => {
+      video.style.width = "100%";
+      video.style.height = "100%";
+      video.style.aspectRatio = "16/9";
+    });
+  });
+};
+
 onMounted(() => {
-  store.getBanner()
-    .then(res => {
-      caruselData.value = res.data
-    })
-})
+  store.getBanner().then((res) => {
+    caruselData.value = res.data;
+    resizeVideo(); // **⏳ Video yuklangandan keyin o‘lchamini sozlash**
+  });
 
+  window.addEventListener('resize', resizeVideo);
+});
 
- const getVideoId=(url)=> {
-    if (!url) return '';
-    const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
-    return match ? match[1] : '';
-  }
- 
+onUnmounted(() => {
+  window.removeEventListener('resize', resizeVideo);
+});
 
-
-const extractVideoId = (url) =>{
-    // URL dan video ID ni ajratib olish
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
-  }
+// `caruselData` yoki `activeIndex` o‘zgarganda `resizeVideo` ni qayta ishga tushirish
+watch([caruselData, activeIndex], () => {
+  resizeVideo();
+});
 </script>
 
 <template>
-  <div class="relative w-full xl:h-[789px] h-[689px]">
+  <div class="relative w-full xl:h-full ">
+    <UCarousel 
+      ref="carousel" 
+      v-slot="{ item }" 
+      :items="caruselData?.data" 
+      :ui="{ item: 'basis-full' }"
+      class="w-full overflow-hidden" 
+      v-model="activeIndex"
+      @slide="resizeVideo"
+    >     
+      <iframe
+        v-if="item?.desc"
+        class="w-full "
+        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist=' + extractVideoId(extractLinkFromP(item?.desc))"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe> 
 
-      <UCarousel 
-          ref="carousel" 
-          v-slot="{ item }" 
-          :items="caruselData?.data" 
-          :ui="{ item: 'basis-full' }"
-          class="w-full overflow-hidden" 
-          v-model="activeIndex"
-          @slide="handleSlide($event)"
-        >
-          <iframe
-            v-if="item?.desc"
-            class="w-full sm:h-[789px] h-[620px]"
-            :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist=' + extractVideoId(extractLinkFromP(item?.desc))"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen
-          ></iframe>
-          <img 
-            v-else
-            :src="item?.images[store.currentImage]" 
-            class="w-full h-[789px]" 
-            draggable="false"
-          >
-        </UCarousel>
+      <img 
+        v-else
+        :src="item?.images[store.currentImage]" 
+        class="w-full h-full" 
+        draggable="false"
+      >
+    </UCarousel>
 
-    <div class="absolute w-full xl:h-[789px] h-[689px] flex justify-center top-0 faceCarousel">
+    <div class="absolute w-full h-full flex justify-center top-0 faceCarousel">
       <div>
-      
         <HomeBannerFaceCarousel 
           @left="goToPrev" 
           @right="goToNext" 
@@ -112,5 +121,15 @@ const extractVideoId = (url) =>{
 <style scoped>
 .faceCarousel {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+.video-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
 }
 </style>
