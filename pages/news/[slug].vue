@@ -32,7 +32,7 @@ onMounted(() => {
         <div class="h-[200px] w-full">
           <NuxtImg
             :src="item.images[0][store.currentImage]"
-            alt=""
+            alt="Yangliklar rasmi"
             class="w-full h-full rounded-lg object-cover"
           />
         </div>
@@ -51,7 +51,7 @@ onMounted(() => {
           </div>
           <div>
             <p class="font-medium text-xl">
-              {{ item.title ? item.title : "" }}
+              {{ item.title.length > 50  ? item.title.substring(0, 50) + "..." : item.title }}
             </p>
           </div>
         </div>

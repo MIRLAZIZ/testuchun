@@ -136,7 +136,7 @@ const store = useHomeStore()
                     <hr>
 
                     <div>
-                        <p class="programDescription text-[#06203D]" v-html="programitem?.second_description?.substring(0, 400)">
+                        <p class="programDescription text-[#06203D]" v-html="programitem?.first_description?.substring(0, 400)">
                         </p>
                     </div>
                     <div>

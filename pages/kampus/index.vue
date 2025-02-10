@@ -23,16 +23,17 @@ let data = ref({
 });
 
 onMounted(() => {
+  store.menuShow = null
   store.slugData = data;
+  console.log('mount');
+  
+  
   store.getKampus().then((res) => {
     items.value = res.data;
-    store.menuShow = null
+
   });
 });
-onUnmounted(() => {
-  store.slugData = null;
-  
-})
+
 </script>
 <template>
   <div class="w-full">

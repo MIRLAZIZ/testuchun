@@ -61,7 +61,8 @@ const selectOption = (option) => {
     // setLocale(option.value);
     localStorage.setItem('lang', JSON.stringify(option));
     isOpen.value = false;
-    store.getTranslate()
+    window.location.reload();
+
 };
 
 const langclose = () => {

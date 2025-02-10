@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full border p-4 lg:p-6">
+  <section class="w-full mt-[104px] mb-[104px] p-4 lg:p-6">
     <div v-if="professors.length" class="space-y-6">
       <!-- Title -->
       <h2 class="text-xl md:text-2xl font-medium">

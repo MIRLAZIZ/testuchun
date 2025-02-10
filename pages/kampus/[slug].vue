@@ -23,7 +23,7 @@ onMounted(() => {
   });
 });
 onUnmounted(() => {
-  store.slugData = null;
+  store.slugData.slugText = null;
 });
 </script>
 <template>

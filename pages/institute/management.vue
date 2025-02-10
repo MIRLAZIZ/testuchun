@@ -32,6 +32,7 @@ onMounted(() => {
       class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D] p-8 rounded-xl border-[#E6EDFA]-1 flex-col-reverse md:flex-row"
       v-if="data.length"
     >
+    
       <div class="h-[433px] md:w-[288px] w-full flex-shrink-0" >
         <NuxtImg
           :src="data[0]?.professor_employ[0]?.photo"
@@ -47,7 +48,7 @@ onMounted(() => {
           {{ data[0]?.professor_employ[0].surname }}
         </h1>
         <p class="text-lg mt-2 text-[#88929D]">
-          {{ data[0]?.professor_employ[0]?.employ_type }}
+          {{ data[0]?.professor_employ[0]?.position?.name[$i18n.locale] }}
         </p>
 
         <hr class="border border-[#19314C] my-6" />

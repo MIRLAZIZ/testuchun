@@ -89,11 +89,7 @@ export default defineNuxtConfig({
     ],
 
   },
-  vite: {
-    server: {
-      middlewareMode: true
-    }
-  }
+ 
 
 
 
