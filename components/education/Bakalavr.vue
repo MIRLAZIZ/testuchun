@@ -31,7 +31,7 @@ onMounted(() => {
    store.educationFaqId = res.data?.faq?.filter(item => item.parent === null)[0]?.id;
     
     let slugName = {
-      slugText: res.data?.slug,
+      slugText: res.data?.name,
     };
     store.slugData = slugName;
   });

@@ -4,7 +4,6 @@ const modalVisible = ref(false);
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
-const sum = ref(0)
 const props = defineProps({
   activeItem: {
     type: Object,
@@ -31,14 +30,11 @@ const goToExtraLink = (url) => {
       @click="goToExtraLink(props?.activeItem?.url)"
     >
       <div v-if="!props?.activeItem?.url">
-        <h1 class="caption">
+        <h1 class="caption mt-[60px]" >
           {{ props?.activeItem?.title }}
-          {{ props?.activeItem?.url }}
         </h1>
 
-        <h1 class="caption">
-          <!-- {{props.item[0]?.title}} -->
-        </h1>
+       
       </div>
       <div class="Carusel_button" v-if="!props?.activeItem?.url">
         <button

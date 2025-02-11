@@ -42,10 +42,10 @@
             </button>
           </div>
 
-          <div class="tab-content">
-            <div class="flex flex-col gap-6 rounded-xl">
-              <div class="rounded-xl pt-10  pb-5">
-                <p class="font-normal text-base mb-2 text-slate-950">
+          <div class="">
+            <div class=" rounded-xl">
+              <div class="rounded-xl pt-10  ">
+                <p class="font-normal text-base mb-3  text-slate-950">
                   {{ scillsData?.question }}
                 </p>
                 <div
@@ -120,16 +120,17 @@ const changeTab = (id) => {
 }
 
 .tab-buttons.active {
-  border-radius: 12px;
+  border-radius: 15px;
   color: white;
   background-color: #06203d;
 }
 
 .table-container {
   width: 100%;
-  margin: 1rem 0;
-  border-radius: 8px;
+  border-radius: 12px;
   display: block;
+  overflow: hidden;
+
 }
 
 :deep(table) {

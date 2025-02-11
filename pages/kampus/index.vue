@@ -20,12 +20,13 @@ const { locale } = useI18n();
 let data = ref({
   title: kampus.value[locale.value],
   slugText: "",
+  path: '/kampus'
 });
 
 onMounted(() => {
   store.menuShow = null
   store.slugData = data;
-  console.log('mount');
+ 
   
   
   store.getKampus().then((res) => {
