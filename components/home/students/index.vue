@@ -47,26 +47,21 @@ const goToNext = () => {
               </div>
               <div class="flex justify-between items-center">
                       <button class="bg-[#F7483B] w-[156px]  h-[48px] flex justify-center rounded-lg items-center text-white " 
-                        @click="$router.push(`students/${item.id}`)">
+                        @click="$router.push(`students/student-inner/${item.id}`)">
                           {{ store?.dataTranslate['home.more_details'] }}
                           <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
                         </button>
                         <div class=" student_block hidden  ">
                            <div class="flex pr-8 items-center gap-4">
-                                <div class=" cursor-pointer ">
+                              <div class=" cursor-pointer ">
                                 <UIcon name="i-heroicons-chevron-left" class="w-9 h-16 text-[#72705F] " @click="goToPrev" />
                               </div>
-                                <div class="  cursor-pointer ">
+                              <div class="  cursor-pointer ">
                                 <UIcon name="i-heroicons-chevron-right" class="w-9 h-16 text-[#72705F] " @click="goToNext" />
                               </div>
                            </div>
-
-                         
-                            
                         </div>
-                         
               </div>
-          
             </div>
           </div>
 

@@ -21,13 +21,13 @@ const goToExtraLink = (url) => {
 </script>
 <template>
   <div
-    class="grid lg:grid-cols-2 mainContainer lg:px-56 xl:h-[789px] mt-[50px]"
+    class="grid lg:grid-cols-2 mainContainer lg:px-56  md:mt-[50px]"
     style="grid-template-columns: 65% 35%"
   >
     <!-- caption  -->
 
     <div
-      class="h-[500px] 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
+      class="lg:h-[500px] h-full 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
       @click="goToExtraLink(props?.activeItem?.url)"
     >
       <div v-if="!props?.activeItem?.url">
@@ -43,7 +43,7 @@ const goToExtraLink = (url) => {
       <div class="Carusel_button" v-if="!props?.activeItem?.url">
         <button
           @click="openModal"
-          class="mt-10 text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center items-center"
+          class="sm:mt-10 text-white md:text-base text-[12px] bg-[#F7483B] md:w-[216px] w-[180px] sm:h-[48px]  h-[40px] font-medium rounded-lg flex justify-center items-center"
         >
           {{ store.dataTranslate["home.submit_application"] }}
           <UIcon
@@ -140,12 +140,13 @@ const goToExtraLink = (url) => {
 @media (max-width: 800px) {
   .home_wrapper {
     display: flex;
-    justify-content: flex-end;
-    margin-left: 3em;
+    /* justify-content: flex-end; */
+    /* margin-left: 3em; */
+    justify-content: flex-start;
   }
   .caption {
     font-family: "Halvar Breitschrift";
-    font-size: 45px;
+    font-size: 24px;
     font-weight: 500;
     width: 330px;
     line-height: 55px;
@@ -168,7 +169,7 @@ const goToExtraLink = (url) => {
   }
   .caption {
     font-family: "Halvar Breitschrift";
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 500;
     width: 84%;
     text-align: left;
