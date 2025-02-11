@@ -21,7 +21,7 @@
           <div
             class="md:w-[283px] h-[361px] flex justify-center w-full flex-shrink-0"
           >
-            <NuxtImg
+            <img
               :src="data.photo"
               alt=""
               class="w-full h-full sm:w-[283px] rounded-lg object-cover"

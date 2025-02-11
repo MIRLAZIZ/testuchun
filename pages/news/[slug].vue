@@ -30,7 +30,7 @@ onMounted(() => {
         @click="$router.push(`/news-inner/${item.slug}`)"
       >
         <div class="h-[200px] w-full">
-          <NuxtImg
+          <img
             :src="item.images[0][store.currentImage]"
             alt="Yangliklar rasmi"
             class="w-full h-full rounded-lg object-cover"

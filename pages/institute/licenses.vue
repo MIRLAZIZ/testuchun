@@ -44,7 +44,7 @@ const addCertificat = () => {
           class=" sm:h-[600px] h-[323px] items-center p-3 bg-white rounded-xl certificate"
         >
           <div class="sm:h-[459px] h-[211px] relative">
-            <NuxtImg
+            <img
               :src="item?.photo[store.currentImage]"
               alt=""
               class="w-full h-full rounded-lg object-contain"

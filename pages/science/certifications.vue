@@ -11,7 +11,7 @@
           @click="$router.push(`/science/certificate-inner/${item.id}`)"
           >
           <div class="sm:h-[459px] h-[200px]">
-            <NuxtImg :src="item.photo[homeStore.currentImage]" alt="" class="w-full h-full rounded-lg  " />
+            <img :src="item.photo[homeStore.currentImage]" alt="" class="w-full h-full rounded-lg  " />
           </div>
 
           <div>

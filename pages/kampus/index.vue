@@ -51,7 +51,7 @@ onMounted(() => {
           v-for="item in items.data"
           :key="item.id"
         >
-          <NuxtImg
+          <img
             :src="item.images[0][store.currentImage]"
             alt=""
             class="w-full h-[343px] object-cover rounded-xl"

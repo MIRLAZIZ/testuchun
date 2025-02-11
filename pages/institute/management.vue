@@ -34,7 +34,7 @@ onMounted(() => {
     >
     
       <div class="h-[433px] md:w-[288px] w-full flex-shrink-0" >
-        <NuxtImg
+        <img
           :src="data[0]?.professor_employ[0]?.photo"
           alt=""
           class=" h-full w-full rounded-xl  object-cover"
@@ -84,7 +84,7 @@ onMounted(() => {
           @click="$router.push(`/institute/details/management/${item?.id}`)"
         >
           <div class="h-[200px] w-[157px] flex-shrink-0">
-            <NuxtImg
+            img
               :src="item?.photo"
               alt=""
               class=" h-full w-full object-cover rounded-lg"

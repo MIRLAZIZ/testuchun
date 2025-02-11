@@ -35,7 +35,7 @@ onMounted(() => {
           class="h-[200px] w-full"
           v-if="item && item.images && item.images[0]"
         >
-          <NuxtImg
+          <img
             :src="item.images[0][homeStore.currentImage]"
             alt=""
             class="w-full h-full rounded-lg object-cover"

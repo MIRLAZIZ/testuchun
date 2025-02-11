@@ -97,7 +97,7 @@ const printPage = () => {
         >
         <div class="flex">
            <div class="md:w-[300px] box_block h-full">
-            <NuxtImg
+            <img
               class="w-full h-full rounded-r-lg"
               :src="props.items[itemIndex]?.photo[store.currentImage]"
               alt="certifacate img"
