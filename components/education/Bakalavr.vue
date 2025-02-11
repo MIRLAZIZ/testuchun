@@ -36,6 +36,14 @@ onMounted(() => {
     store.slugData = slugName;
   });
 
+  if(!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("education"));
+  }
+
+  
+    
+
+
 
 });
 onUnmounted(() => {
@@ -51,7 +59,7 @@ onUnmounted(() => {
       <div class="w-full flex flex-col items-center">
         <div class="xl:w-[1016px] w-full bg-white flex flex-col p-8 items-center rounded-xl">
           <EducationTabsview :data="taps" :item="data" />
-          <EducationIframe :data="data" />
+          <EducationIframe :data="data" v-if="data?.yt_link" />
           <EducationAboutright :data="data" />
           <EducationAboutleft :data="data"  class="mt-10"/>
         </div>

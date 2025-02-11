@@ -2,7 +2,6 @@
     <nav class="flex  justify-between box_wrapper">
         <div>
 
-            <img src="/assets/imgs/home/footerLogo.png" alt="" class="sm:w-[154px] sm:h-[53px] w-[92px] h-[32px]">
         </div>
 
         <ul class="flex w-[768px] flex-wrap gap-6 sm:text-lg text-[12px] box_wrapper_li  text-[#06203D]">

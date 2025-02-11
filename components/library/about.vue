@@ -14,12 +14,7 @@
                     <p class="sm:font-normal sm:text-xl text-sm main_box_width " v-html="props.data?.dec"> </p>
                 </div>
                 <div class="flex gap-4 mt-10  items-center">
-                    <!-- <div class="flex gap-4">
-                        <p class="font-medium text-base">0</p>
-                        <div>
-                            <img src="/assets/imgs/talim/Eye.png" alt="">
-                        </div>
-                    </div> -->
+                  
                     <div class="relative ">
                         <span v-if="isCopied" class="copied-text absolute" @animationend="hideCopiedText">
                             Ko'chirildi

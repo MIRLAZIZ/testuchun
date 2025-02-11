@@ -21,7 +21,10 @@ const hasBackground = computed(() => {
   <div
     class="bg-white flex flex-col items-center justify-center py-[48px] bgImg"
     :style="{
-      'background-image': hasBackground ? `url(${backgroundImage})` : undefined
+      'background-image': hasBackground ? `url(${backgroundImage})` : undefined,
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat',
+      'backgroundPosition': 'center', 
     }"
     :class="{
       'h-[400px] text-white': hasBackground
@@ -33,7 +36,7 @@ const hasBackground = computed(() => {
         'text-white': hasBackground
       }"
     >
-      {{ store.menuShow?.title }}
+      {{ store?.slugData?.slugText || store.menuShow?.title }}
     </h1>
 
     <div
@@ -44,9 +47,9 @@ const hasBackground = computed(() => {
     >
       <button @click="$router.push('/')">{{ store.dataTranslate["home.home"] }}</button> 
 
-      <button @click="$router.push(`${store.menuShow?.path}`)"   v-if="store.menuShow  || store?.slugData"> / {{ store.menuShow?.title || store?.slugData?.title }} </button>
+      <button @click="$router.push(`${store.menuShow?.path}`)"   v-if="store.menuShow || store?.slugData"> / {{ store.menuShow?.title || store?.slugData?.title }} </button>
 
-      <button v-if="store.slugData?.slugText">    / {{ store.slugData.slugText }}
+      <button v-if="store.slugData?.slugText">    /  {{ store.slugData.slugText }}
       </button>
     </div>
   </div>

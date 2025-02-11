@@ -127,13 +127,11 @@ const changeTab = (id) => {
 
 .table-container {
   width: 100%;
-  overflow-x: auto;
   margin: 1rem 0;
   border-radius: 8px;
   display: block;
 }
 
-/* Bu stillar v-html ichidagi elementlarga ta'sir qilishi uchun :deep() ishlatiladi */
 :deep(table) {
   width: 100%;
   border-collapse: collapse;

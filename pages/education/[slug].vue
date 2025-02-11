@@ -36,9 +36,7 @@ onMounted(() => {
     }
   }
 
-  // onUnmounted(() => {
-  //   store.menuShow = null
-  // })
+
 });
 </script>
 <template>
