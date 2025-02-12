@@ -16,7 +16,7 @@
         >
           <!-- Image Container -->
           <div class="w-full md:w-[157px] h-[206px] flex-shrink-0">
-            <NuxtImg
+            <img
               :src="professor.photo[store.currentImage]"
               :alt="professor.name"
               class="w-full h-full rounded-lg object-cover"

@@ -9,7 +9,7 @@ const kampus = ref({
   ru: "Kampusy",
   en: "Campuses",
 });
-const {locale} = useI18n()
+const { locale } = useI18n();
 
 const route = useRoute();
 const data = ref(null);
@@ -17,9 +17,10 @@ onMounted(() => {
   store.getKampusOne(route.params.slug).then((res) => {
     data.value = res.data;
     store.slugData = {
-    title: kampus.value[locale.value],
-    slugText:res?.data?.name
-  };
+      title: kampus.value[locale.value],
+      slugText: res?.data?.name,
+      path: "/kampus",
+    };
   });
 });
 onUnmounted(() => {
