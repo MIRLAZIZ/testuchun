@@ -1,6 +1,8 @@
 <script setup>
 import { useHomeStore } from '~/store/home'
 const store = useHomeStore()
+const isClient = ref(false);
+
 
 const students = ref(null)
 onMounted(() => {
@@ -8,6 +10,8 @@ onMounted(() => {
     .then(res => {
       students.value = res.data
     })
+  isClient.value = true;
+
 })
 const carousel = ref(null)
 const goToPrev = () => {
@@ -25,7 +29,7 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center" >
+  <div class="flex justify-center"  v-if="isClient" >
     <div class="mainContainer  mt-[101px]">
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">

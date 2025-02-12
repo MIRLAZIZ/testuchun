@@ -60,6 +60,7 @@ const getVideoUrl = (item) => {
 // **Tugma bosilganda autoplay ni yoqish**
 const playVideo = (item) => {
     item.isPlaying = true; // Video boshlansin
+//  item.style = { transform: 'scale(1.1)' };
 };
 
 </script>
@@ -71,14 +72,13 @@ const playVideo = (item) => {
             {{ store.dataTranslate['home.our_video'] }}
         </h2>
 
-
     <div data-aos="zoom-in" class="w-full overflow-x-auto lg:overflow-hidden">
         <div class="flex lg:grid lg:grid-cols-3 gap-4 w-max lg:w-full">
             <div class="lg:w-full w-[321px] flex-shrink-0 lg:flex-shrink" 
                  v-for="item in videosData.data" 
                  :key="item.id">
                  
-                <div class="relative w-full aspect-video h-[275px] ">
+                <div class="relative w-full aspect-video h-[275px] "    :style="item.isPlaying ? item.style : {}">
                     <iframe 
                         class="w-full h-[275px] rounded-lg shadow-lg"
                         v-if="getVideoUrl(item)" 
@@ -106,11 +106,6 @@ const playVideo = (item) => {
             </div>
         </div>
     </div>
-
-
-
-
-
     </div>
 </div>
 

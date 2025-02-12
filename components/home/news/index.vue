@@ -8,7 +8,7 @@
 
 
                 <div class="flex justify-between items-center align">
-                    <h2 class="text-2xl font-medium font-Halvar mb-8 text-[#06203D]">{{ store.dataTranslate['home.ourNews'] }}</h2>
+                    <h2 class="text-2xl font-medium font-Halvar sm:mb-8 mb-4 text-[#06203D]">{{ store.dataTranslate['home.ourNews'] }}</h2>
           
 
                     <button
@@ -118,11 +118,11 @@ onMounted(() => {
 
 <style scoped>
 @media (max-width:400px){
-    .align{
+    /* .align{
         width: 350px;
-    }
+    } */
     .img_width{
-        width: 314px  !important;
+        width: 100%  !important;
     }
     .width{
         width:317px

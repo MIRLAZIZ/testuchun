@@ -1,6 +1,10 @@
 <script setup>
 import { useHomeStore } from '~/store/home'
+const isClient = ref(false);
 
+onMounted(() => {
+  isClient.value = true;
+});
 const store = useHomeStore()
 const addresses = [
     {
@@ -16,18 +20,17 @@ const addresses = [
             "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d97257.84088781128!2d71.7080594989434!3d40.37987633010603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zRmFyZ-KAmG9uYSwgQWwtRmFyZ-KAmG9uaXkgc2hvaCBrb-KAmGNoYXNpLCBZb3NobGFyIG1haGFsbGEgZnVxYXJvbGFyIHlpZ-KAmGluaQ!5e0!3m2!1sru!2s!4v1736500380740!5m2!1sru!2s",
     },
 ];
-
 </script>
 
 <template>
     <div class="flex justify-center">
-        <div class="mainContainer" data-aos="fade-up">
+        <div  v-if="isClient" class="mainContainer" data-aos="fade-up">
             <div class=" ">
             <h2 class="font-Halvar font-medium sm:text-[28px]  text-xl">{{ store.dataTranslate['home.location'] }}</h2>       
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 box_flex">
                 <div v-for="(address, index) in addresses" :key="index"
                     class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <div class="relative">
+                    <div class="relative sm:h-full h-[265px]">
                         <iframe :src="address.mapSrc" class="w-full h-[502px]" allowfullscreen=""
                             loading="lazy"></iframe>
                         <div class="p-4 absolute  bg-white 2xl:w-[580px] xl:w-[500px]  py-5 px-6 rounded-xl  left-3 right-6 bottom-6 flex flex-col justify-between box_our ">
@@ -36,7 +39,7 @@ const addresses = [
                                 {{ store.dataTranslate[address.city] }}
                                 </span>
                             </h3>
-                            <div class="flex mt-4">
+                            <div class="flex sm:mt-4 mt-0">
                                 <div class="w-[39px] h-[39px]">
                                     <img src="/assets/imgs/home/locationdot.png" alt="" class="">
                                 </div>
@@ -57,7 +60,6 @@ const addresses = [
     .box_our{
         width:440px;  
         left: 10px; 
-
     }
 }
 @media (max-width:1024px){
@@ -84,10 +86,12 @@ const addresses = [
         font-size: 12px;
     }
 }
-@media (max-width:470px){
+@media (max-width:530px){
     .box_our{
         width:340px;   
         left: 3px; 
+        padding: 10px;
+        height: 90px;
     }
 }
 </style>

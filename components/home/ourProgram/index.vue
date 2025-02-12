@@ -44,7 +44,7 @@ const store = useHomeStore()
 </script>
 <template>
     <div class="flex justify-center" v-if="store.educationData">
-        <div class="h-full mainContainer  my-[104px]  ">
+        <div class="h-full mainContainer  my-[104px]  " >
             <div class="flex items-center ">
                 <img src="/assets/imgs/home/program.png" alt="">
                 <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
@@ -60,9 +60,9 @@ const store = useHomeStore()
                     {{ store.educationData[1].name }}
                 </button>
             </div>
-            <div class="flex wrapper_flex">
+            <div class="flex wrapper_flex" data-aos="zoom-in-up" >
                 <!-- program items  -->
-                <div class="programItems" data-aos="zoom-in-up">
+                <div class="programItems" >
                     <div class="programItem flex items-center  cursor-pointer"
                         :class="{ 'bg-white border border-r-0 border-[#E6EDFA] rounded-l-xl': item.id === progamItemId }"
                         v-for="item in store.educationData[selectedProgram].children" :key="item.id"
@@ -74,7 +74,7 @@ const store = useHomeStore()
                     </div>
                 </div>
                 <!-- programma data  -->
-                <div data-aos="zoom-in-down" class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
+                <div  class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
                     :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>

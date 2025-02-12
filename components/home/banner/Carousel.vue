@@ -45,12 +45,11 @@ const extractVideoId = (url) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
-// **🔹 Video o'lchamini moslashtirish**
+
 const resizeVideo = () => {
   nextTick(() => {
     const videos = document.querySelectorAll('iframe');
     if (!videos.length) return;
-
     videos.forEach((video) => {
       video.style.width = "100%";
       video.style.height = "100%";
@@ -62,7 +61,7 @@ const resizeVideo = () => {
 onMounted(() => {
   store.getBanner().then((res) => {
     caruselData.value = res.data;
-    resizeVideo(); // **⏳ Video yuklangandan keyin o‘lchamini sozlash**
+    resizeVideo(); 
   });
 
   window.addEventListener('resize', resizeVideo);
@@ -85,15 +84,18 @@ watch([caruselData, activeIndex], () => {
       v-slot="{ item }" 
       :items="caruselData?.data" 
       :ui="{ item: 'basis-full' }"
-      class="w-full overflow-hidden" 
+      class="w-full overflow-hidden  " 
       v-model="activeIndex"
       @slide="resizeVideo"
     >     
+    <div class=" inset-0 w-full h-full  ">
+      
       <iframe
         v-if="item?.desc"
-        class="w-full "
+        class="w-full  "
         :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist=' + extractVideoId(extractLinkFromP(item?.desc))"
         frameborder="0"
+       
         allow="autoplay; encrypted-media"
         allowfullscreen
       ></iframe> 
@@ -104,6 +106,9 @@ watch([caruselData, activeIndex], () => {
         class="w-full h-full" 
         draggable="false"
       >
+    </div>
+
+
     </UCarousel>
 
     <div class="absolute w-full h-full flex justify-center top-0 faceCarousel">
