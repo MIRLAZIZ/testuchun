@@ -1,7 +1,7 @@
 <template>
   <div class=" w-full flex justify-center">
     <div class="   mainContainer sm:block   flex justify-center ">
-      <div class="bg-white  rounded-lg sm:grid sm:grid-cols-3 shadow-md   h-[258px] xl:translate-y-[-50%] translate-y-[-10%] box_wrapper_li">
+      <div class="bg-white  rounded-lg sm:grid sm:grid-cols-3 shadow-md   h-[258px] 2xl:translate-y-[-180%] xl:translate-y-[-140%] lg:translate-y-[-120%]  md:translate-y-[-90%] sm:translate-y-[-70%] translate-y-[-10%] box_wrapper_li">
 
      
       <!-- fristColumn -->
@@ -90,7 +90,8 @@ const thirdColumn = [
     display: flex;
     flex-direction: column;
     height: auto;
-    width:345px;
+    /* width:345px; */
+    width:100%;
   }
   .just_content{
     display: flex;

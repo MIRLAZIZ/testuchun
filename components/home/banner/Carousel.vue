@@ -78,7 +78,7 @@ watch([caruselData, activeIndex], () => {
 </script>
 
 <template>
-  <div class="relative h-[desired-height]  scale-y-[0.7] origin-top  w-full xl:h-auto "  >
+  <div class="relative h-[desired-height]    w-full xl:h-auto "  >
     <UCarousel 
       ref="carousel" 
       v-slot="{ item }" 

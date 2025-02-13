@@ -22,7 +22,7 @@ onMounted(() => {
 
 <template>
   <div class="w-full">
-    <HomeBanner  class=" h-[750px]" />
+    <HomeBanner  class=" scale-y-[0.7] origin-top " />
      <HomeSciences   />
     <HomeAbautInstut  />
     <HomeFacts  />
