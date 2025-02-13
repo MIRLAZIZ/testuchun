@@ -4,51 +4,55 @@ import { useHomeStore } from "~/store/home";
 const store = useHomeStore();
 const route = useRoute();
 const items = ref([]);
-
+const loading = ref(true);
 onMounted(() => {
   const prentPageOne = `/${route.fullPath.split("/")[1]}`;
   store.getMenuStatick(prentPageOne, route.fullPath);
-  store.getDocuments().then((res) => {
-    items.value = res.data;
-  });
+  store
+    .getDocuments()
+    .then((res) => {
+      items.value = res.data;
+      loading.value = false;
+    })
+    .catch(() => {
+      loading.value = false;
+    });
 });
 </script>
 <template>
-  <div class="">
-    <div
-      class=" grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4"
-    >
-      <div
-        v-for="item in items?.data"
-        :key="item.id"
-        class="w-full bg-white rounded-xl  h-[146px] flex flex-col justify-between p-6   "
-      >
-        <h1 class="font-medium">
-          {{
-            item?.title?.length > 30
-              ? item?.title?.slice(0, 40) + "..."
-              : item?.title
-          }}
-        </h1>
-
-        <hr class="border border-[#DCE5F5]" />
-
+  <div>
+    <LoadingPage v-if="loading" />
+    <div v-else>
+      <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4" v-if="items">
         <div
-          class=" w-full text-[#5D5D5F]  "
+          v-for="item in items?.data"
+          :key="item.id"
+          class="w-full bg-white rounded-xl h-[146px] flex flex-col justify-between p-6"
         >
-          <a
-            :href="item.link"
-            class="flex justify-between items-center w-full hover:text-[#F7483B] "
-            target="_blank"
-          >
-            {{ store.dataTranslate["home.more_details"] }}
-            <UIcon
-              name="i-heroicons-arrow-up-right"
-              class="ml-6 w-4 h-4 text-[#F7483B] "
-            />
-          </a>
-        </div>
+          <h1 class="font-medium">
+            {{
+              item?.title?.length > 30
+                ? item?.title?.slice(0, 40) + "..."
+                : item?.title
+            }}
+          </h1>
 
+          <hr class="border border-[#DCE5F5]" />
+
+          <div class="w-full text-[#5D5D5F]">
+            <a
+              :href="item.link"
+              class="flex justify-between items-center w-full hover:text-[#F7483B]"
+              target="_blank"
+            >
+              {{ store.dataTranslate["home.more_details"] }}
+              <UIcon
+                name="i-heroicons-arrow-up-right"
+                class="ml-6 w-4 h-4 text-[#F7483B]"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

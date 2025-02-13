@@ -19,7 +19,9 @@ export const useHomeStore = defineStore('home', {
     slugData: null,
     currentImage2: null,
     menuOpen: true,
-    educationFaqId:null
+    educationFaqId:null,
+    activeTab: null,
+    dinamiMenuLoading: true
 
 
 
@@ -97,20 +99,30 @@ export const useHomeStore = defineStore('home', {
       if (this.menus.length) {
         this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
 
-        this.getMenuShow(this.menuData.id).then(res => {
+        this.getMenuShow(this.menuData?.id).then(res => {
           this.menuShow = res.data
+          this.dinamiMenuLoading = false
 
+
+        }).catch(() => {
+          this.dinamiMenuLoading = false
         })
+
       } else {
 
         this.getMenu().then(() => {
-
+            
           this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
 
-          this.getMenuShow(this.menuData.id).then(res => {
+          this.getMenuShow(this.menuData?.id).then(res => {
             this.menuShow = res.data
+            this.dinamiMenuLoading = false
 
+          }).catch(() => {
+            this.dinamiMenuLoading = false
           })
+        }).catch(() => {
+          this.dinamiMenuLoading = false
         })
       }
     },
@@ -217,6 +229,9 @@ export const useHomeStore = defineStore('home', {
     },
     async getCategoryFilter(slug) {
       return await api.get(`/categories/${slug}`)
+    },
+    async getReklama() {
+      return await api.get('/reklama')
     }
 
 

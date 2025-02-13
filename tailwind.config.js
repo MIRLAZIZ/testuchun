@@ -9,6 +9,9 @@ module.exports = {
             fontFamily: {
                 'Halvar': ['Halvar Breitschrift'],
                 'manrope': ['manrope']
+            },
+            colors: {
+                customColor: "#06203D"
             }
         },
 

@@ -6,7 +6,7 @@
         }">
             <!-- card Img  -->
             <div class="sm:w-[47%] w-[100%] h-[416px]  ">
-                <NuxtImg :src="props.data?.photo[0][store.currentImage]" alt="" class="w-full h-full rounded-xl" />
+                <img :src="props.data?.photo[0][store.currentImage]" alt="" class="w-full h-full rounded-xl" />
             </div>
             <!-- description -->
             <div class="rounded-xl h-[416px] sm:w-[51.5%] w-full p-4 border bg-white flex flex-col justify-center ">

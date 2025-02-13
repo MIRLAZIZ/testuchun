@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="lg:w-2/4 h-[272px]  md:h-[416px] w-full">
-        <NuxtImg :src="props.data?.activity?.photo[store.currentImage]" alt="" class="w-full h-full rounded-xl object-cover"  />
+        <img :src="props.data?.activity?.photo[store.currentImage]" alt="" class="w-full h-full rounded-xl object-cover"  />
       </div>
     </div>
   </div>

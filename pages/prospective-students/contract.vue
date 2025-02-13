@@ -16,14 +16,13 @@
 import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
-const data = [
+const data = ref([
   {
     id: 1,
-    name: "Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!",
-    description:
-      "Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz! Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat yolingiz!",
+    name: store.dataTranslate["header.contract_grant_title"],
+    description: store.dataTranslate["header.contract_grant_text"],
   },
-];
+]);
 
 onMounted(() => {
   if (!store.menuShow) {

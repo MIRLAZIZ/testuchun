@@ -1,10 +1,5 @@
 <script setup>
-import management from '/assets/imgs/kampus/menagement.png'
-import img2 from '/assets/imgs/kampus/image2.png'
-import img3 from '/assets/imgs/kampus/image3.png'
-import img4 from '/assets/imgs/kampus/image4.png'
-import img5 from '/assets/imgs/kampus/image5.png'
-import img6 from '/assets/imgs/kampus/image6.png'
+
 import { useHomeStore } from '~/store/home'
 
 const route = useRoute()

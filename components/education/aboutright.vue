@@ -7,7 +7,7 @@
       v-if="props.data?.entrance_requirement"
     >
       <div class="lg:w-2/4 h-[272px]  md:h-[416px] w-full flex-shrink-0">
-        <NuxtImg
+        <img
           :src="props.data?.entrance_requirement?.photo[store.currentImage]"
           alt=""
           class="w-full h-full rounded-xl object-cover"

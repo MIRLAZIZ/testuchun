@@ -41,7 +41,7 @@
                                 </span>
                             </div>
 
-                            <h3 class="font-medium  text-xl leading-7 leand  text-[#06203D]" v-html="programItem?.desc.substring(0, 200)">
+                            <h3 class="font-medium  text-xl leading-7 leand  text-[#06203D]" v-html="programItem?.desc?.substring(0, 200)">
 
                             </h3>
 

@@ -1,5 +1,6 @@
 <template>
-  <div class="lg:max-w-[calc(100%-348px)] w-full">
+  <div>
+    <LoadingPage v-if="loading" />
     <LibraryStudents :data="studets" />
   </div>
 </template>
@@ -10,11 +11,18 @@ import { useHomeStore } from "~/store/home";
 const studets = ref(null);
 const store = useHomeStore();
 const route = useRoute();
+const loading = ref(true);
 
 onMounted(() => {
-  store.getStudents().then((res) => {
-    studets.value = res.data;
-  });
+  store
+    .getStudents()
+    .then((res) => {
+      studets.value = res.data;
+      loading.value = false;
+    })
+    .catch(() => {
+      loading.value = false;
+    });
 
   const parentPage = `/${route.fullPath.split("/")[1]}`;
   store.menuFind(parentPage, route.fullPath);
