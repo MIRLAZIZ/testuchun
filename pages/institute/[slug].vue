@@ -24,36 +24,43 @@ const processedMenus = computed(() => {
 </script>
 
 <template>
-  <div class="w-full
-">
-    <div v-if="processedMenus && processedMenus.length">
-      <div
-        v-for="(data, index) in processedMenus"
-        :key="data.id"
-        class="w-full"
-        :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
-      >
-        <!-- formmmenu1 -->
-        <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-          <UiCarousel :data="data.photo" />
-          <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
-            {{ data?.title }}
-          </h1>
-          <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+  <div class="w-full">
+    <loading-page v-if="store.dinamiMenuLoading" />
+
+    <div v-else>
+      <div v-if="processedMenus && processedMenus.length">
+        <div
+          v-for="(data, index) in processedMenus"
+          :key="data.id"
+          class="w-full"
+          :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
+        >
+          <!-- formmmenu1 -->
+          <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
+            <UiCarousel :data="data.photo" />
+            <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
+              {{ data?.title }}
+            </h1>
+            <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+          </div>
+
+          <!-- formmenu2 -->
+          <HomeUsefulLinkCarusel
+            v-else-if="data.type === 'formmenu1'"
+            :items="data.categories"
+            :title="data.title"
+          />
+
+          <!-- fomrmenu3  -->
+          <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
         </div>
-
-        <!-- formmenu2 -->
-        <HomeUsefulLinkCarusel
-          v-else-if="data.type === 'formmenu1'"
-          :items="data.categories"
-          :title="data.title"
-        />
-
-        <!-- fomrmenu3  -->
-        <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
+      </div>
+      <div v-else>
+        <h1 class="text-center font-Halvar text-3xl">
+          {{ store.dataTranslate["header.do_not"] }}
+        </h1>
       </div>
     </div>
-    <div v-else><h1 class="text-center font-Halvar text-3xl ">Ma'lumotlar mavjud emas</h1></div>
   </div>
 </template>
 

@@ -50,15 +50,15 @@ const store = useHomeStore()
                 <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
             <div class="mt-10">
-                <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
+                <span class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
                     @click="seletTypeEducution(0)">
                     {{ store.educationData[0].name }}
-                </button>
+                </span>
 
-                <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 1 }"
+                <span class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 1 }"
                     @click="seletTypeEducution(1)">
                     {{ store.educationData[1].name }}
-                </button>
+                </span>
             </div>
             <div class="flex wrapper_flex">
                 <!-- program items  -->

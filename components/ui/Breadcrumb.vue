@@ -19,7 +19,7 @@ const hasBackground = computed(() => {
 
 <template>
   <div
-    class="bg-white flex flex-col items-center justify-center py-[48px] bgImg"
+    class="bg-white flex flex-col items-center justify-center px-4 py-[48px] bgImg"
     :style="{
       'background-image': hasBackground ? `url(${backgroundImage})` : undefined,
       'background-size': 'cover',
@@ -40,25 +40,25 @@ const hasBackground = computed(() => {
     </h1>
 
     <div
-      class="text-[#5D5D5F] text-lg mt-4"
+      class="text-[#5D5D5F] text-lg mt-4 text-center"
       :class="{
         'text-white': hasBackground,
       }"
     >
-      <button @click="$router.push('/')">
+      <span @click="$router.push('/')">
         {{ store.dataTranslate["home.home"] }}
-      </button>
+      </span>
 
-      <button
+      <span
         @click="$router.push(store.menuShow?.path || store?.slugData?.path)"
         v-if="store.menuShow || store?.slugData"
       >
         / {{ store.menuShow?.title || store?.slugData?.title }}
-      </button>
+      </span>
 
-      <button v-if="store.slugData?.slugText">
+      <span v-if="store.slugData?.slugText">
         / {{ store.slugData.slugText }}
-      </button>
+      </span>
     </div>
   </div>
 </template>

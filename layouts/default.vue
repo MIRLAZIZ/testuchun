@@ -66,6 +66,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="bg-[#F4F6FA]">
+    
     <div class="box_hidden2">
       <HomeHeaderNavBar />
     </div>

@@ -1,6 +1,5 @@
 <script setup>
-import toshkentImg from "~/assets/imgs/kampus/image (1).png";
-import fargonaImg from "~/assets/imgs/kampus/image.png";
+
 import { useHomeStore } from "~/store/home";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
@@ -44,7 +43,7 @@ onMounted(() => {
     <div class="w-full flex justify-center">
       <div
         v-if="items && items.data"
-        class="mainContainer grid grid-cols-2 gap-4 mt-10 mb-[144px]"
+        class="mainContainer grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 mb-[144px]"
       >
         <div
           class="w-full rounded-xl p-6 bg-white flex flex-col justify-between"

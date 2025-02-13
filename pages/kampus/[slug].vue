@@ -1,5 +1,4 @@
 <script setup>
-import imgcarousel from "~/assets/imgs/kampus/carousel.png";
 import { useHomeStore } from "~/store/home";
 import { useI18n } from "vue-i18n";
 
@@ -105,41 +104,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-
-    <!-- <div class="w-full flex justify-center mb-[144px]" >
-      <div
-        class="w-[1076px] rounded-xl p-6 pb-5 bg-white flex lg:flex-row flex-col"
-      >
-        <img
-          src="/assets/imgs/kampus/image.png"
-          alt=""
-          class="lg:w-[532px] w-full lg:h-[343px] object-cover rounded"
-        />
-
-        <div class="lg:pl-6 lg:mt-0 mt-3 flex flex-col justify-between">
-          <div class="the_kampus">
-            <h1 class="text-[24px] font-medium">Farg‘ona</h1>
-            <p class="mt-2 text-xl">
-              Bugungi kunga qadar institut O‘zbekiston va xorijdagi xalqaro
-              universitetlar va ta’lim tashkilotlari bilan hamkorlik qilib,
-              bakalavriat va magistratura yo‘nalishlari bo‘yicha ta’lim
-              dasturlari bor.
-            </p>
-          </div>
-
-          <div class="">
-            <hr class="my-4" />
-            <div class="flex justify-between cursor-pointer">
-              <span class="text-[#5D5D5F]"> Batafsil</span>
-              <UIcon
-                name="i-heroicons-arrow-up-right"
-                class="text-[#F7483B] ml-2"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+   
   </div>
 </template>
 

@@ -48,91 +48,96 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="w-full p-8 bg-white rounded-xl">
-      <div class="flex justify-between gap-16 the_box_gender">
-        <div class="xl:w-[688px] w-full mt-9">
-          <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">
-            {{ store.dataTranslate["about.about_gender"] }}
-          </h1>
-          <p class="text-[20px] text-[#06203D] font-normal mt-6">
-            {{ store.dataTranslate["about.toshkent"] }}
-          </p>
-        </div>
+    <LoadingPage v-if="store.loading" />
+    <div v-else>
+      <div class="w-full p-8 bg-white rounded-xl">
+        <div class="flex justify-between gap-16 the_box_gender">
+          <div class="xl:w-[688px] w-full mt-9">
+            <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">
+              {{ store.dataTranslate["about.about_gender"] }}
+            </h1>
+            <p class="text-[20px] text-[#06203D] font-normal mt-6">
+              {{ store.dataTranslate["about.toshkent"] }}
+            </p>
+          </div>
 
-        <div>
-          <div
-            class="w-[260px] flex-shrink-0 p-4 rounded-lg border border-[#F1F1F1]"
-          >
-            <div class="flex flex-col h-full">
-              <div class="flex justify-between items-center">
-                <h1>{{ store.dataTranslate["about.yil"] }}</h1>
+          <div>
+            <div
+              class="w-[260px] flex-shrink-0 p-4 rounded-lg border border-[#F1F1F1]"
+            >
+              <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center">
+                  <h1>{{ store.dataTranslate["about.yil"] }}</h1>
 
-                <!-- Custom Select -->
-                <div class="relative" ref="dropdownRef">
-                  <button
-                    @click="toggleDropdown"
-                    class="flex items-center justify-end min-w-[100px] focus:outline-none cursor-pointer"
-                  >
-                    <p class="mr-2">{{ selectedYear }}</p>
-                    <UIcon
-                      name="i-heroicons-chevron-down"
-                      class="transition-transform duration-200"
-                      :class="{ 'rotate-180': isOpen }"
-                    />
-                  </button>
-
-                  <!-- Dropdown menu -->
-                  <div
-                    v-if="isOpen"
-                    class="absolute right-0 z-10 mt-1 w-full max-h-60 overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  >
-                    <div
-                      v-for="year in years"
-                      :key="year"
-                      @click="selectYear(year)"
-                      class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
-                      :class="{
-                        'bg-blue-50 text-blue-700': selectedYear === year,
-                      }"
+                  <!-- Custom Select -->
+                  <div class="relative" ref="dropdownRef">
+                    <button
+                      @click="toggleDropdown"
+                      class="flex items-center justify-end min-w-[100px] focus:outline-none cursor-pointer"
                     >
-                      {{ year }}
+                      <p class="mr-2">{{ selectedYear }}</p>
+                      <UIcon
+                        name="i-heroicons-chevron-down"
+                        class="transition-transform duration-200"
+                        :class="{ 'rotate-180': isOpen }"
+                      />
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div
+                      v-if="isOpen"
+                      class="absolute right-0 z-10 mt-1 w-full max-h-60 overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    >
+                      <div
+                        v-for="year in years"
+                        :key="year"
+                        @click="selectYear(year)"
+                        class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                        :class="{
+                          'bg-blue-50 text-blue-700': selectedYear === year,
+                        }"
+                      >
+                        {{ year }}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <InstituteGenderChart
-                :girls="store1.student?.female_students"
-                :boys="store1.student?.male_students"
-              class="my-6"
-              />
+                <InstituteGenderChart
+                  :girls="store1.student?.female_students[0]?.female"
+                  :boys="store1.student?.female_students[0]?.male"
+                  class="my-6"
+                />
 
-              <div>
-                <div class="flex justify-between">
-                  <span class="flex items-center">
-                    
-                    <div class="w-2 h-2 rounded-full dot1 mr-1"></div>
-                    {{ store.dataTranslate["about.qiz_bolalar"] }}
-                  </span>
-                  <span>{{ store1.student?.female_students }}</span>
+                <div>
+                  <div class="flex justify-between">
+                    <span class="flex items-center">
+                      <div class="w-2 h-2 rounded-full dot1 mr-1"></div>
+                      {{ store.dataTranslate["about.qiz_bolalar"] }}
+                    </span>
+                    <span>{{
+                      store1.student?.female_students[0]?.female
+                    }}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="flex items-center">
+                      <div class="w-2 h-2 rounded-full dot2 mr-1"></div>
+                      {{ store.dataTranslate["about.ogil_bolalar"] }}
+                    </span>
+                    <span>{{ store1.student?.female_students[0]?.male }}</span>
+                  </div>
                 </div>
-                <div class="flex justify-between">
-                  <span class="flex items-center">
-                    <div class="w-2 h-2 rounded-full dot2 mr-1"></div>
-                    {{ store.dataTranslate["about.ogil_bolalar"] }}
-                  </span>
-                  <span>{{ store1.student?.male_students }}</span>
-                </div>
-              </div>
 
-              <div class="flex justify-between items-baseline">
-                <p>{{ store.dataTranslate["about.jami"] }}</p>
-                <p class="text-[#06203D] text-[32px]  ">
-                  {{
-                    (store1.student?.male_students || 0) +
-                    (store1.student?.female_students || 0)
-                  }}
-                </p>
+                <div class="flex justify-between items-baseline">
+                  <p>{{ store.dataTranslate["about.jami"] }}</p>
+                  <p class="text-[#06203D] text-[32px]">
+                    {{
+                      (Number(store1.student?.female_students[0]?.male) || 0) +
+                      (Number(store1.student?.female_students[0]?.female) || 0)
+                    }}
+
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,4 @@
 <script setup>
-import loadingVue from "./layouts/loading.vue";
 useSeoMeta({
   title: "TMII",
   ogTitle: "TimeEdu",
@@ -11,26 +10,20 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-onMounted(() => {
-
-})
-
+onMounted(() => {});
 </script>
 
 
 <template>
   <div>
+    <!-- <Test /> -->
+
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
 
-<style scoped>
-scrollNone {
-  overflow: hidden;
-}
 
-</style>
 
 

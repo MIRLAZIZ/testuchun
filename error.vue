@@ -218,7 +218,7 @@
       </svg>
     </div>
     <div
-      class="mt-16 w-full h-auto lg:w-[72%]  flex flex-col justify-center items-center"
+      class="mt-16 w-full h-auto lg:w-[72%] flex flex-col justify-center items-center"
       :style="{
         backgroundImage: `url(${errorPhoto})`,
         backgroundRepeat: 'no-repeat',
@@ -226,17 +226,19 @@
         backgroundPosition: 'center',
       }"
     >
-      <div class="w-[70%] ">
+      <div class="w-[70%]">
         <h1 class="text-center font-Halvar font-medium text-[28px]">
-          {{ errorText[$i18n.locale].title }}
+          {{ errorText[lang]?.title }}
         </h1>
-        <p class="text-xl mt-4">{{ errorText[$i18n.locale].description }}</p>
+        <p class="text-xl mt-4">{{ errorText[lang]?.description }}</p>
         <div class="flex justify-center">
           <button
             @click="handleError"
-            class="bg-[#F7483B] h-[48px] flex justify-center items-center  rounded-lg text-white px-7 mt-10"
+            class="bg-[#F7483B] h-[48px] flex justify-center items-center rounded-lg text-white px-7 mt-10"
           >
-{{ errorText[$i18n.locale].homePage }}          </button>
+          
+            {{ errorText[lang]?.homePage }}
+          </button>
         </div>
       </div>
     </div>
@@ -244,31 +246,32 @@
 </template>
 
 <script setup>
-import errorPhoto from "~/assets/imgs/home/error.png";
-
-const error = useError();
 const handleError = () => {
   navigateTo("/");
 };
+const lang = ref(null);
 
 const errorText = ref({
   uz: {
     title: "Sahifa topilmadi.",
     description:
       "Noqulaylik uchun uzr so'raymiz. O'chirib tashlangan yoki hech qachon mavjud bo'lmagan sahifaga kirishga urinayotganga ox'shaysiz.",
-      homePage: 'Bosh sahifaga qaytish'
+    homePage: "Bosh sahifaga qaytish",
   },
   ru: {
     title: "Страница не найдена.",
     description:
       "Мы приносим извинения за неудобства. Похоже, вы пытаетесь получить доступ к странице, которая была удалена или никогда не существовала.",
-      homePage: 'Вернуться на главную'
+    homePage: "Вернуться на главную",
   },
   en: {
     title: "Page not found.",
     description:
       "We apologize for the inconvenience. It looks like you are trying to access a page that has been removed or never existed.",
-      homePage: 'Return to the main page'
+    homePage: "Return to the main page",
   },
+});
+onMounted(() => {
+  lang.value = JSON.parse(localStorage.getItem("lang")).value;
 });
 </script>

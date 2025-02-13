@@ -1,15 +1,8 @@
 <script setup>
-import img1 from '~/assets/imgs/home/image2.png'
-import img2 from '~/assets/imgs/home/image (1).png'
-import img3 from '~/assets/imgs/home/Rectangle 34.png'
 import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore()
-const items = [
-    { id: 1, img: img1, description: "O'zbekiston – 2030 strategiyasida belgilangan vazifalar ijrosi muhokaama qilindi" },
-    { id: 2, img: img2, description: "TMI dunyo reytingida" },
-    { id: 3, img: img3, description: "Toshkent Menejment va Iqtisodiyot Instituti" }
-]
+
 const videosData = ref(null)
 const iframeContainer = ref(null)
 const actieveVideo = ref(null)

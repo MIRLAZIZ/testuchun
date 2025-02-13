@@ -7,7 +7,7 @@
       <div
         class="flex justify-between gap-4 box 2xl:w-[1440px] mainContainer sm:justify-evenly mt-10"
       >
-        <NuxtPage />
+        <NuxtPage  class="lg:max-w-[calc(100%-348px)] w-full"/>
         <UiSidebar />
       </div>
     </div>

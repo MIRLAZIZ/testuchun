@@ -8,6 +8,7 @@ const store = useHomeStore();
 const data = ref(null);
 const expanded = ref(50);
 const router = useRouter();
+const loading = ref(true);
 
 onMounted(() => {
   if (!store.menuShow) {
@@ -15,12 +16,17 @@ onMounted(() => {
   }
   store.getDepartamentOne(route.params.id).then((res) => {
     data.value = res.data;
-  });
+    loading.value = false;
+  }).catch(() => {
+    loading.value = false;
+  })
 });
 </script>
 <template>
   <div class="w-full">
-    <div>
+    <LoadingPage v-if="loading" />
+    <div v-else>
+
       <div class="w-full">
         <div class="bg-white rounded-xl cursor-pointer p-8">
           <div class="text-[18px] text-[#5D5D5F] mb-8">
@@ -153,7 +159,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-
     <!-- xodimlar  -->
     <div v-if="data && data.simple_employee && data.simple_employee.length">
       <h1 class="font-Halvar font-medium text-[28px] my-6 mt-20">
@@ -167,7 +172,7 @@ onMounted(() => {
           :key="item"
         >
           <div class="h-[200px] w-[157px] flex-shrink-0">
-            img
+            <img
               :src="item[store?.currentImage2]"
               alt=""
               class="imgs object-cover w-full h-full rounded-lg"

@@ -1,6 +1,5 @@
 <script setup>
 
-import imgcarousel from '~/assets/imgs/kampus/carousel.png'
 import { useHomeStore } from '~/store/home'
 
 const store = useHomeStore()

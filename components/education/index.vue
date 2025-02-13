@@ -1,6 +1,5 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
-import img1 from "/assets/imgs/talim/car.svg"
 
 const store = useHomeStore();
 const props = defineProps({
@@ -16,7 +15,6 @@ const props = defineProps({
 <template>
     <div class="w-full">
         <EducationInformation :data="props.data" />
-        <!-- <EducationFaq /> -->
 
 
     </div>

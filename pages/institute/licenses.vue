@@ -1,7 +1,5 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
-import certificat from "~/assets/imgs/kampus/certifacat.png";
-import certificat2 from "~/assets/imgs/kampus/certifacat2.png";
 
 const store = useHomeStore();
 
@@ -11,16 +9,21 @@ const data = ref(null);
 const page = ref(1);
 const pageData = ref(null);
 const route = useRoute();
+const loading = ref(true);
 
 onMounted(() => {
-  store.getCertificat(page.value).then((res) => {
-    pageData.value = res.data.last_page;
-    items.value.push(...res.data.data);
-  });
-  const prentPageOne = `/${route.fullPath.split('/')[1]}`
-  store.getMenuStatick(prentPageOne, route.fullPath)
-
-
+  store
+    .getCertificat(page.value)
+    .then((res) => {
+      pageData.value = res.data.last_page;
+      items.value.push(...res.data.data);
+      loading.value = false;
+    })
+    .catch(() => {
+      loading.value = false;
+    });
+  const prentPageOne = `/${route.fullPath.split("/")[1]}`;
+  store.getMenuStatick(prentPageOne, route.fullPath);
 });
 const addCertificat = () => {
   store.getCertificat(page.value).then((res) => {
@@ -30,18 +33,15 @@ const addCertificat = () => {
 };
 </script>
 <template>
-  <div class="">
-    <div
-      class=""
-    >
-      <div
-        class="grid grid-cols-2 gap-4 2xl:grid-cols-3"
-      >
+  <div>
+    <LoadingPage v-if="loading" />
+    <div v-else>
+      <div class="grid grid-cols-2 gap-4 2xl:grid-cols-3" v-if="items">
         <div
           v-for="(item, index) in items"
           :key="index"
           @click="(isOpen = true), (data = index)"
-          class=" sm:h-[600px] h-[323px] items-center p-3 bg-white rounded-xl certificate"
+          class="sm:h-[600px] h-[323px] items-center p-3 bg-white rounded-xl certificate"
         >
           <div class="sm:h-[459px] h-[211px] relative">
             <img
@@ -51,7 +51,7 @@ const addCertificat = () => {
             />
 
             <div
-              class="absolute bottom-0 left-0 certificateEye rounded-xl w-full sm:h-[459px]  bg-[#06203D66] opacity-80 flex justify-center items-center"
+              class="absolute bottom-0 left-0 certificateEye rounded-xl w-full sm:h-[459px] bg-[#06203D66] opacity-80 flex justify-center items-center"
             >
               <button
                 class="w-14 h-14 bg-[#BEC4CB] rounded-xl flex justify-center items-center"
@@ -63,7 +63,9 @@ const addCertificat = () => {
 
           <div class="flex items-center gap-2 mt-4 mb-3">
             <div class="w-[5px] h-[5px] bg-[#F7483B] rounded-full"></div>
-            <span class="text-[#9A999B]">{{ item?.date?.substring(0, 10) }}</span>
+            <span class="text-[#9A999B]">{{
+              item?.date?.substring(0, 10)
+            }}</span>
           </div>
 
           <h1 class="text-xl font-medium">
@@ -78,32 +80,17 @@ const addCertificat = () => {
           @click="addCertificat"
           :disabled="pageData == page"
         >
-          Ko'proq ko'rish
+          {{ store.dataTranslate['header.more'] }}
           <UIcon name="i-heroicons-plus" class="w-6 h-6 text-[#F7483B]" />
         </button>
       </div>
 
       <div class="mt-16 p-8 bg-white rounded-xl pr-16 box_wrapper_li">
         <h1 class="text-[28px] text-[#06203D] mb-6 box_text">
-          Toshkent menejment va iqtisodiyot instituti: Sizning muvaffaqiyat
-          yo'lingiz!
+          {{ store.dataTranslate['header.certificate_title'] }}
         </h1>
         <p class="text-[20px] box_wrapper_text">
-          Toshkent menejment va iqtisodiyot institutiga xush kelibsiz! TMII bu,
-          iqtisodiyot, marketing, boshqaruv, kompyuter injeneriyasi, dasturiy
-          injiniringi, kadastr, maktabgacha ta'lim va psixologiya sohasida,
-          hamda boshqa muhim sohalarda ilmiy tadqiqot, ta’lim berish va
-          amaliyotga ixtisoslashgan yetakchi o'quv muassasalardan biridir. Biz,
-          talabalarning imkoniyatlarini rivojlantirish, shakllantirish va
-          zamonaviy biznes dunyosida muvaffaqiyatli karyeraga erishishlari uchun
-          intellektual va dinamik muhit yaratamiz. Toshkent menejment va
-          iqtisodiyot instituti 2021-yilda Oliy ta’lim sohasida nodavlat ta’lim
-          xizmatlarini ko‘rsatish uchun O‘zbekiston Respublikasi Oliy ta’lim,
-          fan va innovatsiyalar vazirligi tomonidan berilgan 2024-yil
-          24-iyuldagi 327608-sonli litsenziyasi asosida talabalarga sifatli
-          ta’lim berish maqsadida tashkil etilgan. Mehnat bozori va umuman
-          jamiyatning jadal o'sib borayotgan ehtiyojlarini qondirish uchun zamon
-          bilan hamnafas rivojlanishda va takomillashishda davom etmoqdamiz.
+          {{ store.dataTranslate['header.certificat_dec'] }}
         </p>
       </div>
       <InstituteLicensesModalLicenses
@@ -111,7 +98,7 @@ const addCertificat = () => {
         :items="items"
         :data_id="data"
       />
-       <!-- <InstituteLicensesModalLicenses
+      <!-- <InstituteLicensesModalLicenses
         :items="items"
         :data_id="data"
       /> -->
@@ -129,12 +116,12 @@ const addCertificat = () => {
 .certificate :hover .certificateEye {
   opacity: 1;
 }
-@media (max-width:1024px){
-    .main_branch{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+@media (max-width: 1024px) {
+  .main_branch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media (max-width: 640px) {
   .box_text {
