@@ -11,22 +11,22 @@ const store = useHomeStore()
         </div>
         <div class="flex items-center xl:gap-[57px]">
             <HomeHeaderMenu />
-            <div class="2xl:ml-6">
-                <button
-                    class="bg-[#F7483B] w-[196px] navbar_height h-[48px] rounded-lg font-medium text-white text-base flex justify-center items-center">
+            <div>
+                <div
+                    class="bg-[#F7483B]   h-[48px] px-2  navbar_height rounded-lg font-medium text-white flex justify-center items-center">
                     <a href="https://register.timeedu.uz/" target="_blank">{{ store?.dataTranslate['header.register']
-                        }}</a> </button>
+                        }}</a> </div>
             </div>
         </div>
     </div>
-</template>
+</template> 
 <style  scoped>
 @media (max-width:1450px){
     .navbar_height{
         height:38px;
         font-weight: 400;
         font-size: 14px;
-        width: 130px;
+
     }   
 }
 

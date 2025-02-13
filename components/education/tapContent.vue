@@ -10,7 +10,7 @@
 
       <div class="mb-6 w-full">
         <div class="">
-          <div class="flex gap-3">
+          <div class="flex gap-3" v-if="store.activeTab == 'plan'">
             <span
               v-for="item in filterSkills"
               :key="item.id"
@@ -31,7 +31,7 @@
               :key="tab.id"
               :class="{ active: tab?.id === activeTab }"
               @click="changeTab(tab.id)"
-              class="tab-spans font-semibold text-sm cursor-pointer"
+              class="tab-spans font-semibold text-[12px] cursor-pointer"
             >
               <span>
                 {{ tab.skills.name }}

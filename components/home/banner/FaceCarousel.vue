@@ -20,7 +20,7 @@ const goToExtraLink = (url) => {
 </script>
 <template>
   <div
-    class="grid lg:grid-cols-2 mainContainer lg:px-56  md:mt-[50px]"
+    class="grid lg:grid-cols-2 mainContainer lg:px-56 md:mt-[50px]"
     style="grid-template-columns: 65% 35%"
   >
     <!-- caption  -->
@@ -29,17 +29,15 @@ const goToExtraLink = (url) => {
       class="lg:h-[500px] h-full 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
       @click="goToExtraLink(props?.activeItem?.url)"
     >
-      <div v-if="!props?.activeItem?.url">
-        <h1 class="caption mt-[60px]" >
+      <div v-if="props?.activeItem?.action == 0">
+        <h1 class="caption mt-[60px]">
           {{ props?.activeItem?.title }}
         </h1>
-
-       
       </div>
-      <div class="Carusel_button" v-if="!props?.activeItem?.url">
+      <div class="Carusel_button" v-if="props?.activeItem?.action == 0">
         <button
           @click="openModal"
-          class="sm:mt-10 text-white md:text-base text-[12px] bg-[#F7483B] md:w-[216px] w-[180px] sm:h-[48px]  h-[40px] font-medium rounded-lg flex justify-center items-center"
+          class="sm:mt-10 text-white md:text-base text-[12px] bg-[#F7483B] md:w-[216px] w-[180px] h-[48px]  font-medium rounded-lg flex justify-center items-center"
         >
           {{ store.dataTranslate["home.submit_application"] }}
           <UIcon
@@ -62,19 +60,18 @@ const goToExtraLink = (url) => {
     </div>
     <!-- left arrow -->
     <div
-      class="absolute home_left 2xl:left-24 left-1 top-1/2 transform -translate-y-1/2 cursor-pointer h-[150px]  w-[150px] flex items-center"
+      class="absolute home_left 2xl:left-24 left-1 top-1/2 transform -translate-y-1/2 cursor-pointer h-[150px] w-[150px] flex items-center"
       @click="$emit('left')"
     >
-      <!-- <img                src="/assets//imgs/home/angle-left.png" alt="" @click="$emit('left')"> -->
-      <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-white" />
+      <UIcon name="i-heroicons-chevron-left" class="w-8 h-28 text-white" />
     </div>
 
     <!-- arrow right  -->
     <div
-      class="absolute home_right 2xl:right-24 right-1 top-1/2 transform -translate-y-1/2 cursor-pointer  h-[150px] w-[150px] flex items-center justify-end"
+      class="absolute home_right 2xl:right-24 right-1 top-1/2 transform -translate-y-1/2 cursor-pointer h-[150px] w-[150px] flex items-center justify-end"
       @click="$emit('right')"
     >
-      <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-white" />
+      <UIcon name="i-heroicons-chevron-right" class="w-8 h-28 text-white" />
     </div>
 
     <Modal :isOpen="modalVisible" @close="closeModal" />

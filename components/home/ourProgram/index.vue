@@ -1,9 +1,7 @@
 <script setup>
-import economy from '/assets/imgs/home/econom.png'
 import { useHomeStore } from '~/store/home'
 import {useContactStore} from '~/store/contact'
 const stored = useContactStore();
-import { toast } from 'vue3-toastify'
 const modalVisible = ref(false) 
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
@@ -31,10 +29,7 @@ const store = useHomeStore()
 
     const programitem = ref(null)
     const progamItemId = ref(null)
-    const upparCase = (text) => {
-        return text.toLocaleUpperCase()
-    }
-
+   
     const selectItem = (data) => {
         progamItemId.value = data.id
         programitem.value = data
@@ -60,6 +55,8 @@ const store = useHomeStore()
                     {{ store.educationData[0].name }}
                 </button>
             </div>
+
+
             <div class="flex wrapper_flex" data-aos="zoom-in-up" >
                 <!-- program items  -->
                 <div class="programItems" >
@@ -75,7 +72,7 @@ const store = useHomeStore()
                 </div>
                 <!-- programma data  -->
                 <div  class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
-                    :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[1].id }">
+                    :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
@@ -100,7 +97,7 @@ const store = useHomeStore()
                             </div>
                             <div>
                                 <p class="text-[#06203D]  programArgument sm:mt-3 mt-1">
-                                    {{ programitem?.date }}
+                                    {{ programitem?.kundizgi_date }}
                                     
                                 </p>
                             </div>

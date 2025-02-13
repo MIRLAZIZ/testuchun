@@ -81,7 +81,7 @@
               :href="store.dataTranslate['3.telegram']"
               class="w-full h-12 rounded-[8px] bg-white hover:bg-gray-100 flex items-center cursor-pointer justify-center text-[#231101] font-medium text-base"
             >
-            {{ store.dataTranslate["home.write"] }}
+            {{ store.dataTranslate["home.writing"] }}
             </a>
           </div>
           <!-- Slayd 3 -->

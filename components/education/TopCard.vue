@@ -14,12 +14,12 @@
         <div
           class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-around"
         >
-          <div class="flex gap-2">
+          <div class="flex gap-2 items-center">
             <img :src="item.img" alt="" class="w-5 h-5" />
-            <p class="font-normal text-[#868587] text-lg">{{ item.type }}</p>
+            <p class="font-normal text-[#868587] ">{{ item.type }}</p>
           </div>
           <div class="flex flex-col justify-center">
-            <p class="text-[#06203D] text-lg">{{ item.name }}</p>
+            <p class="text-[#06203D] text-lg ">{{ item.name }}</p>
           </div>
         </div>
       </div>
@@ -80,5 +80,6 @@ const datatype = computed(() => [
 ]);
 </script>
   
-  <style scoped></style>
+  <style scoped>
+</style>
   
