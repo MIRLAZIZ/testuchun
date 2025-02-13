@@ -29,7 +29,7 @@ const items = [
 </script>
 
 <template>
-    <div class="w-full flex justify-center"  >
+    <div class="w-full flex justify-center mt-[110px]"  >
         <!-- <div class="mainContainer"> -->
         <div class="mainContainer " v-if="store.dataTranslate['home.time']">
             <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">

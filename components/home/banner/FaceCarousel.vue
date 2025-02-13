@@ -26,18 +26,18 @@ const goToExtraLink = (url) => {
     <!-- caption  -->
 
     <div
-      class="lg:h-[500px] h-full 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
+      class="lg:h-[500px]  h-full 2xl:w-[90%] home_wrapper flex flex-col lg:justify-between justify-center"
       @click="goToExtraLink(props?.activeItem?.url)"
     >
       <div v-if="props?.activeItem?.action == 0">
-        <h1 class="caption mt-[60px]">
+        <h1 class="caption xl:mt-[60px]">
           {{ props?.activeItem?.title }}
         </h1>
       </div>
-      <div class="Carusel_button" v-if="props?.activeItem?.action == 0">
+      <!-- <div class="Carusel_button" v-if="props?.activeItem?.action == 0">
         <button
-          @click="openModal"
-          class="sm:mt-10 text-white md:text-base text-[12px] bg-[#F7483B] md:w-[216px] w-[180px] h-[48px]  font-medium rounded-lg flex justify-center items-center"
+          @click.stop="openModal"
+          class="sm:mt-10 text-white md:text-base text-[12px] py-5 bg-[#F7483B] md:w-[216px] w-[180px] font-medim rounded-lg flex justify-center items-center"
         >
           {{ store.dataTranslate["home.submit_application"] }}
           <UIcon
@@ -45,7 +45,7 @@ const goToExtraLink = (url) => {
             class="w-5 h-5 text-white ml-2"
           />
         </button>
-      </div>
+      </div> -->
     </div>
     <!-- window img  -->
     <div
@@ -74,7 +74,7 @@ const goToExtraLink = (url) => {
       <UIcon name="i-heroicons-chevron-right" class="w-8 h-28 text-white" />
     </div>
 
-    <Modal :isOpen="modalVisible" @close="closeModal" />
+    <Modal :isOpen="modalVisible" @close="closeModal" class="z-50" />
   </div>
 </template>
 
@@ -93,10 +93,8 @@ const goToExtraLink = (url) => {
 }
 @media (max-width: 1024px) {
   .caption {
-    font-family: "Halvar Breitschrift";
     font-size: 40px;
     font-weight: 500;
-    width: 500px;
   }
 }
 
@@ -138,9 +136,7 @@ const goToExtraLink = (url) => {
     justify-content: flex-start;
   }
   .caption {
-    font-family: "Halvar Breitschrift";
     font-size: 24px;
-    font-weight: 500;
     width: 330px;
     line-height: 55px;
   }

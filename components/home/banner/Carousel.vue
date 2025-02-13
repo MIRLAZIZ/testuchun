@@ -78,7 +78,7 @@ watch([caruselData, activeIndex], () => {
 </script>
 
 <template>
-  <div class="relative h-[desired-height]    w-full xl:h-auto "  >
+  <div class="relative "  >
     <UCarousel 
       ref="carousel" 
       v-slot="{ item }" 
@@ -93,11 +93,12 @@ watch([caruselData, activeIndex], () => {
       <iframe
         v-if="item?.desc"
         class="w-full  "
-        :src="extractLinkFromP(item?.desc) + '&autoplay=1&mute=1&rel=0&loop=1&playlist=' + extractVideoId(extractLinkFromP(item?.desc))"
+        :src="extractLinkFromP(item?.desc) + '$controls=1&autoplay=1&mute=1&rel=0&loop=1&playlist=' + extractVideoId(extractLinkFromP(item?.desc))+ '&iv_load_policy=3&modestbranding=1&enablejsapi=1&showinfo=0&fs=0'"
         frameborder="0"
        
         allow="autoplay; encrypted-media"
         allowfullscreen
+        scrolling="no"
       ></iframe> 
 
       <img 
