@@ -90,7 +90,8 @@ const thirdColumn = [
     display: flex;
     flex-direction: column;
     height: auto;
-    width:345px;
+    /* width:345px; */
+    width:100%;
   }
   .just_content{
     display: flex;
