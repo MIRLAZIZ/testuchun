@@ -34,15 +34,15 @@
                 }}
               </p>
               <hr class="border border-[#DCE5F5] my-6" />
-              <UButton
-                class="bg-white border border-[#F7483B] sm:w-[164px] w-full h-[48px] flex text-[#F7483B] justify-center hover:bg-[#F7483B] font-medium text-[12px] hover:text-white sm:text-base"
+              <div
+                class="bg-white border border-[#F7483B] sm:w-[164px] w-full h-[48px] flex text-[#F7483B] justify-center items-center rounded-lg cursor-pointer  font-medium text-[12px] sm:text-base"
               >
                 {{ store.dataTranslate["home.more_details"] }}
                 <UIcon
                   name="i-heroicons-arrow-long-right"
                   class="sm:ml-6 ml-2 sm:w-6 w-3 sm:h-6 h-3"
                 />
-              </UButton>
+              </div>
             </div>
           </div>
         </div>

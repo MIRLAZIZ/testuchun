@@ -10,6 +10,12 @@ import { useHomeStore } from '~/store/home'
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
+const isClient = ref(false);
+
+onMounted(() => {
+  isClient.value = true;
+});
+
 const store = useHomeStore()
 const modalVisible = ref(false) 
 const items = [
@@ -23,13 +29,12 @@ const items = [
 </script>
 
 <template>
-    <div class="w-full flex justify-center">
-
+    <div class="w-full flex justify-center"  >
         <!-- <div class="mainContainer"> -->
-        <div class="mainContainer">
+        <div class="mainContainer " v-if="store.dataTranslate['home.time']">
             <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
-                <div data-aos="fade-up" class=" flex banner_left flex-col justify-between">
+                <div  v-if="isClient" data-aos="fade-up" class=" flex banner_left flex-col justify-between">
                     <div>
                         <h1 class="abautTitle ">
                             {{ store.dataTranslate['home.time'] }}
@@ -63,7 +68,7 @@ const items = [
                 </div>
 
                 <!-- O'ng bo'lim -->
-                <div data-aos="fade-down" class="flex flex-col items-center   relative xl:h-full ">
+                <div  v-if="isClient" data-aos="fade-down" class="flex flex-col items-center   relative xl:h-full ">
                     <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
                         class="rounded-lg shadow-md abautImg" />
                     <div

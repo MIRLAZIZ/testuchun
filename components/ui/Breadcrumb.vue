@@ -40,7 +40,7 @@ const hasBackground = computed(() => {
     </h1>
 
     <div
-      class="text-[#5D5D5F] text-lg mt-4 text-center"
+      class="text-[#5D5D5F] text-lg mt-4 text-center cursor-pointer"
       :class="{
         'text-white': hasBackground,
       }"

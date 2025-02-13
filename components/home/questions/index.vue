@@ -3,7 +3,11 @@ import { useHomeStore } from '~/store/home';
 import {useContactStore} from '~/store/contact'
 const stored = useContactStore();
 import { toast } from 'vue3-toastify'
+const isClient = ref(false);
 
+onMounted(() => {
+  isClient.value = true;
+});
 const store = useHomeStore()
 const question = ref({
     name: null,
@@ -39,10 +43,10 @@ watch(question, (newValue) => {
 
 </script>
 <template>
-    <div class="lg:h-[496px] bg-[#06203D] w-full flex justify-center height_full py-12">
+    <div class="lg:h-[496px] bg-[#06203D] w-full flex justify-center height_full py-12"  v-if="isClient">
         <div class=" mainContainer flex box_wrapper_top">
 
-            <div  data-aos="fade-up" class="w-full h-full flex flex-col justify-between  mr-[37px] ">
+            <div  v-if="isClient"  data-aos="fade-up" class="w-full h-full flex flex-col justify-between  mr-[37px] ">
 
                 <div class="flex items-center ">
                     <img src="/assets/imgs/home/program.png" alt="">
@@ -59,16 +63,16 @@ watch(question, (newValue) => {
 
             </div>
 
-            <div  data-aos="fade-down" class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
-                <input required type="text" class="questionInput placeholder-[#2E4259]" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
-                <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
+            <div  v-if="isClient"  data-aos="fade-down" class="sm:w-[591px] w-full flex flex-col justify-between box_ul ">
+                <input required type="text" class="questionInput placeholder-[#354251]" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
+                <div class="flex items-center border border-[#354251] rounded-lg h-[64px] py-[10px]">
                     <span
-                        class="text-white font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
+                        class="text-[#FFFFFF] font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
                     <input required type="number" class=" focus:outline-none bg-inherit h-full pl-2  w-full text-lg text-white"
                         v-model="question.telNumber" />
                 </div>
                 <div>
-                    <textarea required class="questionTextarea" :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
+                    <textarea required class="questionTextarea " :placeholder="store.dataTranslate['home.message']" v-model="question.message"></textarea>
 
                 </div>
                 <div>
@@ -141,7 +145,7 @@ watch(question, (newValue) => {
     height: 64px;
     padding: 18px 24px 18px 24px;
     border-radius: 12px;
-    border: 1px solid #88929D;
+    border: 1px solid #354251;
     background: inherit;
     color: white;
     outline: none;
@@ -158,7 +162,8 @@ watch(question, (newValue) => {
     height: 172px;
     padding: 18px 24px 18px 24px;
     border-radius: 12px;
-    border: 1px solid #88929D;
+    border: 1px solid #354251
+;
     background: inherit;
     resize: none;
     outline: none;

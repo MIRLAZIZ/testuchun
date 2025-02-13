@@ -1,11 +1,11 @@
 <template>
-    <div class="flex justify-center bg-[#06203D]">
+    <div class="flex justify-center bg-[#06203D]" v-if="isClient">
         <div class="mainContainer  h-[568px] box_height">
 
-            <div class="xl:px-[120px] lg:px-[30px] w-full flex justify-center items-center h-full ">
+            <div class="xl:px-[120px] lg:px-[30px] w-full flex justify-center items-center h-full " >
                 <div class=" py-14 flex  h-full  box_ul_li">
                     <!-- buttons  -->
-                    <div data-aos="zoom-in-down" class="sm:w-2/4 w-full h-full  flex flex-col justify-between wrapper_full">
+                    <div  v-if="isClient" data-aos="zoom-in-down" class="sm:w-2/4 w-full h-full  flex flex-col justify-between wrapper_full">
 
                         <div>
                             <h2 class=" font-Halvar text-[28px] text-white  mb-6 ">{{
@@ -30,7 +30,7 @@
                     </div>
 
                     <!-- O'ng tomondagi kartalar -->
-                    <div data-aos="zoom-in-up" class="relative  sm:w-2/4  w-full flex sm:justify-end ul_right  " v-if="marks.length"
+                    <div   data-aos="zoom-in-up" class="relative  sm:w-2/4  w-full flex sm:justify-end ul_right  " v-if="marks.length && isClient"
                         :style="{ paddingRight: (marks.length * 16) - 16 + 'px' }">
                         <div v-for="(mark, index) in marks" :key="mark.id"
                             class="sm:w-[329px] w-[300px]  h-[456px]  flex flex-col  justify-between box_content"
@@ -74,6 +74,11 @@ import activeArrowTrend from '~/assets/imgs/home/arrow-trend-up.svg'
 import bullsety from '~/assets/imgs/home/bullseye.svg'
 import { useHomeStore } from '~/store/home';
 
+const isClient = ref(false);
+
+onMounted(() => {
+  isClient.value = true;
+});
 const store = useHomeStore()
 
 const marks = ref([

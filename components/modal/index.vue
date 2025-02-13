@@ -1,8 +1,10 @@
 <template>
     <div>
       <div  @click.self="closeModal"  v-if="isOpen"  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div class="w-[591px] flex flex-col justify-between box_ul gap-3 bg-[#06203D] p-6 rounded-lg">
-                <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
+            
+           <div class="bg-[#06203D] flex p-6 rounded-lg gap-3">
+                <div class="w-[591px] flex flex-col justify-between box_ul gap-3 bg-[#06203D]  rounded-lg">
+                    <input required type="text" class="questionInput" :placeholder="store.dataTranslate['home.name']" v-model="question.name">
                 <div class="flex items-center border border-gray-500 rounded-lg h-[64px] py-[10px]">
                     <span class="text-white font-medium border-r border-r-[#354251] h-full flex items-center pl-6 pr-4 text-lg">+998</span>
                     <input required type="number" class="focus:outline-none bg-inherit h-full pl-2 w-full text-lg text-white" v-model="question.telNumber" />
@@ -19,6 +21,10 @@
                     </button>
                 </div>
             </div>
+             <div class="cursor-pointer" @click="closeModal">
+                <img src="/assets/imgs/talim/exit.png" alt="">
+            </div>
+           </div>
         </div>
     </div>
 </template>
@@ -102,22 +108,27 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
+@media (max-width:470px) {
+    .box_ul{
+        width:240px !important; ;
+        
+    }
+}
 
-
-
-
-
-
-
-@media (max-width:700px){
+@media (max-width:730px){
      /* .questionTextarea{
         width:350px !important;
     } */
+    .box_ul{
+        width:450px ;
+        
+    }
+    
 }
 
 @media (max-width:600px) {
-          .box_ul{
-        width:350px;
+    .box_ul{
+        width:350px ;
         
     }
      .wrapper_title {

@@ -107,6 +107,7 @@ export const useHomeStore = defineStore('home', {
         }).catch(() => {
           this.dinamiMenuLoading = false
         })
+
       } else {
 
         this.getMenu().then(() => {
@@ -120,6 +121,8 @@ export const useHomeStore = defineStore('home', {
           }).catch(() => {
             this.dinamiMenuLoading = false
           })
+        }).catch(() => {
+          this.dinamiMenuLoading = false
         })
       }
     },
@@ -226,6 +229,9 @@ export const useHomeStore = defineStore('home', {
     },
     async getCategoryFilter(slug) {
       return await api.get(`/categories/${slug}`)
+    },
+    async getReklama() {
+      return await api.get('/reklama')
     }
 
 

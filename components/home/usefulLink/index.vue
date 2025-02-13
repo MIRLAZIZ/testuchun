@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center" >
-        <div data-aos="fade-up" class="mainContainer h-[249px] my-[104px] ">
+        <div  v-if="isClient" data-aos="fade-up" class="mainContainer h-[249px] my-[104px] ">
             <h1 class="font-Halvar font-medium text-black sm:text-[28px] text-xl">{{ store.dataTranslate[props.title] }}</h1>
             <div class="relative mt-8">
                 <UCarousel v-slot="{ item }" :items="props.items" class="" ref="carousel">
@@ -37,7 +37,11 @@
 
 <script setup>
 import { useHomeStore } from '~/store/home';
+const isClient = ref(false);
 
+onMounted(() => {
+  isClient.value = true;
+});
 const store = useHomeStore()
 const props = defineProps({
     items: {

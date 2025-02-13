@@ -1,14 +1,14 @@
 <template>
     <div class="flex justify-center" v-if="programItem">
         <div class="    mainContainer h-full my-[64px]  flex justify-center ">
-            <div class=" rounded-xl bg-white border h-full p-10 flex flex-col lg:justify-between justify-center w-full  align">
+            <div class=" rounded-xl bg-white border  border-[#E6EDFA] h-full p-10 flex flex-col lg:justify-between justify-center w-full  align">
 
         <div class=" h-full lg:w-full md:w-[600px]  sm:w-[500px] w-full     ">
             <div class="  h-full flex flex-col justify-between  align">
 
 
                 <div class="flex justify-between items-center align">
-                    <h2 class="text-2xl font-medium font-Halvar mb-8 text-[#06203D]">{{ store.dataTranslate['home.ourNews'] }}</h2>
+                    <h2 class="text-2xl font-medium font-Halvar sm:mb-8 mb-4 text-[#06203D]">{{ store.dataTranslate['home.ourNews'] }}</h2>
           
 
                     <button
@@ -62,7 +62,7 @@
                     <div data-aos="zoom-in-down" class="lg:w-[308px] w-full h-[300px] overflow-y-scroll mt-4 ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white lg:p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
-                            <hr>
+                      
 
                             <div class="flex mt-8 justify-between items-center text-sm text-gray-500 mb-2 ">
 
@@ -74,8 +74,9 @@
                                     </span>
                                 </div>
                             </div>
-                            <h3 class=" text-lg mb-5 text text-[#06203D]" >{{ item?.title?.substring(0, 70) }}</h3>
-                        
+
+                            <h3 class=" text-lg mb-5 text text-[#06203D]" >{{ item?.title.substring(0, 70) }}</h3>
+                              <hr>
                         </div>
                         
                     </div>
@@ -118,11 +119,11 @@ onMounted(() => {
 
 <style scoped>
 @media (max-width:400px){
-    .align{
+    /* .align{
         width: 350px;
-    }
+    } */
     .img_width{
-        width: 314px  !important;
+        width: 100%  !important;
     }
     .width{
         width:317px
