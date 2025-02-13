@@ -35,7 +35,7 @@
 
                         <div class="">
                             <div class="flex justify-between items-center text-sm text-[#9A999B] mb-2">
-                                <span class="flex items-center">Jahon
+                                <span class="flex items-center">{{ programItem?.categories[0]?.name }}
                                     <div class="bg-[#F7483B] mx-2  h-[5px] w-[5px] rounded-full">
                                     </div>{{ programItem?.date.substring(0, 10) }}
                                 </span>
@@ -68,7 +68,7 @@
 
                                 <div class="flex justify-between items-center text-sm text-[#9A999B] mb-2">
 
-                                    <span class="flex items-center">Jahon
+                                    <span class="flex items-center">{{  item.categories[0]?.name }}
                                         <div class="bg-[#F7483B] mx-2  h-[5px] w-[5px] rounded-full">
                                         </div>{{ item?.date?.substring(0, 10) }}
                                     </span>
