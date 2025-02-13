@@ -9,7 +9,7 @@ const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
 const store = useHomeStore()
-    const selectedProgram = ref(0)
+    const selectedProgram = ref(1)
     const seletTypeEducution = (index) => {
         selectedProgram.value = index
         programitem.value = store.educationData[index].children[0]
@@ -50,14 +50,14 @@ const store = useHomeStore()
                 <h1 class="font-normal text-[#2E4259] ml-2">{{ store.dataTranslate['home.ourPrograms'] }}</h1>
             </div>
             <div class="mt-10">
-                <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
-                    @click="seletTypeEducution(0)">
-                    {{ store.educationData[0].name }}
-                </button>
-
-                <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 1 }"
+                <button class="selectProgram" :class="{ 'activeClass': selectedProgram === 1 }"
                     @click="seletTypeEducution(1)">
                     {{ store.educationData[1].name }}
+                </button>
+
+                <button class="ml-8 selectProgram" :class="{ 'activeClass': selectedProgram === 0 }"
+                    @click="seletTypeEducution(0)">
+                    {{ store.educationData[0].name }}
                 </button>
             </div>
             <div class="flex wrapper_flex" data-aos="zoom-in-up" >
@@ -75,7 +75,7 @@ const store = useHomeStore()
                 </div>
                 <!-- programma data  -->
                 <div  class="programmaData  bg-white flex flex-col justify-between" v-if="programitem"
-                    :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[0].id }">
+                    :class="{ 'rounded-tl-xl': progamItemId !== store.educationData[selectedProgram].children[1].id }">
                     <h2 class="programmaTitle">{{ programitem.name }}</h2>
                     <hr>
 
@@ -303,6 +303,8 @@ input[type="number"]::-webkit-outer-spin-button {
     
         font-weight: 400;
         font-size: 18px;
+        color: #06203D;
+
     }
 
 .activeClass {

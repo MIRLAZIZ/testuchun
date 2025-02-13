@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center" v-if="programItem">
         <div class="    mainContainer h-full my-[64px]  flex justify-center ">
-            <div class=" rounded-xl bg-white border h-full p-10 flex flex-col lg:justify-between justify-center w-full  align">
+            <div class=" rounded-xl bg-white border  border-[#E6EDFA] h-full p-10 flex flex-col lg:justify-between justify-center w-full  align">
 
         <div class=" h-full lg:w-full md:w-[600px]  sm:w-[500px] w-full     ">
             <div class="  h-full flex flex-col justify-between  align">
@@ -62,7 +62,7 @@
                     <div data-aos="zoom-in-down" class="lg:w-[308px] w-full h-[300px] overflow-y-scroll mt-4 ">
                         <div v-for="(item, index) in store.news.data" :key="index" class="bg-white lg:p-4 cursor-pointer "
                             @click="$router.push(`news-inner/${item.slug}`)">
-                            <hr>
+                      
 
                             <div class="flex mt-8 justify-between items-center text-sm text-gray-500 mb-2 ">
 
@@ -74,8 +74,9 @@
                                     </span>
                                 </div>
                             </div>
+
                             <h3 class=" text-lg mb-5 text text-[#06203D]" >{{ item?.title.substring(0, 70) }}</h3>
-                        
+                              <hr>
                         </div>
                         
                     </div>

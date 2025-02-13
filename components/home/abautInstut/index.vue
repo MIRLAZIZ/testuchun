@@ -29,10 +29,9 @@ const items = [
 </script>
 
 <template>
-    <div class="w-full flex justify-center"  v-if="isClient">
-
+    <div class="w-full flex justify-center"  >
         <!-- <div class="mainContainer"> -->
-        <div class="mainContainer">
+        <div class="mainContainer " v-if="store.dataTranslate['home.time']">
             <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
                 <!-- Chap bo'lim -->
                 <div  v-if="isClient" data-aos="fade-up" class=" flex banner_left flex-col justify-between">

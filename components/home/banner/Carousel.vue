@@ -78,7 +78,7 @@ watch([caruselData, activeIndex], () => {
 </script>
 
 <template>
-  <div class="relative w-full xl:h-full ">
+  <div class="relative h-[desired-height]  scale-y-[0.7] origin-top  w-full xl:h-auto "  >
     <UCarousel 
       ref="carousel" 
       v-slot="{ item }" 
@@ -88,7 +88,7 @@ watch([caruselData, activeIndex], () => {
       v-model="activeIndex"
       @slide="resizeVideo"
     >     
-    <div class=" inset-0 w-full h-full  ">
+    <div class=" relative w-full h-auto  ">
       
       <iframe
         v-if="item?.desc"
