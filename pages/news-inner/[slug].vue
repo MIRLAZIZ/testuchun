@@ -48,6 +48,21 @@
             class="2xl:pr-16 containerText mt-8"
             v-html="newsData?.desc"
           ></div>
+
+          
+          <div class="mt-4" v-if="newsData?.file">
+            <button
+              @click="store.downloadFile(newsData?.file, newsData?.title)"
+              class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+            >
+              {{ store.dataTranslate["header.download"] }}
+              <img
+                src="/assets/imgs/kampus/Download.png"
+                alt=""
+                class="w-5 h-5 ml-4"
+              />
+            </button>
+          </div>
         </div>
 
         <UiNewsCarousel

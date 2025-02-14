@@ -42,6 +42,24 @@ const processedMenus = computed(() => {
               {{ data?.title }}
             </h1>
             <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+
+            <button
+              v-if="store.menuShow?.dinamikMenus[0]?.file"
+              @click="
+                store.downloadFile(
+                  store.menuShow?.dinamikMenus[0]?.file,
+                  store.menuShow?.dinamikMenus[0]?.title
+                )
+              "
+              class="bg-[#F7483B] mt-4 sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+            >
+              {{ store.dataTranslate["header.download"] }}
+              <img
+                src="/assets/imgs/kampus/Download.png"
+                alt=""
+                class="w-5 h-5 ml-4 object-cover"
+              />
+            </button>
           </div>
 
           <!-- formmenu2 -->

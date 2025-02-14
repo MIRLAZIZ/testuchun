@@ -47,35 +47,31 @@ const datatype = computed(() => [
     id: 1,
     img: globe,
     type: store.dataTranslate["footer.educational_period"],
-    name: props.data?.form_education || "Kunduzgi 5-yil",
+    name: props.data?.education_years ,
   },
   {
     id: 2,
     img: globe,
     type: store.dataTranslate["home.language"],
     name: props.data?.lang,
-    description: "",
   },
   {
     id: 3,
     img: globe,
     type: store.dataTranslate["home.address"],
     name: "Toshkent Shahri",
-    description: "",
   },
   {
     id: 4,
     img: globe,
     type: store.dataTranslate["footer.start_date"],
     name: "01 aprel , 2024",
-    description: "",
   },
   {
     id: 5,
     img: globe,
     type: store.dataTranslate["footer.type"],
-    name: props.data?.form_education || "Kunduzgi 5-yil",
-    description: "Sirtqi 4-yil",
+    name: props.data?.form_education ,
   },
 ]);
 </script>

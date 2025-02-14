@@ -19,9 +19,10 @@ export const useHomeStore = defineStore('home', {
     slugData: null,
     currentImage2: null,
     menuOpen: true,
-    educationFaqId:null,
+    educationFaqId: null,
     activeTab: null,
-    dinamiMenuLoading: true
+    dinamiMenuLoading: true,
+    reklammaData: null
 
 
 
@@ -111,7 +112,7 @@ export const useHomeStore = defineStore('home', {
       } else {
 
         this.getMenu().then(() => {
-            
+
           this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
 
           this.getMenuShow(this.menuData?.id).then(res => {
@@ -191,7 +192,7 @@ export const useHomeStore = defineStore('home', {
 
     async getFacultet() {
       return await api.get('/fakultet')
-    }, 
+    },
 
     async getFacultetOne(id) {
       return await api.get(`/fakultet/${id}`)
@@ -232,6 +233,19 @@ export const useHomeStore = defineStore('home', {
     },
     async getReklama() {
       return await api.get('/reklama')
+      .then(res => {
+        this.reklammaData = res.data
+      })
+    },
+    downloadFile(url, filename) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", filename );
+      console.log(link);
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
 

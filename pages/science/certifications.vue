@@ -41,7 +41,7 @@
       </div>
 
       <div class="flex justify-center mt-6" v-else>
-        <p class="font-medium text-xl">{{ store.dataTranslate["header.no_data"] }}</p>
+        <p class="font-medium text-xl">{{ store.dataTranslate["header.do_not"] }}</p>
       </div>
     </div>
   </div>

@@ -102,8 +102,10 @@
               <div class="mt-6">
                 <div class="">
                   <!-- {{data?.dec}} -->
-                  <p  class="">
-                    <span v-html="data?.dec?.substring(0, expanded)"></span>
+                  <p class="">
+                    <span
+                      v-html="data?.dec[$i18n.locale]?.substring(0, expanded)"
+                    ></span>
                   </p>
                   <button
                     v-if="data?.dec?.length > expanded"
@@ -147,14 +149,12 @@ onMounted(() => {
     .then((res) => {
       data.value = res.data;
       loading.value = false;
+      console.log(loading.value);
     })
     .catch(() => {
       loading.value = false;
     });
 });
-
-
-
 </script>
 
 <style scoped>

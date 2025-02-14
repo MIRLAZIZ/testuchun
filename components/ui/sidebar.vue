@@ -13,7 +13,7 @@
             <img
               src="/assets/imgs/talim/Group 3.png"
               alt=""
-              class="w-[33px] h-[32px]"
+              class="w-[33px] h-[32px object-cover]"
             />
           </div>
         </div>
@@ -51,13 +51,13 @@
             <div class="flex flex-col justify-between h-full w-full">
               <div class="pr-[58px] flex justify-end">
                 <img
-                  :src="data?.data[0]?.logo"
-                  alt="coronavirus img"
+                  :src="store.reklammaData?.data[0]?.logo"
+                  alt=""
                   class="w-[126px] h-[99px]"
                 />
               </div>
               <p class="font-Halvar text-xl font-medium">
-                {{ data?.data[0]?.title }}
+                {{ store.reklammaData?.data[0]?.title }}
               </p>
             </div>
           </div>
@@ -79,9 +79,10 @@
             </div>
             <a
               :href="store.dataTranslate['3.telegram']"
+              target="_blank"
               class="w-full h-12 rounded-[8px] bg-white hover:bg-gray-100 flex items-center cursor-pointer justify-center text-[#231101] font-medium text-base"
             >
-            {{ store.dataTranslate["home.writing"] }}
+              {{ store.dataTranslate["home.writing"] }}
             </a>
           </div>
           <!-- Slayd 3 -->
@@ -90,21 +91,26 @@
           >
             <div class="text-white flex justify-between w-full">
               <div class="w-[100%]">
-                <p class="text-xl font-medium font-Halvar">{{ store.dataTranslate["home.telegram"] }}</p>
+                <p class="text-xl font-medium font-Halvar">
+                  {{ store.dataTranslate["home.telegram"] }}
+                </p>
                 <div>
-                  <p class="text-sm">{{ store.dataTranslate["home.telegram_watch"] }}</p>
+                  <p class="text-sm">
+                    {{ store.dataTranslate["home.telegram_watch"] }}
+                  </p>
                 </div>
               </div>
               <div class="w-[40%] flex justify-end items-start">
                 <img
                   src="/assets/imgs/talim/Vector.svg"
                   alt=""
-                  class="w-[63px] h-[50px]"
+                  class="w-[63px] h-[50px] object-cover"
                 />
               </div>
             </div>
             <a
               :href="store.dataTranslate['3.telegram']"
+              target="_blank"
               class="w-full h-12 rounded-[8px] bg-white cursor-pointer hover:bg-gray-100 flex items-center justify-center text-[#231101] text-base font-medium"
             >
               {{ store.dataTranslate["home.subscribe"] }}
@@ -118,23 +124,20 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
 
-
 const route = useRoute();
 const routePath = route.matched[0].path;
 const store = useHomeStore();
-const data = ref(null)
 const getMenuLink = computed(() => {
   let menu = store.menus.find((menu) => menu.path === routePath);
 
-  return menu ? menu : {};  
+  return menu ? menu : {};
 });
 
 onMounted(() => {
-  store.getReklama()
-  .then(res => {
-    data.value = res.data
-  })
-})
+  if (store.reklammaData) {
+    store.getReklama();
+  }
+});
 </script>
 <style scoped>
 @media (max-width: 640px) {

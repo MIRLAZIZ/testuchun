@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full mt-[104px] mb-[104px] p-4 lg:p-6">
+  <section class="w-full mt-[104px]  ">
     <div v-if="professors.length" class="space-y-6">
       <!-- Title -->
       <h2 class="text-xl md:text-2xl font-medium">
@@ -15,7 +15,7 @@
           class="flex flex-col md:flex-row gap-4 lg:gap-6 p-4 bg-white rounded-xl border"
         >
           <!-- Image Container -->
-          <div class="w-full md:w-[157px] h-[206px] flex-shrink-0">
+          <div class="w-full md:w-[157px] h-[206px] flex-shrink-0 ">
             <img
               :src="professor.photo[store.currentImage]"
               :alt="professor.name"
@@ -24,17 +24,13 @@
           </div>
 
           <!-- Content -->
-          <div class="flex-1 min-w-0">
-            <h3 class="font-medium text-lg md:text-xl mb-4 line-clamp-2">
+          <div class="">
+            <h3 class="font-medium text-lg md:text-xl my-4">
               {{ professor.name }}
               
             </h3>
             
-            <p 
-              v-if="isProfessorDescValid(professor.dec)"
-              class="font-normal text-sm md:text-base text-[#9a999b]"
-              v-html="truncateText(professor.dec, 100)"
-            ></p>
+           
            
           </div>
         </div>

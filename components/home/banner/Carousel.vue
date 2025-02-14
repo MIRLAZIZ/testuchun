@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative h-[789px]">
+  <div class="relative h-[789px] border-10">
     <UCarousel
       ref="carousel"
       v-slot="{ item }"
@@ -54,20 +54,22 @@ onMounted(() => {
       class="w-full overflow-hidden"
     >
       <div class="relative w-full h-[789px] border">
-        <iframe
-          v-if="item?.desc"
-          class="w-full h-auto"
-          :src="
-            extractLinkFromP(item?.desc) +
-            '&controls=1&autoplay=1&mute=1&rel=0&loop=1&playlist=' +
-            extractVideoId(extractLinkFromP(item?.desc)) +
-            '&iv_load_policy=3&modestbranding=1&enablejsapi=1&showinfo=0&fs=0'
-          "
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-          scrolling="no"
-        ></iframe>
+        <div class="video-wrapper" v-if="item?.desc">
+          <iframe
+            class="w-full h-full"
+            :src="
+              extractLinkFromP(item?.desc) +
+              '?controls=0&autoplay=1&mute=1&rel=0&loop=1&playlist=' +
+              extractVideoId(extractLinkFromP(item?.desc)) +
+              '&iv_load_policy=3&modestbranding=1&enablejsapi=1&showinfo=0&fs=0&disablekb=1&playsinline=1'
+            "
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            scrolling="no"
+          ></iframe>
+          <div class="video-overlay"></div>
+        </div>
 
         <img
           v-else
@@ -91,6 +93,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.relative {
+  height: 100%;
+}
+
 .faceCarousel {
   background: linear-gradient(
     180deg,
@@ -99,12 +105,36 @@ onMounted(() => {
   );
 }
 
-iframe {
-  aspect-ratio: 16 / 9;
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-@media screen and (max-width: 768px) {
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1024px) {
   iframe {
-    aspect-ratio: 1 / 1;
+    width: 200%;
+    height: 200%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 }
 </style>

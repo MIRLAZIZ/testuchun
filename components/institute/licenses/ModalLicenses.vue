@@ -187,7 +187,7 @@ const printPage = () => {
                   class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print  h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
                   @click="printPage"
                 >
-                  Yuklab olish
+                  {{ store.dataTranslate['header.download'] }}
                   <img
                     src="/assets/imgs/kampus/Download.png"
                     alt=""

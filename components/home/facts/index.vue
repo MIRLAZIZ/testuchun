@@ -1,6 +1,7 @@
 <script setup>
 import { useHomeStore } from '~/store/home'
 
+
 const store = useHomeStore()
 
 const isClient = ref(false);
@@ -12,6 +13,7 @@ onMounted(() => {
 </script>
 <template>
     <div class="flex justify-center "  v-if="isClient" >
+        <!-- <count-to>19</count-to> -->
         <div class="mt-[104px] mainContainer">
             <h1 class="facts">{{store.dataTranslate['home.facts_number']}} </h1>           
             <div class="mt-6 grid 2xl:grid-cols-3 lg:gap-4 lg:grid md:grid-cols-2 md:gap-4  sm:grid sm:grid-cols-2 sm:gap-4 flex_box">

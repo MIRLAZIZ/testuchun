@@ -20,18 +20,18 @@ const props = defineProps({
         v-for="item in props.data?.children"
         :key="item.id"
       >
-      {{ item?.skills }}
-        <p class="font-medium ">{{ item.name }}</p>
+        <div class="flex gap-2">
+          <img :src="item.icon" alt="" class="w-[20px] h-[20px] object-cover" v-if="item.icon" />
+          <p class="font-medium">{{ item.name }}</p>
+        </div>
 
         <hr class="border border-[#DCE5F5]" />
 
         <router-link
-          class="font-normal text-base text-[#5D5D5F]  cursor-pointer flex justify-between"
+          class="font-normal text-base text-[#5D5D5F] cursor-pointer flex justify-between"
           :to="`/education-inner/${item.slug}`"
         >
-          <p
-            class=" text-[#5D5D5F]  cursor-pointer"
-          >
+          <p class="text-[#5D5D5F] cursor-pointer">
             {{ store.dataTranslate["home.more_details"] }}
           </p>
 
@@ -48,5 +48,4 @@ const props = defineProps({
 .wrapper_bot:hover {
   color: #f7483b;
 }
-
 </style>

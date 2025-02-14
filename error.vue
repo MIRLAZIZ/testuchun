@@ -226,11 +226,11 @@
         backgroundPosition: 'center',
       }"
     >
-      <div class="w-[70%]">
+      <div class="w-[50%]">
         <h1 class="text-center font-Halvar font-medium text-[28px]">
           {{ errorText[lang]?.title }}
         </h1>
-        <p class="text-xl mt-4">{{ errorText[lang]?.description }}</p>
+        <p class="text-xl text-center mt-4">{{ errorText[lang]?.description }}</p>
         <div class="flex justify-center">
           <button
             @click="handleError"
@@ -242,10 +242,13 @@
         </div>
       </div>
     </div>
+   
   </div>
 </template>
 
+
 <script setup>
+import errorPhoto from "@/assets/imgs/home/error.png";
 const handleError = () => {
   navigateTo("/");
 };
