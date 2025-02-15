@@ -39,6 +39,9 @@
 <script setup>
 import { ref } from 'vue';
 import ru from 'assets/imgs/home/ru.png';
+import uz from 'assets/imgs/home/uz.png';
+import en from 'assets/imgs/home/en.png';
+
 import { useHomeStore } from '~/store/home';
 
 const store = useHomeStore()
@@ -47,9 +50,9 @@ const store = useHomeStore()
 const isOpen = ref(false);
 const selectedLang = ref(null); // Default selected option
 const options = ref([
-    { label: 'Uz', value: 'uz', img: ru },
+    { label: 'Uz', value: 'uz', img: uz },
     { label: 'Ru', value: 'ru', img: ru },
-    { label: 'En', value: 'en', img: ru },
+    { label: 'En', value: 'en', img: en },
 ]);
 
 const toggleDropdown = () => {

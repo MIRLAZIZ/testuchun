@@ -25,8 +25,6 @@ const data = ref({});
 const router = useRouter();
 const loading = ref(true);
 
-
-
 onMounted(() => {
   store
     .getEducutionOne(route.params.slug)
@@ -80,21 +78,21 @@ onUnmounted(() => {
             v-if="store.activeTab !== 'plan'"
           />
         </div>
+        <div class="mt-4 w-full  xl:w-[1016px]" v-if="data && data.file">
+          <button
+            @click="store.downloadFile(data.file, data.name)"
+            class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+          >
+            {{ store.dataTranslate["header.download"] }}
+            <img
+              src="/assets/imgs/kampus/Download.png"
+              alt=""
+              class="w-5 h-5 ml-4"
+            />
+          </button>
+        </div>
         <div class="xl:w-[1016px] w-full mb-[104px]">
           <EducationComments :data="data?.employs" />
-          <div class="flex justify-end mt-4" v-if="data && data.file">
-            <button
-              @click="store.downloadFile(data.file, data.name)"
-              class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
-            >
-              {{ store.dataTranslate["header.download"] }}
-              <img
-                src="/assets/imgs/kampus/Download.png"
-                alt=""
-                class="w-5 h-5 ml-4"
-              />
-            </button>
-          </div>
         </div>
       </div>
     </div>

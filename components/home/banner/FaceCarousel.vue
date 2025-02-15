@@ -32,7 +32,7 @@ const goToExtraLink = (url) => {
     <!-- caption  -->
 
     <div
-      class="h-full flex flex-col justify-center w-full"
+      class="h-full flex flex-col justify-center mt-10 w-full"
       @click="goToExtraLink(props?.activeItem?.url)"
     >
       <div v-if="props?.activeItem?.action == 1">

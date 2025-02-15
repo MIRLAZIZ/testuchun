@@ -49,11 +49,11 @@
             class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 p-4 text-white img_width"
           >
             <div class="flex flex-col justify-between h-full w-full">
-              <div class="pr-[58px] flex justify-end">
+              <div class=" ">
                 <img
                   :src="store.reklammaData?.data[0]?.logo"
                   alt=""
-                  class="w-[126px] h-[99px]"
+                  class="w-full h-[99px] "
                 />
               </div>
               <p class="font-Halvar text-xl font-medium">
@@ -74,7 +74,7 @@
                 />
               </div>
               <p class="text-xl font-medium font-Halvar">
-                {{ store.dataTranslate["home.rector"] }}
+                {{ store.dataTranslate["home.roctor"] }}
               </p>
             </div>
             <a

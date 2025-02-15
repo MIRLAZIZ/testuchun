@@ -15,7 +15,7 @@ const loading = ref(true);
 
 onMounted(() => {
   store
-    .getStudentShow(route.params.id)
+    .getStudentShow(route.params.slug)
     .then((res) => {
       student.value = res.data;
       loading.value = false;

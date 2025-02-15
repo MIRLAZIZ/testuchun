@@ -44,7 +44,7 @@ const goToNext = () => {
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item[store.currentImage]" class="w-full h-[366px] lg:h-[566px]  object-cover" draggable="false">
+                <img :src="item[store.currentImage]" class="w-full h-[366px] lg:h-[450px]  2xl:h-[566px]  object-cover" draggable="false">
             </template>
 
             <template #indicator="{ onClick, page, active }">

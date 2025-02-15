@@ -12,12 +12,12 @@
                   <button @click="$router.push('/')">
                     {{ store.dataTranslate["home.home"] }}
                   </button>
-                  /
-                  <button @click="$router.push(`${store.menuShow?.path}`)" v-if="store.menuShow">
-                    {{ store.menuShow?.title }}
-                  </button>
-                  <button v-else>{{ newsData?.categories[0]?.title }}
-                  </button>
+
+                  <button
+                    @click="$router.push(`${store.menuShow?.path}`)"
+                    v-if="store.menuShow"
+                  > / {{ store.menuShow?.title }}</button>
+                  <button v-else> / {{ newsData?.categories[0]?.title }}</button>
                 </p>
               </div>
 
@@ -51,7 +51,6 @@
             v-html="newsData?.desc"
           ></div>
 
-          
           <div class="mt-4" v-if="newsData?.file">
             <button
               @click="store.downloadFile(newsData?.file, newsData?.title)"

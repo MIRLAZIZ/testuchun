@@ -25,19 +25,22 @@
       <!-- Grid Cards -->
       <div
         v-if="store.educationData"
-        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 mt-6"
+        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 cursor-pointer gap-6 mt-6"
       >
         <div
           v-for="card in store.educationData[showModal]?.children"
           :key="card.id"
           class="bg-white shadow-md rounded-xl p-6 pb-5"
+          @click="$router.push(`/education-inner/${card.slug}`)"
         >
+        
           <h3
             v-if="showModal == 1"
             class="text-[#2E4259] mb-2 sm:text-base text-sm"
           >
             {{ store.dataTranslate["home.bachelor"] }}
           </h3>
+
           <h3 v-else class="text-[#2E4259] mb-2 sm:text-base text-sm">
             {{ store.dataTranslate["header.magistr"] }}
           </h3>
@@ -62,7 +65,6 @@
                 card.daytime
               }}</span>
             </div>
-
             <div
               v-if="showModal == 1"
               class="flex items-center justify-between"
