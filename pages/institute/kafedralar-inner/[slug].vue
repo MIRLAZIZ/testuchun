@@ -1,7 +1,7 @@
 <template>
   <div>
     <LoadingPage v-if="loading" />
-    <LibraryAbout :data="student" />
+    <InstituteKafedraInner :data="data" />
   </div>
 </template>
 
@@ -9,25 +9,24 @@
 import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
-const student = ref(null);
+const data = ref(null);
 const route = useRoute();
 const loading = ref(true);
-
 onMounted(() => {
+  if (!store.menuShow) {
+    store.menuShow = JSON.parse(localStorage.getItem("kafedra"));
+  }
   store
-    .getStudentShow(route.params.id)
+    .getKafedraOne(route.params.slug)
     .then((res) => {
-      student.value = res.data;
+      data.value = res.data;
       loading.value = false;
     })
     .catch(() => {
       loading.value = false;
     });
-  if (!store.menuShow) {
-    store.menuShow = JSON.parse(localStorage.getItem("studentlar"));
-  }
 });
 </script>
 
-<style scoped>
+<style  scoped>
 </style>

@@ -104,7 +104,7 @@
                   <!-- {{data?.dec}} -->
                   <p class="">
                     <span
-                      v-html="data?.dec[$i18n.locale]?.substring(0, expanded)"
+                      v-html="data?.dec?.substring(0, expanded)"
                     ></span>
                   </p>
                   <button
@@ -145,7 +145,7 @@ onMounted(() => {
     store.menuShow = JSON.parse(localStorage.getItem("management"));
   }
   store
-    .leaderships(route.params.id)
+    .leaderships(route.params.slug)
     .then((res) => {
       data.value = res.data;
       loading.value = false;

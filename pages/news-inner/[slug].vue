@@ -13,8 +13,10 @@
                     {{ store.dataTranslate["home.home"] }}
                   </button>
                   /
-                  <button @click="$router.push(`${store.menuShow?.path}`)">
+                  <button @click="$router.push(`${store.menuShow?.path}`)" v-if="store.menuShow">
                     {{ store.menuShow?.title }}
+                  </button>
+                  <button v-else>{{ newsData?.categories[0]?.title }}
                   </button>
                 </p>
               </div>
@@ -97,9 +99,7 @@ onMounted(() => {
       loading.value = false;
     });
 
-  if (!store.menuShow) {
-    store.menuShow = JSON.parse(localStorage.getItem("news"));
-  }
+  store.menuShow = JSON.parse(localStorage.getItem("news"));
 });
 </script>
 

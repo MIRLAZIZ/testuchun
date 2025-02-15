@@ -104,8 +104,8 @@ onMounted(() => {
                 </div>
 
                 <InstituteGenderChart
-                  :girls="store1.student?.female_students[0]?.female"
-                  :boys="store1.student?.female_students[0]?.male"
+                  :girls="Number(store1.student?.female_students[0]?.female)"
+                  :boys="Number(store1.student?.female_students[0]?.male)"
                   class="my-6"
                 />
 

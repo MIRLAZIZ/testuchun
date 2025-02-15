@@ -38,10 +38,10 @@ onUnmounted(() => {
       <!-- contacts -->
       <div class="flex justify-between items-center xl:w-[40%] lg:w-[45%] md:w-[50%]">
         <div class="flex justify-between contactImgs w-[30%]">
-          <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram.png" alt=""></a>
-          <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram.png" alt=""></a>
-          <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook.png" alt=""></a>
-          <a :href="store.siteInfo?.youtube" target="_blank"  class="w-7 h-7 rounded-full bg-[#EBEBEB] flex justify-center items-center"> <img src="/assets/imgs/home/youtube-svgrepo-com.svg" alt="" class="w-4 h-4"></a>
+          <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram.png" alt="" class="object-cover" ></a>
+          <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram.png" alt="" class="object-cover"></a>
+          <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook.png" alt="" class="object-cover"></a>
+          <a :href="store.siteInfo?.youtube" target="_blank"  class="w-7 h-7 rounded-full bg-[#EBEBEB] flex justify-center items-center"> <img src="/assets/imgs/home/youtube-svgrepo-com.svg" alt="" class="w-4 h-4 object-cover"></a>
         </div>
         <!-- tel number -->
         <div>

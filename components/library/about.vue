@@ -1,10 +1,10 @@
 <template>
     <div class="">
-        <div
+        <div v-if="props.data"
             class="flex gap-8 h-[632] bg-white  p-8 rounded-xl border-[#E6EDFA]-1   main_box">
             <div class="  sm:w-[200px] ">
                 <div class="md:w-[199px] sm:w-[210px] w-[300px] sm:h-[254px] h-[361px] rounded-lg ">
-                <img class=" w-full h-full rounded-lg" :src="props.data?.photo[store.currentImage]" alt="">
+                <img class=" w-full h-full rounded-lg object-cover" :src="props.data?.photo[store.currentImage]" alt="">
 
                 </div>
             </div>
@@ -17,20 +17,25 @@
                   
                     <div class="relative ">
                         <span v-if="isCopied" class="copied-text absolute" @animationend="hideCopiedText">
-                            Ko'chirildi
+                            copied
                         </span>
                         <div class="flex rounded-lg gap-4 cursor-pointer"
                             style="border:1px solid #DCE5F5;padding:13px 32px" @click="copyLink">
                             <p class="font-medium text-base">link</p>
                             <div>
-                                <img src="/assets/imgs/talim/copy.png" alt="">
+                                <img src="/assets/imgs/talim/copy.png" alt="" class="object-cover">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div v-else>
+        <h1 class="text-center font-Halvar text-3xl">
+          {{ store.dataTranslate["header.do_not"] }}
+        </h1>
+      </div>    </div>
 </template>
 
 <script setup>

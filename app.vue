@@ -16,7 +16,7 @@ onMounted(() => {});
 
 <template>
   <div>
-    <!-- <Test /> -->
+    <Test />
 
     <NuxtLayout>
       <NuxtPage />

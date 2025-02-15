@@ -172,9 +172,7 @@
             class="w-full rounded-xl p-5 flex xl:flex-row flex-col gap-4 bg-white"
             v-for="item in props.data?.simple_employee"
             :key="item"
-            @click="
-              $router.push(`/institute/details/kafedra/${item.employ_meta.id}`)
-            "
+          
           >
             <div
               class="h-[200px] xl:w-[157px] flex justify-center w-full flex-shrink-0"
@@ -197,6 +195,9 @@
               </p>
               <hr class="border border-[#DCE5F5] my-6" />
               <button
+              @click="
+              $router.push(`/institute/details/kafedra/${item.slug}`)
+            "
                 class="border border-[#F7483B] 2xl:w-[164px] w-full h-[48px] flex justify-center items-center text-[#F7483B] rounded-lg"
               >
                 {{ store.dataTranslate["home.more_details"] }}

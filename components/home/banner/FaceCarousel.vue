@@ -32,12 +32,12 @@ const goToExtraLink = (url) => {
     <!-- caption  -->
 
     <div
-      class="h-full flex flex-col w-full"
+      class="h-full flex flex-col justify-center w-full"
       @click="goToExtraLink(props?.activeItem?.url)"
     >
       <div v-if="props?.activeItem?.action == 1">
         <h1
-          class="font-Halvar 2xl:text-[64px] lg:text-[52px] font-medium xl:mt-[60px] text-white 2xl:leading-[76.8px] w-full text-[32px]"
+          class="font-Halvar 2xl:text-[64px] lg:text-[52px] font-medium  text-white 2xl:leading-[76.8px] w-full text-[32px]"
         >
           {{ props?.activeItem?.title }}
         </h1>
@@ -69,7 +69,7 @@ const goToExtraLink = (url) => {
     </div>
     <!-- left arrow -->
     <div
-      class="absolute left-0 2xl:-translate-x-28 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer h-[150px] w-[100px] z-30 flex items-center translate-x-10 md:translate-x-0"
+      class="absolute left-0 2xl:-translate-x-28 top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer h-[150px] w-[100px] z-30 flex items-center translate-x-10 md:translate-x-0"
       @click="$emit('left')"
     >
       <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-white" />
@@ -77,7 +77,7 @@ const goToExtraLink = (url) => {
 
     <!-- arrow right  -->
     <div
-      class="absolute 2xl:translate-x-28 right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer h-[150px] w-[100px] flex items-center z-30 justify-end -translate-x-10 md:translate-x-0"
+      class="absolute 2xl:translate-x-28 right-0 top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer h-[150px] w-[100px] flex items-center z-30 justify-end -translate-x-10 md:translate-x-0"
       @click="$emit('right')"
     >
       <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-white" />

@@ -144,7 +144,7 @@ onMounted(() => {
   if (!store.menuShow) {
     store.menuShow = JSON.parse(localStorage.getItem("kafedra"));
   }
-  store.getKafedraEmploy(route.params.id).then((res) => {
+  store.getKafedraEmploy(route.params.slug).then((res) => {
     data.value = res.data;
   });
 });

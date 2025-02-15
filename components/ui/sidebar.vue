@@ -134,7 +134,7 @@ const getMenuLink = computed(() => {
 });
 
 onMounted(() => {
-  if (store.reklammaData) {
+  if (!store.reklammaData) {
     store.getReklama();
   }
 });

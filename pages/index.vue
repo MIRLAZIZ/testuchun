@@ -22,7 +22,7 @@ onMounted(() => {
 
 <template>
   <div class="w-full">
-    <HomeBanner  />
+    <HomeBanner />
      <HomeSciences   />
     <HomeAbautInstut  />
     <HomeFacts  />

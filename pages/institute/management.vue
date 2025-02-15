@@ -30,8 +30,10 @@ onMounted(() => {
     <loading-page v-if="loading" />
     <div v-else>
       <div v-if="data.length">
+
+
         <div
-          class="flex 2xl:w-[1076px] gap-8 h-[632] bg-[#06203D] p-8 rounded-xl border-[#E6EDFA]-1 flex-col-reverse md:flex-row"
+          class="flex gap-8 h-[632] bg-[#06203D] p-8 rounded-xl border-[#E6EDFA]-1 flex-col-reverse md:flex-row"
         >
           <div class="h-[433px] md:w-[288px] w-full flex-shrink-0">
             <img
@@ -52,36 +54,33 @@ onMounted(() => {
             </p>
 
             <hr class="border border-[#19314C] my-6" />
-            <UButton
-              class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center hover:bg-[#F7483B] text-base"
+            <button
+              class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center items-center text-white rounded-lg"
               @click="
                 $router.push(
-                  `/institute/details/management/${data[0]?.professor_employ[0]?.id}`
+                  `/institute/details/management/${data[0]?.professor_employ[0]?.slug}`
                 )
               "
             >
               {{ store.dataTranslate["home.more_details"] }}
               <UIcon name="i-heroicons-arrow-long-right" class="ml-6 w-6 h-6" />
-            </UButton>
+            </button>
           </div>
         </div>
 
         <!-- xodimlar  -->
 
-        <div class="main_branch" v-if="data && data[0]?.manage_employ">
+        <div class="" v-if="data && data[0]?.manage_employ">
           <!-- title  -->
           <h1 class="font-Halvar font-medium text-[28px] my-6 mt-20">
             {{ store.dataTranslate["contract.employees"] }}
           </h1>
 
-          <div
-            class="grid xl:grid-cols-2 gap-4 mt-10 2xl:w-[1052px] grid-cols-1"
-          >
+          <div class="grid xl:grid-cols-2 gap-4 mt-10 grid-cols-1">
             <div
               class="w-full rounded-xl p-5 flex flex-col md:flex-row bg-white gap-6"
               v-for="item in data[0]?.manage_employ"
               :key="item"
-              @click="$router.push(`/institute/details/management/${item?.id}`)"
             >
               <div class="h-[200px] w-[157px] flex-shrink-0">
                 <img
@@ -91,8 +90,8 @@ onMounted(() => {
                 />
               </div>
 
-              <div class="flex flex-col">
-                <h1 class="text-xl font-medium text-black">
+              <div class="flex flex-col justify-between">
+                <h1 class="text-xl font-medium">
                   {{ item?.first_name }}
                   {{ item?.last_name }}
                   {{ item?.surname }}
@@ -101,16 +100,18 @@ onMounted(() => {
                   {{ item?.position?.name[$i18n.locale] }}
                 </p>
                 <hr class="border border-[#DCE5F5] my-6" />
-                <UButton
-                  class="bg-[#F7483B] w-[164px] h-[48px] flex justify-center hover:bg-[#F7483B] text-base"
-                  @click="$router.push(`/institute/details/${item?.id}`)"
+                <button
+                  class="bg-[#F7483B] 2xl:w-[164px] h-[48px] flex justify-center items-center text-white rounded-lg"
+                  @click="
+                    $router.push(`/institute/details/management/${item?.slug}`)
+                  "
                 >
                   {{ store.dataTranslate["home.more_details"] }}
                   <UIcon
                     name="i-heroicons-arrow-long-right"
                     class="ml-6 w-6 h-6"
                   />
-                </UButton>
+                </button>
               </div>
             </div>
           </div>
