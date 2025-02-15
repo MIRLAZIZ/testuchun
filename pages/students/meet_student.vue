@@ -24,8 +24,8 @@ onMounted(() => {
       loading.value = false;
     });
 
-  const parentPage = `/${route.fullPath.split("/")[1]}`;
-  store.menuFind(parentPage, route.fullPath);
+    const prentPageOne = `/${route.fullPath.split("/")[1]}`;
+    store.getMenuStatick(prentPageOne, route.fullPath);
 
   if (store.menus) {
     localStorage.setItem("studentlar", JSON.stringify(store.menuShow));

@@ -23,9 +23,8 @@ onMounted(() => {
     .catch(() => {
       loading.value = false;
     });
-  if (!store.menuShow) {
+  
     store.menuShow = JSON.parse(localStorage.getItem("studentlar"));
-  }
 });
 </script>
 

@@ -51,7 +51,7 @@ const goToNext = () => {
               </div>
               <div class="flex justify-between items-center">
                       <button class="bg-[#F7483B] w-[156px]  h-[48px] flex justify-center rounded-lg items-center text-white " 
-                        @click="$router.push(`students/student-inner/${item.id}`)">
+                        @click="$router.push(`students/student-inner/${item.slug}`)">
                           {{ store?.dataTranslate['home.more_details'] }}
                           <UIcon name="i-heroicons-arrow-long-right" class=" ml-2 w-6 h-6" />
                         </button>
