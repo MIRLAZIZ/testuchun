@@ -46,21 +46,22 @@
         <div class="karusel-content flex lg:flex-col sm:flex-row gap-4">
           <!-- Slayd 1 -->
           <div
-            class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 p-4 text-white img_width"
+            class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 text-white img_width"
           >
             <div class="flex flex-col justify-between h-full w-full">
               <div class=" ">
                 <img
                   :src="store.reklammaData?.data[0]?.logo"
                   alt=""
-                  class="w-full h-[99px] "
+                  class="w-full h-[99px] object-center"
                 />
               </div>
-              <p class="font-Halvar text-xl font-medium">
+              <p class="font-Halvar text-xl font-medium px-6 pb-6">
                 {{ store.reklammaData?.data[0]?.title }}
               </p>
             </div>
           </div>
+
           <!-- Slayd 2 -->
           <div
             class="rounded-xl p-6 lg:my-2 rektorContaner flex flex-col justify-between lg:w-full rektor sm:w-[348px] text-white"
@@ -246,7 +247,6 @@ onMounted(() => {
 .caronaVirus {
   background: linear-gradient(210.04deg, #0156ba 0%, #011454 100.11%);
   height: 184px;
-  padding: 0 24px 24px 24px;
 }
 
 .rektorContaner {

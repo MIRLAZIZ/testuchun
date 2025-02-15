@@ -28,7 +28,7 @@ onMounted(() => {
     <HomeFacts  />
      <HomeStudents  />
     <HomeOurProgram />
-     <HomeQuestions />
+     <HomeQuestions class="px-12 py-12" />
    <HomeNews   />
    <HomeIntsMedia />
     <HomeMarking />

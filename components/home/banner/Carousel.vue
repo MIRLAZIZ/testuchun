@@ -108,13 +108,10 @@ iframe {
   height: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  /* min-height: 600px; */
 }
-/* @media (max-width: 1024px) {
-  .iframe {
-    width: 200% !important;
-    aspect-ratio: 16 / 9;
-  }
-} */
+
+
 </style>
 
 

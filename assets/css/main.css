@@ -25,29 +25,29 @@
 }
 
 
-@media (max-width:1280px) {
+/* @media (max-width:1280px) {
   .mainContainer {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
       }
-}
+} */
 
 
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .mainContainer {
     width: 1200px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 40px; */
     /* border: 1px solid red; */
-      }
+      /* }
   
- }
+ } */
 
  
 
- @media (min-width: 1440px) {
+ /* @media (min-width: 1440px) {
   .mainContainer {
     width: 1260px; 
     padding: 0;
@@ -60,18 +60,55 @@
     width: 1440px; 
     padding: 0;
   }
- }
+ } */
 
- @media(max-width:1024px){
+ /* @media(max-width:1024px){
   .lever{
     display:flex;
     flex-direction: column-reverse;
-  }
+  } */
   /* .main_box_hidden{
     display: hidden;
     display: none;
   } */
- }
+ /* } */
+
+ @media (max-width: 1024px) {
+  .lever {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mainContainer {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainContainer {
+    width: 1200px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1440px), (min-width: 1750px) {
+  .mainContainer {
+    width: 1260px; /* 1440px bo'lsa, agar maxsus o'zgartirish kerak bo'lsa, alohida yozing */
+    padding: 0;
+  }
+}
+
+@media (min-width: 1750px) {
+  .mainContainer {
+    width: 1440px; 
+  }
+}
+
 
 
  

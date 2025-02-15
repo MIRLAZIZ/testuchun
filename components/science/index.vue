@@ -40,11 +40,7 @@ const props = defineProps({
                 {{ item.date.slice(0, 10) }}
               </p>
             </div>
-            <img
-              src="/assets/imgs/talim/Download.png"
-              alt=""
-              class="object-contain"
-            />
+            
           </div>
         </div>
       </div>
