@@ -2,15 +2,6 @@
 import { useHomeStore } from "~/store/home";
 import { useI18n } from "vue-i18n";
 
-const addresses = [
-  {
-    city: "home.toshkentAddress",
-    address: "header.address",
-    mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.0883495155067!2d69.2509969749607!3d41.285181602330304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8aed0aa2176f%3A0xf17f44ae2ac45ff6!2z0YPQu9C40YbQsCDQqNC-0YLQsCDQoNGD0YHRgtCw0LLQtdC70LggMTE0LCDQotCw0YjQutC10L3RgiwgVGFzaGtlbnQsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1736500154179!5m2!1sru!2s",
-  },
-];
-
 const store = useHomeStore();
 const kampus = ref({
   uz: "Kampuslar",
@@ -18,6 +9,8 @@ const kampus = ref({
   en: "Campuses",
 });
 const { locale } = useI18n();
+
+const is_map = ref(true)
 
 const route = useRoute();
 const data = ref(null);
@@ -31,6 +24,18 @@ onMounted(() => {
     };
   });
 });
+
+function convertYandexMapLink(mapurl) {
+  if (typeof mapurl === 'string' &&mapurl.startsWith("https://yandex.uz/maps/"))  {
+    return mapurl.replace("https://yandex.uz/maps/", "https://yandex.uz/map-widget/v1/");
+  }
+  else{
+    is_map.value = false
+  }
+
+
+}
+
 onUnmounted(() => {
   store.slugData.slugText = null;
 });
@@ -114,54 +119,24 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div class="flex justify-center px-2">
+    <div class="flex justify-center px-2" v-if="data && data.map && is_map ">
       <div class="lg:w-[1024px] w-full mt-10 mb-[104px] rounded-xl">
         <div class=" ">
           <h2 class="font-Halvar font-medium sm:text-[28px] text-xl">
             {{ store.dataTranslate["home.location"] }}
           </h2>
           <div class="mt-8 box_flex">
-            <div
-              v-for="(address, index) in addresses"
-              :key="index"
-              class="bg-white shadow-lg rounded-lg overflow-hidden"
-            >
-              <div class="relative sm:h-full h-[265px]">
-                <iframe
-                  :src="address.mapSrc"
-                  class="w-full h-[502px]"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-                <div
-                  class="p-4 absolute bg-white 2xl:w-[580px] xl:w-[500px] py-5 px-6 rounded-xl left-3 right-6 bottom-6 flex flex-col justify-between box_our"
-                >
-                  <h3 class="">
-                    <span class="">
-                      {{ store.dataTranslate[address.city] }}
-                    </span>
-                  </h3>
-                  <div class="flex sm:mt-4 mt-0">
-                    <div class="w-[39px] h-[39px]">
-                      <img
-                        src="/assets/imgs/home/locationdot.png"
-                        alt=""
-                        class=""
-                      />
-                    </div>
-                    <p
-                      class="text-lg font-Halvar font-medium flex items-center ml-2"
-                    >
-                      {{ store.dataTranslate[address.address] }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <iframe
+              :src="convertYandexMapLink(data?.map)"
+              class="w-full h-[502px]"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 

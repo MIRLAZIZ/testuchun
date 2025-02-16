@@ -1,5 +1,4 @@
 <script setup>
-
 import { useHomeStore } from "~/store/home";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
@@ -14,32 +13,37 @@ const kampus = ref({
   ru: "Kampusy",
   en: "Campuses",
 });
+const loading = ref(true);
 const { locale } = useI18n();
 
 let data = ref({
   title: kampus.value[locale.value],
   slugText: "",
-  path: '/kampus'
+  path: "/kampus",
 });
 
 onMounted(() => {
-  store.menuShow = null
+  store.menuShow = null;
   store.slugData = data;
- 
-  
-  
-  store.getKampus().then((res) => {
-    items.value = res.data;
 
-  });
+  store
+    .getKampus()
+    .then((res) => {
+      items.value = res.data;
+      loading.value = false;
+    })
+    .catch(() => {
+      loading.value = false;
+    });
 });
-
 </script>
 <template>
   <div class="w-full">
     <div>
       <UiBreadcrumb />
     </div>
+
+    <LoadingPage v-if="loading" />
     <div class="w-full flex justify-center">
       <div
         v-if="items && items.data"
@@ -50,7 +54,9 @@ onMounted(() => {
           v-for="item in items.data"
           :key="item.id"
         >
-          <img
+      
+          <img 
+          v-if="item.images && item.images[0]"
             :src="item.images[0][store.currentImage]"
             alt=""
             class="w-full h-[343px] object-cover rounded-xl"
@@ -59,23 +65,33 @@ onMounted(() => {
             <h1 class="text-[24px] font-medium mt-6">{{ item.name }}</h1>
             <p class="mt-2 text-xl" v-html="item.first_description"></p>
           </div>
-          <hr class="my-4" />
-          <div
-            class="flex justify-between items-center cursor-pointer"
-            @click="$router.push(`/kampus/${item.slug}`)"
-          >
-            <span class="text-[#5D5D5F]">
-              {{ store.dataTranslate["home.more_details"] }}</span
+          <div>
+            <hr class="my-4" />
+
+            <div
+              class="flex justify-between items-center cursor-pointer"
+              @click="$router.push(`/kampus/${item.slug}`)"
             >
-            <UIcon
-              name="i-heroicons-arrow-up-right"
-              class="text-[#F7483B] ml-2"
-            />
+            
+              <span class="text-[#5D5D5F]">
+                {{ store.dataTranslate["home.more_details"] }}</span
+              >
+              <UIcon
+                name="i-heroicons-arrow-up-right"
+                class="text-[#F7483B] ml-2"
+              />
+            </div>
+
           </div>
         </div>
       </div>
+
+      <div v-else>
+        <h1 class="text-center font-Halvar text-3xl">
+          {{ store.dataTranslate["header.do_not"] }}
+        </h1>
+      </div>
     </div>
-    
   </div>
 </template>
 

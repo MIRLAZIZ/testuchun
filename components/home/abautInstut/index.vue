@@ -1,11 +1,10 @@
 <script setup>
-import kampus from '~/assets/imgs/home/building-3.png'
-import auditoriya from '~/assets/imgs/home/sitemap.png'
-import active from '~/assets/imgs/home/multi-user.png'
-import book from '~/assets/imgs/home/book-open.png'
+import kampus from "~/assets/imgs/home/building-3.png";
+import auditoriya from "~/assets/imgs/home/sitemap.png";
+import active from "~/assets/imgs/home/multi-user.png";
+import book from "~/assets/imgs/home/book-open.png";
 
-import { useHomeStore } from '~/store/home'
-
+import { useHomeStore } from "~/store/home";
 
 const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
@@ -15,145 +14,174 @@ const isClient = ref(false);
 onMounted(() => {
   isClient.value = true;
 });
+const goToExtraLink = (url) => {
+  if (url) {
+    // URL to‘liq ekanligini tekshiramiz
+    const fullUrl = url.startsWith("http") ? url : `https://${url}`;
+    window.open(fullUrl, "_blank", "noopener,noreferrer");
+  }
+};
 
-const store = useHomeStore()
-const modalVisible = ref(false) 
+const store = useHomeStore();
+const modalVisible = ref(false);
 const items = [
-    { id: 1, name: 'home.campus', img: kampus, link: '/kampus' },
-    { id: 2, name: 'home.auditorium', img: auditoriya, link: '/page/auditorium' },
-    { id: 3, name: 'home.lkecture_hall', img: active, link: '/page/activisthall' },
-    { id: 4, name: 'home.library', img: book, link: '/students/library' },
-]
-
-
+  { id: 1, name: "home.campus", img: kampus, link: "/kampus" },
+  { id: 2, name: "home.auditorium", img: auditoriya, link: "/page/auditorium" },
+  {
+    id: 3,
+    name: "home.lkecture_hall",
+    img: active,
+    link: "/page/activisthall",
+  },
+  { id: 4, name: "home.library", img: book, link: "/students/library" },
+];
 </script>
 
 <template>
-    <div class="w-full flex justify-center "  >
-        <!-- <div class="mainContainer"> -->
-        <div class="mainContainer " v-if="store.dataTranslate['home.time']">
-            <div class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md  xl:h-[630px] lg:h-full p-7" style="grid-template-columns: 50% 50%;">
-                <!-- Chap bo'lim -->
-                <div  v-if="isClient" data-aos="fade-up" class=" flex banner_left flex-col justify-between">
-                    <div>
-                        <h1 class="abautTitle ">
-                            {{ store.dataTranslate['home.time'] }}
-                        </h1>
-                        <p class="abautBody my-6 ">
-                            {{ store.dataTranslate['home.time_data'] }}
-                        </p>
-                    </div>
+  <div class="w-full flex justify-center">
+    <!-- <div class="mainContainer"> -->
+    <div class="mainContainer" v-if="store.dataTranslate['home.time']">
+      <div
+        class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md xl:h-[630px] lg:h-full p-7"
+        style="grid-template-columns: 50% 50%"
+      >
+        <!-- Chap bo'lim -->
+        <div
+          v-if="isClient"
+          data-aos="fade-up"
+          class="flex banner_left flex-col justify-between"
+        >
+          <div>
+            <h1 class="abautTitle">
+              {{ store.dataTranslate["home.time"] }}
+            </h1>
+            <p class="abautBody my-6">
+              {{ store.dataTranslate["home.time_data"] }}
+            </p>
+          </div>
 
-                    <button @click="openModal"
-                        class=" text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center  items-center ">
-                      {{ store.dataTranslate['home.submit_application'] }}
-                        <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5 text-white ml-2  " />
-                    </button>
+          <button
+            @click="openModal"
+            class="text-white text-base bg-[#F7483B] w-[216px] h-[48px] font-medium rounded-lg flex justify-center items-center"
+          >
+            {{ store.dataTranslate["home.submit_application"] }}
+            <UIcon
+              name="i-heroicons-arrow-long-right"
+              class="w-5 h-5 text-white ml-2"
+            />
+          </button>
 
+          <div class="mt-6 grid grid-cols-2 gap-4 box_ul">
+            <button
+              v-for="item in items"
+              :key="item.id"
+              class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
+              @click="$router.push(item.link)"
+            >
+              <img :src="item.img" alt="" class="w-[24px] h-[24px]" />
+              <div class="flex justify-between w-full">
+                <p class="text-[#06203D] text-left">
+                  {{ store.dataTranslate[item.name] }}
+                </p>
 
-                    <div class="mt-6 grid grid-cols-2 gap-4    box_ul">
-                        <button v-for="item in items" :key="item.id"
-                            class="buttons border flex flex-col justify-between hover:bg-[#FEF0EF] hover:border-[#F7483B]"
-                            @click="$router.push(item.link)">
-                            <img :src="item.img" alt="" class="w-[24px] h-[24px]">
-                            <div class="flex justify-between w-full ">
-                                <p class="text-[#06203D] text-left">{{store.dataTranslate[item.name] }}</p>
-
-                                <img src="/assets/imgs/talim/arrow-right-long.png" alt="" class=" sm:hidden  object-cover">
-                            </div>
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- O'ng bo'lim -->
-                <div  v-if="isClient" data-aos="fade-down" class="flex flex-col items-center   relative xl:h-full ">
-                    <img src="/assets/imgs/home/Rectangle 15.png" alt="Institut binosi"
-                        class="rounded-lg shadow-md abautImg" />
-                    <div
-                        class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]  flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 ">
-                        <img src="/assets/imgs/home/playVideo.png" alt="">
-                    </div>
-
-                </div>  
-            </div>
+                <img
+                  src="/assets/imgs/talim/arrow-right-long.png"
+                  alt=""
+                  class="sm:hidden object-cover"
+                />
+              </div>
+            </button>
+          </div>
         </div>
 
-        <Modal :isOpen="modalVisible"  @close="closeModal"  />
-
+        <!-- O'ng bo'lim -->
+        <div
+          v-if="isClient"
+          data-aos="fade-down"
+          class="flex flex-col items-center relative xl:h-full"
+        >
+          <img
+            src="/assets/imgs/home/Rectangle 15.png"
+            alt="Institut binosi"
+            class="rounded-lg shadow-md abautImg"
+          />
+          <div
+            @click="goToExtraLink(store.siteInfo?.yt_url)"
+            class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px] flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 cursor-pointer"
+          >
+            <img src="/assets/imgs/home/playVideo.png" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
+
+    <Modal :isOpen="modalVisible" @close="closeModal" />
+  </div>
 </template>
 <style>
-
-@media (max-width:600px){   
-    .abautTitle{
-        font-weight: 500 !important;
-        font-size: 16px !important;
-    }
-    .abautBody{
-        font-weight: 400 !important;
-        font-size: 14px !important;
-    }
-    .mainContainer{
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-
-    }
-    .box_ul{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .buttons{
-        max-width:100% !important;
-    }
+@media (max-width: 600px) {
+  .abautTitle {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+  }
+  .abautBody {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+  }
+  .mainContainer {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .box_ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .buttons {
+    max-width: 100% !important;
+  }
 }
 
-@media (min-width: 1400px){
-    /* .banner_left{
+@media (min-width: 1400px) {
+  /* .banner_left{
         margin-left:5em;
     } */
 }
 
-@media (max-width:1024px){
-    .box_wrapper{
-        display:flex;
-        flex-direction: column-reverse;
-    }
-    .abautImg {
-        width: 100% !important;
-
-    }
+@media (max-width: 1024px) {
+  .box_wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .abautImg {
+    width: 100% !important;
+  }
 }
 
 .abautTitle {
-    font-family: 'Halvar Breitschrift';
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 33.6px;
-
-
+  font-family: "Halvar Breitschrift";
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 33.6px;
 }
 
 .abautBody {
-    /* font-family: Golos Text; */
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
+  /* font-family: Golos Text; */
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
 }
 
 .buttons {
-    /* max-width: 270px; */
-    height: 107px;
-    padding: 15px 16px 15px 16px;
-    border-radius: 8px;
+  /* max-width: 270px; */
+  height: 107px;
+  padding: 15px 16px 15px 16px;
+  border-radius: 8px;
 }
 
 .abautImg {
-    width: 680px;
-    height: 100%;
-    border-radius: 8px;
-
+  width: 680px;
+  height: 100%;
+  border-radius: 8px;
 }
 </style>
