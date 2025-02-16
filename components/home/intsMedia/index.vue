@@ -61,7 +61,7 @@
       class="fixed inset-0 z-[9999] flex items-center justify-center"
       style="background: rgba(0, 0, 0, 0.75)"
     >
-      <div class="relative w-[70%] xl:w-[50%]">
+      <div class="relative w-[95%] xl:w-[50%]">
         <!-- Close Button -->
         <button
           @click="closeModal"
