@@ -45,7 +45,7 @@ const selectItem = (data) => {
         </h1>
       </div>
 
-      <div class="mt-10">
+      <div class="my-10 ">
         <button
           class=" selectProgram"
           :class="{ activeClass: selectedProgram === 0 }"
