@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative h-[789px] border-10">
+  <div class="relative h-[620px] md:h-[789px]">
     <UCarousel
       ref="carousel"
       v-slot="{ item }"
@@ -53,28 +53,30 @@ onMounted(() => {
       :ui="{ item: 'basis-full' }"
       class="w-full overflow-hidden"
     >
-      <div class="relative w-full h-[789px] border">
-        <iframe
-          v-if="item?.desc"
-          class="w-full h-full"
-          :src="
-            extractLinkFromP(item?.desc) +
-            '&controls=1&autoplay=1&mute=1&rel=0&loop=1&playlist=' +
-            extractVideoId(extractLinkFromP(item?.desc)) +
-            '&iv_load_policy=3&modestbranding=1&enablejsapi=1&showinfo=0&fs=0'
-          "
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-          scrolling="no"
-        ></iframe>
-
-        <img
-          v-else
-          :src="item?.images[store.currentImage]"
-          class="w-full h-full"
-          draggable="false"
-        />
+    <div class="w-full h-[620px] md:h-[789px] overflow-hidden">
+        <div class="absolute left-1/2  transform -translate-x-1/2 w-[450%] sm:[300%] md:w-[230%] lg:w-[200%] xl:w-[130%] 2xl:w-[100%]">
+          <iframe
+            v-if="item?.desc"
+            class=""
+            :src="
+              extractLinkFromP(item?.desc) +
+              '&controls=1&autoplay=1&mute=1&rel=0&loop=1&playlist=' +
+              extractVideoId(extractLinkFromP(item?.desc)) +
+              '&iv_load_policy=3&modestbranding=1&enablejsapi=1&showinfo=0&fs=0'
+            "
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            scrolling="no"
+          ></iframe>
+          
+          <img
+            v-else
+            :src="item?.images[store.currentImage]"
+            class="w-full h-full object-cover"
+            draggable="false"
+          />
+        </div>
       </div>
     </UCarousel>
 
@@ -91,10 +93,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.relative {
-  height: 100%;
-}
-
 .faceCarousel {
   background: linear-gradient(
     180deg,
@@ -107,11 +105,8 @@ iframe {
   width: 100%;
   height: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
-  /* min-height: 600px; */
+  transform: translateY(-100px);
 }
-
-
 </style>
 
 

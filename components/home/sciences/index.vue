@@ -2,7 +2,7 @@
   <div class="w-full flex justify-center">
     <div class="mainContainer sm:block flex justify-center">
       <div
-        class="bg-white rounded-lg sm:grid sm:grid-cols-3 shadow-md h-[258px] mb-[110px] mt-[104px] xl:-mt-[129px] box_wrapper_li relative z-10 "
+        class="bg-white rounded-lg sm:grid sm:grid-cols-3 shadow-md h-[258px] mb-[110px] -mt-[129px] box_wrapper_li relative z-10 "
       >
         <!-- fristColumn -->
         <div class="sm:border-r">
