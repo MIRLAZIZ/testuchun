@@ -4,7 +4,8 @@ import { useContactStore } from "~/store/contact";
 const stored = useContactStore();
 import { toast } from "vue3-toastify";
 const isClient = ref(false);
-
+ const emit = defineEmits(["closeModal"]);
+ const props = defineProps(["is_open"]);
 onMounted(() => {
   isClient.value = true;
 });
@@ -31,12 +32,12 @@ function send() {
         question.value.message
       )
       .then((res) => {
-
         toast.success("Xabar muvaffaqqiyatli yuborildi");
         (question.value.name = null),
           (question.value.telNumber = null),
           (question.value.message = null);
-      }).catch((err) => {
+      })
+      .catch((err) => {
         toast.error("Xatolik yuz berdi");
       });
   }
@@ -54,7 +55,18 @@ watch(
 );
 </script>
 <template>
-  <div class="bg-[#06203D] w-full flex justify-center" v-if="isClient">
+  <div class="bg-[#06203D] w-full flex justify-center relative" v-if="isClient">
+    <div
+    v-if="is_open"
+      class="cursor-pointer absolute right-9 top-9 "
+      @click="$emit('closeModal')"
+    >
+      <img
+        src="/assets/imgs/talim/exit.png"
+        alt=""
+        class="w-10 md:w-7 h-10 md:h-7"
+      />
+    </div>
     <div
       class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 lg:gap-0 mainContainer"
     >

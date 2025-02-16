@@ -73,7 +73,7 @@ const goToExtraLink = (url) => {
 
     <!-- left arrow -->
     <div
-      class="absolute left-0  top-1/2 transform -translate-y-1/2 2xl:right-16 cursor-pointer z-30 flex items-center translate-x-10"
+      class="absolute left-0  top-1/2 transform -translate-y-1/2 2xl:right-16 cursor-pointer z-30 flex items-center translate-x-5"
       @click="$emit('left')"
     >
       <UIcon name="i-heroicons-chevron-left" class="w-12 h-20 text-white" />
@@ -81,7 +81,7 @@ const goToExtraLink = (url) => {
 
     <!-- arrow right  -->
     <div
-      class="absolute  right-0 2xl:right-16 top-1/2 transform -translate-y-1/2 cursor-pointer flex items-center z-30 justify-end -translate-x-10"
+      class="absolute  right-0 2xl:right-16 top-1/2 transform -translate-y-1/2 cursor-pointer flex items-center z-30 justify-end -translate-x-5"
       @click="$emit('right')"
     >
       <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-white" />

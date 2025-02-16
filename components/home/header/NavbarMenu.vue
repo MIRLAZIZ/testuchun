@@ -13,7 +13,7 @@ const store = useHomeStore()
             <HomeHeaderMenu />
             <div>
                 <div
-                    class="bg-[#F7483B]   h-[48px] px-2  navbar_height rounded-lg font-medium text-white flex justify-center items-center">
+                    class="bg-[#F7483B]   h-[48px] px-3  navbar_height rounded-lg font-medium text-white flex justify-center items-center">
                     <a href="https://register.timeedu.uz/" target="_blank">{{ store?.dataTranslate['header.register']
                         }}</a> </div>
             </div>
