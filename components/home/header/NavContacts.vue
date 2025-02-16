@@ -2,10 +2,10 @@
 import { useHomeStore } from '~/store/home'
 const store = useHomeStore()
 const isMenuOpen = ref(false)
-function toggleMenu() {
-  isMenuOpen.value = !isMenuOpen.value;
-  console.log('isMenuOpen', isMenuOpen)
-}
+// function toggleMenu() {
+//   isMenuOpen.value = !isMenuOpen.value;
+//   console.log('isMenuOpen', isMenuOpen)
+// }
 
 
 function handleScroll() {
@@ -38,10 +38,10 @@ onUnmounted(() => {
       <!-- contacts -->
       <div class="flex justify-between items-center xl:w-[40%] lg:w-[45%] md:w-[50%]">
         <div class="flex justify-between contactImgs w-[30%]">
-          <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram.png" alt="" class="object-cover" ></a>
-          <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram.png" alt="" class="object-cover"></a>
-          <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook.png" alt="" class="object-cover"></a>
-          <a :href="store.siteInfo?.youtube" target="_blank"  class="w-7 h-7 rounded-full bg-[#EBEBEB] flex justify-center items-center"> <img src="/assets/imgs/home/youtube-svgrepo-com.svg" alt="" class="w-4 h-4 object-cover"></a>
+          <a :href="store.siteInfo?.telegram" target="_blank"> <img src="/assets/imgs/home/telegram2.png" alt="" class="object-cover" ></a>
+          <a :href="store.siteInfo?.instagram" target="_blank"> <img src="/assets/imgs/home/instagram2.png" alt="" class="object-cover"></a>
+          <a :href="store.siteInfo?.facebook" target="_blank"><img src="/assets/imgs/home/facebook2.png" alt="" class="object-cover"></a>
+          <a :href="store.siteInfo?.youtube" target="_blank"  class="w-7 h-7 rounded-full bg-[#EBEBEB] flex justify-center items-center"> <img src="/assets/imgs/home/youtube2.png" alt="" class="w-4 h-4 object-cover"></a>
         </div>
         <!-- tel number -->
         <div>
