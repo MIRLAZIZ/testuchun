@@ -51,7 +51,7 @@ const goToNext = () => {
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
                     :class="[ { 'border-2 border-[#06203D]': active }]">
                     <!-- {{ props.data[page - 1][store.currentImage] }} -->
-                    <img :src="props.data[page - 1][store.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
+                    <img :src="props?.data[page - 1][store?.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
 
                 </div>
             </template>

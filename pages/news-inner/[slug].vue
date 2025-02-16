@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-center mb-[104px]">
     <LoadingPage v-if="loading" />
 
     <div v-else>
@@ -65,12 +65,12 @@
             </button>
           </div>
         </div>
-
+<!-- 
         <UiNewsCarousel
           :items="store.news?.data?.slice(0, 6)"
           :title="store.dataTranslate['home\.latest_news']"
           class=""
-        />
+        /> -->
       </div>
     </div>
   </div>
