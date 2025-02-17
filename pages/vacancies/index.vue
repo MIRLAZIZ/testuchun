@@ -26,7 +26,13 @@
           <img src="/assets/imgs/vacansiec/Vector.png" alt="">
         </div>
       </div>
+
+
+      
     </div>
+    <HomeOurAdresses  class="mt-[104px]" />
+
+
       <!-- <div class="flex justify-center mt-6">
         <button class="btn-load-more">Ko'proq ko'rish +</button>
       </div> -->
@@ -47,50 +53,7 @@ onMounted(() => {
         })
 })
 
-const vacancies = [
-  {
-    id: 1,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-  {
-    id: 2,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-    {
-    id: 3,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-    {
-    id: 4,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-     {
-    id: 5,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-     {
-    id: 6,
-    title: 'Sotuv Menejeri vakansiyasiga tanlov. Faqat Qaynoq mijozlarga telefon qilasiz!',
-    date: '11 11 2024',
-    schedule: 'Dushanba - Juma',
-    salary: '5 500 000 dan - 14 200 000 gacha',
-  },
-];
+
 </script>
 
 

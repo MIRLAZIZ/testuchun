@@ -1,17 +1,17 @@
 <template>
-  <div class=" mb-[104px] ">
+  <div class="flex justify-center mb-[104px] w-full">
     <div class="w-full">
       <h1 class="font-Halvar font-medium text-[28px]">{{ props.title }}</h1>
 
-      <div class="relative mt-6 w-full ">
-        <UCarousel v-slot="{ item }" :items="props?.items" ref="carousel" class="overflow-hidden flex" >
+      <div class="relative mt-6 w-full">
+        <UCarousel v-slot="{ item }" :items="props?.items" ref="carousel">
           <div
             class="w-[348px] rounded-xl p-3 flex flex-col bg-white mr-4 cursor-pointer"
             @click="store.getNewsOne(item?.slug), $router.replace(`/news-inner/${item.slug}`)"
           >
             <img
               :src="item?.images[0][store.currentImage]"
-              class="w-[324px] h-[200px] mb-4 rounded-lg object-cover"
+              class="w-[324px] h-[200px] mb-4 rounded-lg"
             />
 
             <div class="flex gap-2">
@@ -20,7 +20,7 @@
                 src="/assets/imgs/talim/Calender.png"
                 alt=""
               />
-              <p class="font-normal text-base text-[#5D5D5F] ">
+              <p class="font-normal text-base text-[#5D5D5F] wrapper_bot">
                 {{ item?.date?.substring(0, 10) }}
               </p>
             </div>
@@ -94,3 +94,4 @@ const goToNext = () => {
 };
 </script>
 
+<style scoped></style>
