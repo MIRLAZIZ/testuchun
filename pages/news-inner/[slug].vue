@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-center items-center mb-[104px]">
+  <div class="flex justify-center items-centermainContainer mb-[104px]">
     <LoadingPage v-if="loading" />
 
     <div v-else>
-      <div class="mainContainer w-full">
+      <div class="mainContainer w-full ">
         <div class="w-full bg-white rounded-xl p-8 mt-10">
           <div class="mb-8">
             <div class="flex justify-between">
@@ -65,8 +65,8 @@
             </button>
           </div>
         </div>
-<!-- 
-        <UiNewsCarousel
+
+        <!-- <UiNewsCarousel
           :items="store.news?.data?.slice(0, 6)"
           :title="store.dataTranslate['home\.latest_news']"
           class=""

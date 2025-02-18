@@ -56,7 +56,7 @@ const navigationItems = computed(() => [
   {
     id: 8,
     label: store.dataTranslate["footr.bog'lanish"],
-    href: "/vacancies/contact",
+    href: "/page/contact",
   },
 ]);
 </script>

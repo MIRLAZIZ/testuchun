@@ -58,7 +58,7 @@ const goToExtraLink = (url) => {
 
       <!-- window img  -->
       <div
-        class="justify-end hidden lg:flex"
+        class="justify-end    lg:flex"
         @click="goToExtraLink(props?.activeItem?.url)"
       >
         <img

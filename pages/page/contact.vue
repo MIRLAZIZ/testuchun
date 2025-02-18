@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center w-full">
-    <div class="w-full lg:w-[1052px] px-16  ">
-      <div class="">
+  <div class="flex justify-center w-full mt-10">
+    <div class="w-full lg:w-[1052px]   ">
+      <div class="px-10">
         <!-- Sarlavha -->
         <h1 class="text-[24px] font-Halvar mb-6">
           {{ store.dataTranslate["home.contacts"] }}
@@ -73,7 +73,7 @@
 
             <a
               :href="'mailto:' + store.siteInfo?.email"
-              class="text-black font-medium text-xl"
+              class="font-medium text-xl"
               >{{ store.siteInfo?.email }}</a
             >
           </div>
@@ -102,7 +102,7 @@
           </div>
         </div>
       </div>
-      <HomeOurAdresses  class="mt-[104px]" />
+      <HomeOurAdresses  class="my-[104px]" style="padding-left: 0;" />
 
       
     </div>
@@ -117,8 +117,7 @@ const route = useRoute();
 
 onMounted(() => {
  
-  // store.getMenuStatick('page', route.fullPath);
-  // console.log(route.fullPath);
+  store.getMenuStatick('/page', route.fullPath);
   
 });
 

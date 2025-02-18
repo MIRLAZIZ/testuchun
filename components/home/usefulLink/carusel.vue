@@ -31,7 +31,7 @@
                 {{ item?.date?.substring(0, 10) }}
               </p>
             </div>
-            <h1 class="font-medium sm:text-xl text-sm text-black mt-3">
+            <h1 class="font-medium sm:text-xl text-sm mt-3">
               {{ item?.title }}
             </h1>
           </div>

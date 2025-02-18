@@ -88,9 +88,9 @@ const secondColumn = [
 ];
 
 const thirdColumn = [
-  { id: 7, name: "home.vacancies", link: "/vacancies" },
+  { id: 7, name: "home.vacancies", link: "/page/vacancies" },
   { id: 8, name: "home.tender", link: "/news/tender" },
-  { id: 9, name: "home.contacts", link: "/vacancies/contact" },
+  { id: 9, name: "home.contacts", link: "/page/contact" },
 ];
 </script>
 

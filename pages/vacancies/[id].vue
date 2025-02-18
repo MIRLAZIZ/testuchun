@@ -2,7 +2,7 @@
   <div class=" min-h-screen vacancy-container   ">
     <div class="container mx-auto ">
       <!-- Sarlavha -->
-      <div class="bg-white  w-full p-6 mb-6 ">
+      <div class="bg-white  w-full p-6 mb-6  mt-10 rounded-xl">
           <h1 class="text-3xl font-medium text-center mb-4">{{store.vacansiecId?.title}}</h1>
           <div class="flex items-center justify-center mb-4 w-full gap-6">
               <div class="flex items-center gap-2 text-gray-500">
@@ -31,7 +31,7 @@
     
       </div>
       <!-- {{store.siteInfo?.data?.telegram}} -->
-      <div class="flex items-center justify-center mt-10">
+      <div class="flex items-center justify-center mt-10 mb-[104px]">
           <a :href="store1.siteInfo?.telegram" target="_blank"
             class=" bg-red-500 text-white py-2 px-4 font-medium text-sm rounded-lg cursor-pointer hover:bg-red-600"
           >
@@ -68,7 +68,6 @@ onMounted(() => {
 .vacancy-container {
   max-width: 1052px;
   margin: 0 auto;
-  padding: 16px;
 }
 @media (max-width:600px){
   .vacancy-container h1{
