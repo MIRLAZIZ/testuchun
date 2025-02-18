@@ -27,10 +27,8 @@
         </div>
       </div>
 
-
       
     </div>
-    <HomeOurAdresses  class="mt-[104px]" />
 
 
       <!-- <div class="flex justify-center mt-6">
