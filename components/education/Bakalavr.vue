@@ -56,7 +56,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="w-full flex justify-center">
+  <div class="w-full flex justify-center  mb-[104px]">
     <loading-page v-if="loading" />
 
     <div class="mainContainer" v-else>
@@ -91,9 +91,9 @@ onUnmounted(() => {
             />
           </button>
         </div>
-        <div class="xl:w-[1016px] w-full mb-[104px]">
+        <!-- <div class="xl:w-[1016px] w-full mb-[104px]">
           <EducationComments :data="data?.employs" />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

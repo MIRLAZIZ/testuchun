@@ -75,7 +75,7 @@ const processedMenus = computed(() => {
       </div>
       <div v-else>
         <h1 class="text-center font-Halvar text-3xl">
-          {{ store.dataTranslate["science.no_data"] }}
+          {{ store.dataTranslate["header.do_not"] }}
         </h1>
       </div>
     </div>

@@ -7,7 +7,7 @@ const openModal = () => (modalVisible.value = true);
 const closeModal = () => (modalVisible.value = false);
 
 const store = useHomeStore();
-const selectedProgram = ref(0);
+const selectedProgram = ref(1);
 const seletTypeEducution = (index) => {
   selectedProgram.value = index;
   programitem.value = store.educationData[index].children[0];
@@ -17,13 +17,13 @@ onMounted(() => {
   if (!store.educationData) {
     store.getEducation().then(() => {
 
-      programitem.value = store.educationData[0].children[0];
-      progamItemId.value = store.educationData[0].children[0].id;
+      programitem.value = store.educationData[1].children[0];
+      progamItemId.value = store.educationData[1].children[0].id;
     });
   } else {
 
-    programitem.value = store.educationData[0].children[0];
-    progamItemId.value = store.educationData[0].children[0].id;
+    programitem.value = store.educationData[1].children[0];
+    progamItemId.value = store.educationData[1].children[0].id;
   }
 });
 
@@ -46,19 +46,22 @@ const selectItem = (data) => {
       </div>
 
       <div class="my-10 ">
+       
         <button
-          class=" selectProgram"
-          :class="{ activeClass: selectedProgram === 0 }"
-          @click="seletTypeEducution(0)"
-        >
-          {{ store.educationData[0].name }}
-        </button>
-        <button
-          class="selectProgram ml-8"
+          class="selectProgram "
           :class="{ activeClass: selectedProgram === 1 }"
           @click="seletTypeEducution(1)"
         >
           {{ store.educationData[1].name }}
+        </button>
+
+
+         <button
+          class=" selectProgram ml-8 "
+          :class="{ activeClass: selectedProgram === 0 }"
+          @click="seletTypeEducution(0)"
+        >
+          {{ store.educationData[0].name }}
         </button>
 
 

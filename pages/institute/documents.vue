@@ -23,23 +23,22 @@ onMounted(() => {
   <div>
     <LoadingPage v-if="loading" />
     <div v-else>
-      <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4" v-if="items">
+      <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 auto-rows-max" v-if="items">
         <div
           v-for="item in items?.data"
           :key="item.id"
-          class="w-full bg-white rounded-xl h-[146px] flex flex-col justify-between p-6"
+          class="w-full bg-white rounded-xl flex flex-col justify-between p-6  h-fit" 
         >
           <h1 class="font-medium">
             {{
-              item?.title?.length > 30
-                ? item?.title?.slice(0, 40) + "..."
-                : item?.title
+              item?.title
             }}
           </h1>
 
-          <hr class="border border-[#DCE5F5]" />
+        
 
           <div class="w-full text-[#5D5D5F]">
+            <hr class="border border-[#DCE5F5] my-4" />
             <a
               :href="item.link"
               class="flex justify-between items-center w-full hover:text-[#F7483B]"
@@ -59,24 +58,4 @@ onMounted(() => {
 </template>
 
 
-<style  scoped>
-@media (max-width: 1024px) {
-  .main_branch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media (max-width: 640px) {
-  .main_box {
-    width: 300px;
-    gap: 2em;
-    display: grid;
-    justify-content: center;
-  }
-  .main_box_wrapper {
-    width: 300px;
-    padding: 2em;
-  }
-}
-</style>
+

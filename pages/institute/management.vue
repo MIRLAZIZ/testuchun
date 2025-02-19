@@ -70,11 +70,11 @@ onMounted(() => {
 
         <!-- xodimlar  -->
 
-        <div class="" v-if="data && data[0]?.manage_employ">
+        <div class="mt-20" v-if="data && data[0]?.manage_employ">
           <!-- title  -->
-          <h1 class="font-Halvar font-medium text-[28px] my-6 mt-20">
+          <!-- <h1 class="font-Halvar font-medium text-[28px] my-6 mt-20">
             {{ store.dataTranslate["contract.employees"] }}
-          </h1>
+          </h1> -->
 
           <div class="grid xl:grid-cols-2 gap-4 mt-10 grid-cols-1">
             <div

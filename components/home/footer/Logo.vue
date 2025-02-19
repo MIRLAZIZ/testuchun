@@ -1,7 +1,7 @@
 <template>
   <nav class="flex justify-between box_wrapper">
-    <div>
-      <img :src="store.siteInfo?.logo" alt="" class="w-[121px] h-[42px]" />
+    <div @click="$router.push('/')">
+      <img :src="store.siteInfo?.logo" alt="" class="w-[121px] cursor-pointer h-[42px]" />
     </div>
 
     <ul
