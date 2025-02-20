@@ -41,7 +41,7 @@ const processedMenus = computed(() => {
             class="bg-white rounded-xl w-full p-8"
           >
             <UiCarousel :data="data.photo" />
-            <h1 class="sm:text-[28px] box_text text-[#06203D] font-medium mb-6">
+            <h1 class="sm:text-[28px] box_text text-[#06203D] mt-8 font-medium mb-6">
               {{ data?.title }}
             </h1>
             <div

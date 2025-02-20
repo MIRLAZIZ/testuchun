@@ -1,7 +1,8 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
-const store = useHomeStore();
 
+const store = useHomeStore();
+const isFixed = ref(false);
 const screenWidth = ref(0);
 
 const updateImage = () => {
@@ -17,6 +18,10 @@ const updateImage = () => {
   }
 };
 
+const handleScroll = () => {
+  isFixed.value = window.scrollY > 200; // 200px dan pastga tushganda fixed bo'ladi
+};
+
 onMounted(() => {
   screenWidth.value = window.innerWidth;
 
@@ -27,6 +32,7 @@ onMounted(() => {
     screenWidth.value = window.innerWidth;
     updateImage();
   });
+  window.addEventListener("scroll", handleScroll);
 
   store.getMenu().then(() => {
     store.getCategorys().then((res) => {
@@ -62,19 +68,22 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("resize", updateImage);
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 <template>
   <div class="bg-[#F4F6FA]">
-    
     <div class="box_hidden2">
-      <HomeHeaderNavBar />
+      <HomeHeaderNavBar
+        :class="{
+          'fixed-navbar': isFixed && $route.path !== '/',
+          'hidden-navbar': !isFixed && $route.path !== '/',
+        }"
+      />
     </div>
     <div class="box_hidden1">
       <Sidebarmini />
     </div>
-    <!-- <Sidebarmini  /> -->
-    <!-- <HomeHeaderNavBar /> -->
 
     <slot />
 
@@ -99,5 +108,48 @@ onUnmounted(() => {
 }
 .box_hidden2 {
   display: block;
+}
+
+/* Default navbar (scroll oldidan) */
+.hidden-navbar {
+  /* transform: translateY(-100%); */
+  transition: transform 0.4s ease-in-out;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+/* Fixed navbar (scrolldan keyin) */
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 50;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease-in-out;
+  animation: fade-out 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY( -100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
 }
 </style>

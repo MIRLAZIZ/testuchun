@@ -67,8 +67,12 @@ onUnmounted(() => {
           <p class="text-[20px]" v-html="data.second_description"></p>
         </div>
 
-        <div
-          class="mt-6 grid lg:grid-cols-3 md:grid-cols-3 md:gap-x-2 gir-cols-1 lg:gap-x-4 gap-4 my-10"
+
+        <!-- facts and number  -->
+
+        <!-- <div
+      
+          class="mt-6  grid lg:grid-cols-3 md:grid-cols-3 md:gap-x-2 gir-cols-1 lg:gap-x-4 gap-4 my-10"
         >
           <div
             class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border"
@@ -108,16 +112,24 @@ onUnmounted(() => {
               {{ store.dataTranslate["home.green_zone"] }}
             </p>
           </div>
-        </div>
+        </div> -->
+
+
+
+
 
         <div class="the_kampus">
-          <h1 class="text-[28px] text-[#06203D] mb-6">
+          <h1 class="text-[28px] text-[#06203D] mt-10 mb-6">
             {{ data.third_name }}
           </h1>
           <p class="text-[20px]" v-html="data.third_description"></p>
         </div>
+
+
       </div>
     </div>
+
+    
 
     <div class="flex justify-center px-2" v-if="data && data.map && is_map ">
       <div class="lg:w-[1024px] w-full mt-10 mb-[104px] rounded-xl">

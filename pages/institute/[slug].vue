@@ -38,7 +38,8 @@ const processedMenus = computed(() => {
           <!-- formmmenu1 -->
           <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
             <UiCarousel :data="data.photo" />
-            <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
+
+            <h1 class="text-[28px]  text-[#06203D] font-medium mt-8 mb-6">
               {{ data?.title }}
             </h1>
             <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
