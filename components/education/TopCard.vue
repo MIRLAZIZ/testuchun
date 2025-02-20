@@ -19,7 +19,7 @@
             <p class="font-normal text-[#868587] ">{{ item.type }}</p>
           </div>
           <div class="flex flex-col justify-center">
-            <p class="text-[#06203D] text-lg ">{{ item.name }}</p>
+            <p class="text-[#06203D] text-lg " v-html="item.name"></p>
           </div>
         </div>
       </div>
@@ -47,31 +47,31 @@ const datatype = computed(() => [
     id: 1,
     img: globe,
     type: store.dataTranslate["footer.educational_period"],
-    name: props.data?.education_years ,
+    name: props.data?.education_years?.replace(/\//g, "<br>") ,
   },
   {
     id: 2,
     img: globe,
     type: store.dataTranslate["home.language"],
-    name: props.data?.lang,
+    name: props.data?.lang?.replace(/\//g, "<br>"),
   },
   {
     id: 3,
     img: globe,
     type: store.dataTranslate["home.address"],
-    name: "Toshkent Shahri",
+    name: props.data?.map?.replace(/\//g, "<br>"),
   },
   {
     id: 4,
     img: globe,
     type: store.dataTranslate["footer.start_date"],
-    name: "01 aprel , 2024",
+    name: props.data?.kundizgi_date?.replace(/\//g, "<br>"),
   },
   {
     id: 5,
     img: globe,
     type: store.dataTranslate["footer.type"],
-    name: props.data?.form_education ,
+    name: props.data?.form_education?.replace(/\//g, "<br>") ,
   },
 ]);
 </script>
