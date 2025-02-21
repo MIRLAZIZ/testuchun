@@ -46,6 +46,7 @@ export const useHomeStore = defineStore('home', {
         return
       }
       this.optionsData = []
+    
       this.optionsData.push(data)
       this.is_open = true
     },

@@ -28,7 +28,7 @@ const addresses = ref(null);
 </script>
 
 <template>
-  <div class="flex justify-center ">
+  <div class="flex justify-center my-[52px] ">
     <div class="mainContainer">
       <div v-if="addresses && is_map" class="" data-aos="fade-up">
         <div class=" ">

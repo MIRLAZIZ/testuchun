@@ -19,7 +19,7 @@ const updateImage = () => {
 };
 
 const handleScroll = () => {
-  isFixed.value = window.scrollY > 200; // 200px dan pastga tushganda fixed bo'ladi
+  isFixed.value = window.scrollY > 300; // 200px dan pastga tushganda fixed bo'ladi
 };
 
 onMounted(() => {
@@ -73,12 +73,14 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="bg-[#F4F6FA]">
-    <div class="box_hidden2">
-      <HomeHeaderNavBar
-        :class="{
+
+    <!-- :class="{
           'fixed-navbar': isFixed && $route.path !== '/',
           'hidden-navbar': !isFixed && $route.path !== '/',
-        }"
+        }" -->
+    <div class="box_hidden2">
+      <HomeHeaderNavBar
+      
       />
     </div>
     <div class="box_hidden1">

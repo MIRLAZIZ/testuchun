@@ -37,7 +37,7 @@ const selectItem = (data) => {
 </script>
 <template>
   <div class="flex justify-center" v-if="store.educationData">
-    <div class="h-full mainContainer my-[104px]">
+    <div class="h-full mainContainer my-[52px]">
       <div class="flex items-center">
         <img src="/assets/imgs/home/program.png" alt="" />
         <h1 class="font-normal text-[#2E4259] ml-2">

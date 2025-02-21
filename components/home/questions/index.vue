@@ -55,7 +55,7 @@ watch(
 );
 </script>
 <template>
-  <div class="bg-[#06203D] w-full flex justify-center relative" v-if="isClient">
+  <div class="bg-[#06203D] w-full flex justify-center relative" v-if="isClient" :class="{'my-[52px]': !is_open}">
     <div
     v-if="is_open"
       class="cursor-pointer absolute right-9 top-9 "

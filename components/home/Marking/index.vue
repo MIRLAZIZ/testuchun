@@ -1,6 +1,6 @@
 <template>
-    <div class="flex justify-center bg-[#06203D]" v-if="isClient">
-        <div class="mainContainer  h-[568px] box_height">
+    <div class="flex justify-center my-[52px] bg-[#06203D]" v-if="isClient">
+        <div class="mainContainer   h-[568px] box_height">
 
             <div class="xl:px-[120px] lg:px-[30px] w-full flex justify-center items-center h-full " >
                 <div class=" py-14 flex  h-full  box_ul_li">

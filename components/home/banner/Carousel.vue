@@ -8,7 +8,7 @@ const caruselData = ref(null);
 
 const activeItem = computed(() => {
   if (caruselData.value?.data) {
-    return caruselData.value.data[carousel.value.page - 1];
+    return caruselData.value.data[carousel.value?.page - 1];
   }
   return null;
 });

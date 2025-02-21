@@ -59,7 +59,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.VUE_APP_API_BASE_URL
+      apiBaseUrl: process.env.VITE_BASE_URL
     }
   },
 

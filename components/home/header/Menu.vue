@@ -31,6 +31,10 @@
 <script setup>
 import { useHomeStore } from '~/store/home';
 const store = useHomeStore();
+
+const menuSort = () => {
+  store.menus.sort((a, b) => a.order - b.order);
+}
 </script>
 
 <style scoped>

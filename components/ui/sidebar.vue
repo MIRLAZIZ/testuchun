@@ -47,15 +47,15 @@
           <!-- Slayd 1 -->
           <div
             class="rounded-xl caronaVirus rektor lg:w-full sm:w-[348px] bg-blue-500 text-white img_width"
+            :style="{
+              backgroundImage: `url(${store.reklammaData?.data[0]?.logo})`,
+              'background-size': 'cover',
+              'background-repeat': 'no-repeat',
+              backgroundPosition: 'center',
+            }"
           >
-            <div class="flex flex-col justify-between h-full w-full">
-              <div class=" ">
-                <img
-                  :src="store.reklammaData?.data[0]?.logo"
-                  alt=""
-                  class="w-full h-[99px] object-center"
-                />
-              </div>
+            <div class="flex items-end h-full w-full">
+          
               <p class="font-Halvar text-xl font-medium px-6 pb-6">
                 {{ store.reklammaData?.data[0]?.title }}
               </p>

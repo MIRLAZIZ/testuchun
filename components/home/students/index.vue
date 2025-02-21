@@ -30,7 +30,7 @@ const goToNext = () => {
 
 <template>
   <div class="flex justify-center"  v-if="isClient" >
-    <div class="mainContainer  mt-[101px]">
+    <div class="mainContainer mb-[52px] mt-[51px]">
       <UCarousel ref="carousel" v-slot="{ item }" :items="students?.data" :ui="{ item: 'basis-full' }"
         class="rounded-lg overflow-hidden ">
 

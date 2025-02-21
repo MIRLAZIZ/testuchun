@@ -158,6 +158,7 @@ const changeTab = (id) => {
 :deep(tr:has(td[colspan="4"])) {
   background-color: #011454 !important;
   color: white;
+  width: 100% !important;
 }
 
 :deep(tr:has(td[colspan="4"]) strong) {
@@ -181,6 +182,21 @@ const changeTab = (id) => {
   background-color: #f3f4f6;
   transition: background-color 0.2s;
 }
+
+
+
+
+:deep(tr td:nth-child(2)) {
+  width: 100% !important;
+}
+
+:deep(tr td:nth-child(3)) {
+  width: 100% !important;
+}
+:deep(tr td:nth-child(4)) {
+  width: 100% !important;
+}
+
 
 /* Responsive dizayn */
 @media (max-width: 768px) {

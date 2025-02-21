@@ -1,1 +1,2 @@
-console.log(useRuntimeConfig().public.apiBaseUrl);
+import { useRuntimeConfig } from "#app";
+console.log(useRuntimeConfig());

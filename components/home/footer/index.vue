@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center py-10 w-full bg-white">
+    <div class="flex justify-center py-10 w-full bg-white mt-[52px]">
 
         <div class="mainContainer    ">
             <HomeFooterLogo  v-if="isClient" data-aos="fade-down"  />

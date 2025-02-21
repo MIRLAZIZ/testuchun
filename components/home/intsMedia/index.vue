@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center" v-if="videosData">
-    <div class="mainContainer mb-[104px] overflow-hidden">
+    <div class="mainContainer my-[52px] overflow-hidden">
       <h2 class="sm:text-2xl text-[22px] font-Halvar font-medium ul_title mb-8">
         {{ store.dataTranslate["home.our_video"] }}
       </h2>

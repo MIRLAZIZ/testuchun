@@ -21,7 +21,7 @@ const taps = computed(() => [
 
 const store = useHomeStore();
 const route = useRoute();
-const data = ref({});
+const data = ref(null);
 const router = useRouter();
 const loading = ref(true);
 

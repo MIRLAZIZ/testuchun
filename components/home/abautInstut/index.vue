@@ -1,8 +1,8 @@
 <script setup>
-import kampus from "~/assets/imgs/home/building-3.png";
-import auditoriya from "~/assets/imgs/home/sitemap.png";
-import active from "~/assets/imgs/home/multi-user.png";
-import book from "~/assets/imgs/home/book-open.png";
+import kampus from "~/assets/imgs/home/building-32.svg";
+import auditoriya from "~/assets/imgs/home/sitemap2.svg";
+import active from "~/assets/imgs/home/multi-user2.svg";
+import book from "~/assets/imgs/home/book-open2.svg";
 
 import { useHomeStore } from "~/store/home";
 
@@ -38,11 +38,11 @@ const items = [
 </script>
 
 <template>
-  <div class="w-full flex justify-center">
+  <div class="w-full flex justify-center  mb-[52px]">
     <!-- <div class="mainContainer"> -->
     <div class="mainContainer" v-if="store.dataTranslate['home.time']">
       <div
-        class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md xl:h-[630px] lg:h-full p-7"
+        class="box_wrapper grid grid-cols-2 gap-4 bg-white rounded-lg shadow-md h-auto lg:h-full p-7"
         style="grid-template-columns: 50% 50%"
       >
         <!-- Chap bo'lim -->
