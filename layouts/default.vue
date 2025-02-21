@@ -73,14 +73,12 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="bg-[#F4F6FA]">
-
-    <!-- :class="{
-          'fixed-navbar': isFixed && $route.path !== '/',
-          'hidden-navbar': !isFixed && $route.path !== '/',
-        }" -->
     <div class="box_hidden2">
       <HomeHeaderNavBar
-      
+        :class="{
+          'fixed-navbar': isFixed && $route.path !== '/',
+          'hidden-navbar': !isFixed && $route.path !== '/',
+        }"
       />
     </div>
     <div class="box_hidden1">
