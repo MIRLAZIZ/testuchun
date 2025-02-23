@@ -26,7 +26,7 @@ const processedMenus = computed(() => {
   <div class="flex justify-center w-full mt-10 mb-[104px]">
     <LoadingPage v-if="store.dinamiMenuLoading" />
 
-    <div v-else class="mainContainer ">
+    <div v-else class=" ">
       <div v-if="processedMenus && processedMenus.length">
         <div
           v-for="(data, index) in processedMenus"
@@ -37,7 +37,7 @@ const processedMenus = computed(() => {
           <!-- formmmenu1 -->
           <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
             <UiCarousel :data="data.photo" />
-            <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
+            <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6 mt-8">
               {{ data?.title }}
             </h1>
             <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>

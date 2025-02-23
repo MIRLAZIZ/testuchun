@@ -25,7 +25,7 @@ const animateNumbers = () => {
   const tl = gsap.timeline();
   
   tl.to(stats, {
-    duration: 8,
+    duration: 4,
     educationalPrograms: parseInt(store.siteInfo?.educational_programs || 0),
     audienceSize: parseInt(store.siteInfo?.audience_size || 0),
     greenZone: parseInt(store.siteInfo?.green_zone || 0),
@@ -68,11 +68,7 @@ const setupIntersectionObserver = () => {
   }
 
   // Cleanup function
-  onBeforeUnmount(() => {
-    if (statsRef.value) {
-      observer.unobserve(statsRef.value);
-    }
-  });
+
 };
 
 // Animatsiyani qayta ishga tushirish uchun
