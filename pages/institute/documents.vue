@@ -27,7 +27,7 @@ onMounted(() => {
         <div
           v-for="item in items?.data"
           :key="item.id"
-          class="w-full bg-white rounded-xl flex flex-col justify-between p-6  h-fit" 
+          class="w-full bg-white rounded-xl flex flex-col justify-between p-6  " 
         >
           <h1 class="font-medium">
             {{

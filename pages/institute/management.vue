@@ -45,8 +45,8 @@ onMounted(() => {
 
           <div class="flex flex-col justify-center pl-6">
             <h1 class="text-[32px] font-medium text-white">
-              {{ data[0]?.professor_employ[0].first_name }}
               {{ data[0]?.professor_employ[0].last_name }}
+              {{ data[0]?.professor_employ[0].first_name }}
               {{ data[0]?.professor_employ[0].surname }}
             </h1>
             <p class="text-lg mt-2 text-[#88929D]">
@@ -92,8 +92,8 @@ onMounted(() => {
 
               <div class="flex flex-col justify-between">
                 <h1 class="text-xl font-medium">
-                  {{ item?.first_name }}
                   {{ item?.last_name }}
+                  {{ item?.first_name }}
                   {{ item?.surname }}
                 </h1>
                 <p class="mt-2 text-[#88929D]">

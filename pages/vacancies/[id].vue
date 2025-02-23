@@ -32,10 +32,10 @@
       </div>
       <!-- {{store.siteInfo?.data?.telegram}} -->
       <div class="flex items-center justify-center mt-10 mb-[104px]">
-          <a :href="store1.siteInfo?.telegram" target="_blank"
+          <a :href="store1?.dataTranslate['resume.telegram']" target="_blank"
             class=" bg-red-500 text-white py-2 px-4 font-medium text-sm rounded-lg cursor-pointer hover:bg-red-600"
           >
-            Resume jo'natish
+          {{ store1.dataTranslate["contract.resume"] }}
           </a>
       </div>
        

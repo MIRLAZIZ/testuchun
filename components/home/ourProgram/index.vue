@@ -192,7 +192,7 @@ const selectItem = (data) => {
                 />
               </button>
               <button
-                @click="openModal"
+                @click="store.gotoRegister"
                 class="w-[216px] h-[48px] border bordr-[#DCE5F5] text-[#06203D] flex justify-center items-center font-medium rounded-lg ml-6"
               >
                 {{ store.dataTranslate["home.submit_application"] }}
@@ -207,7 +207,7 @@ const selectItem = (data) => {
       </div>
     </div>
 
-    <Modal :isOpen="modalVisible" @close="closeModal" />
+    <!-- <Modal :isOpen="modalVisible" @close="closeModal" /> -->
   </div>
 </template>
 

@@ -11,7 +11,6 @@
         <div
           class="h-[271px] xl:w-[157px] w-full flex justify-center flex-shrink-0"
         >
-        {{  }}
           <img
             :src="item[store?.currentImage2]"
             alt=""
@@ -22,8 +21,8 @@
         <div class="flex flex-col justify-between">
           <div class="mb-4">
             <h1 class="text-xl font-medium">
-              {{ item?.first_name[$i18n.locale] }}
               {{ item?.last_name[$i18n.locale] }}
+              {{ item?.first_name[$i18n.locale] }}
               {{ item?.surname[$i18n.locale] }}
             </h1>
             <p class="mt-2 text-[#88929D]">

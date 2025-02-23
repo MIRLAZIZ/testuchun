@@ -85,14 +85,14 @@ const addCertificat = () => {
         </button>
       </div>
 
-      <div class="mt-16 p-8 bg-white rounded-xl pr-16 box_wrapper_li">
+      <!-- <div class="mt-16 p-8 bg-white rounded-xl pr-16 box_wrapper_li">
         <h1 class="text-[28px] text-[#06203D] mb-6 box_text">
           {{ store.dataTranslate['header.certificate_title'] }}
         </h1>
         <p class="text-[20px] box_wrapper_text">
           {{ store.dataTranslate['header.certificat_dec'] }}
         </p>
-      </div>
+      </div> -->
       <InstituteLicensesModalLicenses
         v-model:is-open="isOpen"
         :items="items"

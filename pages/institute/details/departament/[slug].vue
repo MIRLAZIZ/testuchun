@@ -43,8 +43,8 @@ onMounted(() => {
               >
 
               <span>
-                {{ data?.department_boss?.first_name[$i18n.locale] }}
                 {{ data?.department_boss?.last_name[$i18n.locale] }}
+                {{ data?.department_boss?.first_name[$i18n.locale] }}
                 {{ data?.department_boss?.surname[$i18n.locale] }}
               </span>
             </div>
@@ -64,8 +64,8 @@ onMounted(() => {
               <div class="flex flex-col w-full">
                 <div>
                   <p class="mb-2 font-medium text-[28px]">
-                    {{ data.department_boss?.first_name[$i18n.locale] }}
                     {{ data?.department_boss.last_name[$i18n.locale] }}
+                    {{ data.department_boss?.first_name[$i18n.locale] }}
                     {{ data?.department_boss.surname[$i18n.locale] }}
                   </p>
                   <p class="font-normal text-xl text-[#9A999B]">
@@ -78,7 +78,7 @@ onMounted(() => {
                 </div>
 
                 <div class="flex gap-1 lg:mt-6 mt-6 flex-col">
-                  <div class="flex gap-1 flex-col 2xl:flex-row">
+                  <div class="flex gap-1 flex-col">
                     <div
                       v-if="data?.department_boss?.phone"
                       class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
@@ -122,18 +122,19 @@ onMounted(() => {
                         </p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
-                  >
-                    <img class="w-4 h-4" :src="time" alt="" />
-                    <div>
-                      <p class="text-[#5D5D5F]">
-                        {{ store.dataTranslate["contract.working_days"] }}
-                      </p>
-                      <p>
-                        {{ data.department_boss.work_time[[$i18n.locale]] }}
-                      </p>
+
+                    <div
+                      class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
+                    >
+                      <img class="w-4 h-4" :src="time" alt="" />
+                      <div>
+                        <p class="text-[#5D5D5F]">
+                          {{ store.dataTranslate["contract.working_days"] }}
+                        </p>
+                        <p>
+                          {{ data.department_boss.work_time[[$i18n.locale]] }}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -181,8 +182,8 @@ onMounted(() => {
 
               <div class="flex flex-col justify-center pl-6">
                 <h1 class="text-xl font-medium">
-                  {{ item?.first_name[$i18n.locale] }}
                   {{ item?.last_name[$i18n.locale] }}
+                  {{ item?.first_name[$i18n.locale] }}
                   {{ item?.surname[$i18n.locale] }}
                 </h1>
                 <p class="mt-2 text-[#88929D]">{{ item?.employ_type }}</p>

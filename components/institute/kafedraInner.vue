@@ -12,8 +12,8 @@
               >{{ store?.menuShow?.title }} /</span
             >
             <span>
-              {{ props.data?.department_boss?.first_name[$i18n.locale] }}
               {{ props.data?.department_boss?.last_name[$i18n.locale] }}
+              {{ props.data?.department_boss?.first_name[$i18n.locale] }}
               {{ props.data?.department_boss?.surname[$i18n.locale] }}
             </span>
           </div>
@@ -34,8 +34,8 @@
             <div class="flex flex-col w-full">
               <div>
                 <p class="mb-2 font-medium text-2xl">
-                  {{ props.data.department_boss?.first_name[$i18n.locale] }}
                   {{ props.data?.department_boss.last_name[$i18n.locale] }}
+                  {{ props.data.department_boss?.first_name[$i18n.locale] }}
                   {{ props.data?.department_boss.surname[$i18n.locale] }}
                 </p>
                 <p class="text-xl text-[#9A999B]">
@@ -47,8 +47,11 @@
                 </p>
               </div>
 
+              <!-- contacts  -->
               <div class="flex gap-4 lg:mt-6 mt-4 flex-col">
-                <div class="flex gap-1 flex-col 2xl:flex-row">
+                <!-- phone  -->
+
+                <div class="flex gap-1 flex-col">
                   <div
                     class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
                     v-if="
@@ -73,6 +76,7 @@
                     </div>
                   </div>
 
+                  <!-- email  -->
                   <div
                     class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
                     v-if="
@@ -97,25 +101,26 @@
                       </p>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
-                  v-if="
-                    props.data &&
-                    props.data.department_boss &&
-                    props.data?.department_boss?.work_time &&
-                    props.data?.department_boss?.work_time[$i18n.locale]
-                  "
-                >
-                  <img class="w-4 h-4" :src="time" alt="" />
-                  <div>
-                    <p class="text-[#5D5D5F] text-base font-normal">
-                      {{ store.dataTranslate["contract.working_days"] }}
-                    </p>
-                    <p>
-                      {{ props.data.department_boss.work_time[$i18n.locale] }}
-                    </p>
+                  <!-- work time  -->
+                  <div
+                    class="bg-[#F4F6FA] flex items-center gap-3 p-4 rounded-xl w-full"
+                    v-if="
+                      props.data &&
+                      props.data.department_boss &&
+                      props.data?.department_boss?.work_time &&
+                      props.data?.department_boss?.work_time[$i18n.locale]
+                    "
+                  >
+                    <img class="w-4 h-4" :src="time" alt="" />
+                    <div>
+                      <p class="text-[#5D5D5F] text-base font-normal">
+                        {{ store.dataTranslate["contract.working_days"] }}
+                      </p>
+                      <p>
+                        {{ props.data.department_boss.work_time[$i18n.locale] }}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -172,13 +177,12 @@
             class="w-full rounded-xl p-5 flex xl:flex-row flex-col gap-4 bg-white"
             v-for="item in props.data?.simple_employee"
             :key="item"
-          
           >
             <div
               class="h-[200px] xl:w-[157px] flex justify-center w-full flex-shrink-0"
             >
               <img
-                :src="item?.store?.currentImage2"
+                :src="item[store.currentImage2]"
                 alt=""
                 class="object-cover w-full h-full rounded-lg sm:w-[157px]"
               />
@@ -186,8 +190,8 @@
 
             <div class="flex flex-col justify-between">
               <h1 class="text-xl font-medium">
-                {{ item?.first_name[$i18n.locale] }}
                 {{ item?.last_name[$i18n.locale] }}
+                {{ item?.first_name[$i18n.locale] }}
                 {{ item?.surname[$i18n.locale] }}
               </h1>
               <p class="mt-2 text-[#88929D]">
@@ -195,9 +199,7 @@
               </p>
               <hr class="border border-[#DCE5F5] my-6" />
               <button
-              @click="
-              $router.push(`/institute/details/kafedra/${item.slug}`)
-            "
+                @click="$router.push(`/institute/details/kafedra/${item.slug}`)"
                 class="border border-[#F7483B] 2xl:w-[164px] w-full h-[48px] flex justify-center items-center text-[#F7483B] rounded-lg"
               >
                 {{ store.dataTranslate["home.more_details"] }}

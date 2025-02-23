@@ -46,7 +46,7 @@ export const useHomeStore = defineStore('home', {
         return
       }
       this.optionsData = []
-    
+
       this.optionsData.push(data)
       this.is_open = true
     },
@@ -234,21 +234,24 @@ export const useHomeStore = defineStore('home', {
     },
     async getReklama() {
       return await api.get('/reklama')
-      .then(res => {
-        this.reklammaData = res.data
-      })
+        .then(res => {
+          this.reklammaData = res.data
+        })
     },
     downloadFile(url, filename) {
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", filename );
+      link.setAttribute("download", filename);
       console.log(link);
-      
+
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    }
+    },
 
+    gotoRegister() {
+      window.open("https://register.timeedu.uz/", "_blank")
+    }
 
 
 

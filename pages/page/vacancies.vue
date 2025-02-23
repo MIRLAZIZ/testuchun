@@ -1,6 +1,6 @@
 <template>
   <div class="vacancy-container">
-    <h1 class="text-2xl font-medium mb-6">BO'SH ISH O'RINLARI</h1>
+    <h1 class="text-2xl font-medium mb-6">{{ steorHome.dataTranslate["contract.vacancies"] }}</h1>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 md:gap-6 sm:gap-2 gap-4"
     >
@@ -28,10 +28,10 @@
           class="salary-section border p-3 rounded-lg font-medium text-base"
           @click="$router.push(`/vacancies/${vacancy.id}`)"
         >
-          <p>{{ vacancy.price }} gacha</p>
+          <p>{{ vacancy.price }} </p>
           <img src="/assets/imgs/vacansiec/Vector.png" alt="" />
         </div>
-      </div>
+      </div>  
     </div>
 
     <!-- <div class="flex justify-center mt-6">
@@ -55,6 +55,7 @@ onMounted(() => {
     // console.log('vacansiec', vacansiec1.value)
   });
   steorHome.getMenuStatick("/page", route.fullPath);
+  
 });
 </script>
 

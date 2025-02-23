@@ -19,6 +19,8 @@ const goToExtraLink = (url) => {
     window.open(fullUrl, "_blank", "noopener,noreferrer");
   }
 };
+
+
 </script>
 <template>
   <div class="flex  h-full">
@@ -44,9 +46,10 @@ const goToExtraLink = (url) => {
 
         <div class="mt-7 w-[75%]" v-show="props?.activeItem?.action == 1">
           <button
-            @click.stop="openModal"
+            @click.stop="store.gotoRegister"
             class="text-white md:text-base xl:text-[12px] py-3 bg-[#F7483B] md:w-[216px] w-[180px] font-medim rounded-lg flex justify-center items-center text-[18px]"
           >
+
             {{ store.dataTranslate["home.submit_application"] }}
             <UIcon
               name="i-heroicons-arrow-long-right"
@@ -58,7 +61,7 @@ const goToExtraLink = (url) => {
 
       <!-- window img  -->
       <div
-        class="justify-end    lg:flex"
+        class="justify-end  hidden  lg:flex"
         @click="goToExtraLink(props?.activeItem?.url)"
       >
         <img
@@ -86,7 +89,7 @@ const goToExtraLink = (url) => {
     >
       <UIcon name="i-heroicons-chevron-right" class="w-12 h-20 text-white" />
     </div>
-    <Modal :isOpen="modalVisible" @close="closeModal" class="z-50" />
+    <!-- <Modal :isOpen="modalVisible" @close="closeModal" class="z-50" /> -->
 
   </div>
 </template>
