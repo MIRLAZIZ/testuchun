@@ -40,7 +40,7 @@ onMounted(() => {
       >
         <div class="flex items-start">
           <img :src="item?.icon" alt="" />
-          <p class="font-medium ">{{ item.name[$i18n.locale] }}</p>
+          <p class="font-medium ">{{ item.name[store.language] }}</p>
 
         </div>
         <div class="flex-grow"></div>

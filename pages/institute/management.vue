@@ -50,7 +50,7 @@ onMounted(() => {
               {{ data[0]?.professor_employ[0].surname }}
             </h1>
             <p class="text-lg mt-2 text-[#88929D]">
-              {{ data[0]?.professor_employ[0]?.position?.name[$i18n.locale] }}
+              {{ data[0]?.professor_employ[0]?.position?.name[store.language] }}
             </p>
 
             <hr class="border border-[#19314C] my-6" />
@@ -97,7 +97,7 @@ onMounted(() => {
                   {{ item?.surname }}
                 </h1>
                 <p class="mt-2 text-[#88929D]">
-                  {{ item?.position?.name[$i18n.locale] }}
+                  {{ item?.position?.name[store.language] }}
                 </p>
                 <hr class="border border-[#DCE5F5] my-6" />
                 <button

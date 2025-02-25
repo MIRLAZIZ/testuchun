@@ -12,10 +12,16 @@ const store = useHomeStore()
                     <p class="sm:text-lg text-sm text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
-                        <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[1]?.replace(/\s+/g, '')"
+                        <a :href="'tel:' + store.siteInfo?.phone_number?.split('\r\n')[0]"
                             class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
-                            {{ store.siteInfo?.phone_number
-                                ?.split('|')[1] }}
+                            {{ store.siteInfo?.phone_number?.split('\r\n')[0] }}
+                        </a>
+                    </div>
+                      <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
+                        <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
+                        <a :href="'tel:' + store.siteInfo?.phone_number?.split('\r\n')[1]"
+                            class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
+                            {{ store.siteInfo?.phone_number?.split('\r\n')[1] }}
                         </a>
                     </div>
                 </div>
@@ -30,14 +36,24 @@ const store = useHomeStore()
                     </div>
                 </div>
 
-
-                <div class="w-[700px] box_wrapper_width">
-                    <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p>
-                    <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
-                        <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
-                        <a href=""> {{ store.siteInfo?.address }}</a>
+                <div  class="">
+                    <div class="w-[700px] box_wrapper_width">
+                        <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p>
+                        <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
+                            <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
+                            <a > {{ store.siteInfo?.address }}</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="w-[700px] box_wrapper_width">
+                        <!-- <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p> -->
+                        <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
+                            <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
+                            <a> {{ store.dataTranslate['footer.fargona']}}</a>
+                        </div>
                     </div>
                 </div>
+               
 
 
             </div>

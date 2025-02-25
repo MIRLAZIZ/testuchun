@@ -47,7 +47,7 @@
                 </p>
                 <div
                   class="w-full table-container"
-                  ref="tableContainer"
+                 
                   v-html="scillsData?.answer"
                 ></div>
               </div>
@@ -59,9 +59,10 @@
   </div>
 </template>
   
-  <script setup>
+<script setup>
 import { ref, watch, onMounted } from "vue";
 import { useHomeStore } from "~/store/home";
+
 
 const store = useHomeStore();
 const props = defineProps({
@@ -72,7 +73,7 @@ const props = defineProps({
   },
 });
 
-const tableContainer = ref(null);
+
 
 const activeTab = ref(null);
 const scillsData = ref(null);
@@ -92,6 +93,7 @@ const firlterFaq = computed(() => {
     return props.item.faq.filter((item) => item.parent == store.educationFaqId);
   }
 });
+
 
 watch(
   () => firlterFaq.value,
@@ -132,13 +134,17 @@ const changeTab = (id) => {
 .table-container {
   width: 100%;
 }
+:deep(figure){
+  width:100%;
 
+}
 :deep(table) {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
   background-color: white;
   font-size: 0.95rem;
   table-layout: auto;
+
 }
 
 :deep(td) {

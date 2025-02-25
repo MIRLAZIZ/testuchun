@@ -2,15 +2,15 @@
   <div class="w-full">
     <div class="w-full">
       <div class="flex gap-8">
-        <span
+        <div
           v-for="tab in tabs"
           :key="tab.id"
           :class="{ 'border-b-2 border-[#F7483B]': tab.id === activeTab }"
           @click="changeTab(tab.id)"
-          class="font-semibold text-sm text-[#010101] cursor-pointer h-[32px] pb-3"
+          class="font-semibold  px-1 text-sm text-[#010101] cursor-pointer h-[32px] pb-3"
         >
           {{ tab.label }}
-        </span>
+        </div>
       </div>
       <hr />
 

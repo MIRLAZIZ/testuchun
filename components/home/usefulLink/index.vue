@@ -14,7 +14,7 @@
           >
             <a :href="item?.link" target="_blank">
               <div
-                class="w-[343px] min-h-[183px] rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4"
+                class="w-[343px] min-h-[183px] h-full rounded-xl px-8 py-6 flex flex-col justify-between bg-white mr-4"
               >
                 <div class="w-[284px] h-[89px] overflow-hidden mb-3">
                   <img
@@ -22,9 +22,13 @@
                     class="w-full h-full object-contain"
                     v-if="item?.photo"
                   />
+                   
                 </div>
-                <hr />
-                <p class="text-center mt-3">{{ item.title }}</p>
+                <div>
+                  <hr />
+                  <p class="text-center mt-3">{{ item.title }}</p>
+                </div>
+               
               </div>
             </a>
           </UCarousel>

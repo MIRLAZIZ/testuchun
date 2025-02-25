@@ -4,7 +4,7 @@
     <div v-else>
       <div class="w-full" v-if="data">
         <div class="bg-white rounded-xl p-8">
-          <div class="text-[18px] text-[#5D5D5F] cursor-pointer mb-8">
+           <div class="text-[18px] text-[#5D5D5F] cursor-pointer mb-8">
             <span @click="$router.push('/')">{{
               store.dataTranslate["home.home"]
             }}</span
@@ -17,11 +17,11 @@
               {{ data?.first_name }}
               {{ data?.surname }}
             </span>
-          </div>
+          </div> 
 
           <div class="flex w-full flex-col md:flex-row rounded-xl gap-8">
             <!-- img  -->
-            <div
+             <div
               class="md:w-[283px] h-[361px] flex justify-center w-full flex-shrink-0"
             >
               <img
@@ -29,10 +29,10 @@
                 :src="data?.photo"
                 alt=""
               />
-            </div>
+            </div> 
 
             <div class="flex flex-col w-full">
-              <div>
+               <div>
                 <p class="mb-2 font-medium text-[28px]">
                   {{ data?.last_name }}
                   {{ data?.first_name }}
@@ -41,10 +41,10 @@
                 <p class="font-normal text-xl text-[#9A999B]">
                   {{ data?.position?.name }}
                 </p>
-              </div>
+              </div> 
 
               <div class="flex gap-1 lg:mt-6 mt-4 flex-col">
-                <div class="flex gap-1 flex-col ">
+                 <div class="flex gap-1 flex-col ">
                   <div
                     class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                     v-if="data?.phone"
@@ -82,7 +82,7 @@
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> 
 
                 <!-- <div
                   class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
@@ -102,18 +102,31 @@
               <div class="mt-6">
                 <div class="">
                   <!-- {{data?.dec}} -->
-                  <p class="">
-                    <span
-                      v-html="data?.dec?.substring(0, expanded)"
+                   <p class="" >
+                    <span v-if="data && data.dec[store.language]"
+                      v-html="data?.dec[store.language].substring(0, expanded)"
                     ></span>
-                  </p>
+                    
+                     <span v-else-if="data && data.dec && typeof data.dec == 'string'"
+                      v-html="data?.dec.substring(0, expanded)"
+                    ></span>
+                    
+                  </p> 
+                 
                   <button
-                    v-if="data?.dec?.length > expanded"
+                    v-if="data?.dec[store.language].length > expanded"
+                    @click="expanded = data?.dec[store.language].length"
+                    class="text-red-500 font-bold"
+                  >
+                    {{ store.dataTranslate["contract.more"] }}...
+                  </button> 
+                  <!-- <button
+                    v-else-if="data?.dec?.length > expanded && typeof data.dec == 'string'"
                     @click="expanded = data?.dec?.length"
                     class="text-red-500 font-bold"
                   >
                     {{ store.dataTranslate["contract.more"] }}...
-                  </button>
+                  </button>  -->
                 </div>
               </div>
             </div>
@@ -152,6 +165,7 @@ onMounted(() => {
       console.log(loading.value);
     })
     .catch(() => {
+      data.value = null
       loading.value = false;
     });
 });

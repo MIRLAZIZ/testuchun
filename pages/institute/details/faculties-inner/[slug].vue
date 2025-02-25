@@ -14,9 +14,9 @@
                 >{{ store?.menuShow?.title }} /</span
               >
               <span>
-                {{ data?.department_boss?.first_name[$i18n.locale] }}
-                {{ data?.department_boss?.last_name[$i18n.locale] }}
-                {{ data?.department_boss?.surname[$i18n.locale] }}
+                {{ data?.department_boss?.first_name[store.language] }}
+                {{ data?.department_boss?.last_name[store.language] }}
+                {{ data?.department_boss?.surname[store.language] }}
               </span>
             </div>
 
@@ -36,14 +36,14 @@
               <div class="flex flex-col w-full">
                 <div>
                   <p class="flex flex-col w-full">
-                    {{ data.department_boss?.first_name[$i18n.locale] }}
-                    {{ data?.department_boss.last_name[$i18n.locale] }}
-                    {{ data?.department_boss.surname[$i18n.locale] }}
+                    {{ data.department_boss?.first_name[store.language] }}
+                    {{ data?.department_boss.last_name[store.language] }}
+                    {{ data?.department_boss.surname[store.language] }}
                   </p>
                   <p class="font-normal text-xl text-[#9A999B]">
                     {{
                       data?.department_boss?.employ_meta?.position.name[
-                        $i18n.locale
+                       store.language
                       ]
                     }}
                   </p>
@@ -97,7 +97,7 @@
                     class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
                     v-if="
                       data?.department_boss?.work_time &&
-                      data?.department_boss?.work_time[[$i18n.locale]]
+                      data?.department_boss?.work_time[[store.language]]
                     "
                   >
                     <img class="w-4 h-4" :src="time" alt="" />
@@ -106,7 +106,7 @@
                         {{ store.dataTranslate["contract.working_days"] }}
                       </p>
                       <p class="text-black font-normal text-base">
-                        {{ data.department_boss.work_time[[$i18n.locale]] }}
+                        {{ data.department_boss.work_time[[store.language]] }}
                       </p>
                     </div>
                   </div>
@@ -166,12 +166,12 @@
               <div class="flex flex-col justify-between">
                 <div>
                   <h1 class="text-xl font-medium">
-                    {{ item?.first_name[$i18n.locale] }}
-                    {{ item?.last_name[$i18n.locale] }}
-                    {{ item?.surname[$i18n.locale] }}
+                    {{ item?.first_name[store.language] }}
+                    {{ item?.last_name[store.language] }}
+                    {{ item?.surname[store.language] }}
                   </h1>
                   <p class="mt-2 text-[#88929D]">
-                    {{ item?.employ_meta?.position.name[$i18n.locale] }}
+                    {{ item?.employ_meta?.position.name[store.language] }}
                   </p>
                 </div>
                 <hr class="border border-[#DCE5F5] my-6" />

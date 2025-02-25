@@ -13,9 +13,10 @@ const data = ref(null);
 const route = useRoute();
 const loading = ref(true);
 onMounted(() => {
-  if (!store.menuShow) {
+  // if (!store.menuShow) {
     store.menuShow = JSON.parse(localStorage.getItem("kafedra"));
-  }
+    
+  // }
   store
     .getKafedraOne(route.params.slug)
     .then((res) => {

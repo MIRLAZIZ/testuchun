@@ -14,7 +14,7 @@
         <div
           class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-around"
         >
-          <div class="flex gap-2 items-center">
+          <div class="flex gap-2 ">
             <img :src="item.img" alt="" class="w-5 h-5" />
             <p class="font-normal text-[#868587] ">{{ item.type }}</p>
           </div>
@@ -29,6 +29,10 @@
   
   <script setup>
 import globe from "~/assets/imgs/home/globe.png";
+import img1 from "~/assets/imgs/talim/Pie.png"
+import img2 from "~/assets/imgs/talim/Location.png"
+import img3 from "~/assets/imgs/talim/Calender5.png"
+
 import maps from "~/assets/imgs/home/location.png";
 import { useHomeStore } from "~/store/home";
 
@@ -45,7 +49,7 @@ const props = defineProps({
 const datatype = computed(() => [
   {
     id: 1,
-    img: globe,
+    img: img1,
     type: store.dataTranslate["footer.educational_period"],
     name: props.data?.education_years?.replace(/\//g, "<br>") ,
   },
@@ -57,19 +61,19 @@ const datatype = computed(() => [
   },
   {
     id: 3,
-    img: globe,
+    img: img2,
     type: store.dataTranslate["home.address"],
     name: props.data?.map?.replace(/\//g, "<br>"),
   },
   {
     id: 4,
-    img: globe,
+    img: img3,
     type: store.dataTranslate["footer.start_date"],
     name: props.data?.kundizgi_date?.replace(/\//g, "<br>"),
   },
   {
     id: 5,
-    img: globe,
+    img: img1,
     type: store.dataTranslate["footer.type"],
     name: props.data?.form_education?.replace(/\//g, "<br>") ,
   },

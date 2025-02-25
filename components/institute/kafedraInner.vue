@@ -12,9 +12,9 @@
               >{{ store?.menuShow?.title }} /</span
             >
             <span>
-              {{ props.data?.department_boss?.last_name[$i18n.locale] }}
-              {{ props.data?.department_boss?.first_name[$i18n.locale] }}
-              {{ props.data?.department_boss?.surname[$i18n.locale] }}
+              {{ props.data?.department_boss?.last_name[store.language] }}
+              {{ props.data?.department_boss?.first_name[store.language] }}
+              {{ props.data?.department_boss?.surname[store.language] }}
             </span>
           </div>
           <!-- data  -->
@@ -34,14 +34,14 @@
             <div class="flex flex-col w-full">
               <div>
                 <p class="mb-2 font-medium text-2xl">
-                  {{ props.data?.department_boss.last_name[$i18n.locale] }}
-                  {{ props.data.department_boss?.first_name[$i18n.locale] }}
-                  {{ props.data?.department_boss.surname[$i18n.locale] }}
+                  {{ props.data?.department_boss.last_name[store.language] }}
+                  {{ props.data.department_boss?.first_name[store.language] }}
+                  {{ props.data?.department_boss.surname[store.language] }}
                 </p>
                 <p class="text-xl text-[#9A999B]">
                   {{
                     props.data?.department_boss?.employ_meta?.position.name[
-                      $i18n.locale
+                      store.language
                     ]
                   }}
                 </p>
@@ -109,7 +109,7 @@
                       props.data &&
                       props.data.department_boss &&
                       props.data?.department_boss?.work_time &&
-                      props.data?.department_boss?.work_time[$i18n.locale]
+                      props.data?.department_boss?.work_time[store.language]
                     "
                   >
                     <img class="w-4 h-4" :src="time" alt="" />
@@ -118,7 +118,7 @@
                         {{ store.dataTranslate["contract.working_days"] }}
                       </p>
                       <p>
-                        {{ props.data.department_boss.work_time[$i18n.locale] }}
+                        {{ props.data.department_boss.work_time[store.language] }}
                       </p>
                     </div>
                   </div>
@@ -138,7 +138,7 @@
                     ref="text"
                     class="text"
                     v-html="
-                      props.data?.department_boss?.dec[$i18n.locale]?.substring(
+                      props.data?.department_boss?.dec[store.language]?.substring(
                         0,
                         expanded
                       )
@@ -190,12 +190,12 @@
 
             <div class="flex flex-col justify-between">
               <h1 class="text-xl font-medium">
-                {{ item?.last_name[$i18n.locale] }}
-                {{ item?.first_name[$i18n.locale] }}
-                {{ item?.surname[$i18n.locale] }}
+                {{ item?.last_name[store.language] }}
+                {{ item?.first_name[store.language] }}
+                {{ item?.surname[store.language] }}
               </h1>
               <p class="mt-2 text-[#88929D]">
-                {{ item?.employ_meta?.position.name[$i18n.locale] }}
+                {{ item?.employ_meta?.position.name[store.language] }}
               </p>
               <hr class="border border-[#DCE5F5] my-6" />
               <button
@@ -233,5 +233,6 @@ const props = defineProps({
     default: () => [],
   },
 });
+
 </script>
 

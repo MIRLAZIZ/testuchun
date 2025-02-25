@@ -21,6 +21,7 @@ onMounted(() => {
   if (store.menus) {
     localStorage.setItem("kafedra", JSON.stringify(store.menuShow));
   }
+  console.log()
 });
 </script>
 
@@ -39,7 +40,9 @@ onMounted(() => {
         >
           <div class="flex items-start">
             <img :src="item?.icon" alt="" />
-            <p class="font-medium">{{ item.name[$i18n.locale] }}</p>
+            <p class="font-medium">{{ item.name[store.language] }}</p>
+            <!-- {{store.language}} -->
+            <!-- {{ store.language}} -->
           </div>
           <div class="flex-grow"></div>
           <hr class="border my-4 border-[#DCE5F5]" />

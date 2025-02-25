@@ -90,15 +90,20 @@ onBeforeUnmount(() => {
 
 onMounted(() => {
     const lang = localStorage.getItem('lang');
+    
     if (lang) {
+        const lang = JSON.parse(localStorage.getItem('lang'));
 
-        selectedLang.value = JSON.parse(localStorage.getItem('lang'));
+        selectedLang.value = lang
+        console.log('lang',lang.value)
+        store.language = lang.value
         // setLocale(selectedLang.value.value);
     } else {
         let optionsJson = JSON.stringify(options.value[0]);
         localStorage.setItem('lang', optionsJson);
         selectedLang.value = options.value[0];
         // setLocale(selectedLang.value.value);
+        store.language = 'uz'
 
     }
 

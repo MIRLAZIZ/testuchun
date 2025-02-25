@@ -22,7 +22,8 @@ export const useHomeStore = defineStore('home', {
     educationFaqId: null,
     activeTab: null,
     dinamiMenuLoading: true,
-    reklammaData: null
+    reklammaData: null,
+    language:null
 
 
 

@@ -13,9 +13,9 @@
               >{{ store?.menuShow?.title }} /</span
             >
             <span>
-              {{ data?.last_name[$i18n.locale] }}
-              {{ data?.first_name[$i18n.locale] }}
-              {{ data?.surname[$i18n.locale] }}
+              {{ data?.last_name[store.language] }}
+              {{ data?.first_name[store.language] }}
+              {{ data?.surname[store.language] }}
             </span>
           </div>
 
@@ -36,12 +36,12 @@
             <div class="flex flex-col w-full">
               <div>
                 <p class="mb-2 font-medium text-2xl">
-                  {{ data?.last_name[$i18n.locale] }}
-                  {{ data.first_name[$i18n.locale] }}
-                  {{ data?.surname[$i18n.locale] }}
+                  {{ data?.last_name[store.language] }}
+                  {{ data.first_name[store.language] }}
+                  {{ data?.surname[store.language] }}
                 </p>
                 <p class="font-normal text-xl text-[#9A999B]">
-                  {{ data?.employ_meta?.position?.name[$i18n.locale] }}
+                  {{ data?.employ_meta?.position?.name[store.language] }}
                 </p>
               </div>
 
@@ -92,7 +92,7 @@
                   <div
                     class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
 
-                    v-if="data?.employ_meta?.employ?.work_time && data.employ_meta?.employ?.work_time[$i18n.locale]"
+                    v-if="data?.employ_meta?.employ?.work_time && data.employ_meta?.employ?.work_time[store.language]"
                   >
                     <img class="w-4 h-4" :src="time" alt="" />
                     <div>
@@ -100,7 +100,7 @@
                         {{ store.dataTranslate["contract.working_days"] }}
                       </p>
                       <p>
-                        {{ data.employ_meta?.employ?.work_time[$i18n.locale] }}
+                        {{ data.employ_meta?.employ?.work_time[store.language] }}
                       </p>
                     </div>
                   </div>
@@ -115,7 +115,7 @@
                     ref="text"
                     class="text"
                     v-html="
-                      data?.employ_meta?.employ?.dec[$i18n.locale]?.substring(
+                      data?.employ_meta?.employ?.dec[store.language]?.substring(
                         0,
                         expanded
                       )
@@ -123,12 +123,12 @@
                   ></p>
                   <button
                     v-if="
-                      data?.employ_meta?.employ?.dec[$i18n.locale]?.length >
+                      data?.employ_meta?.employ?.dec[store.language]?.length >
                       expanded
                     "
                     @click="
                       expanded =
-                        data?.employ_meta?.employ?.dec[$i18n.locale]?.length
+                        data?.employ_meta?.employ?.dec[store.language]?.length
                     "
                     class="text-red-500 font-bold"
                   >

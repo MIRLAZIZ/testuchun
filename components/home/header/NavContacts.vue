@@ -45,9 +45,9 @@ onUnmounted(() => {
         </div>
         <!-- tel number -->
         <div>
-          <a :href="'tel:' + store.siteInfo?.phone_number?.split('|')[0]?.replace(/\s+/g, '')" class="text-[#1E1A22]" target="_blank">
+          <a :href="'tel:' + store.siteInfo?.phone_number?.split('\r\n')[0]" class="text-[#1E1A22]" target="_blank">
             {{ store.siteInfo?.phone_number
-              ?.split('|')[0] }}
+              ?.split('\r\n')[0] }}
           </a>
         </div>
         <!-- Locales  -->

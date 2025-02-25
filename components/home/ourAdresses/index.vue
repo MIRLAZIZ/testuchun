@@ -30,7 +30,7 @@ const addresses = ref(null);
 <template>
   <div class="flex justify-center my-[52px] ">
     <div class="mainContainer">
-      <div v-if="addresses && is_map" class="" data-aos="fade-up">
+      <div v-if="addresses " class="" data-aos="fade-up">
         <div class=" ">
           <h2 class="font-Halvar font-medium sm:text-[28px] text-xl">
             {{ store.dataTranslate["home.location"] }}

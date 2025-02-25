@@ -13,7 +13,7 @@
           ref="carousel"
           class=""
         >
-          <div class="w-[348px] rounded-xl p-3 mr-6 flex flex-col bg-white">
+          <div class="w-[348px]  rounded-xl p-3 mr-6 flex flex-col bg-white">
             <img
               :src="item?.images[0][store.currentImage]"
               width="320"

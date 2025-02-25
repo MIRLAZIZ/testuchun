@@ -21,12 +21,12 @@
         <div class="flex flex-col justify-between">
           <div class="mb-4">
             <h1 class="text-xl font-medium">
-              {{ item?.last_name[$i18n.locale] }}
-              {{ item?.first_name[$i18n.locale] }}
-              {{ item?.surname[$i18n.locale] }}
+              {{ item?.last_name[store.language] }}
+              {{ item?.first_name[store.language] }}
+              {{ item?.surname[store.language] }}
             </h1>
             <p class="mt-2 text-[#88929D]">
-              {{ item?.employ_meta?.position?.name[$i18n.locale] }}
+              {{ item?.employ_meta?.position?.name[store.language] }}
             </p>
           </div>
 
