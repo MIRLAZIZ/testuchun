@@ -102,31 +102,32 @@
               <div class="mt-6">
                 <div class="">
                   <!-- {{data?.dec}} -->
-                   <p class="" >
-                    <span v-if="data && data.dec[store.language]"
-                      v-html="data?.dec[store.language].substring(0, expanded)"
-                    ></span>
-                    
-                     <span v-else-if="data && data.dec && typeof data.dec == 'string'"
-                      v-html="data?.dec.substring(0, expanded)"
-                    ></span>
-                    
-                  </p> 
-                 
-                  <button
-                    v-if="data?.dec[store.language].length > expanded"
-                    @click="expanded = data?.dec[store.language].length"
-                    class="text-red-500 font-bold"
-                  >
-                    {{ store.dataTranslate["contract.more"] }}...
-                  </button> 
-                  <!-- <button
-                    v-else-if="data?.dec?.length > expanded && typeof data.dec == 'string'"
-                    @click="expanded = data?.dec?.length"
-                    class="text-red-500 font-bold"
-                  >
-                    {{ store.dataTranslate["contract.more"] }}...
-                  </button>  -->
+          <p>
+  <span v-if="data?.dec && typeof data.dec === 'object' && data.dec[store.language]"
+    v-html="data.dec[store.language].substring(0, expanded)"
+  ></span>
+
+  <span v-else-if="data?.dec && typeof data.dec === 'string'"
+    v-html="data.dec.substring(0, expanded)"
+  ></span>
+</p>
+
+<button
+  v-if="data?.dec && typeof data.dec === 'object' && data.dec[store.language]?.length > expanded"
+  @click="expanded = data.dec[store.language].length"
+  class="text-red-500 font-bold"
+>
+  {{ store.dataTranslate["contract.more"] }}...
+</button>
+
+<button
+  v-else-if="data?.dec && typeof data.dec === 'string' && data.dec.length > expanded"
+  @click="expanded = data.dec.length"
+  class="text-red-500 font-bold"
+>
+  {{ store.dataTranslate["contract.more"] }}...
+</button>
+
                 </div>
               </div>
             </div>
@@ -162,7 +163,7 @@ onMounted(() => {
     .then((res) => {
       data.value = res.data;
       loading.value = false;
-      console.log(loading.value);
+      // console.log(loading.value);
     })
     .catch(() => {
       data.value = null

@@ -243,7 +243,7 @@ export const useHomeStore = defineStore('home', {
       const link = document.createElement("a");
       link.href = url;
       link.setAttribute("download", filename);
-      console.log(link);
+      // console.log(link);
 
       document.body.appendChild(link);
       link.click();

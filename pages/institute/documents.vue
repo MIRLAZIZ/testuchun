@@ -18,6 +18,9 @@ onMounted(() => {
       loading.value = false;
     });
 });
+function  gotoextralink(path){
+    window.open(path, "_blank", "noopener,noreferrer");
+}
 </script>
 <template>
   <div>
@@ -27,7 +30,8 @@ onMounted(() => {
         <div
           v-for="item in items?.data"
           :key="item.id"
-          class="w-full bg-white rounded-xl flex flex-col justify-between p-6  " 
+          class="w-full cursor-pointer bg-white rounded-xl flex flex-col justify-between p-6  " 
+          @click="gotoextralink(item.link)"
         >
           <h1 class="font-medium">
             {{
@@ -40,7 +44,7 @@ onMounted(() => {
           <div class="w-full text-[#5D5D5F]">
             <hr class="border border-[#DCE5F5] my-4" />
             <a
-              :href="item.link"
+              
               class="flex justify-between items-center w-full hover:text-[#F7483B]"
               target="_blank"
             >

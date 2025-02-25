@@ -95,7 +95,7 @@ onMounted(() => {
         const lang = JSON.parse(localStorage.getItem('lang'));
 
         selectedLang.value = lang
-        console.log('lang',lang.value)
+        // console.log('lang',lang.value)
         store.language = lang.value
         // setLocale(selectedLang.value.value);
     } else {

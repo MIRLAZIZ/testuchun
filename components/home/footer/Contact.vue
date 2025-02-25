@@ -49,7 +49,7 @@ const store = useHomeStore()
                         <!-- <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p> -->
                         <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
                             <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
-                            <a> {{ store.dataTranslate['footer.fargona']}}</a>
+                            <a> {{ store.dataTranslate['footer.fergana']}}</a>
                         </div>
                     </div>
                 </div>

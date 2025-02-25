@@ -59,7 +59,10 @@ onUnmounted(() => {
   <div class="w-full flex justify-center  mb-[104px]">
     <loading-page v-if="loading" />
 
-    <div class="mainContainer" v-else>
+    <div  v-else>
+      <div class="mainContainer" v-if="data">
+
+    
       <EducationTopCard :data="data" />
 
       <div class="w-full flex flex-col items-center">
@@ -95,6 +98,14 @@ onUnmounted(() => {
           <EducationComments :data="data?.employs" />
         </div> -->
       </div>
+        </div>
+
+          <div v-else>
+        <h1 class="text-center font-Halvar text-3xl">
+          {{ store.dataTranslate["header.do_not"] }}
+        </h1>
+      </div>
+
     </div>
   </div>
 </template>

@@ -169,7 +169,7 @@ watch(
             <div class="flex flex-col justify-between h-full w-full py-3 pr-3">
               <div class="flex items-center">
                 <img src="/assets/imgs/talim/male.png" class="w-[32px] h-[32px]" alt="" />
-                <span class="factsNumber">{{ Math.round(stats.maleStudents) }}</span>
+                <span class="factsNumber">{{ Math.round(stats.maleStudents) }}%</span>
               </div>
               <hr class="bg-[#E9EEF9]" />
               <p class="text-[#5D5D5F] text_left ml-1">{{ store.dataTranslate["home.male_students"] }}</p>
@@ -179,7 +179,7 @@ watch(
             <div class="flex flex-col justify-between h-full w-full py-3 pl-3">
               <div class="flex items-center">
                 <img src="/assets/imgs/talim/female.png" alt="" class="w-[32px] h-[32px]" />
-                <span class="factsNumber ml-1">{{ Math.round(stats.femaleStudents) }}</span>
+                <span class="factsNumber ml-1">{{ Math.round(stats.femaleStudents) }}%</span>
               </div>
               <hr class="bg-[#E9EEF9]" />
               <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate["home.female_students"] }}</p>

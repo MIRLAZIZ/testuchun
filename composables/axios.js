@@ -1,2 +1,2 @@
 import { useRuntimeConfig } from "#app";
-console.log(useRuntimeConfig());
+// console.log(useRuntimeConfig());

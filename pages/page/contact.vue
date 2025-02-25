@@ -25,24 +25,22 @@
                 :href="
                   'tel:' +
                   store.siteInfo?.phone_number
-                    ?.split('|')[1]
-                    ?.replace(/\s+/g, '')
+                    ?.split('\r\n')[0]
                 "
                 class="text-xl font-medium"
               >
-                {{ store.siteInfo?.phone_number?.split("|")[1] }}</a
+                {{ store.siteInfo?.phone_number?.split('\r\n')[0] }}</a
               >
               <br />
               <a
                 :href="
                   'tel:' +
                   store.siteInfo?.phone_number
-                    ?.split('|')[0]
-                    ?.replace(/\s+/g, '')
+                   ?.split('\r\n')[1]
                 "
                 class="text-xl font-medium"
               >
-                {{ store.siteInfo?.phone_number?.split("|")[0] }}</a
+                {{ store.siteInfo?.phone_number?.split('\r\n')[1] }}</a
               >
             </div>
           </div>
@@ -51,7 +49,7 @@
           <div class="bg-white p-4 rounded-lg flex flex-col gap-4">
             <div>
               <h2 class="text-base font-medium mb-2 flex items-center gap-1">
-                <img src="/assets/imgs/vacansiec/Location.png" alt="" /> Manzil
+                <img src="/assets/imgs/vacansiec/Location.png" alt="" /> {{ store.dataTranslate['home.address']}}
               </h2>
               <hr />
             </div>
@@ -59,14 +57,16 @@
             <p class="font-medium text-xl">
               {{ store.siteInfo?.address }}
             </p>
+            
+            <p class="font-medium text-xl"> {{ store.dataTranslate['footer.fergana']}} </p>
+            
           </div>
 
           <!-- Pochta manzili -->
           <div class="bg-white p-4 rounded-lg flex flex-col gap-4">
             <div>
               <h2 class="text-base font-medium mb-2 flex items-center gap-1">
-                <img src="/assets/imgs/vacansiec/Work.png" alt="" /> Pochta
-                manzili
+                <img src="/assets/imgs/vacansiec/Work.png" alt="" /> {{ store.dataTranslate['contract.email']}}
               </h2>
               <hr />
             </div>
@@ -82,8 +82,7 @@
           <div class="bg-white p-4 rounded-lg flex flex-col gap-4">
             <div>
               <h2 class="text-base font-medium mb-2 flex items-center gap-1">
-                <img src="/assets/imgs/vacansiec/Add.png" alt="" /> Ijtimoiy
-                tarmoqlar
+                <img src="/assets/imgs/vacansiec/Add.png" alt="" />{{ store.dataTranslate['footer.tarmoq']}}
               </h2>
               <hr />
             </div>
@@ -97,6 +96,9 @@
               /></a>
               <a :href="store.siteInfo?.telegram"
                 ><img src="/assets/imgs/vacansiec/instagram.png" alt="" />
+              </a>
+              <a :href="store.siteInfo?.facebook"
+                ><img src="/assets/imgs/vacansiec/facebook5.png" alt="" />
               </a>
             </div>
           </div>
