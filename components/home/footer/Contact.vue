@@ -6,7 +6,8 @@ const store = useHomeStore()
 <template>
     <div class="">
         <main>
-            <div class="w-full flex gap-6  box_wrapper ">
+            <div class="w-full flex gap-6  box_wrapper">
+            
 
                 <div class="w-[324px] box_wrapper_width">
                     <p class="sm:text-lg text-sm text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
