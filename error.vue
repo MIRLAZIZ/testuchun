@@ -1,6 +1,6 @@
-// error.vue
+
 <template>
-  <div class="flex flex-col items-center justify-center px-10 h-screen">
+  <div class="flex flex-col items-center justify-center bg-white px-10 h-screen">
     <div>
       <svg
         width="184"

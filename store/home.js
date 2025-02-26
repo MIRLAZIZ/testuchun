@@ -23,7 +23,8 @@ export const useHomeStore = defineStore('home', {
     activeTab: null,
     dinamiMenuLoading: true,
     reklammaData: null,
-    language:null
+    language:null,
+    kampus: null
 
 
 

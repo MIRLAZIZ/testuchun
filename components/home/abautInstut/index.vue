@@ -6,8 +6,20 @@ import book from "~/assets/imgs/home/book-open2.svg";
 
 import { useHomeStore } from "~/store/home";
 
-const openModal = () => (modalVisible.value = true);
-const closeModal = () => (modalVisible.value = false);
+const isOpen = ref(false);
+const selectedVideo = ref('https://www.youtube.com/embed/BN73wVowi-o?si=rAV_mbdrDDQYIitY');
+const player = ref('');
+const openVideo = (item) => {
+  isOpen.value = true;
+  document.body.style.overflow = "hidden";
+  player.value = '&autoplay=1&rel=0';
+};
+const closeModal = () => {
+  isOpen.value = false;
+  player.value = '';
+  // Re-enable overflow on body when modal is closed
+  document.body.style.overflow = "";
+};
 
 const isClient = ref(false);
 
@@ -23,7 +35,6 @@ const goToExtraLink = (url) => {
 };
 
 const store = useHomeStore();
-const modalVisible = ref(false);
 const items = [
   { id: 1, name: "home.campus", img: kampus, link: "/kampus" },
   { id: 2, name: "home.auditorium", img: auditoriya, link: "/page/auditorium" },
@@ -106,7 +117,7 @@ const items = [
             class="rounded-lg shadow-md abautImg"
           />
           <div
-            @click="goToExtraLink(store.siteInfo?.yt_url)"
+            @click="openVideo"
             class="absolute bg-white sm:w-[80px] sm:h-[80px] w-[50px] h-[50px] flex justify-center items-center rounded-full right-6 bottom-6 sm:right-15 cursor-pointer"
           >
             <img src="/assets/imgs/home/playVideo.png" alt="" />
@@ -116,6 +127,53 @@ const items = [
     </div>
 
     <!-- <Modal :isOpen="modalVisible" @close="closeModal" /> -->
+     <!-- {{store.siteInfo?.yt_url}} -->
+
+
+       <!-- Fixed Video Player -->
+       <div
+      v-if="isOpen"
+      class="fixed inset-0 z-[9999] flex items-center justify-center"
+      style="background: rgba(0, 0, 0, 0.75)"
+      @click="closeModal"
+    >
+      <div class="relative w-[95%] xl:w-[50%]">
+        <!-- Close Button -->
+        <button
+          @click="closeModal"
+          class="absolute -top-10 right-0 z-[10000] p-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+
+        <!-- Video Container -->
+        <div class="relative pt-[56.25%]">
+          <iframe
+          
+            :src="store.siteInfo?.yt_url+player"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <style>

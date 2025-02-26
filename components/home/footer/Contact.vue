@@ -1,15 +1,22 @@
 <script setup>
 import { useHomeStore } from '~/store/home'
 
+const gotoExtraLink = (path) => {
+    if (path) {
+    const fullUrl = path.startsWith("http") ? path : `https://${path}`;
+    window.open(fullUrl, "_blank", "noopener,noreferrer");
+  }
+
+}
+
 const store = useHomeStore()
 </script>
 <template>
     <div class="">
         <main>
-            <div class="w-full flex gap-6  box_wrapper">
-            
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-[25%_20%_53%] gap-8  ">
 
-                <div class="w-[324px] box_wrapper_width">
+                <div class="">
                     <p class="sm:text-lg text-sm text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
@@ -28,7 +35,7 @@ const store = useHomeStore()
                 </div>
 
 
-                <div class="w-[324px] box_wrapper_width">
+                <div class="  ">
                     <p class="text-lg text-[#2E4259]">{{ store.dataTranslate['footer.contactUs'] }}</p>
                     <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
                         <img src="/assets/imgs/home/envelope.png" alt="" class="mr-2 w-[26px] h-[26px]">
@@ -37,17 +44,17 @@ const store = useHomeStore()
                     </div>
                 </div>
 
-                <div  class="">
-                    <div class="w-[700px] box_wrapper_width">
+                <div  class=" md:col-span-2 2xl:col-span-1 md:grid md:grid-cols-2  md:gap-8 2xl:grid-cols-1 justify-between" >
+                    <div class=" cursor-pointer " @click="gotoExtraLink(store.kampus?.data[0].map)">
+                      
                         <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p>
                         <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
                             <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
                             <a > {{ store.siteInfo?.address }}</a>
                         </div>
                     </div>
-                    <br>
-                    <div class="w-[700px] box_wrapper_width">
-                        <!-- <p class="text-lg text-[#2E4259]  ">{{ store.dataTranslate['footer.address'] }}</p> -->
+                    <div class="  cursor-pointer" @click="gotoExtraLink(store.kampus?.data[1].map)">
+                       <br>
                         <div class="flex  mt-4 text-[22px] font-medium font-Halvar">
                             <img src="/assets/imgs/home/locationdot.png" alt="" class="w-[26px] h-[26px] mr-2">
                             <a> {{ store.dataTranslate['footer.fergana']}}</a>
@@ -63,7 +70,9 @@ const store = useHomeStore()
             <p>{{ store.dataTranslate['footer.copyright'] }}</p>
             <p>{{ store.dataTranslate['footer.developed'] }} <span class="text-[#F7483B]">NDC</span></p>
         </div>
+        
     </div>
+
 </template>
 <style scoped>
 @media(max-width:1024px) {

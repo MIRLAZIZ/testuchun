@@ -20,6 +20,7 @@ function convertYandexMapLink(mapurl) {
 onMounted(() => {
   store.getKampus().then((res) => {
     addresses.value = res.data;
+    store.kampus = res.data
   });
   isClient.value = true;
 });
