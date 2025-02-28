@@ -8,6 +8,10 @@
         v-for="item in data"
         :key="item"
       >
+
+
+
+
         <div
           class="h-[271px] xl:w-[157px] w-full flex justify-center flex-shrink-0"
         >
@@ -33,7 +37,7 @@
           <button
             @click="
               $router.push(
-                `/institute/details/departament/${item?.employ_meta?.slug}`
+                `/institute/details/departament/${item.employ_meta.department.slug }`
               )
             "
             class="border border-[#F7483B] w-[124px] rounded-lg h-9 2xl:h-[48px] text-[#F7483B] flex justify-center items-center"
