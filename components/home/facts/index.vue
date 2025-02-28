@@ -109,7 +109,7 @@ watch(
         <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between" 
              data-aos="fade-up">
           <div>
-            <span class="factsNumber text-[#F7483B]">+</span>
+           
             <span class="factsNumber text-[#06203D]">{{ Math.round(stats.educationalPrograms) }}</span>
           </div>
           <hr class="bg-[#E9EEF9]" />
@@ -130,11 +130,11 @@ watch(
         <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between"
              data-aos="fade-up">
           <div>
-            <span class="factsNumber text-[#F7483B]">+</span>
             <span class="factsNumber text-[#06203D]">
               {{ Math.round(stats.greenZone) }}
               m<sup class="lg:text-[32px] text-base">2</sup>
             </span>
+            <span class="factsNumber text-[#F7483B]">+</span>
           </div>
           <hr class="bg-[#E9EEF9]" />
           <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate["home.green_zone"] }}</p>
@@ -144,8 +144,8 @@ watch(
         <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between"
              data-aos="fade-down">
           <div>
-            <span class="factsNumber text-[#F7483B]">+</span>
             <span class="factsNumber text-[#06203D]">{{ Math.round(stats.libraryCollection) }}</span>
+            <span class="factsNumber text-[#F7483B]">+</span>
           </div>
           <hr class="bg-[#E9EEF9]" />
           <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate["home.library_fund"] }}</p>
@@ -168,7 +168,7 @@ watch(
             <!-- Male Students -->
             <div class="flex flex-col justify-between h-full w-full py-3 pr-3">
               <div class="flex items-center">
-                <img src="/assets/imgs/talim/male.png" class="w-[32px] h-[32px]" alt="" />
+                <img src="/assets/imgs/talim/male.png" alt="" />
                 <span class="factsNumber">{{ Math.round(stats.maleStudents) }}%</span>
               </div>
               <hr class="bg-[#E9EEF9]" />
@@ -178,7 +178,7 @@ watch(
             <!-- Female Students -->
             <div class="flex flex-col justify-between h-full w-full py-3 pl-3">
               <div class="flex items-center">
-                <img src="/assets/imgs/talim/female.png" alt="" class="w-[32px] h-[32px]" />
+                <img src="/assets/imgs/talim/female.png" alt="" />
                 <span class="factsNumber ml-1">{{ Math.round(stats.femaleStudents) }}%</span>
               </div>
               <hr class="bg-[#E9EEF9]" />

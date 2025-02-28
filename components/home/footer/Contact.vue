@@ -32,6 +32,21 @@ const store = useHomeStore()
                             {{ store.siteInfo?.phone_number?.split('\r\n')[1] }}
                         </a>
                     </div>
+                    <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
+                        <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
+                        <a :href="'tel:' + store.siteInfo?.phone_number?.split('\r\n')[2]"
+                            class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
+                            {{ store.siteInfo?.phone_number?.split('\r\n')[2] }}
+                        </a>
+                    </div>
+
+                    <div class="flex items-center mt-4 text-[22px] font-medium font-Halvar">
+                        <img src="/assets/imgs/home/phone.png" alt="" class="mr-2 w-[26px] h-[26px]">
+                        <a :href="'tel:' + store.siteInfo?.phone_number?.split('\r\n')[3]"
+                            class="text-[#06203D] font-medium sm:text-[22px] text-sm" target="_blank">
+                            {{ store.siteInfo?.phone_number?.split('\r\n')[3] }}
+                        </a>
+                    </div>
                 </div>
 
 

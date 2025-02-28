@@ -13,6 +13,7 @@
           <div
             class="bg-white p-4 rounded-lg border-[#E6EDFA]-1 flex flex-col gap-4"
           >
+
             <div>
               <h2 class="text-lg font-medium mb-2 flex items-center gap-1">
                 <img src="/assets/imgs/vacansiec/Call.png" alt="" />
@@ -20,6 +21,7 @@
               </h2>
               <hr />
             </div>
+
             <div>
               <a
                 :href="
@@ -32,6 +34,9 @@
                 {{ store.siteInfo?.phone_number?.split('\r\n')[0] }}</a
               >
               <br />
+
+
+
               <a
                 :href="
                   'tel:' +
@@ -42,7 +47,33 @@
               >
                 {{ store.siteInfo?.phone_number?.split('\r\n')[1] }}</a
               >
+<br>
+              <a
+                :href="
+                  'tel:' +
+                  store.siteInfo?.phone_number
+                   ?.split('\r\n')[2]
+                "
+                class="text-xl font-medium"
+              >
+                {{ store.siteInfo?.phone_number?.split('\r\n')[2] }}</a
+              >
+<br>
+
+
+              <a
+                :href="
+                  'tel:' +
+                  store.siteInfo?.phone_number
+                   ?.split('\r\n')[3]
+                "
+                class="text-xl font-medium"
+              >
+                {{ store.siteInfo?.phone_number?.split('\r\n')[3] }}</a
+              >
             </div>
+
+            
           </div>
 
           <!-- Manzil -->

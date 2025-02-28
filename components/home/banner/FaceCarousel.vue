@@ -47,7 +47,7 @@ const goToExtraLink = (url) => {
         <div class="mt-7 w-[75%]" v-show="props?.activeItem?.action == 1">
           <button
             @click.stop="store.gotoRegister"
-            class="text-white md:text-base xl:text-[12px] py-3 bg-[#F7483B] md:w-[216px] w-[180px] font-medim rounded-lg flex justify-center items-center text-[18px]"
+            class="text-white  py-3 bg-[#F7483B] md:w-[216px] w-[180px] font-medim rounded-lg flex justify-center items-center 2xl:text-[22px]"
           >
 
             {{ store.dataTranslate["home.submit_application"] }}

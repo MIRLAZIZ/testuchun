@@ -76,8 +76,7 @@ onUnmounted(() => {
     <div class="box_hidden2">
       <HomeHeaderNavBar
         :class="{
-          'fixed-navbar': isFixed && $route.path !== '/',
-          'hidden-navbar': !isFixed && $route.path !== '/',
+          'fixed-navbar': isFixed 
         }"
       />
     </div>
@@ -110,12 +109,7 @@ onUnmounted(() => {
   display: block;
 }
 
-/* Default navbar (scroll oldidan) */
-.hidden-navbar {
-  /* transform: translateY(-100%); */
-  transition: transform 0.4s ease-in-out;
-  animation: fade-in 0.5s ease-in-out forwards;
-}
+
 
 /* Fixed navbar (scrolldan keyin) */
 .fixed-navbar {
@@ -124,27 +118,26 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   background: white;
-  z-index: 50;
+  z-index: 999;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.4s ease-in-out;
-  animation: fade-out 0.5s ease-in-out forwards;
+  animation: fade-out 0.7s ease-in-out forwards;
 }
 
-@keyframes fade-in {
+/* @keyframes fade-in {
   0% {
     transform: translateY( -100%);
     opacity: 0;
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 @keyframes fade-out {
   0% {
     transform: translateY(-100%);
-    opacity: 0;
+ 
   }
   100% {
     opacity: 1;
