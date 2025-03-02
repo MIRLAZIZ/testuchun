@@ -133,10 +133,10 @@
                   props.data?.department_boss?.dec
                 "
               >
-                <div>
+                <div clss='bg-red-500'>
                   <p
                     ref="text"
-                    class="text"
+                    class="text decText"
                     v-html="
                       props.data?.department_boss?.dec[store.language]?.substring(
                         0,
@@ -145,8 +145,8 @@
                     "
                   ></p>
                   <button
-                    v-if="props.data?.department_boss.dec?.length > expanded"
-                    @click="expanded = props.data?.department_boss.dec?.length"
+                    v-if="props.data?.department_boss.dec[store.language]?.length > expanded"
+                    @click="expanded = props.data?.department_boss.dec[store.language]?.length"
                     class="text-red-500 font-bold"
                   >
                     {{ store.dataTranslate["contract.more"] }}...
@@ -235,4 +235,10 @@ const props = defineProps({
 });
 
 </script>
+
+<style scoped>
+:deep(.decText) {
+  white-space: pre-wrap;
+  word-break: break-word;
+}</style>
 

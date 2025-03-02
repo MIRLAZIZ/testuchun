@@ -37,6 +37,9 @@ const selectItem = (data) => {
 </script>
 <template>
   <div class="flex justify-center" v-if="store.educationData">
+    {{ store.educationData[1].education_years }}
+
+
     <div class="h-full mainContainer my-[52px]">
       <div class="flex items-center">
         <img src="/assets/imgs/home/program.png" alt="" />
@@ -108,7 +111,7 @@ const selectItem = (data) => {
               </div>
               <div>
                 <p class="text-[#06203D] programArgument sm:mt-3 mt-1">
-                  {{ programitem.daytime }}
+                  {{ store.educationData[selectedProgram].education_years}}
                 </p>
               </div>
             </div>

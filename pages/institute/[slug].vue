@@ -21,6 +21,14 @@ const processedMenus = computed(() => {
 
   return data || [];
 });
+const isModalOpen = ref(false);
+const openModal = () => {
+  console.log(route.fullPath);
+   if (route.fullPath === '/institute/structures') {
+     isModalOpen.value = true;
+     
+   }
+};
 </script>
 
 <template>
@@ -37,12 +45,33 @@ const processedMenus = computed(() => {
         >
           <!-- formmmenu1 -->
           <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-            <UiCarousel :data="data.photo" />
+            <UiCarousel :data="data.photo"  @click="openModal" />
+
+
+
+
+
+              <div
+      v-if="isModalOpen"
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70  flex justify-center items-center z-50"
+      @click.self="isModalOpen = false"
+    >
+      <div class="bg-white p-4 rounded-lg shadow-lg relative" >
+
+        <button class="absolute top-4 right-8 text-[36px] text-red-500" @click="isModalOpen = false">&times;</button>
+        <img :src="data?.photo[0][store.currentImage]" alt="" class="max-w-full max-h-[80vh] object-contain" />
+      </div>
+    </div>
+            
+
+          
+
+            
 
             <h1 class="text-[28px]  text-[#06203D] font-medium mt-8 mb-6">
               {{ data?.title }}
             </h1>
-            <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+            <div class="mt-8 2xl:pr-16  text-[18px]" v-html="data.text"></div>
 
             <button
             v-if="store.menuShow?.dinamikMenus[0]?.file"
@@ -89,7 +118,11 @@ const processedMenus = computed(() => {
 </template>
 
 <style scoped>
-.containerText ::v-deep(p) {
-  font-size: 18px !important;
+
+.modal-enter-active, .modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+.modal-enter-from, .modal-leave-to {
+  opacity: 0;
 }
 </style>

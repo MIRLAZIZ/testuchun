@@ -19,7 +19,9 @@ const updateImage = () => {
 };
 
 const handleScroll = () => {
-  isFixed.value = window.scrollY > 300; // 200px dan pastga tushganda fixed bo'ladi
+  
+  isFixed.value = window.scrollY > 300;
+  store.isFixed = window.scrollY > 300; // 200px dan pastga tushganda fixed bo'ladi
 };
 
 onMounted(() => {
@@ -73,6 +75,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="bg-[#F4F6FA]">
+  
     <div class="box_hidden2">
       <HomeHeaderNavBar
         :class="{
@@ -84,7 +87,9 @@ onUnmounted(() => {
       <Sidebarmini />
     </div>
 
+    
     <slot />
+  
 
     <HomeFooter />
   </div>

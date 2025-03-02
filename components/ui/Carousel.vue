@@ -33,7 +33,6 @@ const goToNext = () => {
 <template>
     <!-- <div class="2xl:w-[1000px] xl:w-[800px] lg:w-[620px] md:w-full sm:w-full box_wrapper "> -->
     <div class="w-full">
-
     <div class="relative w-full  " v-if="props.data">
         <UCarousel ref="carousel" :items="props.data" :ui="{
             item: 'basis-full',
@@ -44,14 +43,23 @@ const goToNext = () => {
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item[store.currentImage]" class="w-full o h-[366px] lg:h-[450px]  2xl:h-[566px]  object-cover" draggable="false">
+                <img :src="item[store.currentImage]" class="w-full o h-[366px] lg:h-[450px]  2xl:h-[566px]  " draggable="false" :class="{'cursor-zoom-in ': $route.fullPath === '/institute/structures'}">
+
+                
+            
+
+
             </template>
+
+
 
             <template #indicator="{ onClick, page, active }">
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
                     :class="[ { 'border-2 border-[#06203D]': active }]">
                     <!-- {{ props.data[page - 1][store.currentImage] }} -->
                     <img :src="props?.data[page - 1][store?.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
+
+
 
                 </div>
             </template>

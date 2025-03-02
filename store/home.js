@@ -24,7 +24,8 @@ export const useHomeStore = defineStore('home', {
     dinamiMenuLoading: true,
     reklammaData: null,
     language:null,
-    kampus: null
+    kampus: null,
+    isFixed: false
 
 
 
@@ -147,6 +148,9 @@ export const useHomeStore = defineStore('home', {
       return await api.get('/educational-programs')
         .then(res => {
           this.educationData = res.data
+
+          console.log(res.data);
+          
         })
     },
     async getEducutionOne(slug) {
