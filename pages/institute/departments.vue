@@ -22,7 +22,7 @@
           />
         </div>
 
-        <div class="flex flex-col justify-between">
+        <div class="flex flex-col justify-between h-full">
           <div class="mb-4">
             <h1 class="text-xl font-medium">
               {{ item?.last_name[store.language] }}
@@ -30,7 +30,7 @@
               {{ item?.surname[store.language] }}
             </h1>
             <p class="mt-2 text-[#88929D]">
-              {{ item?.employ_meta?.position?.name[store.language] }}
+              {{ item?.employ_meta?.employ_type?.name[store.language] }}
             </p>
           </div>
 

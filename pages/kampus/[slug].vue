@@ -1,6 +1,5 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
-import { useI18n } from "vue-i18n";
 
 const store = useHomeStore();
 const kampus = ref({
@@ -8,7 +7,7 @@ const kampus = ref({
   ru: "Kampusy",
   en: "Campuses",
 });
-const { locale } = useI18n();
+
 
 const is_map = ref(true)
 
@@ -18,7 +17,7 @@ onMounted(() => {
   store.getKampusOne(route.params.slug).then((res) => {
     data.value = res.data;
     store.slugData = {
-      title: kampus.value[locale.value],
+      title: kampus.value[store.language],
       slugText: res?.data?.name,
       path: "/kampus",
     };
@@ -26,7 +25,7 @@ onMounted(() => {
 });
 
 function convertYandexMapLink(mapurl) {
-  if (typeof mapurl === 'string' &&mapurl.startsWith("https://yandex.uz/maps/"))  {
+  if (typeof mapurl === 'string' && mapurl.startsWith("https://yandex.uz/maps/"))  {
     return mapurl.replace("https://yandex.uz/maps/", "https://yandex.uz/map-widget/v1/");
   }
   else{

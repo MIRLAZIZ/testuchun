@@ -111,7 +111,7 @@ const selectItem = (data) => {
               </div>
               <div>
                 <p class="text-[#06203D] programArgument sm:mt-3 mt-1">
-                  {{ store.educationData[selectedProgram].education_years}}
+                  {{ programitem?.education_years }}
                 </p>
               </div>
             </div>

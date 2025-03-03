@@ -6,7 +6,7 @@ const route = useRoute();
 const store = useHomeStore();
 
 const data = ref(null);
-const expanded = ref(50);
+const expanded = ref(500);
 const router = useRouter();
 const loading = ref(true);
 
@@ -73,7 +73,7 @@ onMounted(() => {
                   </p>
                   <p class="font-normal text-xl text-[#9A999B]">
                     {{
-                      data?.department_boss?.employ_meta?.position.name[
+                      data?.department_boss?.employ_meta?.employ_type.name[
                         store.language
                       ]
                     }}
@@ -144,14 +144,15 @@ onMounted(() => {
 
                 <div class="mt-6">
                   <div class="text_padding">
-                    <p v-if="data && data?.dec"
+                    <!-- {{ data?.department_boss.dec[store.language] }} -->
+                    <p v-if="data && data?.department_boss?.dec"
                       ref="text"
                       class="text"
-                      v-html="data?.dec?.substring(0, expanded)"
+                      v-html="data?.department_boss.dec[store.language]?.substring(0, expanded)"
                     ></p>
                     <button
-                      v-if="data?.dec?.length > expanded"
-                      @click="expanded = data?.dec?.length"
+                      v-if="data?.department_boss?.dec[store.language] && data?.department_boss?.dec[store.language]?.length > expanded"
+                      @click="expanded = data?.department_boss?.dec?.length"
                       class="text-red-500 font-bold"
                     >
                       {{ store.dataTranslate["contract.more"] }}...

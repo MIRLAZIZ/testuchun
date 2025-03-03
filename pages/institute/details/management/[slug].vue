@@ -39,7 +39,7 @@
                   {{ data?.surname }}
                 </p>
                 <p class="font-normal text-xl text-[#9A999B]">
-                  {{ data?.position?.name }}
+                  {{ data?.employ_type }}
                 </p>
               </div> 
 

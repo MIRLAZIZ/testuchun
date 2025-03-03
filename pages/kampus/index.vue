@@ -2,7 +2,6 @@
 import { useHomeStore } from "~/store/home";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
-import { useI18n } from "vue-i18n";
 const store = useHomeStore();
 const route = useRoute();
 // console.log(useI18n().locale.value);
@@ -14,10 +13,9 @@ const kampus = ref({
   en: "Campuses",
 });
 const loading = ref(true);
-const { locale } = useI18n();
 
 let data = ref({
-  title: kampus.value[locale.value],
+  title: kampus.value[store.language],
   slugText: "",
   path: "/kampus",
 });
