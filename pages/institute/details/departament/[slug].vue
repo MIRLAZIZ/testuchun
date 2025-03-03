@@ -81,10 +81,10 @@ onMounted(() => {
                 </div>
 
                 <div class="flex gap-1 lg:mt-6 mt-6 flex-col">
-                  <div class="flex gap-1 flex-col">
+                  <div class="flex gap-1 flex-col bg-[#F4F6FA] rounded-lg">
                     <div
                       v-if="data?.department_boss?.phone"
-                      class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
+                      class="flex items-center gap-3 p-2 rounded-xl w-full"
                     >
                       <img
                         src="/assets/imgs/vacansiec/phone.png"
@@ -107,7 +107,7 @@ onMounted(() => {
 
                     <div
                       v-if="data?.department_boss?.email"
-                      class="bg-[#F4F6FA] flex items-center gap-3 p-2 rounded-xl w-full"
+                      class=" flex items-center gap-3 p-2 rounded-xl w-full"
                     >
                       <img src="/assets/imgs/vacansiec/email.png" alt="" />
 

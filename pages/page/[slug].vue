@@ -20,13 +20,14 @@ const processedMenus = computed(() => {
 
   return data || [];
 });
+
 </script>
 
 <template>
-  <div class="flex justify-center w-full mt-10 mb-[104px]">
-    <LoadingPage v-if="store.dinamiMenuLoading" />
+  <div class="w-full">
+    <loading-page v-if="store.dinamiMenuLoading" />
 
-    <div v-else class=" ">
+    <div v-else>
       <div v-if="processedMenus && processedMenus.length">
         <div
           v-for="(data, index) in processedMenus"
@@ -36,11 +37,34 @@ const processedMenus = computed(() => {
         >
           <!-- formmmenu1 -->
           <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-            <UiCarousel :data="data.photo" />
-            <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6 mt-8">
+            <UiCarousel :data="data.photo" />        
+
+            
+
+            <h1 class="text-[28px]  text-[#06203D] font-medium mt-8 mb-6">
               {{ data?.title }}
             </h1>
-            <div class="mt-8 2xl:pr-16 containerText" v-html="data.text"></div>
+            <div class="mt-8 2xl:pr-16  text-[18px]" v-html="data.text"></div>
+
+            <button
+            v-if="store.menuShow?.dinamikMenus[0]?.file"
+            @click="
+              store.downloadFile(
+                store.menuShow?.dinamikMenus[0]?.file,
+                store.menuShow?.dinamikMenus[0]?.title
+              )
+            "
+            class="bg-[#F7483B] mt-4 sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
+          >
+            {{ store.dataTranslate["header.download"] }}
+            <img
+              src="/assets/imgs/kampus/Download.png"
+              alt=""
+              class="w-5 h-5 ml-4 object-cover"
+            />
+          </button>
+
+          
           </div>
 
           <!-- formmenu2 -->
@@ -52,10 +76,12 @@ const processedMenus = computed(() => {
 
           <!-- fomrmenu3  -->
           <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
+
+        
+         
         </div>
       </div>
-
-      <div v-else class="w-full h-[100vh]">
+      <div v-else>
         <h1 class="text-center font-Halvar text-3xl">
           {{ store.dataTranslate["header.do_not"] }}
         </h1>
@@ -65,7 +91,6 @@ const processedMenus = computed(() => {
 </template>
 
 <style scoped>
-.containerText ::v-deep(p) {
-  font-size: 20px !important;
-}
+
+
 </style>

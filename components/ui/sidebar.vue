@@ -68,10 +68,10 @@
           >
             <div class="flex gap-x-4">
               <div class="flex items-center w-[100px]">
-                <img
-                  src="/assets/imgs/talim/image.png"
+                <img 
+                  :src="store.leaderShipsdata ?  store?.leaderShipsdata[0]?.professor_employ[0]?.photo : ''"
                   alt=""
-                  class="w-[64px] h-[64px] rounded-full"
+                  class="w-[64px] h-[64px] rounded-full object-cover"
                 />
               </div>
               <p class="text-xl font-medium font-Halvar">
@@ -138,6 +138,13 @@ onMounted(() => {
   if (!store.reklammaData) {
     store.getReklama();
   }
+
+if (!store.leaderShipsdata) {
+  store.getLeaderShips().then((res) => {
+    store.leaderShipsdata = res.data
+  })
+
+}
 });
 </script>
 <style scoped>

@@ -25,7 +25,8 @@ export const useHomeStore = defineStore('home', {
     reklammaData: null,
     language:null,
     kampus: null,
-    isFixed: false
+    isFixed: false,
+    leaderShipsdata: null
 
 
 
@@ -149,7 +150,6 @@ export const useHomeStore = defineStore('home', {
         .then(res => {
           this.educationData = res.data
 
-          console.log(res.data);
           
         })
     },

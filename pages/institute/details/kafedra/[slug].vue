@@ -47,10 +47,11 @@
 
 
 
+
               <div class="flex gap-1 lg:mt-6 mt-4 flex-col">
 
 
-                <div class="flex gap-1 flex-col ">
+                <div class="flex gap-1 flex-col bg-[#F4F6FA] rounded-lg">
 
 
                   <div
@@ -108,6 +109,9 @@
                 </div>
 
               </div>
+
+
+
 
               <div class="mt-6">
                 <div>
