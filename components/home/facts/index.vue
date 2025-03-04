@@ -120,7 +120,7 @@ watch(
         <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between"
              data-aos="fade-down">
           <div>
-            <span class="factsNumber text-[#06203D]">{{ Math.round(stats.audienceSize) }}</span>
+            <span class="factsNumber text-[#06203D]">{{ Math.round(stats.audienceSize) }}  <span class="factsNumber text-[#F7483B]">+</span></span>
           </div>
           <hr class="bg-[#E9EEF9]" />
           <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate["home.number_auditories"] }}</p>
@@ -155,7 +155,7 @@ watch(
         <div class="h-[164px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between"
              data-aos="fade-up">
           <div>
-            <span class="factsNumber text-[#06203D]">{{ Math.round(stats.numberOfStudents) }}</span>
+            <span class="factsNumber text-[#06203D]">{{ Math.round(stats.numberOfStudents) }}  <span class="factsNumber text-[#F7483B]">+</span></span>
           </div>
           <hr class="bg-[#E9EEF9]" />
           <p class="text-[#5D5D5F] text-left">{{ store.dataTranslate["home.number_students"] }}</p>
