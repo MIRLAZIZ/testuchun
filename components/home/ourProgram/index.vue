@@ -83,7 +83,7 @@ const selectItem = (data) => {
             :key="item.id"
             @click="selectItem(item)"
           >
-            <img :src="item.img" alt="" />
+            <img :src="item.icon" alt=""  class="w-6 h-6 object-cover"/>
             <p class="ml-4 wrapper_title">{{ item.name }}</p>
           </div>
         </div>
