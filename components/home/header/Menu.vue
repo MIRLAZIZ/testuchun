@@ -2,7 +2,7 @@
   <div class="flex">
     <ul v-for="menu in store.menus" :key="menu.id" class="relative">
       <li
-        @click.stop="store.menuDrop(menu)"
+        @mouseenter="store.menuDrop(menu)"
         class="lg:px-2 px-4 text-[#020105] xl:text-sm 2xl:text-base cursor-pointer flex"
         v-if="menu.path !== '/page' && menu.slug !== 'section-menu' "
       >

@@ -45,7 +45,7 @@ export const useHomeStore = defineStore('home', {
 
     menuDrop(data) {
 
-      if (this.optionsData[0] === data || data.title === 'SDG') {
+      if (data.title === 'SDG') {
         this.optionsData = []
         this.is_open = false
         return

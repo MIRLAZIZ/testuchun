@@ -48,7 +48,7 @@ onMounted(() => {
         class="mainContainer grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 mb-[144px]"
       >
         <div
-          class="w-full rounded-xl p-6 bg-white flex flex-col justify-between"
+          class="w-full rounded-xl p-6 bg-white flex flex-col"
           v-for="item in items.data"
           :key="item.id"
         >
@@ -61,7 +61,7 @@ onMounted(() => {
           />
           <div>
             <h1 class="text-[24px] font-medium mt-6">{{ item.name }}</h1>
-            <p class="mt-2 text-xl" v-html="item.first_description"></p>
+            <p class="mt-2 text-xl" v-if="item.first_description" v-html="item?.first_description.substring(0, 600)"></p><p class="mt-2 text-xl" v-else v-html="item?.description.substrng(0, 600)"></p>
           </div>
           <div>
             <hr class="my-4" />
