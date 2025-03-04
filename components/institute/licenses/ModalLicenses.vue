@@ -1,6 +1,7 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
 
+
 const store = useHomeStore();
 const props = defineProps({
   isOpen: {
@@ -16,7 +17,8 @@ const props = defineProps({
   data_id: {
     type: Number,
     require: true,
-  },
+  }
+ 
 });
 const emit = defineEmits(["update:isOpen"]);
 
@@ -29,6 +31,8 @@ watch(
   },
   { deep: true }
 );
+
+// watch window height
 
 const nextOn = () => {
   if (itemIndex.value < props.items.length - 1) {
@@ -107,7 +111,7 @@ const printPage = () => {
 
           <div
                   class="flex ml-4 items-center justify-center w-12 h-12 border rounded-full cursor-pointer md:hidden"
-                  @click="emit('update:isOpen', false)"
+                  @click="emit('update:isOpen', false,  store.windowInnerHeight ? store.isFixed = true : '')"
                 >
                   <UIcon
                     name="i-heroicons-x-mark"
@@ -126,7 +130,7 @@ const printPage = () => {
 
                 <div
                   class="flex items-center justify-center w-12 h-12 border rounded-full cursor-pointer box_hidden"
-                  @click="emit('update:isOpen', false)"
+                  @click="emit('update:isOpen', false, store.windowInnerHeight ? store.isFixed = true : '')"
                 >
                   <UIcon
                     name="i-heroicons-x-mark"
@@ -151,7 +155,7 @@ const printPage = () => {
               <p>
                 <span class="text-[#9A999B] downloadButton"
                   >Berilgan sana: </span
-                >{{ props.items[itemIndex]?.date?.substring(0, 10) }}
+                >{{ props.items[itemIndex]?.date?.substring(0, 10) }} 
               </p>
             </div>
 
@@ -187,7 +191,7 @@ const printPage = () => {
                   class="bg-[#F7483B] sm:w-[194px] w-[160px] no-print  h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
                   @click="printPage"
                 >
-                  {{ store.dataTranslate['header.download'] }}
+                  {{ store.dataTranslate['header.download'] }}   
                   <img
                     src="/assets/imgs/kampus/Download.png"
                     alt=""
@@ -209,6 +213,7 @@ const printPage = () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 }
 
 @media print {

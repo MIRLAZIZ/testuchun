@@ -26,7 +26,8 @@ export const useHomeStore = defineStore('home', {
     language:null,
     kampus: null,
     isFixed: false,
-    leaderShipsdata: null
+    leaderShipsdata: null,
+    windowInnerHeight: null
 
 
 

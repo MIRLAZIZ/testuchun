@@ -20,8 +20,9 @@ const updateImage = () => {
 
 const handleScroll = () => {
   
-  isFixed.value = window.scrollY > 300;
-  store.isFixed = window.scrollY > 300; // 200px dan pastga tushganda fixed bo'ladi
+  isFixed.value = window.scrollY > 1000;
+  store.isFixed = window.scrollY > 1000; 
+  store.windowInnerHeight = window.scrollY > 1000;
 };
 
 onMounted(() => {
@@ -79,7 +80,7 @@ onUnmounted(() => {
     <div class="box_hidden2">
       <HomeHeaderNavBar
         :class="{
-          'fixed-navbar': isFixed 
+          'fixed-navbar': store.isFixed 
         }"
       />
     </div>

@@ -39,8 +39,8 @@ const addCertificat = () => {
       <div class="grid grid-cols-2 gap-4 2xl:grid-cols-3" v-if="items">
         <div
           v-for="(item, index) in items"
-          :key="index"
-          @click="(isOpen = true), (data = index)"
+          :key="index"  
+          @click="(isOpen = true), (data = index), store.windowInnerHeight ? store.isFixed = false : ''"
           class="sm:h-[600px] h-[323px] items-center p-3 bg-white rounded-xl certificate"
         >
           <div class="sm:h-[459px] h-[211px] relative">

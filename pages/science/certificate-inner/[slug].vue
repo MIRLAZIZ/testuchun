@@ -30,7 +30,11 @@ onMounted(() => {
       <div v-if="data">
         <div class="w-full">
           <div class="bg-white rounded-xl p-8">
-            <UiCarousel :data="[data.photo]" />
+         
+
+
+
+            <img :src="data?.photo[store.currentImage]" alt="" class="w-full">
 
             <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6">
               {{ data?.title }}
