@@ -6,8 +6,11 @@ const store = useHomeStore();
     <div class="pb-4 bg-white  flex justify-center">
         <div class="mainContainer pb-4 ">
             <HomeHeaderNavContacts  v-if="!store.isFixed"/>
-            <HomeHeaderNavbarMenu class="mt-7 " />
-            <HomeHeaderMenuDropdown />
+            <div @mouseleave="store.is_open= false">
+                <HomeHeaderNavbarMenu class="mt-7 " />
+                <HomeHeaderMenuDropdown />
+
+            </div>
 
         </div>
     </div>

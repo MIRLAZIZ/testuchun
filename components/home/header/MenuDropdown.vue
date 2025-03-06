@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useHomeStore } from '~/store/home'
 
 const store = useHomeStore()
@@ -49,28 +49,12 @@ const groupedChildren = computed(() => {
     return columns
 })
 
-// Tashqi joyga bosilganda menyuni yopish
-const handleClickOutside = () => {
-    store.is_open = false
-    store.optionsData = []
-}
-
-watch(
-    () => store.is_open,
-    (newValue) => {
-        if (newValue) {
-            document.addEventListener('click', handleClickOutside)
-        } else {
-            document.removeEventListener('click', handleClickOutside)
-        }
-    }
-)
 </script>
 
 
 <template>
-    <div>
-        <div class="relative w-full">
+    <div class="" >
+        <div class="relative w-full" >
             <div class="absolute w-full is_dropdown z-40" :class="{ 'dropdown': store.is_open }">
                 <div class="dropdown-content">
                     <div v-for="(column, colIndex) in groupedChildren" :key="colIndex" class="menu-column">
@@ -91,13 +75,13 @@ watch(
 .is_dropdown {
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transition: max-height 0.5s ease,  ;
 }
 
 .dropdown {
     max-height: 350px;
     opacity: 1;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transition: max-height 1s ease, opacity 0.5s ease-in-out;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     background: white;

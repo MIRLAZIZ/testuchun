@@ -9,7 +9,7 @@ const store = useHomeStore()
         <div @click="$router.push('/')" class="cursor-pointer">
             <img :src="store.siteInfo?.logo" alt=""  class=" object-center"/>
         </div>
-        <div class="flex items-center xl:gap-[57px]">
+        <div class="flex items-center xl:gap-[57px]"  >
             <HomeHeaderMenu />
             <div>
                 <div

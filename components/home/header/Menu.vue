@@ -1,6 +1,6 @@
 <template>
-  <div class="flex">
-    <ul v-for="menu in store.menus" :key="menu.id" class="relative">
+  <div class="flex" >
+    <ul v-for="menu in store.menus" :key="menu.id" class=" relative">
       <li
         @mouseenter="store.menuDrop(menu)"
         class="lg:px-2 px-4 text-[#020105] xl:text-sm 2xl:text-base cursor-pointer flex"
@@ -32,9 +32,7 @@
 import { useHomeStore } from '~/store/home';
 const store = useHomeStore();
 
-const menuSort = () => {
-  store.menus.sort((a, b) => a.order - b.order);
-}
+
 </script>
 
 <style scoped>

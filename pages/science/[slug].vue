@@ -62,12 +62,17 @@ const processedMenus = computed(() => {
             </button>
           </div>
 
-          <!-- formmenu2 -->
-          <HomeUsefulLinkCarusel
-            v-else-if="data.type === 'formmenu1'"
+          <div v-else-if="data.type === 'formmenu1'">
+
+         <SciencePost :data="data.categories" v-if="$route.fullPath === '/science/seminars'"/>
+          
+           <HomeUsefulLinkCarusel
+            v-else
             :items="data.categories"
             :title="data.title"
           />
+          </div>
+         
 
           <!-- fomrmenu3  -->
           <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
