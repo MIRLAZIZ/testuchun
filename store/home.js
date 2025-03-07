@@ -258,6 +258,12 @@ export const useHomeStore = defineStore('home', {
 
     gotoRegister() {
       window.open("https://register.timeedu.uz/", "_blank")
+    },
+    async testingCenter() {
+      return await  api.get('/test')
+    },
+    async testingSlug(slug)  {
+      return await api.get(`/test/${slug}`)
     }
 
 

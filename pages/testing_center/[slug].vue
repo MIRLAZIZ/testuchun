@@ -3,26 +3,26 @@ import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
 const kampus = ref({
-  uz: "Kampuslar",
-  ru: "Kampusy",
-  en: "Campuses",
+  uz: "Test markazi",
+  ru: "Центр диагностики",
+  en: "Testing center",
 });
 
 
 const is_map = ref(true)
 
-
 const route = useRoute();
 const data = ref(null);
 
+
 onMounted(() => {
-  store.menuShow = null
-  store.getKampusOne(route.params.slug).then((res) => {
+  store.menuShow = null;
+  store.testingSlug(route.params.slug).then((res) => {
     data.value = res.data;
     store.slugData = {
       title: kampus.value[store.language],
       slugText: res?.data?.name,
-      path: "/kampus",
+      path: "/testing_center",
     };
   });
 });
@@ -68,55 +68,6 @@ onUnmounted(() => {
           </h1>
           <p class="text-[20px]" v-html="data.second_description"></p>
         </div>
-
-
-        <!-- facts and number  -->
-
-        <!-- <div
-      
-          class="mt-6  grid lg:grid-cols-3 md:grid-cols-3 md:gap-x-2 gir-cols-1 lg:gap-x-4 gap-4 my-10"
-        >
-          <div
-            class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border"
-          >
-            <div>
-              <span class="text-[40px] text-[#F7483B]">+</span>
-              <span class="text-[40px]">{{ data.educational_programs }}</span>
-              <hr class="bg-[#E9EEF9]" />
-            </div>
-
-            <p class="text-[#5D5D5F] text-left text-lg">
-              {{ store.dataTranslate["home.educational_programs"] }}
-            </p>
-          </div>
-          <div
-            class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border"
-          >
-            <div>
-              <span class="text-[40px]">{{ data.audience_size }}</span>
-              <hr class="bg-[#E9EEF9]" />
-            </div>
-            <p class="text-[#5D5D5F] text-left text-lg">
-              {{ store.dataTranslate["home.number_auditories"] }}
-            </p>
-          </div>
-          <div
-            class="h-[170px] px-8 py-6 bg-white w-full rounded-xl flex flex-col justify-between border"
-          >
-            <div>
-              <span class="text-[40px] text-[#F7483B]">+</span>
-              <span class="text-[40px]"
-                >{{ data.green_zone }}m<sup class="text-[24px]">2</sup></span
-              >
-              <hr class="bg-[#E9EEF9]" />
-            </div>
-            <p class="text-[#5D5D5F] text-left text-lg">
-              {{ store.dataTranslate["home.green_zone"] }}
-            </p>
-          </div>
-        </div> -->
-
-
 
 
 

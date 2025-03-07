@@ -57,7 +57,7 @@ const groupedChildren = computed(() => {
         <div class="relative w-full" >
             <div class="absolute w-full is_dropdown z-40" :class="{ 'dropdown': store.is_open }">
                 <div class="dropdown-content">
-                    <div v-for="(column, colIndex) in groupedChildren" :key="colIndex" class="menu-column">
+                    <div v-for="(column, colIndex) in groupedChildren" :key="colIndex" class="menu-column   mt-10">
                         <button v-for="option in column" :key="option.id"
                             class="text-gray-700 hover:text-red-700 text-left">
                             <div v-if="option.path">
@@ -77,14 +77,25 @@ const groupedChildren = computed(() => {
     opacity: 0;
     transition: max-height 0.5s ease,  ;
 }
-
+/* 
 .dropdown {
-    max-height: 350px;
+    min-height: 200px;
     opacity: 1;
     transition: max-height 1s ease, opacity 0.5s ease-in-out;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+} */
+.dropdown {
+    min-height: 200px;
+    opacity: 1;
+    transition: max-height 1s ease, opacity 0.5s ease-in-out;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background: white;
+    box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-content {

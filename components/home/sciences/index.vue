@@ -83,7 +83,7 @@ const firstColumn = [
 
 const secondColumn = [
   { id: 4, name: "home.career_center", link: "/page/career_center" },
-  { id: 5, name: "home.british_council", link: "/page/british_council" },
+  { id: 5, name: "home.british_council", link: "/testing_center" },
   { id: 6, name: "home.events_calendar", link: "/page/events_calendar" },
 ];
 

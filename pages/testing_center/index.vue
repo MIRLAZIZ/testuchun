@@ -8,18 +8,17 @@ const route = useRoute();
 
 const items = ref(null);
 const kampus = ref({
-  uz: "Kampuslar",
-  ru: "Kampusy",
-  en: "Campuses",
+  uz: "Test markazi",
+  ru: "Центр диагностики",
+  en: "Testing center",
 });
 const loading = ref(true);
 
 let data = ref({
   title: kampus.value[store.language],
   slugText: "",
-  path: "/kampus",
+  path: "/testing_center",
 });
-
 watchEffect(() => {
   if (kampus.value && store.language in kampus.value) {
     data.value.title = kampus.value[store.language];
@@ -30,10 +29,8 @@ onMounted(() => {
   store.menuShow = null;
   store.slugData = data;
 
-  
-
   store
-    .getKampus()
+    .testingCenter()
     .then((res) => {
       items.value = res.data;
       loading.value = false;
@@ -51,6 +48,7 @@ onMounted(() => {
 
     <LoadingPage v-if="loading" />
     <div class="w-full flex justify-center">
+    
       <div
         v-if="items && items.data"
         class="mainContainer grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 mb-[144px]"
@@ -69,14 +67,16 @@ onMounted(() => {
           />
           <div>
             <h1 class="text-[24px] font-medium mt-6">{{ item.name }}</h1>
-            <p class="mt-2 text-xl" v-if="item.first_description" v-html="item?.first_description.substring(0, 600)"></p><p class="mt-2 text-xl" v-else v-html="item?.description.substrng(0, 600)"></p>
+            <p class="mt-2 text-xl" v-if="item.first_description" v-html="item?.first_description?.substring(0, 600)"></p>
+            
+            <p class="mt-2 text-xl" v-else v-html="item?.second_description?.substring(0, 600)"></p>
           </div>
           <div>
             <hr class="my-4" />
 
             <div
               class="flex justify-between items-center cursor-pointer"
-              @click="$router.push(`/kampus/${item.slug}`)"
+              @click="$router.push(`/testing_center/${item.slug}`)"
             >
             
               <span class="text-[#5D5D5F]">
@@ -92,7 +92,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div v-else>
+      <div v-else class="h-[50vh] p-10">
         <h1 class="text-center font-Halvar text-3xl">
           {{ store.dataTranslate["header.do_not"] }}
         </h1>
