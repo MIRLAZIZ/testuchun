@@ -18,6 +18,7 @@
             </span>
           </div>
           <!-- data  -->
+           
           <div
             class="flex w-full flex-col md:flex-row gap-8 rounded-xl"
             v-if="props.data && props.data.department_boss"
@@ -38,11 +39,11 @@
                   {{ props.data.department_boss?.first_name[store.language] }}
                   {{ props.data?.department_boss.surname[store.language] }}
                 </p>
+
+
                 <p class="text-xl text-[#9A999B]">
                   {{
-                    props.data?.department_boss?.employ_meta?.position.name[
-                      store.language
-                    ]
+                  props.data?.department_boss?.employ_meta?.employ_type?.name[store.language]
                   }}
                 </p>
               </div>
@@ -195,7 +196,7 @@
                 {{ item?.surname[store.language] }}
               </h1>
               <p class="mt-2 text-[#88929D]">
-                {{ item?.employ_meta?.position.name[store.language] }}
+              {{ item?.employ_meta.employ_type.name[store.language] }}
               </p>
               <hr class="border border-[#DCE5F5] my-6" />
               <button
