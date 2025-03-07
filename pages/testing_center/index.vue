@@ -67,9 +67,9 @@ onMounted(() => {
           />
           <div>
             <h1 class="text-[24px] font-medium mt-6">{{ item.name }}</h1>
-            <p class="mt-2 text-xl" v-if="item.first_description" v-html="item?.first_description?.substring(0, 600)"></p>
+            <p class="mt-2 text-xl line-clamp-[9]" v-if="item.first_description" v-html="item?.first_description"></p>
             
-            <p class="mt-2 text-xl" v-else v-html="item?.second_description?.substring(0, 600)"></p>
+            <p class="mt-2 text-xl line-clamp-[9]" v-else v-html="item?.second_description"></p>
           </div>
           <div>
             <hr class="my-4" />
