@@ -85,7 +85,9 @@ onUnmounted(() => {
       />
     </div>
     <div class="box_hidden1">
-      <Sidebarmini />
+      <Sidebarmini :class="{
+          'fixed-navbar': store.isFixed 
+        }" />
     </div>
 
     
