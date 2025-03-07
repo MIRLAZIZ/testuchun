@@ -77,17 +77,7 @@ const groupedChildren = computed(() => {
     opacity: 0;
     transition: max-height 0.5s ease,  ;
 }
-/* 
-.dropdown {
-    min-height: 200px;
-    opacity: 1;
-    transition: max-height 1s ease, opacity 0.5s ease-in-out;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
-} */
 .dropdown {
     min-height: 200px;
     opacity: 1;

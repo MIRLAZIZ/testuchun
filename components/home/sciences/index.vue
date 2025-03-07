@@ -71,9 +71,7 @@
 <script setup>
 import { useHomeStore } from "~/store/home";
 const store = useHomeStore();
-// const firstColumn = ['home.chemistry', 'home.schedule', 'home.maps', ];
-// const secondColumn = [ 'home.career_center', 'home.british_council', 'home.events_calendar', ];
-// const thirdColumn = ['home.vacancies', 'home.tender', 'home.contacts'];
+
 
 const firstColumn = [
   { id: 1, name: "home.chemistry", link: "header.hemis_link" },

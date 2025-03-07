@@ -1,9 +1,10 @@
 <template>
-  <div class="flex justify-center items-centermainContainer mb-[104px]">
+  <div class="flex justify-center items-centermainContainer mb-[104px] ">
+  
     <LoadingPage v-if="loading" />
 
-    <div v-else>
-      <div class="mainContainer w-full ">
+    <div v-else  class="lg:max-w-[calc(100%-348px)] w-full  mainContainer">
+      <div class="  ">
         <div class="w-full bg-white rounded-xl p-8 mt-10">
           <div class="mb-8">
             <div class="flex justify-between">
@@ -66,11 +67,7 @@
           </div>
         </div>
 
-        <!-- <UiNewsCarousel
-          :items="store.news?.data?.slice(0, 6)"
-          :title="store.dataTranslate['home\.latest_news']"
-          class=""
-        /> -->
+      
       </div>
     </div>
   </div>

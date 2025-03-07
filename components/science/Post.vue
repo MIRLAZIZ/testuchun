@@ -38,7 +38,7 @@ onMounted(() => {
             <img
               :src="item.images[0][store.currentImage]"
               alt="Yangliklar rasmi"
-              class="w-full h-full rounded-lg object-cover"
+              class="w-full h-full rounded-lg "
             />
           </div>
 

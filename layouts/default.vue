@@ -6,13 +6,13 @@ const isFixed = ref(false);
 const screenWidth = ref(0);
 
 const updateImage = () => {
-  if (screenWidth.value <= 600) {
+  if (screenWidth.value < 600) {
     store.currentImage = "sm";
     store.currentImage2 = "sm_img";
-  } else if (screenWidth.value <= 1200) {
+  } else if (screenWidth.value < 1500) {
     store.currentImage = "md";
     store.currentImage2 = "md_img";
-  } else {
+  } else if(screenWidth.value < 1500){
     store.currentImage = "lg";
     store.currentImage2 = "lg_img";
   }

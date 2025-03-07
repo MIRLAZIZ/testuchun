@@ -43,7 +43,7 @@ const goToNext = () => {
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item[store.currentImage]" class="w-full object-cover h-[366px] lg:h-[450px]  2xl:h-[566px]  " draggable="false" :class="{'cursor-zoom-in ': $route.fullPath === '/institute/structures'}">
+                <img :src="item[store.currentImage]" class="w-full  h-[366px] lg:h-[450px]  2xl:h-[566px]  " draggable="false" :class="{'cursor-zoom-in ': $route.fullPath === '/institute/structures'}">
 
                 
             
