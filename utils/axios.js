@@ -7,7 +7,7 @@ import axios from 'axios';
 
 // Axios instansiyasini yaratish
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL+'nt8xn7op68wtu3aqpy48gw9ve81affvvn01o8d8kcamsmm6meqr5fwmyxqph', 
+  baseURL: import.meta.env.VITE_BASE_URL+'/nt8xn7op68wtu3aqpy48gw9ve81affvvn01o8d8kcamsmm6meqr5fwmyxqph', 
   timeout: 200000,
 });
 
