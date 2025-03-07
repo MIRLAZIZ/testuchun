@@ -6,6 +6,7 @@ const store = useHomeStore();
 const route = useRoute();
 
 onMounted(() => {
+  console.log(route.fullPath)
   store.menuFind('/page', route.fullPath);
 });
 

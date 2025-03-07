@@ -103,8 +103,14 @@ export const useHomeStore = defineStore('home', {
     },
 
     menuFind(parentPage, child) {
+
+      console.log(child, parentPage);
+      
       if (this.menus.length) {
         this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+
+        console.log(this.menuData);
+        
 
         this.getMenuShow(this.menuData?.id).then(res => {
           this.menuShow = res.data
@@ -120,6 +126,7 @@ export const useHomeStore = defineStore('home', {
         this.getMenu().then(() => {
 
           this.menuData = this.menus.find(menu => menu.path === parentPage).children.find(item => item.path === child)
+          
 
           this.getMenuShow(this.menuData?.id).then(res => {
             this.menuShow = res.data
