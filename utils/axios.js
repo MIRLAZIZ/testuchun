@@ -12,6 +12,7 @@ const api = axios.create({
 });
 
 
+
 api.interceptors.request.use(
   (config) => {
     const langObj = JSON.parse(localStorage.getItem('lang')) || { value: 'uz' };
