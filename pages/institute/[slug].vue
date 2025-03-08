@@ -24,10 +24,10 @@ const processedMenus = computed(() => {
 const isModalOpen = ref(false);
 const openModal = () => {
   console.log(route.fullPath);
-   if (route.fullPath === '/institute/structures') {
-     isModalOpen.value = true;
-     
-   }
+  if (route.fullPath === '/institute/structures') {
+    isModalOpen.value = true;
+
+  }
 };
 </script>
 
@@ -37,75 +37,59 @@ const openModal = () => {
 
     <div v-else>
       <div v-if="processedMenus && processedMenus.length">
-        <div
-          v-for="(data, index) in processedMenus"
-          :key="data.id"
-          class="w-full"
-          :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
-        >
+        <div v-for="(data, index) in processedMenus" :key="data.id" class="w-full"
+          :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }">
           <!-- formmmenu1 -->
           <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-            <UiCarousel :data="data.photo"  @click="openModal" />
+            <UiCarousel :data="data.photo" @click="openModal" />
 
 
 
 
 
-              <div
-      v-if="isModalOpen"
-      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70  flex justify-center items-center z-50"
-      @click.self="isModalOpen = false"
-    >
-      <div class="bg-white p-4 rounded-lg shadow-lg relative" >
+            <div v-if="isModalOpen"
+              class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70  flex justify-center items-center z-50"
+              @click.self="isModalOpen = false">
+              <div class="bg-white p-4 rounded-lg shadow-lg relative">
 
-        <button class="absolute top-4 right-8 text-[36px] text-red-500" @click="isModalOpen = false">&times;</button>
-        <img :src="data?.photo[0][store.currentImage]" alt="" class="max-w-full max-h-[80vh] object-contain" />
-      </div>
-    </div>
-            
+                <button class="absolute top-4 right-8 text-[36px] text-red-500"
+                  @click="isModalOpen = false">&times;</button>
+                <img :src="data?.photo[0][store.currentImage]" alt="" class="max-w-full max-h-[80vh] object-contain" />
+              </div>
+            </div>
 
-          
 
-            
+
+
+
 
             <h1 class="text-[28px]  text-[#06203D] font-medium mt-8 mb-6">
               {{ data?.title }}
             </h1>
             <div class="mt-8 2xl:pr-16  text-[18px]" v-html="data.text"></div>
 
-            <button
-            v-if="store.menuShow?.dinamikMenus[0]?.file"
-            @click="
+            <button v-if="store.menuShow?.dinamikMenus[0]?.file" @click="
               store.downloadFile(
                 store.menuShow?.dinamikMenus[0]?.file,
                 store.menuShow?.dinamikMenus[0]?.title
               )
-            "
-            class="bg-[#F7483B] mt-4 sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white"
-          >
-            {{ store.dataTranslate["header.download"] }}
-            <img
-              src="/assets/imgs/kampus/Download.png"
-              alt=""
-              class="w-5 h-5 ml-4 object-cover"
-            />
-          </button>
+              "
+              class="bg-[#F7483B] mt-4 sm:w-[194px] w-[160px] no-print h-[48px] flex justify-center items-center font-medium rounded-lg text-white">
+              {{ store.dataTranslate["header.download"] }}
+              <img src="/assets/imgs/kampus/Download.png" alt="" class="w-5 h-5 ml-4 object-cover" />
+            </button>
 
-          
+
           </div>
 
           <!-- formmenu2 -->
-          <HomeUsefulLinkCarusel
-            v-else-if="data.type === 'formmenu1'"
-            :items="data.categories"
-            :title="data.title"
-          />
+          <HomeUsefulLinkCarusel v-else-if="data.type === 'formmenu1'" :items="data.categories" :title="data.title" />
 
           <!-- fomrmenu3  -->
           <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />
 
-        
-         
+
+
         </div>
       </div>
       <div v-else>
@@ -118,11 +102,13 @@ const openModal = () => {
 </template>
 
 <style scoped>
-
-.modal-enter-active, .modal-leave-active {
+.modal-enter-active,
+.modal-leave-active {
   transition: opacity 0.3s ease;
 }
-.modal-enter-from, .modal-leave-to {
+
+.modal-enter-from,
+.modal-leave-to {
   opacity: 0;
 }
 </style>

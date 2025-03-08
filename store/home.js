@@ -271,7 +271,9 @@ export const useHomeStore = defineStore('home', {
     },
     async testingSlug(slug)  {
       return await api.get(`/test/${slug}`)
-    }
+    },
+
+  
 
 
 
