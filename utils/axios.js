@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 
-const credentials = btoa(`${import.meta.env.VITE_AUTH_USERNAME}:${import.meta.env.VITE_AUTH_PASSWORD}`);
 
 
 // Axios instansiyasini yaratish
@@ -21,7 +20,6 @@ api.interceptors.request.use(
     const langCode = langObj.value || 'uz';
 
     config.headers['Accept-Language'] = langCode;
-    config.headers['Authorization']  = `Basic ${credentials}`
 
 
 
