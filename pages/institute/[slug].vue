@@ -23,7 +23,6 @@ const processedMenus = computed(() => {
 });
 const isModalOpen = ref(false);
 const openModal = () => {
-  console.log(route.fullPath);
   if (route.fullPath === '/institute/structures') {
     isModalOpen.value = true;
 
@@ -54,7 +53,7 @@ const openModal = () => {
 
                 <button class="absolute top-4 right-8 text-[36px] text-red-500"
                   @click="isModalOpen = false">&times;</button>
-                <img :src="data?.photo[0][store.currentImage]" alt="" class="max-w-full max-h-[80vh] object-contain" />
+                <img :src="data?.photo[0][store?.currentImage]" alt="" class="w-full max-h-[80vh] object-contain" />
               </div>
             </div>
 
@@ -82,8 +81,11 @@ const openModal = () => {
 
           </div>
 
-          <!-- formmenu2 -->
-          <HomeUsefulLinkCarusel v-else-if="data.type === 'formmenu1'" :items="data.categories" :title="data.title" />
+          <!-- formmenu1 -->
+
+          <SciencePost   v-else-if="data.type === 'formmenu1'" :data="data.categories"  />
+
+          <!-- <HomeUsefulLinkCarusel v-else-if="data.type === 'formmenu1'" :items="data.categories" :title="data.title" /> -->
 
           <!-- fomrmenu3  -->
           <UiPositionCard v-else-if="data.type === 'formmenu3'" :data="data" />

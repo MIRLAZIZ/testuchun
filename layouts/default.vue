@@ -9,10 +9,10 @@ const updateImage = () => {
   if (screenWidth.value < 600) {
     store.currentImage = "sm";
     store.currentImage2 = "sm_img";
-  } else if (screenWidth.value < 1500) {
+  } else if (screenWidth.value < 1200) {
     store.currentImage = "md";
     store.currentImage2 = "md_img";
-  } else if(screenWidth.value < 1500){
+  } else {
     store.currentImage = "lg";
     store.currentImage2 = "lg_img";
   }

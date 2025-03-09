@@ -36,8 +36,8 @@ const processedMenus = computed(() => {
           :class="{ 'mt-10': index !== 0 && data.type !== 'formmenu3' }"
         >
           <!-- formmmenu1 -->
-          <div v-if="data.type === 'formmenu'" class="bg-white rounded-xl p-8">
-            <UiCarousel :data="data.photo" />
+          <div v-if="data.type === 'formmenu' " class="bg-white rounded-xl p-8">
+            <UiCarousel :data="data.photo" v-if="data && data.photo && data.photo.length"/>
             <h1 class="text-[28px] box_text text-[#06203D] font-medium mb-6 mt-8">
               {{ data?.title }}
             </h1>
@@ -63,14 +63,14 @@ const processedMenus = computed(() => {
           </div>
 
           <div v-else-if="data.type === 'formmenu1'">
-
-         <SciencePost :data="data.categories" v-if="$route.fullPath === '/science/seminars'"/>
+ 
+         <SciencePost :data="data.categories"  />
           
-           <HomeUsefulLinkCarusel
+           <!-- <HomeUsefulLinkCarusel
             v-else
             :items="data.categories"
             :title="data.title"
-          />
+          /> -->
           </div>
          
 
