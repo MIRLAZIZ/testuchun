@@ -4,7 +4,7 @@
     <LoadingPage v-if="loading" />
 
     <div v-else  class="lg:max-w-[calc(100%-348px)] w-full  mainContainer">
-      <div class="  ">
+      <div class="  "  v-if="newsData">
         <div class="w-full bg-white rounded-xl p-8 mt-10">
           <div class="mb-8">
             <div class="flex justify-between">
@@ -68,6 +68,13 @@
         </div>
 
       
+      </div>
+
+      <!-- else  -->
+      <div v-else>
+        <h1 class="text-center font-Halvar text-3xl mt-10">
+          {{ store.dataTranslate["header.do_not"] }}
+        </h1>
       </div>
     </div>
   </div>
