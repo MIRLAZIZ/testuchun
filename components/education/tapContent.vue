@@ -1,14 +1,14 @@
 <template>
   <div class="w-full">
 
-    <div class="rounded-xl w-full flex justify-center flex-col border p-4">
+    <div class="rounded-xl w-full flex justify-center flex-col border p-4" v-if="filterSkills.length">
       <div>
         <p class="font-medium text-2xl mb-6" v-if="store.activeTab !== 'plan'">
           {{ props.item?.entrance_requirement?.name }}
         </p>
       </div>
 
-      <div class="mb-6 w-full">
+      <div class="mb-6 w-full" >
         <div class="">
           <div class="flex gap-3" v-if="store.activeTab == 'plan'">
             <span

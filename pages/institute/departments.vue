@@ -40,7 +40,7 @@
                 `/institute/details/departament/${item.employ_meta.department.slug }`
               )
             "
-            class="border border-[#F7483B] w-[124px] rounded-lg h-9 2xl:h-[48px] text-[#F7483B] flex justify-center items-center"
+            class="border border-[#F7483B] w-[155px] rounded-lg h-9 2xl:h-[48px] text-[#F7483B] flex justify-center items-center"
           >
             {{ store.dataTranslate["home.more_details"] }}
             <UIcon name="i-heroicons-arrow-long-right" class="ml-6 w-6 h-6" />

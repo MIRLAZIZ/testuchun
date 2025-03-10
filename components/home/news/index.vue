@@ -69,8 +69,8 @@
                   </div>
 
                   <div class="lg:mt-0 mt-5">
-                    <button
-                      class="flex justify-center items-center rounded-lg text-[#F7483B] border border-[#F7483B] w-[156px] h-12 font-medium"
+                    <button   
+                      class="flex  justify-center items-center rounded-lg text-[#F7483B] border border-[#F7483B] w-[156px] h-12 font-medium"
                       @click="$router.push(`news-inner/${programItem?.slug}`)"
                     >
                       {{ store.dataTranslate["home.more_details"] }}
@@ -88,7 +88,7 @@
                   class="lg:w-[308px] w-full h-[300px] overflow-y-scroll mt-4"
                 >
                   <div
-                    v-for="(item, index) in store?.news?.data"
+                    v-for="(item, index) in data"
                     :key="index"
                     class="bg-white lg:p-4 cursor-pointer"
                     @click="$router.push(`news-inner/${item.slug}`)"
@@ -141,13 +141,19 @@ import dataImg from "~/assets/imgs/home/image.png";
 import { useHomeStore } from "~/store/home";
 
 const store = useHomeStore();
+const data = ref(null)
 
 const programItem = ref(null);
 
 onMounted(() => {
   // programItem.value = news[0]
   store.getNews().then(() => {
-    programItem.value = store.news.data[0];
+    // console.log(store.news.data[0].categories);
+  data.value =  store.news.data.filter(item => item.categories[0].id == 1)
+  
+
+    
+    programItem.value = data.value[0];
   });
 });
 </script>

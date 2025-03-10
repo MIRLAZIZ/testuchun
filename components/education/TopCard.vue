@@ -12,15 +12,15 @@
         :key="item.id"
       >
         <div
-          class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-around"
+          class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-start items-center"
         >
-          <div class="flex justify-center gap-2 ">
+          <div class="flex justify-center   gap-2  ">
             <img :src="item.img" alt="" class="w-5 h-5" />
-            <p class="font-normal text-[#868587] ">{{ item.type }}</p>
+            <p class="font-normal text-[#868587]  text-[14px] ">{{ item.type }}</p>
           </div>
 
-          <div class="flex flex-col items-center justify-center  ">
-            <p class="text-[#06203D] text-lg " v-html="item.name"></p>
+          <div class="flex flex-col items-center justify-center   ">
+            <p class="text-[#06203D] " v-html="item.name"></p>
           
           </div>
         </div>
