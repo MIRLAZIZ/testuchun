@@ -43,7 +43,7 @@ const goToNext = () => {
             }
         }" indicators class="rounded-lg" >
             <template #default="{ item }">
-                <img :src="item[store.currentImage]" class="w-full object-contain h-[366px] lg:h-[450px]  2xl:h-[566px]  " draggable="false" :class="{'cursor-zoom-in ': $route.fullPath === '/institute/structures'}">
+                <img :src="item[store.currentImage]" class="w-full object-contain  " draggable="false" :class="{'cursor-zoom-in ': $route.fullPath === '/institute/structures'}">
 
                 
             
@@ -57,7 +57,7 @@ const goToNext = () => {
                 <div class=" rounded-xl cursor-pointer" @click="onClick(page)"
                     :class="[ { 'border-2 border-[#06203D]': active }]">
                     <!-- {{ props.data[page - 1][store.currentImage] }} -->
-                    <img :src="props?.data[page - 1][store?.currentImage]" alt="" class="min-w-[160px] h-[90px] rounded-xl object-cover">
+                    <img :src="props?.data[page - 1][store?.currentImage]" alt="" class="min-w-[80px] h-[45px]   md:min-w-[160px] md:h-[90px] rounded-xl object-cover">
 
 
 
