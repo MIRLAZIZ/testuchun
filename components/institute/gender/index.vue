@@ -51,7 +51,7 @@ onMounted(() => {
     <LoadingPage v-if="store.loading" />
     <div v-else>
       <div class="w-full p-8 bg-white rounded-xl">
-        <div class="flex justify-between gap-16 the_box_gender">
+        <div class="flex flex-col md:flex-row justify-between  md:items-start gap-16 ">
           <div class="xl:w-[688px] w-full mt-9">
             <h1 class="text-[28px] text-[#06203D] font-Halvar font-medium">
               {{ store.dataTranslate["about.about_gender"] }}
@@ -61,9 +61,9 @@ onMounted(() => {
             </p>
           </div>
 
-          <div>
+          <div class=" flex justify-center h-fit">
             <div
-              class="w-[260px] flex-shrink-0 p-4 rounded-lg border border-[#F1F1F1]"
+              class="w-[260px] p-4 rounded-lg border border-[#F1F1F1]   "
             >
               <div class="flex flex-col h-full">
                 <div class="flex justify-between items-center">

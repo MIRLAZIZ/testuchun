@@ -9,7 +9,7 @@
           @click="changeTab(tab.id)"
           class="font-semibold  px-1 text-sm text-[#010101] cursor-pointer h-[32px] pb-3"
         >
-          {{ tab.label }}
+          {{store.dataTranslate[ tab.label] }}
         </div>
       </div>
       <hr />
@@ -77,8 +77,8 @@ const props = defineProps({
 });
 
 const tabs = [
-  { id: "general", label: "Umumiy ma'lumot" },
-  { id: "plan", label: "O'quv rejasi" },
+  { id: "general", label: "home.general_information" },
+  { id: "plan", label: "home.curriculum" },
 ];
 
 const activeTab = ref("general");
