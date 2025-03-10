@@ -7,19 +7,21 @@
       class="  w-full bg-white grid lg:grid-cols-5 sm:grid-cols-2 p-8 gap-6  rounded-xl "
     >
       <div
-        class="w-full h-[101px] p-3 border-[1px] border-[#E6EDFA] rounded-lg"
+        class="w-full   p-3 border border-[#E6EDFA] rounded-lg"
         v-for="item in datatype"
         :key="item.id"
       >
         <div
           class="p-[15px 16px] rounded-lg h-[100%] flex flex-col justify-around"
         >
-          <div class="flex gap-2 ">
+          <div class="flex justify-center gap-2 ">
             <img :src="item.img" alt="" class="w-5 h-5" />
             <p class="font-normal text-[#868587] ">{{ item.type }}</p>
           </div>
-          <div class="flex flex-col justify-center">
+
+          <div class="flex flex-col items-center justify-center  ">
             <p class="text-[#06203D] text-lg " v-html="item.name"></p>
+          
           </div>
         </div>
       </div>
