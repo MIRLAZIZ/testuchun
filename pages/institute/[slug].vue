@@ -47,11 +47,11 @@ const openModal = () => {
 
 
             <div v-if="isModalOpen"
-              class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70  flex justify-center items-center z-50"
+              class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70  flex justify-center items-center z-50 px-6 lg:px-20"
               @click.self="isModalOpen = false">
-              <div class="bg-white p-4 rounded-lg shadow-lg relative">
+              <div class="bg-white p-4 rounded-lg shadow-lg relative w-full">
 
-                <button class="absolute top-4 right-8 text-[36px] text-red-500"
+                <button class="absolute top-1 right-2 lg:top-4 lg:right-8 text-[36px] text-red-500"
                   @click="isModalOpen = false">&times;</button>
                 <img :src="data?.photo[0][store?.currentImage]" alt="" class="w-full max-h-[80vh] object-contain" />
               </div>
