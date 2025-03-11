@@ -64,6 +64,7 @@ const openModal = () => {
 
             <h1 class="text-[28px]  text-[#06203D] font-medium mt-8 mb-6">
               {{ data?.title }}
+              
             </h1>
             <div class="mt-8 2xl:pr-16  text-[18px]" v-html="data.text"></div>
 
