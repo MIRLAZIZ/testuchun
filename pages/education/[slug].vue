@@ -47,6 +47,7 @@ onMounted(() => {
 <template>
   <div class="w-full">
     <loading-page v-if="loading" />
+    
     <Education :data="data" v-else />
   </div>
 </template>
