@@ -2,7 +2,7 @@
   <div>
   <LoadingPage v-if="loading"/>
   <div class="w-full" v-else>
-    <div class="grid grid-cols-2 gap-4 w-full" v-if="data">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full" v-if="data">
       <div
         class="bg-white rounded-xl p-5 flex flex-col 2xl:flex-row gap-6 w-full"
         v-for="item in data"
@@ -18,7 +18,7 @@
           <img
             :src="item[store?.currentImage2]"
             alt=""
-            class="imgs h-full w-full sm:w-[213px] object-cover rounded-lg"
+            class="imgs h-full  sm:w-[213px] object-cover rounded-lg"
           />
         </div>
 
